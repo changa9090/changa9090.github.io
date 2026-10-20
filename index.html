@@ -257,9 +257,9 @@
           법무법인 박앤코 · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)
         </div>
       </div>
-      <div class="overline">PARK &amp; CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (8 LIVE NAVIGATORS)</div>
+      <div class="overline">PARK &amp; CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (9 LIVE NAVIGATORS)</div>
       <h1>호주 이민법 · 판례 · 비자 데이터 공개 리서치 허브</h1>
-      <p class="sub">호주 연방 이민성, 법제처(Federal Register of Legislation), 행정심판원(ART), AustLII 및 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 공개 법률 데이터 서비스입니다.</p>
+      <p class="sub">호주 연방 이민성, 법제처(Federal Register of Legislation), 행정심판원(ART), AustLII 및 8개 주정부 · 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 공개 법률 데이터 서비스입니다.</p>
 
       <!-- Live Cross-Series Intelligence Ticker -->
       <div class="live-ticker" id="live-intelligence-ticker">
@@ -268,7 +268,7 @@
             <span class="live-dot"></span>
             <strong id="ticker-status-title">실시간 1차 출처 연동 브리핑 (FY2026–27 법령 및 대기열 기준)</strong>
           </div>
-          <span id="ticker-verified-badge" style="color:#6EE7B7;font-weight:700;">● 39/39 Primary Sources Verified (HTTP 200)</span>
+          <span id="ticker-verified-badge" style="color:#6EE7B7;font-weight:700;">● 51/51 Primary Sources Verified (HTTP 200)</span>
         </div>
         <div class="live-ticker__grid">
           <div class="ticker-metric">
@@ -276,8 +276,8 @@
             <strong id="ticker-csit">CSIT $79,423 · SSIT $146,576</strong>
           </div>
           <div class="ticker-metric">
-            <span>DAMA 90% 연봉 특례 · 8607 유예</span>
-            <strong id="ticker-dama">DAMA $71,481 · 이직 180/365일</strong>
+            <span>기술이민(189·190·491) · 8개 주정부</span>
+            <strong id="ticker-dama">65점(+5/+15) · WA 신청비 $0 · 191 $630</strong>
           </div>
           <div class="ticker-metric">
             <span>부모비자 Queue Release (2026.08 기준)</span>
@@ -296,15 +296,24 @@
     <div class="wrap">
       <div class="hub-toolbar">
         <div class="filter-pills" role="group" aria-label="Category filter">
-          <button type="button" class="filter-btn active" data-cat="all">전체 시리즈 (8)</button>
-          <button type="button" class="filter-btn" data-cat="employer">고용주·기술·DAMA (2)</button>
+          <button type="button" class="filter-btn active" data-cat="all">전체 시리즈 (9)</button>
+          <button type="button" class="filter-btn" data-cat="employer">고용주·기술이민·주정부·DAMA (3)</button>
           <button type="button" class="filter-btn" data-cat="family">부모·가족·워홀 (2)</button>
           <button type="button" class="filter-btn" data-cat="crisis">비자위기·법령·판례·심사기간 (4)</button>
         </div>
-        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자 번호·키워드 검색 (예: 482, 186, 870, s48, ART, DAMA)..." aria-label="Search navigators" />
+        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자 번호·키워드 검색 (예: 189, 190, 491, 482, 186, 870, s48, ART)..." aria-label="Search navigators" />
       </div>
 
       <div class="grid" id="navigator-grid">
+        <!-- NEW 0: GSM Points (189/190/491) & 8-State Nomination Navigator -->
+        <a class="card card--new" href="/parkco-gsm-state-navigator/" data-cat="employer" data-keywords="189 190 491 191 gsm 기술이민 점수 계산기 주정부 노미네이션 qld nsw vic wa sa tas act nt schedule 6d">
+          <div>
+            <span class="tag tag--new">NEW · LIVE VERIFIED · GSM 189 · 190 · 491 · 8 STATES</span>
+            <h2>GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 일반기술이민 Schedule 6D 점수 계산기 &amp; 8개 주정부(QLD~NT) 노미네이션 조건 통합 진단기</small></h2>
+            <p>Schedule 6D 법정 점수 계산기(해외+호주 경력 20점 상한 Item 6D51 반영), 8개 주/준주(QLD·NSW·VIC·WA·SA·TAS·ACT·NT) 190·491 거주·근무 개월 수·졸업생 특례·수수료(WA $0~QLD $630.30) 맞춤 매칭기, 491→191 영주권($0 소득하한·$630 비자비) 진단.</p>
+          </div>
+          <div class="go">네비게이터 열기 (Open GSM &amp; State Navigator) &rarr;</div>
+        </a>
         <!-- NEW 1: SID 482 & ENS 186 Navigator -->
         <a class="card card--new" href="/parkco-sid-ens-navigator/" data-cat="employer" data-keywords="482 186 494 sid ens trt csit ssit 8607 saf levy 고용주 스폰서 영주권 연봉 이직">
           <div>
@@ -425,7 +434,8 @@
     Promise.all([
       fetch('/parkco-parent-visa-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
       fetch('/parkco-sid-ens-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
-      fetch('/parkco-visa-crisis-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; })
+      fetch('/parkco-visa-crisis-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+      fetch('/parkco-gsm-state-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; })
     ]).then(function (res) {
       var total = 0, ok = 0;
       res.forEach(function (d) {
@@ -451,7 +461,7 @@
       '<span style="margin:0 10px;opacity:0.35;">|</span>' +
       '<span>Portal Total Views: <strong id="vc-total" style="color:#FFFFFF;font-variant-numeric:tabular-nums;">—</strong></span>' +
       '<span style="margin:0 10px;opacity:0.35;">|</span>' +
-      '<span style="opacity:0.75;">Park &amp; Co Lawyers · Public Legal Intelligence Portal</span>';
+      '<span style="opacity:0.75;">PNC Legal Pty Ltd t/a Park &amp; Co Lawyers · Public Legal Intelligence Portal</span>';
     document.body.appendChild(bar);
     var k = 'vc_counted_' + P + '_' + new Date().toISOString().slice(0, 10);
     var first = false;
