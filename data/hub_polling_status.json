@@ -1,5 +1,5 @@
 {
-  "last_polled_iso": "2026-10-22T00:02:00+10:00",
+  "last_polled_iso": "2026-10-22T00:30:09+10:00",
   "total_primary_sources": 101,
   "verified_ok_sources": 101,
   "total_kdb_cases": 16941,
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-22T00:02:00+10:00"
+      "last_polled": "2026-10-22T00:30:09+10:00"
     }
   ]
 }
