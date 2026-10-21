@@ -1,5 +1,5 @@
 {
-  "last_polled_iso": "2026-10-22T08:15:49+10:00",
+  "last_polled_iso": "2026-10-22T09:09:11+10:00",
   "total_primary_sources": 101,
   "verified_ok_sources": 101,
   "total_kdb_cases": 16951,
@@ -36,7 +36,7 @@
       "metrics_ko": "3-Layer Salary(CSIT $79,423/SSIT $146,576) · ABF 제재 1,842건(현행 121) · s 245AYM 고용금지 · 8607 180/365일",
       "metrics_en": "3-Layer Salary (CSIT $79,423/SSIT $146,576) · 1,842 ABF Sanctions (121 Active) · s 245AYM Bar · 8607 180/365d",
       "sha256_prefix": "9acaf07d0f8bad39",
-      "last_polled": "2026-10-22T00:00:49+10:00"
+      "last_polled": "2026-10-22T09:09:01+10:00"
     },
     {
       "id": "partner",
@@ -60,7 +60,7 @@
       "metrics_ko": "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)",
       "metrics_en": "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-10-22T00:01:09+10:00"
+      "last_polled": "2026-10-22T09:07:39+10:00"
     },
     {
       "id": "employment-law",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-22T08:15:49+10:00"
+      "last_polled": "2026-10-22T09:09:11+10:00"
     }
   ]
 }
