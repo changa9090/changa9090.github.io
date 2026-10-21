@@ -1,0 +1,138 @@
+{
+  "last_polled_iso": "2026-10-21T22:47:44+10:00",
+  "total_primary_sources": 99,
+  "verified_ok_sources": 99,
+  "total_kdb_cases": 16941,
+  "kdb_summary": {
+    "immi_cases": 9269,
+    "immi_favorable_pct": 48.0,
+    "emp_cases": 3968,
+    "emp_win_pct": 28.4,
+    "emp_hit_aud": 190100,
+    "emp_cap_aud": 95050,
+    "family_cases": 3704,
+    "family_latest_cit": "[2026] FedCFamC1A 186"
+  },
+  "series": [
+    {
+      "id": "gsm-state",
+      "name_ko": "1. GSM 기술이민(189·190·491) & 8개 주정부",
+      "name_en": "1. GSM Points (189·190·491) & 8-State",
+      "url": "/parkco-gsm-state-navigator/",
+      "engine": "gsm_state_poller.py (Mon 07:45 AEST)",
+      "sources": 12,
+      "metrics_ko": "65점(LIN 19/210) · 경력상한 20점(6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630($0 소득)",
+      "metrics_en": "65 pts (LIN 19/210) · 20-pt Cap (6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630 ($0 floor)",
+      "sha256_prefix": "6ca5caee8a43660f",
+      "last_polled": "2026-10-21T22:39:36+10:00"
+    },
+    {
+      "id": "sid-ens",
+      "name_ko": "2. 고용주 스폰서 (SID 482 · ENS 186 · 494)",
+      "name_en": "2. Employer Sponsored (SID 482 · ENS 186 · 494)",
+      "url": "/parkco-sid-ens-navigator/",
+      "engine": "sid_ens_poller.py (Mon 07:40 AEST)",
+      "sources": 12,
+      "metrics_ko": "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365일",
+      "metrics_en": "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365d",
+      "sha256_prefix": "bf599881101ca656",
+      "last_polled": "2026-10-21T22:39:25+10:00"
+    },
+    {
+      "id": "partner",
+      "name_ko": "3. 파트너 비자 (820/801 · 309/100 · 300) & Sch 3",
+      "name_en": "3. Partner Visas (820/309/300) & Schedule 3",
+      "url": "/parkco-partner-graduate-navigator/",
+      "engine": "partner_graduate_poller.py (Mon 07:50 AEST)",
+      "sources": 6,
+      "metrics_ko": "820/309/300 $11,710 · 300→820 $1,955 · 만료300→820 $2,475 · 445 $4,040 · Immi KDB 9,269건",
+      "metrics_en": "820/309/300 $11,710 · 300→820 $1,955 · Ceased 300 $2,475 · 445 $4,040 · Immi KDB 9,269 cases",
+      "sha256_prefix": "361fc744ca4e3b96",
+      "last_polled": "2026-10-21T12:30:42Z"
+    },
+    {
+      "id": "visa-crisis",
+      "name_ko": "4. 비자 거절·취소 · Section 48 · ART 재심 기한",
+      "name_en": "4. Visa Refusal, Section 48 & ART Deadlines",
+      "url": "/parkco-visa-crisis-navigator/",
+      "engine": "visa_crisis_poller.py (Mon 07:55 AEST)",
+      "sources": 12,
+      "metrics_ko": "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)",
+      "metrics_en": "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)",
+      "sha256_prefix": "4aa2f69a12f54fb2",
+      "last_polled": "2026-10-21T22:32:59+10:00"
+    },
+    {
+      "id": "employment-law",
+      "name_ko": "5. 호주 고용법 (근로자 & 고용주) · FWC 21일",
+      "name_en": "5. Australian Employment Law & FWC 21-Day",
+      "url": "/parkco-employment-law-navigator/",
+      "engine": "employment_law_poller.py (Mon 08:00 AEST)",
+      "sources": 6,
+      "metrics_ko": "고소득 상한 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · Emp KDB 3,968건(28.4%)",
+      "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · Emp KDB 3,968 cases (28.4%)",
+      "sha256_prefix": "930391752f6a8a84",
+      "last_polled": "2026-10-21T12:24:25Z"
+    },
+    {
+      "id": "family-law",
+      "name_ko": "6. 호주 가족법 · 한·호 재산분할 FCFCOA 판례 매칭",
+      "name_en": "6. Australian Family Law & FCFCOA Precedent Matcher",
+      "url": "/parkco-family-law-navigator/",
+      "engine": "family_law_poller.py (Mon 08:05 AEST)",
+      "sources": 6,
+      "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · Family KDB 3,704건 ([2026] FedCFamC1A 186)",
+      "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · Family KDB 3,704 cases ([2026] FedCFamC1A 186)",
+      "sha256_prefix": "ca05d60230aea061",
+      "last_polled": "2026-10-21T12:27:43Z"
+    },
+    {
+      "id": "parent-visa",
+      "name_ko": "7. 부모초청 비자 (103·143·804·864·870) 대기열·AoS",
+      "name_en": "7. Parent Visas (103·143·804·864·870) Queue & AoS",
+      "url": "/parkco-parent-visa-navigator/",
+      "engine": "parent_visa_poller.py (Mon 07:35 AEST)",
+      "sources": 15,
+      "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
+      "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
+      "sha256_prefix": "39450ed5bcee9ff1",
+      "last_polled": "2026-10-21T22:16:25+10:00"
+    },
+    {
+      "id": "dama",
+      "name_ko": "8. 호주 13개 DAMA 지역 협약 · 2,474개 직종 탐색기",
+      "name_en": "8. Australia 13 DAMA Regional Concessions (2,474 Entries)",
+      "url": "/parkco-dama-navigator/",
+      "engine": "dama_poller.py (Mon 07:30 AEST)",
+      "sources": 15,
+      "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
+      "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
+      "sha256_prefix": "361fc744ca4e3b96",
+      "last_polled": "2026-10-21T00:22:57.954277+10:00"
+    },
+    {
+      "id": "whm",
+      "name_ko": "9. 워킹홀리데이 (417·462) 88/179일 & 조건 8547",
+      "name_en": "9. WHM (417·462) 88/179-Day & Condition 8547",
+      "url": "/parkco-whm-navigator/",
+      "engine": "whm_poller.py (Mon 07:20 AEST)",
+      "sources": 12,
+      "metrics_ko": "LIN 22/012 · LIN 22/013 · LIN 25/048 산불·재해 우편번호 6대 표 · VAC $745",
+      "metrics_en": "LIN 22/012 · LIN 22/013 · LIN 25/048 6 Disaster Postcode Tables · VAC $745",
+      "sha256_prefix": "f6b5dd9a4754e7db",
+      "last_polled": "2026-10-21T00:23:11+10:00"
+    },
+    {
+      "id": "trackers",
+      "name_ko": "10~12. 글로벌 심사기간 · 법령 개정 · 판례 다이제스트 (3종)",
+      "name_en": "10–12. Daily Processing Time, Legislation & Caselaw Trackers",
+      "url": "/visa-global-processing-time/",
+      "engine": "Daily 05:15–06:30 AEST Timers",
+      "sources": 3,
+      "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
+      "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
+      "sha256_prefix": "361fc744ca4e3b96",
+      "last_polled": "2026-10-21T22:47:44+10:00"
+    }
+  ]
+}
