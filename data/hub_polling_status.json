@@ -1,5 +1,5 @@
 {
-  "last_polled_iso": "2026-10-22T09:09:11+10:00",
+  "last_polled_iso": "2026-10-22T09:31:41+10:00",
   "total_primary_sources": 101,
   "verified_ok_sources": 101,
   "total_kdb_cases": 16951,
@@ -48,7 +48,7 @@
       "metrics_ko": "820/309/300 $11,710 · 300→820 $1,955 · 만료300→820 $2,475 · 445 $4,040 · Immi KDB 9,269건",
       "metrics_en": "820/309/300 $11,710 · 300→820 $1,955 · Ceased 300 $2,475 · 445 $4,040 · Immi KDB 9,269 cases",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-21T12:30:42Z"
+      "last_polled": "2026-10-21T23:31:22Z"
     },
     {
       "id": "visa-crisis",
@@ -60,7 +60,7 @@
       "metrics_ko": "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)",
       "metrics_en": "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-10-22T09:07:39+10:00"
+      "last_polled": "2026-10-22T09:31:14+10:00"
     },
     {
       "id": "employment-law",
@@ -72,7 +72,7 @@
       "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · ABF 제재 1,842건 교차 · Emp KDB 3,968건(28.4%)",
       "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · 1,842 ABF Sanctions Crossover · Emp KDB 3,968 cases (28.4%)",
       "sha256_prefix": "930391752f6a8a84",
-      "last_polled": "2026-10-21T14:01:01Z"
+      "last_polled": "2026-10-21T23:31:28Z"
     },
     {
       "id": "family-law",
@@ -84,7 +84,7 @@
       "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · Family KDB 3,704건 ([2026] FedCFamC1A 186)",
       "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · Family KDB 3,704 cases ([2026] FedCFamC1A 186)",
       "sha256_prefix": "ca05d60230aea061",
-      "last_polled": "2026-10-21T12:27:43Z"
+      "last_polled": "2026-10-21T23:31:35Z"
     },
     {
       "id": "parent-visa",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-22T09:09:11+10:00"
+      "last_polled": "2026-10-22T09:31:41+10:00"
     }
   ]
 }

@@ -154,7 +154,7 @@ def deploy_to_github_pages() -> None:
     secure_deploy_to_github_pages(
         dist_dir=HUB_DIR,
         repo_name="changa9090.github.io",
-        commit_msg="Update Hub Master Live Primary-Source, ABF Sanctions, SkillSelect & 218 KDB Telemetry Matrix",
+        commit_msg="Update Hub Master Live Primary-Source, ABF Sanctions, SkillSelect & Park & Co KDB Telemetry Matrix",
         description="Park & Co Lawyers — Public Legal Intelligence Hub (12 Live Navigators & Daily Trackers)",
     )
 
