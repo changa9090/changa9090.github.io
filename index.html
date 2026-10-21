@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>법무법인 박앤코 (Park &amp; Co Lawyers) — 호주 이민법 · 고용법 · 가족법 · 판례 공개 인텔리전스 허브</title>
-  <meta name="description" content="Park &amp; Co Lawyers (Underwood QLD) — 호주 이민법(GSM 189·190·491, 고용주 스폰서 SID 482·ENS 186, 13개 DAMA, 파트너 820·309 &amp; 485, 부모초청 143·864·870, 워홀 417·462, 비자거절·s48·행정재심기구 ART), 호주 고용법(FWC 21일 기한·정리해고·위장도급), 호주 가족법(한·호 재산분할 법원판례 매칭·양육권) 통합 법률 데이터 포털." />
+  <meta name="description" content="Park &amp; Co Lawyers (Underwood QLD) — 호주 이민법(GSM 189·190·491, 고용주 스폰서 SID 482·ENS 186, 13개 DAMA, 파트너 820·309·300, 부모초청 143·864·870, 워홀 417·462, 비자거절·s48·행정재심기구 ART), 호주 고용법(FWC 21일 기한·정리해고·위장도급), 호주 가족법(한·호 재산분할 법원판례 매칭·양육권) 통합 법률 데이터 포털." />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/assets/brand/icon-32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="/assets/brand/icon-192.png" sizes="192x192" />
@@ -460,7 +460,7 @@
             <select id="rt-goal" class="router-select">
               <option value="pr_skilled" data-i18n="rtOptSkilled">기술이민 · 8개 주정부 노미네이션 영주권 (189 · 190 · 491 → 191)</option>
               <option value="pr_sponsor" data-i18n="rtOptSponsor">고용주 스폰서 · 이직(8607) · 13개 DAMA 영주권 (482 · 186 · 494)</option>
-              <option value="family_partner" data-i18n="rtOptPartner">파트너·배우자 비자(820/801 · 309/100 · 300) &amp; 유학생 졸업생(500→485)</option>
+              <option value="family_partner" data-i18n="rtOptPartner">파트너·배우자·약혼자 비자(820/801 · 309/100 · 300 &amp; Schedule 3)</option>
               <option value="family_parent" data-i18n="rtOptParent">부모님 초청 비자(143 · 864 · 103 · 804 · 870) &amp; 워홀 연장(417 · 462)</option>
               <option value="visa_crisis" data-i18n="rtOptCrisis">🚨 비자 거절 · 취소(s 116/501) · Section 48 · PIC 4020 · ART 재심 긴급 대응</option>
               <option value="employment_law" data-i18n="rtOptEmp">⚖️ 호주 고용법 (부당해고 21일 기한 · 정리해고 26주 보상 · 임금체불 · 스폰서 기업 감사)</option>
@@ -471,7 +471,7 @@
           <div class="router-field">
             <label for="rt-age" data-i18n="rtLblAge">2. 연령대 또는 법정 기한 긴급도</label>
             <select id="rt-age" class="router-select">
-              <option value="under35" data-i18n="rtAgeUnder35">만 18~34세 (485 졸업생 · 워홀 · GSM 최대 점수 구간)</option>
+              <option value="under35" data-i18n="rtAgeUnder35">만 18~34세 (워홀 · 파트너 · GSM 최대 점수 구간)</option>
               <option value="35to44" selected data-i18n="rtAge35to44">만 35~44세 (일반 기술이민 189/190/491 및 186 영주권 핵심 구간)</option>
               <option value="45to54" data-i18n="rtAge45to54">만 45~54세 (13개 DAMA 만 50/55세 연령면제 · 482 · 파트너 · 가족/고용법)</option>
               <option value="urgent_deadline" data-i18n="rtAgeUrgent">⏰ 법정 불변 기한 임박 (ART 7~28일 / FWC 해고 후 21일 / 이혼 후 12개월)</option>
@@ -502,11 +502,11 @@
         <div class="filter-pills" role="group" aria-label="Category filter">
           <button type="button" class="filter-btn active" data-cat="all" data-i18n="catAll">전체 시리즈 (12)</button>
           <button type="button" class="filter-btn" data-cat="employer" data-i18n="catEmployer">기술이민·고용주·주정부·DAMA (3)</button>
-          <button type="button" class="filter-btn" data-cat="family" data-i18n="catFamily">파트너·부모·졸업생(485)·워홀 (3)</button>
+          <button type="button" class="filter-btn" data-cat="family" data-i18n="catFamily">파트너·부모·워홀 (3)</button>
           <button type="button" class="filter-btn" data-cat="practice" data-i18n="catPractice">호주 고용법 &amp; 가족법 (2)</button>
           <button type="button" class="filter-btn" data-cat="crisis" data-i18n="catCrisis">비자위기·ART·법령·판례·심사기간 (4)</button>
         </div>
-        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자·법률 키워드 검색 (예: 189, 190, 482, 820, 485, 870, ART, 부당해고, 재산분할)..." aria-label="Search navigators" />
+        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자·법률 키워드 검색 (예: 189, 190, 482, 820, 309, 870, ART, 부당해고, 재산분할)..." aria-label="Search navigators" />
       </div>
 
       <div class="grid" id="navigator-grid">
@@ -530,14 +530,14 @@
           <div class="go" data-i18n="c2Go">네비게이터 열기 (Open SID/ENS Navigator) &rarr;</div>
         </a>
 
-        <!-- 3: NEW Partner Visas (820/801 · 309/100 · 300) & Graduate (500->485) Bridge Navigator -->
-        <a class="card card--new" href="/parkco-partner-graduate-navigator/" data-cat="family" data-keywords="820 801 309 100 300 485 500 파트너비자 배우자비자 사실혼 동거 주정부 관계등록 schedule 3 졸업생비자 유학생">
+        <!-- 3: NEW Partner Visas (820/801 · 309/100 · 300) & Schedule 3 Navigator -->
+        <a class="card card--new" href="/parkco-partner-graduate-navigator/" data-cat="family" data-keywords="820 801 309 100 300 파트너비자 배우자비자 사실혼 동거 주정부 관계등록 schedule 3">
           <div>
-            <span class="tag tag--new">NEW · PARTNER (820/801 · 309/100 · 300) &amp; GRADUATE 485</span>
-            <h2 data-i18n="c3Title">Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) · Schedule 3 &amp; 유학생(500→485) 브릿지</small></h2>
-            <p data-i18n="c3Desc">파트너 비자($11,710 VAC · 300→820 전환 $1,955) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버, 스폰서 2회·5년 제한(reg 1.20J) 및 졸업생 비자(485 만 35세 상한 · $5,750) 진단.</p>
+            <span class="tag tag--new">NEW · PARTNER VISAS (820/801 · 309/100 · 300) &amp; SCHEDULE 3</span>
+            <h2 data-i18n="c3Title">Partner Visas (820/309/300) &amp; Schedule 3 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) &amp; Schedule 3 내비게이터</small></h2>
+            <p data-i18n="c3Desc">파트너 비자($11,710 VAC · 300→820 전환 $1,955) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버 및 스폰서 2회·5년 제한(reg 1.20J) 진단.</p>
           </div>
-          <div class="go" data-i18n="c3Go">네비게이터 열기 (Open Partner &amp; 485 Navigator) &rarr;</div>
+          <div class="go" data-i18n="c3Go">파트너 비자 내비게이터 열기 (Open Partner Visa Navigator) &rarr;</div>
         </a>
 
         <!-- 4: Visa Crisis, Section 48 & ART Deadline Navigator -->
@@ -673,13 +673,13 @@
         rtLblGoal: '1. 해결하고자 하는 핵심 분야 · 목표',
         rtOptSkilled: '기술이민 · 8개 주정부 노미네이션 영주권 (189 · 190 · 491 → 191)',
         rtOptSponsor: '고용주 스폰서 · 이직(8607) · 13개 DAMA 영주권 (482 · 186 · 494)',
-        rtOptPartner: '파트너·배우자 비자(820/801 · 309/100 · 300) & 유학생 졸업생(500→485)',
+        rtOptPartner: '파트너·배우자·약혼자 비자(820/801 · 309/100 · 300 & Schedule 3)',
         rtOptParent: '부모님 초청 비자(143 · 864 · 103 · 804 · 870) & 워홀 연장(417 · 462)',
         rtOptCrisis: '🚨 비자 거절 · 취소(s 116/501) · Section 48 · PIC 4020 · ART 재심 긴급 대응',
         rtOptEmp: '⚖️ 호주 고용법 (부당해고 21일 기한 · 정리해고 26주 보상 · 임금체불 · 스폰서 기업 감사)',
         rtOptFam: '🏛️ 호주 가족법 (이혼 · 한·호 재산분할 법원판례 매칭 · 양육권 · 파트너비자 별거)',
         rtLblAge: '2. 연령대 또는 법정 기한 긴급도',
-        rtAgeUnder35: '만 18~34세 (485 졸업생 · 워홀 · GSM 최대 점수 구간)',
+        rtAgeUnder35: '만 18~34세 (워홀 · 파트너 · GSM 최대 점수 구간)',
         rtAge35to44: '만 35~44세 (일반 기술이민 189/190/491 및 186 영주권 핵심 구간)',
         rtAge45to54: '만 45~54세 (13개 DAMA 만 50/55세 연령면제 · 482 · 파트너 · 가족/고용법)',
         rtAgeUrgent: '⏰ 법정 불변 기한 임박 (ART 7~28일 / FWC 해고 후 21일 / 이혼 후 12개월)',
@@ -693,7 +693,7 @@
         routerLiveBadge: '● 조건 선택 시 실시간 맞춤 진단 작동 중',
         catAll: '전체 시리즈 (12)',
         catEmployer: '기술이민·고용주·주정부·DAMA (3)',
-        catFamily: '파트너·부모·졸업생(485)·워홀 (3)',
+        catFamily: '파트너·부모·워홀 (3)',
         catPractice: '호주 고용법 & 가족법 (2)',
         catCrisis: '비자위기·ART·법령·판례·심사기간 (4)',
         c1Title: 'GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 일반기술이민 Schedule 6D 점수 계산기 &amp; 8개 주정부(QLD~NT) 노미네이션 조건 통합 진단기</small>',
@@ -702,9 +702,9 @@
         c2Title: 'SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용주 스폰서 비자 · 186 TRT 2년 합산 · 8607(180/365일) 이직 시계 &amp; SAF 계산기</small>',
         c2Desc: 'FY2026–27 CSIT($79,423)·SSIT($146,576)·DAMA 90%($71,481) 및 AMSR 연봉 진단, 다중 스폰서 합산 186 TRT 2년(730일) 및 482 1년 FTE 경력 계산기, Condition 8607 퇴사 후 180/365일 카운트다운, SAF Levy 및 s 245AR 전가 금지 진단서 출력.',
         c2Go: '네비게이터 열기 (Open SID/ENS Navigator) &rarr;',
-        c3Title: 'Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) · Schedule 3 &amp; 유학생(500→485) 브릿지</small>',
-        c3Desc: '파트너 비자($11,710 VAC · 300→820 전환 $1,955) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버, 스폰서 2회·5년 제한(reg 1.20J) 및 졸업생 비자(485 만 35세 상한 · $5,750) 진단.',
-        c3Go: '네비게이터 열기 (Open Partner &amp; 485 Navigator) &rarr;',
+        c3Title: 'Partner Visas (820/309/300) &amp; Schedule 3 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) &amp; Schedule 3 내비게이터</small>',
+        c3Desc: '파트너 비자($11,710 VAC · 300→820 전환 $1,955) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버 및 스폰서 2회·5년 제한(reg 1.20J) 진단.',
+        c3Go: '파트너 비자 내비게이터 열기 (Open Partner Visa Navigator) &rarr;',
         c4Title: 'Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 거절·취소(s 116/501) · Section 48 예외 비자 · PIC 4020 · 8503 &amp; 행정재심기구(ART) 기한 진단기</small>',
         c4Desc: '단 1분도 연장 불가한 행정재심기구(ART) 법정 재심 기한(일반거절 28일, s 116 취소 7영업일, s 501 인성 9일/28일) 정밀 계산기, Section 48 Bar(reg 2.12) 호주 내 허용 비자(190·491·494·820) 판정, PIC 4020(3년/10년) 및 8503 웨이버 긴급 진단서 출력.',
         c4Go: '긴급 진단기 열기 (Open Crisis Navigator) &rarr;',
@@ -760,13 +760,13 @@
         rtLblGoal: '1. Primary Legal Goal or Practice Area',
         rtOptSkilled: 'General Skilled Migration & 8-State Nomination (189 · 190 · 491 → 191)',
         rtOptSponsor: 'Employer Sponsored, Job Change (8607) & 13 DAMAs (482 · 186 · 494)',
-        rtOptPartner: 'Partner Visas (820/801 · 309/100 · 300) & Graduate Bridge (500→485)',
+        rtOptPartner: 'Partner & Prospective Marriage Visas (820/801 · 309/100 · 300 & Schedule 3)',
         rtOptParent: 'Parent Visas (143 · 864 · 103 · 804 · 870) & WHM Extension (417 · 462)',
         rtOptCrisis: '🚨 Visa Refusal, Cancellation (s 116/501), Section 48, PIC 4020 & ART Review',
         rtOptEmp: '⚖️ Australian Employment Law (21-Day FWC Limit, Redundancy, Wage Theft & Sponsor Audit)',
         rtOptFam: '🏛️ Australian Family Law (Divorce, Empirical FCFCOA Property Precedent Matcher & Parenting)',
         rtLblAge: '2. Age Bracket or Deadline Urgency',
-        rtAgeUnder35: 'Aged 18–34 (Eligible for Subclass 485, WHM & Maximum GSM Age Points)',
+        rtAgeUnder35: 'Aged 18–34 (WHM, Partner & Maximum GSM Age Points)',
         rtAge35to44: 'Aged 35–44 (Standard GSM 189/190/491 & ENS 186 PR Window)',
         rtAge45to54: 'Aged 45–54 (13 DAMA Age Concessions up to 50/55 · 482 · Partner · Employment/Family)',
         rtAgeUrgent: '⏰ Urgent Statutory Deadline (ART 7–28 Days / FWC 21 Days / Divorce 12 Months)',
@@ -780,7 +780,7 @@
         routerLiveBadge: '● Live Multi-Factor Diagnostic Active',
         catAll: 'All Series (12)',
         catEmployer: 'Skilled, Sponsor & 13 DAMAs (3)',
-        catFamily: 'Partner, Parent, 485 & WHM (3)',
+        catFamily: 'Partner, Parent & WHM (3)',
         catPractice: 'Employment Law & Family Law (2)',
         catCrisis: 'Visa Crisis, ART, Law & Caselaw (4)',
         c1Title: 'GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Schedule 6D Points Calculator, Item 6D51 Cap &amp; All 8 State/Territory (QLD–NT) Nomination Matrix</small>',
@@ -789,9 +789,9 @@
         c2Title: 'SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Employer Sponsored Visas · 186 TRT 2-Year Accrual · 8607 (180/365-Day) Clock &amp; SAF Levy Calculator</small>',
         c2Desc: 'FY2026–27 CSIT ($79,423), SSIT ($146,576), and DAMA 90% ($71,481) salary benchmarking, multi-sponsor 186 TRT 2-year (730-day) &amp; 482 1-year FTE calculator, Condition 8607 180/365-day job-change countdown, and SAF Levy / s 245AR compliance generator.',
         c2Go: 'Open SID/ENS Navigator &rarr;',
-        c3Title: 'Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">Onshore/Offshore Partner Visas · State Relationship Registration (reg 2.03A) · Schedule 3 &amp; 500→485→PR Bridge</small>',
-        c3Desc: 'Partner Visa ($11,710 VAC · $1,955 after Subclass 300) 4 statutory pillars (reg 1.15A), 12-month De Facto rule &amp; 8-State Relationship Registration exemption checker (warning WA/NT exclusion), Bridging Visa Schedule 3 (3001/3004) waiver, sponsorship caps (reg 1.20J), and Subclass 485 (Age 35 cap · $5,750 VAC) bridge.',
-        c3Go: 'Open Partner &amp; 485 Navigator &rarr;',
+        c3Title: 'Partner Visas (820/309/300) &amp; Schedule 3 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Onshore/Offshore Partner Visas · State Relationship Registration (reg 2.03A) &amp; Schedule 3 Waiver</small>',
+        c3Desc: 'Partner Visa ($11,710 VAC · $1,955 after Subclass 300) 4 statutory pillars (reg 1.15A), 12-month De Facto rule &amp; 8-State Relationship Registration exemption checker (warning WA/NT exclusion), Bridging Visa Schedule 3 (3001/3004) waiver, and sponsorship caps (reg 1.20J).',
+        c3Go: 'Open Partner Visa Navigator &rarr;',
         c4Title: 'Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Visa Refusal &amp; Cancellation (s 116/501) · Section 48 Exempt Visas · PIC 4020 · 8503 &amp; Strict ART Deadlines</small>',
         c4Desc: 'Non-extendable Administrative Review Tribunal (ART) statutory deadline calculator (28 calendar days onshore refusal, 7 working days s 116, 9 days expedited s 501), Section 48 Bar (reg 2.12) exempt visa checker (190, 491, 494, 820), and PIC 4020 / Condition 8503 waiver triage.',
         c4Go: 'Open Urgent Crisis Navigator &rarr;',
@@ -856,17 +856,17 @@
       },
       family_partner: {
         primaryUrl: '/parkco-partner-graduate-navigator/',
-        primaryName_ko: '파트너 비자(820/309/300) · Schedule 3 & 졸업생(485) 내비게이터',
-        primaryName_en: 'Partner Visas (820/309/300), Schedule 3 & Graduate (485) Navigator',
+        primaryName_ko: '파트너 비자(820/801 · 309/100 · 300) · 사실혼 관계등록 & Schedule 3 내비게이터',
+        primaryName_en: 'Partner Visas (820/801 · 309/100 · 300) & Schedule 3 Navigator',
         secondaryUrl: '/parkco-family-law-navigator/',
         secondaryName_ko: '파트너 비자 별거·가정폭력 단독 영주권: 가족법 내비게이터',
         secondaryName_en: 'Relationship Breakdown / Family Violence PR: Family Law Navigator',
         lawyers_ko: '박창민 대표변호사 (Acc. Spec. Immi) · 이수진 변호사 (Gina Lee)',
         lawyers_en: 'Chang Min Park (Acc. Spec. Immi) · Gina Lee (Solicitor)',
-        cost_ko: '파트너 비자 VAC $11,710 (300 전환 시 $1,955 · <18 자녀 $2,935) · 485 $5,750 (만 35세 상한)',
-        cost_en: 'Partner VAC $11,710 ($1,955 after Subclass 300 · <18 Child $2,935) · 485 $5,750 (Age 35 Cap)',
-        advice_ko: '파트너 비자 4대 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 면제(WA·NT 제외), Schedule 3 및 485 비자를 점검합니다.',
-        advice_en: 'Check the 4 Pillars (reg 1.15A), State Relationship Registration exemptions, Schedule 3 waivers, and Subclass 485.'
+        cost_ko: '파트너 비자 VAC $11,710 (300 전환 시 $1,955 · <18 자녀 $2,935)',
+        cost_en: 'Partner VAC $11,710 ($1,955 after Subclass 300 · <18 Child $2,935)',
+        advice_ko: '파트너 비자 4대 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 면제(WA·NT 제외), Schedule 3 및 스폰서 제한(reg 1.20J)을 점검합니다.',
+        advice_en: 'Check the 4 Pillars (reg 1.15A), State Relationship Registration exemptions, Schedule 3 waivers, and sponsorship limits (reg 1.20J).'
       },
       family_parent: {
         primaryUrl: '/parkco-parent-visa-navigator/',
@@ -968,12 +968,12 @@
         advice_ko = '⚠️ 일반 기술이민(189·190·491)은 초청 시점 만 45세 미만이 법정 필수 요건입니다. 따라서 만 45~54세 구간에서는 ① 만 50세/55세까지 ENS 186 영주권 연령 면제를 허용하는 [호주 13개 DAMA 협약] 또는 ② 연령 제한이 없는 [SID 482 스폰서 비자]로 즉시 경로를 전환해야 합니다.';
         advice_en = '⚠️ Standard GSM (189/190/491) strictly caps at under age 45 at invitation. At age 45–54, your primary PR pathways are (1) Australia’s 13 DAMAs (offering ENS 186 age concessions up to 50 or 55) and (2) Subclass 482 (no age cap).';
       } else if (age === 'under35' && goal === 'pr_skilled') {
-        secondaryUrl = '/parkco-partner-graduate-navigator/';
-        secondaryName_ko = '플랜 B: 졸업생 비자(500→485 만 35세 상한) & 파트너 브릿지 내비게이터';
-        secondaryName_en = 'Plan B: Subclass 485 (Age 35 Cap) & Partner Bridge Navigator';
-        thirdUrl = '/parkco-whm-navigator/';
-        thirdName_ko = '워홀(417/462) 88/179일 & 8547 내비게이터';
-        thirdName_en = 'WHM (417/462) 88/179-Day & 8547 Navigator';
+        secondaryUrl = '/parkco-whm-navigator/';
+        secondaryName_ko = '플랜 B: 워홀(417/462) 88/179일 & 조건 8547 내비게이터';
+        secondaryName_en = 'Plan B: WHM (417/462) 88/179-Day & 8547 Navigator';
+        thirdUrl = '/parkco-partner-graduate-navigator/';
+        thirdName_ko = '파트너 비자(820/309/300) & Schedule 3 내비게이터';
+        thirdName_en = 'Partner Visas (820/309/300) & Schedule 3 Navigator';
       }
 
       if (status === 'employer_b2b' && goal !== 'employment_law') {
