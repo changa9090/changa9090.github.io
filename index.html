@@ -414,27 +414,27 @@
         <div class="live-ticker__grid">
           <div class="ticker-metric">
             <span data-i18n="tick1Label">고용주 스폰서 최소 연봉 (FY26–27)</span>
-            <strong id="ticker-csit">CSIT $79,423 · SSIT $146,576</strong>
+            <strong id="ticker-csit" data-i18n="tick1Val">CSIT $79,423 · SSIT $146,576</strong>
           </div>
           <div class="ticker-metric">
             <span data-i18n="tick2Label">기술이민(189·190·491) · 파트너(820)</span>
-            <strong id="ticker-dama">65점(6D51 캡) · 820 VAC $9,095</strong>
+            <strong id="ticker-dama" data-i18n="tick2Val">65점(6D51 캡) · 820 VAC $9,095</strong>
           </div>
           <div class="ticker-metric">
             <span data-i18n="tick3Label">부모비자 Queue Release (2026.08)</span>
-            <strong id="ticker-parent">143: 2018.11 · 864: 2020.11</strong>
+            <strong id="ticker-parent" data-i18n="tick3Val">143: 2018.11 · 864: 2020.11</strong>
           </div>
           <div class="ticker-metric">
             <span data-i18n="tick4Label">비자거절·취소 행정재심기구(ART) 기한</span>
-            <strong id="ticker-art">거절 28일 · s116 7영업일 · s501 9일</strong>
+            <strong id="ticker-art" data-i18n="tick4Val">거절 28일 · s116 7영업일 · s501 9일</strong>
           </div>
           <div class="ticker-metric">
             <span data-i18n="tick5Label">고용법 FWC 기한 · 보상상한 (s 392)</span>
-            <strong id="ticker-emp">해고 후 21일 · 최대 26주분 급여</strong>
+            <strong id="ticker-emp" data-i18n="tick5Val">해고 후 21일 · 최대 26주분 급여</strong>
           </div>
           <div class="ticker-metric">
             <span data-i18n="tick6Label">호주 가족법 제척기간 · 전세계 자산</span>
-            <strong id="ticker-fam">이혼후 12개월/사실혼 2년 · s 71B 공개</strong>
+            <strong id="ticker-fam" data-i18n="tick6Val">이혼후 12개월/사실혼 2년 · s 71B 공개</strong>
           </div>
         </div>
       </div>
@@ -637,7 +637,7 @@
     </div>
   </footer>
 
-  <script>
+    <script>
   (function () {
     var currentLang = 'ko';
 
@@ -649,11 +649,17 @@
         hubSub: '호주 연방 이민성, 법제처(Federal Register of Legislation), 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA), AustLII 및 8개 주정부 · 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 호주 법률 인텔리전스 시작점이자 목적지입니다.',
         tickerTitle: '실시간 1차 출처 & 218 법률 KDB 연동 브리핑 (FY2026–27 법령 · 대기열 · 판례 기준)',
         tick1Label: '고용주 스폰서 최소 연봉 (FY26–27)',
+        tick1Val: 'CSIT $79,423 · SSIT $146,576',
         tick2Label: '기술이민(189·190·491) · 파트너(820)',
+        tick2Val: '65점(6D51 캡) · 820 VAC $9,095',
         tick3Label: '부모비자 Queue Release (2026.08)',
+        tick3Val: '143: 2018.11 · 864: 2020.11',
         tick4Label: '비자거절·취소 행정재심기구(ART) 기한',
+        tick4Val: '거절 28일 · s116 7영업일 · s501 9일',
         tick5Label: '고용법 FWC 기한 · 보상상한 (s 392)',
+        tick5Val: '해고 후 21일 · 최대 26주분 급여',
         tick6Label: '호주 가족법 제척기간 · 전세계 자산',
+        tick6Val: '이혼후 12개월/사실혼 2년 · s 71B 공개',
         routerKicker: 'START HERE · 60-SECOND MASTER LEGAL & VISA PATHWAY ROUTER',
         routerTitle: '🧭 어디서부터 시작할지 막막하신가요? 60초 통합 경로 진단기',
         routerSub: '아래 3가지 조건만 선택하시면 박앤코의 12개 전문 내비게이터 중 귀하에게 정확히 맞는 도구와 법정 기한·비용을 연결해 드리며, 진단 요약을 담아 <strong>enquiry@parkcolawyers.com</strong>으로 즉시 문의하실 수 있습니다.',
@@ -680,6 +686,42 @@
         catFamily: '파트너·부모·졸업생(485)·워홀 (3)',
         catPractice: '호주 고용법 & 가족법 (2)',
         catCrisis: '비자위기·ART·법령·판례·심사기간 (4)',
+        c1Title: 'GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 일반기술이민 Schedule 6D 점수 계산기 &amp; 8개 주정부(QLD~NT) 노미네이션 조건 통합 진단기</small>',
+        c1Desc: 'Schedule 6D 법정 점수 계산기(해외+호주 경력 20점 상한 Item 6D51 반영), 8개 주/준주(QLD·NSW·VIC·WA·SA·TAS·ACT·NT) 190·491 거주·근무 개월 수·졸업생 특례·수수료(WA $0~QLD $630.30) 맞춤 매칭기, 491→191 영주권($0 소득하한·$630 비자비) 진단.',
+        c1Go: '네비게이터 열기 (Open GSM &amp; State Navigator) &rarr;',
+        c2Title: 'SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용주 스폰서 비자 · 186 TRT 2년 합산 · 8607(180/365일) 이직 시계 &amp; SAF 계산기</small>',
+        c2Desc: 'FY2026–27 CSIT($79,423)·SSIT($146,576)·DAMA 90%($71,481) 및 AMSR 연봉 진단, 다중 스폰서 합산 186 TRT 2년(730일) 및 482 1년 FTE 경력 계산기, Condition 8607 퇴사 후 180/365일 카운트다운, SAF Levy 및 s 245AR 전가 금지 진단서 출력.',
+        c2Go: '네비게이터 열기 (Open SID/ENS Navigator) &rarr;',
+        c3Title: 'Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) · Schedule 3 &amp; 유학생(500→485) 브릿지</small>',
+        c3Desc: '파트너 비자($9,095 VAC) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버, 스폰서 2회·5년 제한(reg 1.20J) 및 졸업생 비자(485 만 35세 상한) 진단.',
+        c3Go: '네비게이터 열기 (Open Partner &amp; 485 Navigator) &rarr;',
+        c4Title: 'Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 거절·취소(s 116/501) · Section 48 예외 비자 · PIC 4020 · 8503 &amp; 행정재심기구(ART) 기한 진단기</small>',
+        c4Desc: '단 1분도 연장 불가한 행정재심기구(ART) 법정 재심 기한(일반거절 28일, s 116 취소 7영업일, s 501 인성 9일/28일) 정밀 계산기, Section 48 Bar(reg 2.12) 호주 내 허용 비자(190·491·494·820) 판정, PIC 4020(3년/10년) 및 8503 웨이버 긴급 진단서 출력.',
+        c4Go: '긴급 진단기 열기 (Open Crisis Navigator) &rarr;',
+        c5Title: 'Australian Employment Law &amp; Sponsor-Workplace Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용법 (근로자 &amp; 고용주 양방향) · FWC 21일 기한 · 정리해고 26주 보상금 &amp; 482 스폰서 교차 진단기</small>',
+        c5Desc: '공정근로위원회(FWC) 해고 후 21일 절대 기한(부당해고 s 394 · 일반보호 s 365 · 플랫폼 정지 s 536LU), 가짜 정리해고(s 389 재배치 의무) 및 최대 26주분 보상금(s 392), 2025 임금체불 형사처벌(s 327A)·ABN 위장도급(s 15AA) 사업주 감사, 482 비자 180일 유예·408 비자 보호.',
+        c5Go: '고용법 내비게이터 열기 (Open Employment Law Navigator) &rarr;',
+        c6Title: 'Australian Family Law &amp; FCFCOA Property Precedent Matcher<br/><small style="font-size:13.5px;color:#5A5654;">호주 가족법 · 한·호 전 세계 재산분할(s 71B) 법원 판례 매칭 · 2024 양육권 &amp; 파트너비자 별거 생존 진단기</small>',
+        c6Desc: '조건(혼인기간·자산규모·초기기여·자녀양육·가정폭력·각자통장) 입력 시 218 가족법 KDB(3,704건 판례)에서 실제 호주 가족법원(FCFCOA)이 몇 대 몇으로 재산분할 판결했는지 판례 원문 대조(ASCR 윤리규칙·s 114Q(2) 준수), 한국+호주 자산 풀 합산 및 자녀 한국 귀국·워치리스트 진단.',
+        c6Go: '가족법 내비게이터 열기 (Open Family Law Navigator) &rarr;',
+        c7Title: 'Parent Visas Queue, Survival &amp; AoS Navigator<br/><small style="font-size:13.5px;color:#5A5654;">부모초청 비자 대기열(Queue) 속도 · 15~42년 생존 가이드 &amp; 비용·AoS·870 진단기</small>',
+        c7Desc: '연방 이민성 부모비자 7대 서브클래스 실시간 Queue Release Date 및 실제 이동속도(Velocity) 차트, 내 순번 시뮬레이터, 가족균형테스트(Reg 1.05), 재정보증인(Assurer) 자격·소득($45,156/$67,734) 및 870 스폰서($83,454.80 · 90일 출국 공백 cl 870.223) 계산기.',
+        c7Go: '네비게이터 열기 (Open Parent Visa Navigator) &rarr;',
+        c8Title: 'Australia 13 DAMA Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 13개 DAMA 직종·협약 탐색기</small>',
+        c8Desc: '호주 전역 13개 DAMA 2,474건 지역별 직종 등록 항목(781개 고유 직종), 급여·영어·연령(만 50/55세) 감면 및 영주권 전환 요건 통합 검색.',
+        c8Go: '탐색기 열기 (Open Navigator) &rarr;',
+        c9Title: 'WHM Extension &amp; Condition 8547 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">워킹홀리데이 2·3차 지정근로(88/179일) &amp; 6개월 제한·면제 판정기</small>',
+        c9Desc: 'Migration Regulations 1994·LIN 22/012·22/013·25/048(산불·자연재해 6대 지역표 전수)·PAM3 기반 88/179일 중복 제거 계산기 및 조건 8547(동일 고용주 6개월 근무 제한·자동 면제·시계 리셋) 시뮬레이터.',
+        c9Go: '네비게이터 열기 (Open WHM Navigator) &rarr;',
+        c10Title: 'Visa Global Processing Times<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 글로벌 심사기간 일간 추적</small>',
+        c10Desc: '호주 연방 이민성(Department of Home Affairs) 공식 비자 심사기간 데이터의 일별 변동 추이와 스트림별 50%·90% 소요일수 비교를 제공합니다.',
+        c10Go: '심사기간 보기 (View Tracker) &rarr;',
+        c11Title: 'Australian Migration Law Tracker<br/><small style="font-size:13.5px;color:#5A5654;">호주 이민법령 개정 쉬운 해설</small>',
+        c11Desc: 'Federal Register of Legislation에 등록되는 이민법·시행령·Legislative Instrument 개정을 매일 추적하여 한·영 양국어로 알기 쉽게 요약합니다.',
+        c11Go: '법령 추적기 보기 (View Changes) &rarr;',
+        c12Title: 'Australian Caselaw Digest<br/><small style="font-size:13.5px;color:#5A5654;">호주 법원·행정재심기구(ART) 판례 다이제스트</small>',
+        c12Desc: '호주 연방법원 및 행정재심기구(ART) 최신 주요 판결의 핵심 쟁점과 판시사항을 한·영 양국어로 매일 정리합니다.',
+        c12Go: '판례 다이제스트 보기 (View Digest) &rarr;',
         footerConsultLink: '온라인 상담 문의',
         footerDisclaimer: 'General information only, not legal advice. © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers.'
       },
@@ -690,11 +732,17 @@
         hubSub: 'The definitive starting point and destination for Australian legal data—tracking Home Affairs, the Federal Register of Legislation, the Administrative Review Tribunal (ART), the Fair Work Commission (FWC), the FCFCOA, AustLII, 8 State Nomination frameworks, and 13 DAMAs.',
         tickerTitle: 'Live Primary-Source & 218 Legal KDB Briefing (FY2026–27 Thresholds, Queues & Precedents)',
         tick1Label: 'Sponsor Minimum Salary (FY26–27)',
+        tick1Val: 'CSIT $79,423 · SSIT $146,576',
         tick2Label: 'GSM (189·190·491) & Partner (820)',
+        tick2Val: '65 pts (6D51 cap) · 820 VAC $9,095',
         tick3Label: 'Parent Visa Queue Release (Aug 2026)',
+        tick3Val: '143: Nov 2018 · 864: Nov 2020',
         tick4Label: 'Strict ART Review Deadlines',
+        tick4Val: 'Refusal 28d · s116 7wd · s501 9d',
         tick5Label: 'Employment FWC Limit & Cap (s 392)',
+        tick5Val: '21 Calendar Days · Max 26 Wks Pay',
         tick6Label: 'Family Law Limits & Global Pool',
+        tick6Val: '12m Divorce / 2yr De Facto · s 71B',
         routerKicker: 'START HERE · 60-SECOND MASTER LEGAL & VISA PATHWAY ROUTER',
         routerTitle: '🧭 Not Sure Where to Start? 60-Second Master Pathway Router',
         routerSub: 'Select 3 quick parameters below to route directly to the right Park & Co navigator, check live processing times and statutory deadlines, or email your pre-filled diagnostic brief to <strong>enquiry@parkcolawyers.com</strong>.',
@@ -721,6 +769,42 @@
         catFamily: 'Partner, Parent, 485 & WHM (3)',
         catPractice: 'Employment Law & Family Law (2)',
         catCrisis: 'Visa Crisis, ART, Law & Caselaw (4)',
+        c1Title: 'GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Schedule 6D Points Calculator, Item 6D51 Cap &amp; All 8 State/Territory (QLD–NT) Nomination Matrix</small>',
+        c1Desc: 'Statutory Schedule 6D points calculator (enforcing the 20-point Item 6D51 combined employment cap), 8-State/Territory (QLD, NSW, VIC, WA, SA, TAS, ACT, NT) 190/491 residency/work rules, and Subclass 491 → 191 PR ($0 minimum income, $630 VAC) checker.',
+        c1Go: 'Open GSM &amp; State Navigator &rarr;',
+        c2Title: 'SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Employer Sponsored Visas · 186 TRT 2-Year Accrual · 8607 (180/365-Day) Clock &amp; SAF Levy Calculator</small>',
+        c2Desc: 'FY2026–27 CSIT ($79,423), SSIT ($146,576), and DAMA 90% ($71,481) salary benchmarking, multi-sponsor 186 TRT 2-year (730-day) &amp; 482 1-year FTE calculator, Condition 8607 180/365-day job-change countdown, and SAF Levy / s 245AR compliance generator.',
+        c2Go: 'Open SID/ENS Navigator &rarr;',
+        c3Title: 'Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">Onshore/Offshore Partner Visas · State Relationship Registration (reg 2.03A) · Schedule 3 &amp; 500→485→PR Bridge</small>',
+        c3Desc: 'Partner Visa ($9,095 VAC) 4 statutory pillars (reg 1.15A), 12-month De Facto rule &amp; 8-State Relationship Registration exemption checker (warning WA/NT exclusion), Bridging Visa Schedule 3 (3001/3004) waiver, sponsorship caps (reg 1.20J), and Subclass 485 Age 35 cap bridge.',
+        c3Go: 'Open Partner &amp; 485 Navigator &rarr;',
+        c4Title: 'Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Visa Refusal &amp; Cancellation (s 116/501) · Section 48 Exempt Visas · PIC 4020 · 8503 &amp; Strict ART Deadlines</small>',
+        c4Desc: 'Non-extendable Administrative Review Tribunal (ART) statutory deadline calculator (28 calendar days onshore refusal, 7 working days s 116, 9 days expedited s 501), Section 48 Bar (reg 2.12) exempt visa checker (190, 491, 494, 820), and PIC 4020 / Condition 8503 waiver triage.',
+        c4Go: 'Open Urgent Crisis Navigator &rarr;',
+        c5Title: 'Australian Employment Law &amp; Sponsor-Workplace Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Dual Employee &amp; Employer Mode · 21-Day FWC Deadline · s 389 Redundancy &amp; 482/408 Workplace Visa Shield</small>',
+        c5Desc: 'Strict 21-day Fair Work Commission (FWC) deadline calculator (Unfair Dismissal s 394, General Protections s 365, Unfair Deactivation s 536LU), s 389 Genuine Redundancy &amp; 26-week compensation cap (s 392), 2025 Criminal Wage Theft (s 327A) &amp; Sham Contracting (s 15AA) audit, and Condition 8607 / Subclass 408 protection.',
+        c5Go: 'Open Employment Law Navigator &rarr;',
+        c6Title: 'Australian Family Law &amp; FCFCOA Property Precedent Matcher<br/><small style="font-size:13.5px;color:#5A5654;">Divorce &amp; s 44(3)/(5) Limits · AUS+KOR Global Asset Pool (s 71B) · Empirical FCFCOA Precedent Splits &amp; Parenting</small>',
+        c6Desc: 'Match relationship length, asset pool size, initial/parental contributions, care of children, and family violence (s 79(4)(ca)) against verified FCFCOA property division percentage splits from our 3,704-case Family Law KDB (with ASCR r 36.1 &amp; FLA s 114Q(2) compliance), plus 2024 parenting reforms &amp; Partner Visa (820) survival.',
+        c6Go: 'Open Family Law Navigator &rarr;',
+        c7Title: 'Parent Visas Queue, Survival &amp; AoS Navigator<br/><small style="font-size:13.5px;color:#5A5654;">7 Parent Subclasses (103·143·173·804·864·884·870) · Live Queue Velocity · AoS Income &amp; 15–42 Year Survival Guide</small>',
+        c7Desc: 'Official Home Affairs Parent Visa Queue Release Dates &amp; historical velocity charts, Balance of Family Test (reg 1.05), Assurance of Support (AoS) income calculator ($45,156/$67,734), and Subclass 870 ($83,454.80 sponsor income &amp; cl 870.223 90-day offshore gap) simulator.',
+        c7Go: 'Open Parent Visa Navigator &rarr;',
+        c8Title: 'Australia 13 DAMA Navigator<br/><small style="font-size:13.5px;color:#5A5654;">2,474 Regional Occupation Concessions Across All 13 Designated Area Migration Agreements</small>',
+        c8Desc: 'Search 2,474 regional DAMA occupation entries (781 unique ANZSCO/OSCA occupations) across all 13 Australian DAMAs with age concessions up to 50/55, English concessions, 90% CSIT ($71,481) salary concessions, and ENS 186 PR pathways.',
+        c8Go: 'Open 13 DAMA Navigator &rarr;',
+        c9Title: 'WHM Extension &amp; Condition 8547 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">Working Holiday (417 &amp; 462) 2nd/3rd Visa 88/179-Day Calculator &amp; 6-Month Employer Limit Exemptions</small>',
+        c9Desc: 'Migration Regulations 1994, LIN 22/012, LIN 22/013, LIN 25/048 (6 disaster/regional postcode tables) &amp; PAM3 deduplicated 88/179-day calculator plus Condition 8547 (6-month employer limit, automatic exemptions &amp; clock reset) simulator.',
+        c9Go: 'Open WHM Navigator &rarr;',
+        c10Title: 'Visa Global Processing Times<br/><small style="font-size:13.5px;color:#5A5654;">Daily Tracking of Official Home Affairs 50% &amp; 90% Visa Processing Times</small>',
+        c10Desc: 'Tracks daily changes in official Department of Home Affairs visa processing time percentiles (50% and 90%) across key skilled, sponsored, family, student, and temporary visa subclasses.',
+        c10Go: 'View Processing Time Tracker &rarr;',
+        c11Title: 'Australian Migration Law Tracker<br/><small style="font-size:13.5px;color:#5A5654;">Daily Plain-Language Digest of Federal Register of Legislation Instruments</small>',
+        c11Desc: 'Monitors daily Migration Act, Migration Regulations, and Legislative Instrument (LIN) registrations on the Federal Register of Legislation with bilingual Korean/English legal summaries.',
+        c11Go: 'View Legislation Tracker &rarr;',
+        c12Title: 'Australian Caselaw Digest<br/><small style="font-size:13.5px;color:#5A5654;">Daily Federal Court &amp; Administrative Review Tribunal (ART) Case Summaries</small>',
+        c12Desc: 'Daily bilingual summaries of key Australian Federal Court and Administrative Review Tribunal (ART) decisions, highlighting ratio decidendi and practical implications.',
+        c12Go: 'View Caselaw Digest &rarr;',
         footerConsultLink: 'Online Consultation Inquiry',
         footerDisclaimer: 'General information only, not legal advice. © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers.'
       }
@@ -835,8 +919,7 @@
               '• 현재 상태/구분: ' + status,
               '• 성함 및 연락처: ',
               '• 상세 문의 내용: '
-            ].join('
-')
+            ].join(String.fromCharCode(10))
           : [
               'Dear Principal Solicitor Chang Min Park (Park & Co Lawyers),',
               'I am writing from the Park & Co Legal Intelligence Hub (60-Second Master Router) to request a legal consultation:',
@@ -846,8 +929,7 @@
               '• Current Status / Profile: ' + status,
               '• Name & Phone: ',
               '• Brief Summary of Matter: '
-            ].join('
-')
+            ].join(String.fromCharCode(10))
       );
 
       var box = document.getElementById('router-result-box');
@@ -885,6 +967,21 @@
           ? 'Search visa subclass or legal topic (e.g. 189, 190, 482, 820, 485, ART, Unfair Dismissal, Property)...'
           : '비자·법률 키워드 검색 (예: 189, 190, 482, 820, 485, 870, ART, 부당해고, 재산분할)...';
       }
+      /* Update all 12 card links to pass ?lang=en when in EN mode */
+      document.querySelectorAll('#navigator-grid .card').forEach(function (card) {
+        var baseHref = card.getAttribute('data-base-href') || card.getAttribute('href').split('?')[0];
+        card.setAttribute('data-base-href', baseHref);
+        card.setAttribute('href', currentLang === 'en' ? baseHref + '?lang=en' : baseHref);
+      });
+      try {
+        var url = new URL(window.location.href);
+        if (currentLang === 'en') {
+          url.searchParams.set('lang', 'en');
+        } else {
+          url.searchParams.delete('lang');
+        }
+        window.history.replaceState({}, '', url.toString());
+      } catch (e) {}
       renderRouter();
     }
 
