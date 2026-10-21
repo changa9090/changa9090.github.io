@@ -1,7 +1,7 @@
 {
-  "last_polled_iso": "2026-10-21T22:47:44+10:00",
-  "total_primary_sources": 99,
-  "verified_ok_sources": 99,
+  "last_polled_iso": "2026-10-22T00:02:00+10:00",
+  "total_primary_sources": 101,
+  "verified_ok_sources": 101,
   "total_kdb_cases": 16941,
   "kdb_summary": {
     "immi_cases": 9269,
@@ -16,27 +16,27 @@
   "series": [
     {
       "id": "gsm-state",
-      "name_ko": "1. GSM 기술이민(189·190·491) & 8개 주정부",
-      "name_en": "1. GSM Points (189·190·491) & 8-State",
+      "name_ko": "1. GSM 기술이민(189·190·491) & 8개 주정부 · SkillSelect 커트라인",
+      "name_en": "1. GSM Points (189·190·491), 8-State Quota & SkillSelect Cut-Offs",
       "url": "/parkco-gsm-state-navigator/",
       "engine": "gsm_state_poller.py (Mon 07:45 AEST)",
       "sources": 12,
-      "metrics_ko": "65점(LIN 19/210) · 경력상한 20점(6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630($0 소득)",
-      "metrics_en": "65 pts (LIN 19/210) · 20-pt Cap (6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630 ($0 floor)",
-      "sha256_prefix": "6ca5caee8a43660f",
-      "last_polled": "2026-10-21T22:39:36+10:00"
+      "metrics_ko": "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630",
+      "metrics_en": "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630",
+      "sha256_prefix": "a964fbdacae4f71a",
+      "last_polled": "2026-10-22T00:00:36+10:00"
     },
     {
       "id": "sid-ens",
-      "name_ko": "2. 고용주 스폰서 (SID 482 · ENS 186 · 494)",
-      "name_en": "2. Employer Sponsored (SID 482 · ENS 186 · 494)",
+      "name_ko": "2. 고용주 스폰서 (SID 482 · ENS 186 · 494) & ABF 제재 등록부",
+      "name_en": "2. Employer Sponsored (SID 482 · ENS 186 · 494) & ABF Sanctions",
       "url": "/parkco-sid-ens-navigator/",
       "engine": "sid_ens_poller.py (Mon 07:40 AEST)",
-      "sources": 12,
-      "metrics_ko": "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365일",
-      "metrics_en": "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365d",
-      "sha256_prefix": "bf599881101ca656",
-      "last_polled": "2026-10-21T22:39:25+10:00"
+      "sources": 13,
+      "metrics_ko": "3-Layer Salary(CSIT $79,423/SSIT $146,576) · ABF 제재 1,842건(현행 121) · s 245AYM 고용금지 · 8607 180/365일",
+      "metrics_en": "3-Layer Salary (CSIT $79,423/SSIT $146,576) · 1,842 ABF Sanctions (121 Active) · s 245AYM Bar · 8607 180/365d",
+      "sha256_prefix": "9acaf07d0f8bad39",
+      "last_polled": "2026-10-22T00:00:49+10:00"
     },
     {
       "id": "partner",
@@ -59,20 +59,20 @@
       "sources": 12,
       "metrics_ko": "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)",
       "metrics_en": "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)",
-      "sha256_prefix": "4aa2f69a12f54fb2",
-      "last_polled": "2026-10-21T22:32:59+10:00"
+      "sha256_prefix": "22cc03a0b0a72db0",
+      "last_polled": "2026-10-22T00:01:09+10:00"
     },
     {
       "id": "employment-law",
-      "name_ko": "5. 호주 고용법 (근로자 & 고용주) · FWC 21일",
-      "name_en": "5. Australian Employment Law & FWC 21-Day",
+      "name_ko": "5. 호주 고용법 (근로자 & 고용주) · FWC 21일 & ABF 교차",
+      "name_en": "5. Australian Employment Law, FWC 21-Day & ABF Crossover",
       "url": "/parkco-employment-law-navigator/",
       "engine": "employment_law_poller.py (Mon 08:00 AEST)",
-      "sources": 6,
-      "metrics_ko": "고소득 상한 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · Emp KDB 3,968건(28.4%)",
-      "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · Emp KDB 3,968 cases (28.4%)",
+      "sources": 7,
+      "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · ABF 제재 1,842건 교차 · Emp KDB 3,968건(28.4%)",
+      "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · 1,842 ABF Sanctions Crossover · Emp KDB 3,968 cases (28.4%)",
       "sha256_prefix": "930391752f6a8a84",
-      "last_polled": "2026-10-21T12:24:25Z"
+      "last_polled": "2026-10-21T14:01:01Z"
     },
     {
       "id": "family-law",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-21T22:47:44+10:00"
+      "last_polled": "2026-10-22T00:02:00+10:00"
     }
   ]
 }

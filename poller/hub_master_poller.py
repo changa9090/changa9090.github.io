@@ -20,14 +20,18 @@ AG_ROOT = HUB_DIR.parent
 DATA_DIR = HUB_DIR / "data"
 
 sys.path.insert(0, str(AG_ROOT / "src"))
-from primary_source_poller_core import fetch_218_kdb_stats, fetch_dha_price_list  # noqa: E402
+from primary_source_poller_core import (  # noqa: E402
+    fetch_218_kdb_stats,
+    fetch_dha_price_list,
+    secure_deploy_to_github_pages,
+)
 
 NAVIGATOR_STATUS_PATHS = [
-    ("gsm-state", AG_ROOT / "gsm-state-navigator" / "web" / "data" / "polling_status.json", "gsm_state_poller.py (Mon 07:45 AEST)", "/parkco-gsm-state-navigator/", "1. GSM 기술이민(189·190·491) & 8개 주정부", "1. GSM Points (189·190·491) & 8-State", "65점(LIN 19/210) · 경력상한 20점(6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630($0 소득)", "65 pts (LIN 19/210) · 20-pt Cap (6D51) · 189 $6,135 / 190·491 $6,140 · 191 $630 ($0 floor)"),
-    ("sid-ens", AG_ROOT / "sid-ens-navigator" / "web" / "data" / "polling_status.json", "sid_ens_poller.py (Mon 07:40 AEST)", "/parkco-sid-ens-navigator/", "2. 고용주 스폰서 (SID 482 · ENS 186 · 494)", "2. Employer Sponsored (SID 482 · ENS 186 · 494)", "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365일", "CSIT $79,423 · SSIT $146,576 · DAMA 90% $71,481 · FWHIT $190,100 · 8607 180/365d"),
+    ("gsm-state", AG_ROOT / "gsm-state-navigator" / "web" / "data" / "polling_status.json", "gsm_state_poller.py (Mon 07:45 AEST)", "/parkco-gsm-state-navigator/", "1. GSM 기술이민(189·190·491) & 8개 주정부 · SkillSelect 커트라인", "1. GSM Points (189·190·491), 8-State Quota & SkillSelect Cut-Offs", "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630", "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630"),
+    ("sid-ens", AG_ROOT / "sid-ens-navigator" / "web" / "data" / "polling_status.json", "sid_ens_poller.py (Mon 07:40 AEST)", "/parkco-sid-ens-navigator/", "2. 고용주 스폰서 (SID 482 · ENS 186 · 494) & ABF 제재 등록부", "2. Employer Sponsored (SID 482 · ENS 186 · 494) & ABF Sanctions", "3-Layer Salary(CSIT $79,423/SSIT $146,576) · ABF 제재 1,842건(현행 121) · s 245AYM 고용금지 · 8607 180/365일", "3-Layer Salary (CSIT $79,423/SSIT $146,576) · 1,842 ABF Sanctions (121 Active) · s 245AYM Bar · 8607 180/365d"),
     ("partner", AG_ROOT / "partner-graduate-navigator" / "web" / "data" / "polling_status.json", "partner_graduate_poller.py (Mon 07:50 AEST)", "/parkco-partner-graduate-navigator/", "3. 파트너 비자 (820/801 · 309/100 · 300) & Sch 3", "3. Partner Visas (820/309/300) & Schedule 3", "820/309/300 $11,710 · 300→820 $1,955 · 만료300→820 $2,475 · 445 $4,040 · Immi KDB 9,269건", "820/309/300 $11,710 · 300→820 $1,955 · Ceased 300 $2,475 · 445 $4,040 · Immi KDB 9,269 cases"),
     ("visa-crisis", AG_ROOT / "visa-crisis-navigator" / "web" / "data" / "polling_status.json", "visa_crisis_poller.py (Mon 07:55 AEST)", "/parkco-visa-crisis-navigator/", "4. 비자 거절·취소 · Section 48 · ART 재심 기한", "4. Visa Refusal, Section 48 & ART Deadlines", "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)", "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)"),
-    ("employment-law", AG_ROOT / "employment-law-navigator" / "web" / "data" / "polling_status.json", "employment_law_poller.py (Mon 08:00 AEST)", "/parkco-employment-law-navigator/", "5. 호주 고용법 (근로자 & 고용주) · FWC 21일", "5. Australian Employment Law & FWC 21-Day", "고소득 상한 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · Emp KDB 3,968건(28.4%)", "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · Emp KDB 3,968 cases (28.4%)"),
+    ("employment-law", AG_ROOT / "employment-law-navigator" / "web" / "data" / "polling_status.json", "employment_law_poller.py (Mon 08:00 AEST)", "/parkco-employment-law-navigator/", "5. 호주 고용법 (근로자 & 고용주) · FWC 21일 & ABF 교차", "5. Australian Employment Law, FWC 21-Day & ABF Crossover", "고소득 $190,100 · 보상상한 $95,050(26주) · ABF 제재 1,842건 교차 · Emp KDB 3,968건(28.4%)", "High Income $190,100 · Cap $95,050 (26 wks) · 1,842 ABF Sanctions Crossover · Emp KDB 3,968 cases (28.4%)"),
     ("family-law", AG_ROOT / "family-law-navigator" / "web" / "data" / "polling_status.json", "family_law_poller.py (Mon 08:05 AEST)", "/parkco-family-law-navigator/", "6. 호주 가족법 · 한·호 재산분할 FCFCOA 판례 매칭", "6. Australian Family Law & FCFCOA Precedent Matcher", "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · Family KDB 3,704건 ([2026] FedCFamC1A 186)", "Divorce Fee $1,170 (Reduced $390) · Consent $215 · Family KDB 3,704 cases ([2026] FedCFamC1A 186)"),
     ("parent-visa", AG_ROOT / "parent-visa-navigator" / "data" / "polling_status.json", "parent_visa_poller.py (Mon 07:35 AEST)", "/parkco-parent-visa-navigator/", "7. 부모초청 비자 (103·143·804·864·870) 대기열·AoS", "7. Parent Visas (103·143·804·864·870) Queue & AoS", "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80", "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80"),
     ("dama", AG_ROOT / "dama-navigator" / "data" / "polling_status.json", "dama_poller.py (Mon 07:30 AEST)", "/parkco-dama-navigator/", "8. 호주 13개 DAMA 지역 협약 · 2,474개 직종 탐색기", "8. Australia 13 DAMA Regional Concessions (2,474 Entries)", "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세", "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55"),
@@ -147,14 +151,12 @@ def run_poller(deploy: bool = False) -> None:
 
 
 def deploy_to_github_pages() -> None:
-    token = subprocess.check_output(["ssh", "chang@192.168.1.218", "gh auth token"], text=True).strip()
-    remote_url = f"https://x-access-token:{token}@github.com/changa9090/changa9090.github.io.git"
-    subprocess.run(["git", "remote", "remove", "origin"], cwd=HUB_DIR, check=False, stderr=subprocess.DEVNULL)
-    subprocess.run(["git", "remote", "add", "origin", remote_url], cwd=HUB_DIR, check=True)
-    subprocess.run(["git", "add", "index.html", "data/hub_polling_status.json", "poller/hub_master_poller.py"], cwd=HUB_DIR, check=True)
-    subprocess.run(["git", "commit", "-m", "Update Hub Master Live Primary-Source & 218 KDB Telemetry Matrix"], cwd=HUB_DIR, check=False)
-    subprocess.run(["git", "push", "origin", "main:main"], cwd=HUB_DIR, check=True)
-    print("[deploy] Pushed changa9090.github.io to https://changa9090.github.io/")
+    secure_deploy_to_github_pages(
+        dist_dir=HUB_DIR,
+        repo_name="changa9090.github.io",
+        commit_msg="Update Hub Master Live Primary-Source, ABF Sanctions, SkillSelect & 218 KDB Telemetry Matrix",
+        description="Park & Co Lawyers — Public Legal Intelligence Hub (12 Live Navigators & Daily Trackers)",
+    )
 
 
 if __name__ == "__main__":
