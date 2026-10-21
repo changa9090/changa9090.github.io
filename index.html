@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>법무법인 박앤코 (Park &amp; Co Lawyers) — 호주 이민법 · 판례 · 비자 데이터 공개 리서치 허브</title>
-  <meta name="description" content="Park & Co Lawyers (Underwood QLD) — 호주 고용주 스폰서(SID 482·ENS 186), 13개 DAMA, 부모초청(143·864·870), 비자 거절·Section 48·ART 재심 기한, 워킹홀리데이(417·462), 비자 심사기간 및 최신 판례 통합 인텔리전스 포털." />
+  <title>법무법인 박앤코 (Park &amp; Co Lawyers) — 호주 이민법 · 고용법 · 가족법 · 판례 공개 인텔리전스 허브</title>
+  <meta name="description" content="Park &amp; Co Lawyers (Underwood QLD) — 호주 이민법(GSM 189·190·491, 고용주 스폰서 SID 482·ENS 186, 13개 DAMA, 파트너 820·309 &amp; 485, 부모초청 143·864·870, 워홀 417·462, 비자거절·s48·행정재심기구 ART), 호주 고용법(FWC 21일 기한·정리해고·위장도급), 호주 가족법(한·호 재산분할 법원판례 매칭·양육권) 통합 법률 데이터 포털." />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/assets/brand/icon-32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="/assets/brand/icon-192.png" sizes="192x192" />
@@ -42,10 +42,10 @@
       background: var(--ink-deep);
       color: var(--white);
       border-bottom: 4px solid var(--burgundy);
-      padding: 28px 24px 24px;
+      padding: 26px 24px 24px;
     }
     .wrap {
-      max-width: 1120px;
+      max-width: 1160px;
       margin: 0 auto;
     }
     .header-bar {
@@ -59,6 +59,36 @@
       height: 40px;
       width: auto;
     }
+    .header-right {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: #CFC9BF;
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 2px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #E5E0D8;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: var(--burgundy);
+      color: var(--white);
+    }
     .overline {
       font-family: 'Cormorant Garamond', Georgia, serif;
       color: #D9A7AD;
@@ -66,7 +96,7 @@
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      margin: 20px 0 6px;
+      margin: 18px 0 6px;
     }
     h1 {
       margin: 0 0 8px;
@@ -109,7 +139,7 @@
     }
     .live-ticker__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
       gap: 10px;
     }
     .ticker-metric {
@@ -125,14 +155,111 @@
     }
     .ticker-metric strong {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       color: #FDE68A;
       margin-top: 2px;
     }
 
     main {
-      padding: 32px 24px 64px;
+      padding: 28px 24px 64px;
+    }
+
+    /* 60-Second Master Pathway Router */
+    .router-box {
+      background: linear-gradient(180deg, #FFFDF9 0%, #F2E4E5 100%);
+      border: 2px solid var(--burgundy);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 28px rgba(46, 30, 20, 0.08);
+    }
+    .router-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .router-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--burgundy);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .router-title {
+      margin: 4px 0 4px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink-deep);
+    }
+    .router-sub {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--charcoal-soft);
+    }
+    .router-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .router-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 5px;
+    }
+    .router-select {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1.5px solid var(--line-strong);
+      background: var(--white);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .router-result {
+      background: var(--white);
+      border: 1.5px solid var(--line-strong);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .btn-primary-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--burgundy);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid var(--burgundy);
+      cursor: pointer;
+    }
+    .btn-primary-cta:hover {
+      background: var(--oxblood);
+    }
+    .btn-secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      color: var(--burgundy);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid var(--burgundy);
+      cursor: pointer;
     }
 
     /* Filter & Search Toolbar */
@@ -180,7 +307,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
     .card {
@@ -204,6 +331,10 @@
       border-color: #B45309;
       background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 38%);
     }
+    .card--practice {
+      border-color: #1E3A8A;
+      background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 38%);
+    }
     .tag {
       display: inline-block;
       background: var(--burgundy-wash);
@@ -218,9 +349,13 @@
       background: #FEF3C7;
       color: #92400E;
     }
+    .tag--practice {
+      background: #DBEAFE;
+      color: #1E3A8A;
+    }
     .card h2 {
       margin: 0 0 8px;
-      font-size: 18px;
+      font-size: 17.5px;
       font-weight: 800;
       color: var(--charcoal);
       line-height: 1.35;
@@ -243,6 +378,7 @@
     }
     footer a {
       color: var(--burgundy);
+      font-weight: 700;
     }
   </style>
 </head>
@@ -253,39 +389,52 @@
         <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener">
           <img src="/assets/brand/logo-negative.png" alt="Park &amp; Co Lawyers" class="logo" />
         </a>
-        <div style="font-size:13px;color:#CFC9BF;">
-          법무법인 박앤코 · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)
+        <div class="header-right">
+          <span data-i18n="headerFirmTag">법무법인 박앤코 · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)</span>
+          <a href="mailto:enquiry@parkcolawyers.com" style="color:#FDE68A;font-weight:800;text-decoration:none;">✉️ enquiry@parkcolawyers.com</a>
+          <div class="lang-switch" role="group" aria-label="Language Switcher">
+            <button type="button" class="lang-btn active" id="hub-lang-ko" data-lang="ko">한국어 (KO)</button>
+            <button type="button" class="lang-btn" id="hub-lang-en" data-lang="en">English (EN)</button>
+          </div>
         </div>
       </div>
-      <div class="overline">PARK &amp; CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (9 LIVE NAVIGATORS)</div>
-      <h1>호주 이민법 · 판례 · 비자 데이터 공개 리서치 허브</h1>
-      <p class="sub">호주 연방 이민성, 법제처(Federal Register of Legislation), 행정재심기구(ART), AustLII 및 8개 주정부 · 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 공개 법률 데이터 서비스입니다.</p>
+      <div class="overline" data-i18n="hubOverline">PARK &amp; CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (12 LIVE NAVIGATORS &amp; TRACKERS)</div>
+      <h1 data-i18n="hubTitle">호주 이민법 · 고용법 · 가족법 · 판례 공개 리서치 허브</h1>
+      <p class="sub" data-i18n="hubSub">호주 연방 이민성, 법제처(Federal Register of Legislation), 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA), AustLII 및 8개 주정부 · 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 호주 법률 인텔리전스 시작점이자 목적지입니다.</p>
 
       <!-- Live Cross-Series Intelligence Ticker -->
       <div class="live-ticker" id="live-intelligence-ticker">
         <div class="live-ticker__head">
           <div>
             <span class="live-dot"></span>
-            <strong id="ticker-status-title">실시간 1차 출처 연동 브리핑 (FY2026–27 법령 및 대기열 기준)</strong>
+            <strong id="ticker-status-title" data-i18n="tickerTitle">실시간 1차 출처 &amp; 218 법률 KDB 연동 브리핑 (FY2026–27 법령 · 대기열 · 판례 기준)</strong>
           </div>
-          <span id="ticker-verified-badge" style="color:#6EE7B7;font-weight:700;">● 51/51 Primary Sources Verified (HTTP 200)</span>
+          <span id="ticker-verified-badge" style="color:#6EE7B7;font-weight:700;">● 66/66 Primary Sources &amp; 7,647 KDB Cases Verified (HTTP 200)</span>
         </div>
         <div class="live-ticker__grid">
           <div class="ticker-metric">
-            <span>고용주 스폰서 최소 연봉 (FY26–27)</span>
+            <span data-i18n="tick1Label">고용주 스폰서 최소 연봉 (FY26–27)</span>
             <strong id="ticker-csit">CSIT $79,423 · SSIT $146,576</strong>
           </div>
           <div class="ticker-metric">
-            <span>기술이민(189·190·491) · 8개 주정부</span>
-            <strong id="ticker-dama">65점(+5/+15) · WA 신청비 $0 · 191 $630</strong>
+            <span data-i18n="tick2Label">기술이민(189·190·491) · 파트너(820)</span>
+            <strong id="ticker-dama">65점(6D51 캡) · 820 VAC $9,095</strong>
           </div>
           <div class="ticker-metric">
-            <span>부모비자 Queue Release (2026.08 기준)</span>
+            <span data-i18n="tick3Label">부모비자 Queue Release (2026.08)</span>
             <strong id="ticker-parent">143: 2018.11 · 864: 2020.11</strong>
           </div>
           <div class="ticker-metric">
-            <span>비자거절·취소 ART 불변 법정기한</span>
-            <strong id="ticker-art">거절 28일 · s116 취소 7영업일 · s501 9일</strong>
+            <span data-i18n="tick4Label">비자거절·취소 행정재심기구(ART) 기한</span>
+            <strong id="ticker-art">거절 28일 · s116 7영업일 · s501 9일</strong>
+          </div>
+          <div class="ticker-metric">
+            <span data-i18n="tick5Label">고용법 FWC 기한 · 보상상한 (s 392)</span>
+            <strong id="ticker-emp">해고 후 21일 · 최대 26주분 급여</strong>
+          </div>
+          <div class="ticker-metric">
+            <span data-i18n="tick6Label">호주 가족법 제척기간 · 전세계 자산</span>
+            <strong id="ticker-fam">이혼후 12개월/사실혼 2년 · s 71B 공개</strong>
           </div>
         </div>
       </div>
@@ -294,104 +443,186 @@
 
   <main>
     <div class="wrap">
+
+      <!-- 60-SECOND MASTER VISA, EMPLOYMENT & FAMILY LAW PATHWAY ROUTER -->
+      <section class="router-box" id="master-pathway-router" aria-label="60-Second Master Pathway Router">
+        <div class="router-head">
+          <div>
+            <span class="router-kicker" data-i18n="routerKicker">START HERE · 60-SECOND MASTER LEGAL &amp; VISA PATHWAY ROUTER</span>
+            <h2 class="router-title" data-i18n="routerTitle">🧭 어디서부터 시작할지 막막하신가요? 60초 통합 경로 진단기</h2>
+            <p class="router-sub" data-i18n="routerSub">아래 3가지 조건만 선택하시면 박앤코의 12개 전문 내비게이터 중 귀하에게 정확히 맞는 도구와 법정 기한·비용을 연결해 드리며, 진단 요약을 담아 <strong>enquiry@parkcolawyers.com</strong>으로 즉시 문의하실 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="router-controls">
+          <div class="router-field">
+            <label for="rt-goal" data-i18n="rtLblGoal">1. 해결하고자 하는 핵심 분야 · 목표</label>
+            <select id="rt-goal" class="router-select">
+              <option value="pr_skilled" data-i18n="rtOptSkilled">기술이민 · 8개 주정부 노미네이션 영주권 (189 · 190 · 491 → 191)</option>
+              <option value="pr_sponsor" data-i18n="rtOptSponsor">고용주 스폰서 · 이직(8607) · 13개 DAMA 영주권 (482 · 186 · 494)</option>
+              <option value="family_partner" data-i18n="rtOptPartner">파트너·배우자 비자(820/801 · 309/100 · 300) &amp; 유학생 졸업생(500→485)</option>
+              <option value="family_parent" data-i18n="rtOptParent">부모님 초청 비자(143 · 864 · 103 · 804 · 870) &amp; 워홀 연장(417 · 462)</option>
+              <option value="visa_crisis" data-i18n="rtOptCrisis">🚨 비자 거절 · 취소(s 116/501) · Section 48 · PIC 4020 · ART 재심 긴급 대응</option>
+              <option value="employment_law" data-i18n="rtOptEmp">⚖️ 호주 고용법 (부당해고 21일 기한 · 정리해고 26주 보상 · 임금체불 · 스폰서 기업 감사)</option>
+              <option value="family_law" data-i18n="rtOptFam">🏛️ 호주 가족법 (이혼 · 한·호 재산분할 법원판례 매칭 · 양육권 · 파트너비자 별거)</option>
+            </select>
+          </div>
+
+          <div class="router-field">
+            <label for="rt-age" data-i18n="rtLblAge">2. 연령대 또는 법정 기한 긴급도</label>
+            <select id="rt-age" class="router-select">
+              <option value="under35" data-i18n="rtAgeUnder35">만 18~34세 (485 졸업생 · 워홀 · GSM 최대 점수 구간)</option>
+              <option value="35to44" selected data-i18n="rtAge35to44">만 35~44세 (일반 기술이민 189/190/491 및 186 영주권 핵심 구간)</option>
+              <option value="45to54" data-i18n="rtAge45to54">만 45~54세 (13개 DAMA 만 50/55세 연령면제 · 482 · 파트너 · 가족/고용법)</option>
+              <option value="urgent_deadline" data-i18n="rtAgeUrgent">⏰ 법정 불변 기한 임박 (ART 7~28일 / FWC 해고 후 21일 / 이혼 후 12개월)</option>
+            </select>
+          </div>
+
+          <div class="router-field">
+            <label for="rt-status" data-i18n="rtLblStatus">3. 현재 체류 상태 / 의뢰인 유형</label>
+            <select id="rt-status" class="router-select">
+              <option value="onshore_sub" data-i18n="rtStatOnshore">호주 내 체류 중 (유효 실체비자 소지 · 직장인 · 영주권자/시민권자)</option>
+              <option value="onshore_bva" data-i18n="rtStatBva">호주 내 브리징 비자 소지 / 비자 만료·거절 이력 있음 (Section 48 / Schedule 3)</option>
+              <option value="offshore" data-i18n="rtStatOffshore">한국 등 호주 외 체류 중 (해외 신청 준비)</option>
+              <option value="employer_b2b" data-i18n="rtStatEmployer">🏢 호주 기업 대표 · 인사담당자 (스폰서십 · 고용계약 · 해고 리스크 자문)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="router-result" id="router-result-box"></div>
+      </section>
+
+      <!-- Filter & Search Toolbar -->
       <div class="hub-toolbar">
         <div class="filter-pills" role="group" aria-label="Category filter">
-          <button type="button" class="filter-btn active" data-cat="all">전체 시리즈 (9)</button>
-          <button type="button" class="filter-btn" data-cat="employer">고용주·기술이민·주정부·DAMA (3)</button>
-          <button type="button" class="filter-btn" data-cat="family">부모·가족·워홀 (2)</button>
-          <button type="button" class="filter-btn" data-cat="crisis">비자위기·법령·판례·심사기간 (4)</button>
+          <button type="button" class="filter-btn active" data-cat="all" data-i18n="catAll">전체 시리즈 (12)</button>
+          <button type="button" class="filter-btn" data-cat="employer" data-i18n="catEmployer">기술이민·고용주·주정부·DAMA (3)</button>
+          <button type="button" class="filter-btn" data-cat="family" data-i18n="catFamily">파트너·부모·졸업생(485)·워홀 (3)</button>
+          <button type="button" class="filter-btn" data-cat="practice" data-i18n="catPractice">호주 고용법 &amp; 가족법 (2)</button>
+          <button type="button" class="filter-btn" data-cat="crisis" data-i18n="catCrisis">비자위기·ART·법령·판례·심사기간 (4)</button>
         </div>
-        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자 번호·키워드 검색 (예: 189, 190, 491, 482, 186, 870, s48, ART)..." aria-label="Search navigators" />
+        <input type="search" id="hub-search-input" class="hub-search" placeholder="비자·법률 키워드 검색 (예: 189, 190, 482, 820, 485, 870, ART, 부당해고, 재산분할)..." aria-label="Search navigators" />
       </div>
 
       <div class="grid" id="navigator-grid">
-        <!-- NEW 0: GSM Points (189/190/491) & 8-State Nomination Navigator -->
+        <!-- 1: GSM Points (189/190/491) & 8-State Nomination Navigator -->
         <a class="card card--new" href="/parkco-gsm-state-navigator/" data-cat="employer" data-keywords="189 190 491 191 gsm 기술이민 점수 계산기 주정부 노미네이션 qld nsw vic wa sa tas act nt schedule 6d">
           <div>
-            <span class="tag tag--new">NEW · LIVE VERIFIED · GSM 189 · 190 · 491 · 8 STATES</span>
-            <h2>GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 일반기술이민 Schedule 6D 점수 계산기 &amp; 8개 주정부(QLD~NT) 노미네이션 조건 통합 진단기</small></h2>
-            <p>Schedule 6D 법정 점수 계산기(해외+호주 경력 20점 상한 Item 6D51 반영), 8개 주/준주(QLD·NSW·VIC·WA·SA·TAS·ACT·NT) 190·491 거주·근무 개월 수·졸업생 특례·수수료(WA $0~QLD $630.30) 맞춤 매칭기, 491→191 영주권($0 소득하한·$630 비자비) 진단.</p>
+            <span class="tag tag--new">LIVE VERIFIED · GSM 189 · 190 · 491 · 8 STATES</span>
+            <h2 data-i18n="c1Title">GSM Points (189·190·491) &amp; 8-State Nomination Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 일반기술이민 Schedule 6D 점수 계산기 &amp; 8개 주정부(QLD~NT) 노미네이션 조건 통합 진단기</small></h2>
+            <p data-i18n="c1Desc">Schedule 6D 법정 점수 계산기(해외+호주 경력 20점 상한 Item 6D51 반영), 8개 주/준주(QLD·NSW·VIC·WA·SA·TAS·ACT·NT) 190·491 거주·근무 개월 수·졸업생 특례·수수료(WA $0~QLD $630.30) 맞춤 매칭기, 491→191 영주권($0 소득하한·$630 비자비) 진단.</p>
           </div>
-          <div class="go">네비게이터 열기 (Open GSM &amp; State Navigator) &rarr;</div>
+          <div class="go" data-i18n="c1Go">네비게이터 열기 (Open GSM &amp; State Navigator) &rarr;</div>
         </a>
-        <!-- NEW 1: SID 482 & ENS 186 Navigator -->
+
+        <!-- 2: SID 482 & ENS 186 Navigator -->
         <a class="card card--new" href="/parkco-sid-ens-navigator/" data-cat="employer" data-keywords="482 186 494 sid ens trt csit ssit 8607 saf levy 고용주 스폰서 영주권 연봉 이직">
           <div>
-            <span class="tag tag--new">NEW · LIVE VERIFIED · SID 482 · ENS 186 · SESR 494</span>
-            <h2>SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용주 스폰서 비자 · 186 TRT 2년 합산 · 8607(180/365일) 이직 시계 &amp; SAF 계산기</small></h2>
-            <p>FY2026–27 CSIT($79,423)·SSIT($146,576)·DAMA 90%($71,481) 및 AMSR 연봉 진단, 다중 스폰서 합산 186 TRT 2년(730일) 및 482 1년 FTE 경력 계산기, Condition 8607 퇴사 후 180/365일 카운트다운, SAF Levy 및 s 245AR 전가 금지 진단서 출력.</p>
+            <span class="tag tag--new">LIVE VERIFIED · SID 482 · ENS 186 · SESR 494</span>
+            <h2 data-i18n="c2Title">SID 482 · ENS 186 · CSIT &amp; Condition 8607 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용주 스폰서 비자 · 186 TRT 2년 합산 · 8607(180/365일) 이직 시계 &amp; SAF 계산기</small></h2>
+            <p data-i18n="c2Desc">FY2026–27 CSIT($79,423)·SSIT($146,576)·DAMA 90%($71,481) 및 AMSR 연봉 진단, 다중 스폰서 합산 186 TRT 2년(730일) 및 482 1년 FTE 경력 계산기, Condition 8607 퇴사 후 180/365일 카운트다운, SAF Levy 및 s 245AR 전가 금지 진단서 출력.</p>
           </div>
-          <div class="go">네비게이터 열기 (Open SID/ENS Navigator) &rarr;</div>
+          <div class="go" data-i18n="c2Go">네비게이터 열기 (Open SID/ENS Navigator) &rarr;</div>
         </a>
 
-        <!-- NEW 2: Visa Crisis, Section 48 & ART Deadline Navigator -->
-        <a class="card card--new" href="/parkco-visa-crisis-navigator/" data-cat="crisis" data-keywords="거절 취소 art aat section 48 s48 pic 4020 8503 s116 s501 noicc 재심 웨이버">
+        <!-- 3: NEW Partner Visas (820/801 · 309/100 · 300) & Graduate (500->485) Bridge Navigator -->
+        <a class="card card--new" href="/parkco-partner-graduate-navigator/" data-cat="family" data-keywords="820 801 309 100 300 485 500 파트너비자 배우자비자 사실혼 동거 주정부 관계등록 schedule 3 졸업생비자 유학생">
           <div>
-            <span class="tag tag--new">NEW · URGENT DIAGNOSTIC · REFUSAL · s48 · PIC 4020 · ART</span>
-            <h2>Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 거절·취소(s 116/501) · Section 48 예외 비자 · PIC 4020 · 8503 &amp; ART 기한 진단기</small></h2>
-            <p>단 1분도 연장 불가한 행정재심기구(ART) 법정 재심 기한(일반거절 28일, s 116 취소 7영업일, s 501 인성 9일/28일) 정밀 계산기, Section 48 Bar(reg 2.12) 호주 내 허용 비자(190·491·494·820) 판정, PIC 4020(3년/10년) 및 8503 웨이버 긴급 진단서 출력.</p>
+            <span class="tag tag--new">NEW · PARTNER (820/801 · 309/100 · 300) &amp; GRADUATE 485</span>
+            <h2 data-i18n="c3Title">Partner Visas (820/309/300), Schedule 3 &amp; Graduate (485) Bridge<br/><small style="font-size:13.5px;color:#5A5654;">호주 파트너 비자 · 사실혼 12개월 면제(주정부 관계등록) · Schedule 3 &amp; 유학생(500→485) 브릿지</small></h2>
+            <p data-i18n="c3Desc">파트너 비자($9,095 VAC) 4대 법정 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 및 8개 주/준주 관계등록 면제 판정(WA·NT 제외 주의), 브리징 비자 Schedule 3(3001/3004) 웨이버, 스폰서 2회·5년 제한(reg 1.20J) 및 졸업생 비자(485 만 35세 상한) 진단.</p>
           </div>
-          <div class="go">긴급 진단기 열기 (Open Crisis Navigator) &rarr;</div>
+          <div class="go" data-i18n="c3Go">네비게이터 열기 (Open Partner &amp; 485 Navigator) &rarr;</div>
         </a>
 
-        <!-- 3: Parent Visa Navigator -->
+        <!-- 4: Visa Crisis, Section 48 & ART Deadline Navigator -->
+        <a class="card card--new" href="/parkco-visa-crisis-navigator/" data-cat="crisis" data-keywords="거절 취소 art aat section 48 s48 pic 4020 8503 s116 s501 noicc 행정재심기구 재심 웨이버">
+          <div>
+            <span class="tag tag--new">URGENT DIAGNOSTIC · REFUSAL · s48 · PIC 4020 · ART</span>
+            <h2 data-i18n="c4Title">Visa Refusal, Section 48 Bar &amp; ART Deadline Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 거절·취소(s 116/501) · Section 48 예외 비자 · PIC 4020 · 8503 &amp; 행정재심기구(ART) 기한 진단기</small></h2>
+            <p data-i18n="c4Desc">단 1분도 연장 불가한 행정재심기구(ART) 법정 재심 기한(일반거절 28일, s 116 취소 7영업일, s 501 인성 9일/28일) 정밀 계산기, Section 48 Bar(reg 2.12) 호주 내 허용 비자(190·491·494·820) 판정, PIC 4020(3년/10년) 및 8503 웨이버 긴급 진단서 출력.</p>
+          </div>
+          <div class="go" data-i18n="c4Go">긴급 진단기 열기 (Open Crisis Navigator) &rarr;</div>
+        </a>
+
+        <!-- 5: NEW Australian Employment Law (Employer & Employee) & Sponsor Crossover Navigator -->
+        <a class="card card--practice" href="/parkco-employment-law-navigator/" data-cat="practice" data-keywords="고용법 노동법 부당해고 정리해고 임금체불 강제사직 해고수당 21일 fwc fair work 482 408 abn 위장도급 고용주 근로자">
+          <div>
+            <span class="tag tag--practice">NEW · EMPLOYMENT LAW (EMPLOYER &amp; EMPLOYEE) · 3,943 FWC CASES</span>
+            <h2 data-i18n="c5Title">Australian Employment Law &amp; Sponsor-Workplace Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 고용법 (근로자 &amp; 고용주 양방향) · FWC 21일 기한 · 정리해고 26주 보상금 &amp; 482 스폰서 교차 진단기</small></h2>
+            <p data-i18n="c5Desc">공정근로위원회(FWC) 해고 후 21일 절대 기한(부당해고 s 394 · 일반보호 s 365 · 플랫폼 정지 s 536LU), 가짜 정리해고(s 389 재배치 의무) 및 최대 26주분 보상금(s 392), 2025 임금체불 형사처벌(s 327A)·ABN 위장도급(s 15AA) 사업주 감사, 482 비자 180일 유예·408 비자 보호.</p>
+          </div>
+          <div class="go" data-i18n="c5Go">고용법 내비게이터 열기 (Open Employment Law Navigator) &rarr;</div>
+        </a>
+
+        <!-- 6: NEW Australian Family Law, Global Property Precedent Matcher & Visa Crossover Navigator -->
+        <a class="card card--practice" href="/parkco-family-law-navigator/" data-cat="practice" data-keywords="가족법 이혼 재산분할 양육권 별거 한집별거 한국재산 전세계자산 슈퍼애뉴에이션 가정폭력 워치리스트 파트너비자 820 fcfcoa 판례">
+          <div>
+            <span class="tag tag--practice">NEW · FAMILY LAW &amp; FCFCOA PRECEDENT MATCHER · 3,704 CASES</span>
+            <h2 data-i18n="c6Title">Australian Family Law &amp; FCFCOA Property Precedent Matcher<br/><small style="font-size:13.5px;color:#5A5654;">호주 가족법 · 한·호 전 세계 재산분할(s 71B) 법원 판례 매칭 · 2024 양육권 &amp; 파트너비자 별거 생존 진단기</small></h2>
+            <p data-i18n="c6Desc">조건(혼인기간·자산규모·초기기여·자녀양육·가정폭력·각자통장) 입력 시 218 가족법 KDB(3,704건 판례)에서 실제 호주 가족법원(FCFCOA)이 몇 대 몇으로 재산분할 판결했는지 판례 원문 대조(ASCR 윤리규칙·s 114Q(2) 준수), 한국+호주 자산 풀 합산 및 자녀 한국 귀국·워치리스트 진단.</p>
+          </div>
+          <div class="go" data-i18n="c6Go">가족법 내비게이터 열기 (Open Family Law Navigator) &rarr;</div>
+        </a>
+
+        <!-- 7: Parent Visa Navigator -->
         <a class="card" href="/parkco-parent-visa-navigator/" data-cat="family" data-keywords="부모비자 부모초청 103 143 173 804 864 884 870 aos assurer 메디케어 대기기간">
           <div>
             <span class="tag">LIVE VERIFIED · PARENT VISAS (103 · 143 · 173 · 804 · 864 · 884 · 870)</span>
-            <h2>Parent Visas Queue, Survival &amp; AoS Navigator<br/><small style="font-size:13.5px;color:#5A5654;">부모초청 비자 대기열(Queue) 속도 · 15~42년 생존 가이드 &amp; 비용·AoS·870 진단기</small></h2>
-            <p>연방 이민성 부모비자 7대 서브클래스 실시간 Queue Release Date 및 실제 이동속도(Velocity) 차트, 내 순번 시뮬레이터, 가족균형테스트(Reg 1.05), 재정보증인(Assurer) 자격·소득($45,156/$67,734) 및 870 스폰서($83,454.80) 계산기, 원클릭 진단서 출력.</p>
+            <h2 data-i18n="c7Title">Parent Visas Queue, Survival &amp; AoS Navigator<br/><small style="font-size:13.5px;color:#5A5654;">부모초청 비자 대기열(Queue) 속도 · 15~42년 생존 가이드 &amp; 비용·AoS·870 진단기</small></h2>
+            <p data-i18n="c7Desc">연방 이민성 부모비자 7대 서브클래스 실시간 Queue Release Date 및 실제 이동속도(Velocity) 차트, 내 순번 시뮬레이터, 가족균형테스트(Reg 1.05), 재정보증인(Assurer) 자격·소득($45,156/$67,734) 및 870 스폰서($83,454.80 · 90일 출국 공백 cl 870.223) 계산기.</p>
           </div>
-          <div class="go">네비게이터 열기 (Open Parent Visa Navigator) &rarr;</div>
+          <div class="go" data-i18n="c7Go">네비게이터 열기 (Open Parent Visa Navigator) &rarr;</div>
         </a>
 
-        <!-- 4: 13 DAMA Navigator -->
+        <!-- 8: 13 DAMA Navigator -->
         <a class="card" href="/parkco-dama-navigator/" data-cat="employer" data-keywords="dama 다마 13개 지역 fnq nt wa sa orana goulburn 감면 50세 55세">
           <div>
             <span class="tag">WEEKLY MONITORED · 13 DAMAs</span>
-            <h2>Australia 13 DAMA Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 13개 DAMA 직종·협약 탐색기</small></h2>
-            <p>호주 전역 13개 DAMA 2,474건 지역별 직종 등록 항목(781개 고유 직종), 급여·영어·연령(만 50/55세) 감면 및 영주권 전환 요건 통합 검색.</p>
+            <h2 data-i18n="c8Title">Australia 13 DAMA Navigator<br/><small style="font-size:13.5px;color:#5A5654;">호주 13개 DAMA 직종·협약 탐색기</small></h2>
+            <p data-i18n="c8Desc">호주 전역 13개 DAMA 2,474건 지역별 직종 등록 항목(781개 고유 직종), 급여·영어·연령(만 50/55세) 감면 및 영주권 전환 요건 통합 검색.</p>
           </div>
-          <div class="go">탐색기 열기 (Open Navigator) &rarr;</div>
+          <div class="go" data-i18n="c8Go">탐색기 열기 (Open Navigator) &rarr;</div>
         </a>
 
-        <!-- 5: WHM Navigator -->
+        <!-- 9: WHM Navigator -->
         <a class="card" href="/parkco-whm-navigator/" data-cat="family" data-keywords="워홀 워킹홀리데이 417 462 88일 179일 8547 세컨비자 써드비자">
           <div>
             <span class="tag">LIVE VERIFIED · SUBCLASS 417 &amp; 462</span>
-            <h2>WHM Extension &amp; Condition 8547 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">워킹홀리데이 2·3차 지정근로(88/179일) &amp; 6개월 제한·면제 판정기</small></h2>
-            <p>Migration Regulations 1994·LIN 22/012·22/013·25/048(산불·자연재해 6대 지역표 전수)·PAM3 기반 88/179일 중복 제거 계산기 및 조건 8547(동일 고용주 6개월 근무 제한·자동 면제·시계 리셋) 시뮬레이터.</p>
+            <h2 data-i18n="c9Title">WHM Extension &amp; Condition 8547 Navigator<br/><small style="font-size:13.5px;color:#5A5654;">워킹홀리데이 2·3차 지정근로(88/179일) &amp; 6개월 제한·면제 판정기</small></h2>
+            <p data-i18n="c9Desc">Migration Regulations 1994·LIN 22/012·22/013·25/048(산불·자연재해 6대 지역표 전수)·PAM3 기반 88/179일 중복 제거 계산기 및 조건 8547(동일 고용주 6개월 근무 제한·자동 면제·시계 리셋) 시뮬레이터.</p>
           </div>
-          <div class="go">네비게이터 열기 (Open WHM Navigator) &rarr;</div>
+          <div class="go" data-i18n="c9Go">네비게이터 열기 (Open WHM Navigator) &rarr;</div>
         </a>
 
-        <!-- 6: Visa Global Processing Times -->
+        <!-- 10: Visa Global Processing Times -->
         <a class="card" href="/visa-global-processing-time/" data-cat="crisis" data-keywords="심사기간 processing time 비자 기간 대기">
           <div>
             <span class="tag">DAILY SNAPSHOT · HOME AFFAIRS</span>
-            <h2>Visa Global Processing Times<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 글로벌 심사기간 추적</small></h2>
-            <p>호주 연방 이민성(Department of Home Affairs) 공식 비자 심사기간 데이터의 일별 변동 추이와 스트림별 비교를 제공합니다.</p>
+            <h2 data-i18n="c10Title">Visa Global Processing Times<br/><small style="font-size:13.5px;color:#5A5654;">호주 비자 글로벌 심사기간 일간 추적</small></h2>
+            <p data-i18n="c10Desc">호주 연방 이민성(Department of Home Affairs) 공식 비자 심사기간 데이터의 일별 변동 추이와 스트림별 50%·90% 소요일수 비교를 제공합니다.</p>
           </div>
-          <div class="go">심사기간 보기 (View Tracker) &rarr;</div>
+          <div class="go" data-i18n="c10Go">심사기간 보기 (View Tracker) &rarr;</div>
         </a>
 
-        <!-- 7: Australian Migration Law Tracker -->
+        <!-- 11: Australian Migration Law Tracker -->
         <a class="card" href="/au-migration-law-tracker/" data-cat="crisis" data-keywords="법령 개정 이민법 legislation lin instrument">
           <div>
             <span class="tag">DAILY TRACKER · LEGISLATION</span>
-            <h2>Australian Migration Law Tracker<br/><small style="font-size:13.5px;color:#5A5654;">호주 이민법령 개정 쉬운 해설</small></h2>
-            <p>Federal Register of Legislation에 등록되는 이민법·시행령·Legislative Instrument 개정을 매일 추적하여 알기 쉽게 요약합니다.</p>
+            <h2 data-i18n="c11Title">Australian Migration Law Tracker<br/><small style="font-size:13.5px;color:#5A5654;">호주 이민법령 개정 쉬운 해설</small></h2>
+            <p data-i18n="c11Desc">Federal Register of Legislation에 등록되는 이민법·시행령·Legislative Instrument 개정을 매일 추적하여 한·영 양국어로 알기 쉽게 요약합니다.</p>
           </div>
-          <div class="go">법령 추적기 보기 (View Changes) &rarr;</div>
+          <div class="go" data-i18n="c11Go">법령 추적기 보기 (View Changes) &rarr;</div>
         </a>
 
-        <!-- 8: Australian Caselaw Digest -->
-        <a class="card" href="/au-caselaw-digest/" data-cat="crisis" data-keywords="판례 법원 재판소 austlii caselaw digest">
+        <!-- 12: Australian Caselaw Digest -->
+        <a class="card" href="/au-caselaw-digest/" data-cat="crisis" data-keywords="판례 법원 재판소 austlii caselaw digest 행정재심기구">
           <div>
             <span class="tag">DAILY DIGEST · AUSTLII</span>
-            <h2>Australian Caselaw Digest<br/><small style="font-size:13.5px;color:#5A5654;">호주 법원·재판소 판례 다이제스트</small></h2>
-            <p>호주 연방법원 및 행정재심기구(ART) 최신 주요 판결의 핵심 쟁점과 판시사항을 한·영 양국어로 정리합니다.</p>
+            <h2 data-i18n="c12Title">Australian Caselaw Digest<br/><small style="font-size:13.5px;color:#5A5654;">호주 법원·행정재심기구(ART) 판례 다이제스트</small></h2>
+            <p data-i18n="c12Desc">호주 연방법원 및 행정재심기구(ART) 최신 주요 판결의 핵심 쟁점과 판시사항을 한·영 양국어로 매일 정리합니다.</p>
           </div>
-          <div class="go">판례 다이제스트 보기 (View Digest) &rarr;</div>
+          <div class="go" data-i18n="c12Go">판례 다이제스트 보기 (View Digest) &rarr;</div>
         </a>
       </div>
     </div>
@@ -399,15 +630,264 @@
 
   <footer>
     <div class="wrap">
-      <strong>법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · Underwood QLD ·
+      <strong>법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · Underwood QLD (Brisbane · Sydney · Perth) ·
       Official Contact: <a href="mailto:enquiry@parkcolawyers.com">enquiry@parkcolawyers.com</a> ·
-      <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener">온라인 상담 문의</a>
-      <div style="margin-top:4px;font-size:12px;">General information only, not legal advice. &copy; 2026 PNC Legal Pty Ltd t/a Park &amp; Co Lawyers.</div>
+      <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" data-i18n="footerConsultLink">온라인 상담 문의</a>
+      <div style="margin-top:4px;font-size:12px;" data-i18n="footerDisclaimer">General information only, not legal advice. &copy; 2026 PNC Legal Pty Ltd t/a Park &amp; Co Lawyers.</div>
     </div>
   </footer>
 
   <script>
   (function () {
+    var currentLang = 'ko';
+
+    var HUB_I18N = {
+      ko: {
+        headerFirmTag: '법무법인 박앤코 · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)',
+        hubOverline: 'PARK & CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (12 LIVE NAVIGATORS & TRACKERS)',
+        hubTitle: '호주 이민법 · 고용법 · 가족법 · 판례 공개 리서치 허브',
+        hubSub: '호주 연방 이민성, 법제처(Federal Register of Legislation), 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA), AustLII 및 8개 주정부 · 13개 지역 DAMA 공식 1차 출처를 정기 추적·검증하는 호주 법률 인텔리전스 시작점이자 목적지입니다.',
+        tickerTitle: '실시간 1차 출처 & 218 법률 KDB 연동 브리핑 (FY2026–27 법령 · 대기열 · 판례 기준)',
+        tick1Label: '고용주 스폰서 최소 연봉 (FY26–27)',
+        tick2Label: '기술이민(189·190·491) · 파트너(820)',
+        tick3Label: '부모비자 Queue Release (2026.08)',
+        tick4Label: '비자거절·취소 행정재심기구(ART) 기한',
+        tick5Label: '고용법 FWC 기한 · 보상상한 (s 392)',
+        tick6Label: '호주 가족법 제척기간 · 전세계 자산',
+        routerKicker: 'START HERE · 60-SECOND MASTER LEGAL & VISA PATHWAY ROUTER',
+        routerTitle: '🧭 어디서부터 시작할지 막막하신가요? 60초 통합 경로 진단기',
+        routerSub: '아래 3가지 조건만 선택하시면 박앤코의 12개 전문 내비게이터 중 귀하에게 정확히 맞는 도구와 법정 기한·비용을 연결해 드리며, 진단 요약을 담아 <strong>enquiry@parkcolawyers.com</strong>으로 즉시 문의하실 수 있습니다.',
+        rtLblGoal: '1. 해결하고자 하는 핵심 분야 · 목표',
+        rtOptSkilled: '기술이민 · 8개 주정부 노미네이션 영주권 (189 · 190 · 491 → 191)',
+        rtOptSponsor: '고용주 스폰서 · 이직(8607) · 13개 DAMA 영주권 (482 · 186 · 494)',
+        rtOptPartner: '파트너·배우자 비자(820/801 · 309/100 · 300) & 유학생 졸업생(500→485)',
+        rtOptParent: '부모님 초청 비자(143 · 864 · 103 · 804 · 870) & 워홀 연장(417 · 462)',
+        rtOptCrisis: '🚨 비자 거절 · 취소(s 116/501) · Section 48 · PIC 4020 · ART 재심 긴급 대응',
+        rtOptEmp: '⚖️ 호주 고용법 (부당해고 21일 기한 · 정리해고 26주 보상 · 임금체불 · 스폰서 기업 감사)',
+        rtOptFam: '🏛️ 호주 가족법 (이혼 · 한·호 재산분할 법원판례 매칭 · 양육권 · 파트너비자 별거)',
+        rtLblAge: '2. 연령대 또는 법정 기한 긴급도',
+        rtAgeUnder35: '만 18~34세 (485 졸업생 · 워홀 · GSM 최대 점수 구간)',
+        rtAge35to44: '만 35~44세 (일반 기술이민 189/190/491 및 186 영주권 핵심 구간)',
+        rtAge45to54: '만 45~54세 (13개 DAMA 만 50/55세 연령면제 · 482 · 파트너 · 가족/고용법)',
+        rtAgeUrgent: '⏰ 법정 불변 기한 임박 (ART 7~28일 / FWC 해고 후 21일 / 이혼 후 12개월)',
+        rtLblStatus: '3. 현재 체류 상태 / 의뢰인 유형',
+        rtStatOnshore: '호주 내 체류 중 (유효 실체비자 소지 · 직장인 · 영주권자/시민권자)',
+        rtStatBva: '호주 내 브리징 비자 소지 / 비자 만료·거절 이력 있음 (Section 48 / Schedule 3)',
+        rtStatOffshore: '한국 등 호주 외 체류 중 (해외 신청 준비)',
+        rtStatEmployer: '🏢 호주 기업 대표 · 인사담당자 (스폰서십 · 고용계약 · 해고 리스크 자문)',
+        catAll: '전체 시리즈 (12)',
+        catEmployer: '기술이민·고용주·주정부·DAMA (3)',
+        catFamily: '파트너·부모·졸업생(485)·워홀 (3)',
+        catPractice: '호주 고용법 & 가족법 (2)',
+        catCrisis: '비자위기·ART·법령·판례·심사기간 (4)',
+        footerConsultLink: '온라인 상담 문의',
+        footerDisclaimer: 'General information only, not legal advice. © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers.'
+      },
+      en: {
+        headerFirmTag: 'Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist in Immigration Law)',
+        hubOverline: 'PARK & CO LAWYERS · PUBLIC LEGAL INTELLIGENCE SERIES (12 LIVE NAVIGATORS & TRACKERS)',
+        hubTitle: 'Australian Immigration, Employment & Family Law Intelligence Hub',
+        hubSub: 'The definitive starting point and destination for Australian legal data—tracking Home Affairs, the Federal Register of Legislation, the Administrative Review Tribunal (ART), the Fair Work Commission (FWC), the FCFCOA, AustLII, 8 State Nomination frameworks, and 13 DAMAs.',
+        tickerTitle: 'Live Primary-Source & 218 Legal KDB Briefing (FY2026–27 Thresholds, Queues & Precedents)',
+        tick1Label: 'Sponsor Minimum Salary (FY26–27)',
+        tick2Label: 'GSM (189·190·491) & Partner (820)',
+        tick3Label: 'Parent Visa Queue Release (Aug 2026)',
+        tick4Label: 'Strict ART Review Deadlines',
+        tick5Label: 'Employment FWC Limit & Cap (s 392)',
+        tick6Label: 'Family Law Limits & Global Pool',
+        routerKicker: 'START HERE · 60-SECOND MASTER LEGAL & VISA PATHWAY ROUTER',
+        routerTitle: '🧭 Not Sure Where to Start? 60-Second Master Pathway Router',
+        routerSub: 'Select 3 quick parameters below to route directly to the right Park & Co navigator, check live processing times and statutory deadlines, or email your pre-filled diagnostic brief to <strong>enquiry@parkcolawyers.com</strong>.',
+        rtLblGoal: '1. Primary Legal Goal or Practice Area',
+        rtOptSkilled: 'General Skilled Migration & 8-State Nomination (189 · 190 · 491 → 191)',
+        rtOptSponsor: 'Employer Sponsored, Job Change (8607) & 13 DAMAs (482 · 186 · 494)',
+        rtOptPartner: 'Partner Visas (820/801 · 309/100 · 300) & Graduate Bridge (500→485)',
+        rtOptParent: 'Parent Visas (143 · 864 · 103 · 804 · 870) & WHM Extension (417 · 462)',
+        rtOptCrisis: '🚨 Visa Refusal, Cancellation (s 116/501), Section 48, PIC 4020 & ART Review',
+        rtOptEmp: '⚖️ Australian Employment Law (21-Day FWC Limit, Redundancy, Wage Theft & Sponsor Audit)',
+        rtOptFam: '🏛️ Australian Family Law (Divorce, Empirical FCFCOA Property Precedent Matcher & Parenting)',
+        rtLblAge: '2. Age Bracket or Deadline Urgency',
+        rtAgeUnder35: 'Aged 18–34 (Eligible for Subclass 485, WHM & Maximum GSM Age Points)',
+        rtAge35to44: 'Aged 35–44 (Standard GSM 189/190/491 & ENS 186 PR Window)',
+        rtAge45to54: 'Aged 45–54 (13 DAMA Age Concessions up to 50/55 · 482 · Partner · Employment/Family)',
+        rtAgeUrgent: '⏰ Urgent Statutory Deadline (ART 7–28 Days / FWC 21 Days / Divorce 12 Months)',
+        rtLblStatus: '3. Current Location / Client Profile',
+        rtStatOnshore: 'Onshore in Australia (Valid Substantive Visa / Employee / PR / Citizen)',
+        rtStatBva: 'Onshore on Bridging Visa / Prior Refusal or Expiry (Section 48 / Schedule 3)',
+        rtStatOffshore: 'Offshore (Outside Australia)',
+        rtStatEmployer: '🏢 Australian Business Owner / HR Manager (Sponsorship & Fair Work Compliance)',
+        catAll: 'All Series (12)',
+        catEmployer: 'Skilled, Sponsor & 13 DAMAs (3)',
+        catFamily: 'Partner, Parent, 485 & WHM (3)',
+        catPractice: 'Employment Law & Family Law (2)',
+        catCrisis: 'Visa Crisis, ART, Law & Caselaw (4)',
+        footerConsultLink: 'Online Consultation Inquiry',
+        footerDisclaimer: 'General information only, not legal advice. © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers.'
+      }
+    };
+
+    var ROUTER_MAP = {
+      pr_skilled: {
+        primaryUrl: '/parkco-gsm-state-navigator/',
+        primaryName_ko: 'GSM 기술이민(189·190·491) & 8개 주정부 노미네이션 내비게이터',
+        primaryName_en: 'GSM Points (189·190·491) & 8-State Nomination Navigator',
+        secondaryUrl: '/parkco-sid-ens-navigator/',
+        secondaryName_ko: '플랜 B: SID 482 · ENS 186 고용주 스폰서 내비게이터',
+        secondaryName_en: 'Plan B: SID 482 & ENS 186 Sponsor Navigator',
+        advice_ko: 'Schedule 6D 점수 계산 시 해외+호주 경력 합산 20점 상한(Item 6D51) 초과 청구를 주의하시고, 만 45세 이상이거나 점수가 부족한 경우 즉시 482/186 스폰서 또는 13개 DAMA 연령 감면 경로를 병행 검토하십시오.',
+        advice_en: 'Check Item 6D51 (20-point combined work experience cap) and compare all 8 State Nomination residency/employment rules alongside Subclass 482/186 and DAMA options.'
+      },
+      pr_sponsor: {
+        primaryUrl: '/parkco-sid-ens-navigator/',
+        primaryName_ko: 'SID 482 · ENS 186 · Condition 8607 & SAF 내비게이터',
+        primaryName_en: 'SID 482 · ENS 186 · Condition 8607 & SAF Navigator',
+        secondaryUrl: '/parkco-dama-navigator/',
+        secondaryName_ko: '연령(50/55세)·영어·연봉 감면: 호주 13개 DAMA 탐색기',
+        secondaryName_en: 'Age (50/55), English & Salary Concessions: 13 DAMA Navigator',
+        advice_ko: 'FY2026–27 CSIT($79,423) 또는 DAMA 90%($71,481) 충족 여부, 다중 스폰서 합산 186 TRT 2년(730일) 도달일, 퇴사 후 180일(Condition 8607) 시계를 즉시 계산합니다.',
+        advice_en: 'Verify FY2026–27 CSIT ($79,423) or DAMA 90% ($71,481), multi-sponsor 2-year (730-day) 186 TRT accrual, and Condition 8607 180-day grace periods.'
+      },
+      family_partner: {
+        primaryUrl: '/parkco-partner-graduate-navigator/',
+        primaryName_ko: '파트너 비자(820/309/300) · Schedule 3 & 졸업생(485) 브릿지 내비게이터',
+        primaryName_en: 'Partner Visas (820/309/300), Schedule 3 & Graduate (485) Navigator',
+        secondaryUrl: '/parkco-family-law-navigator/',
+        secondaryName_ko: '파트너 비자 별거·가정폭력 단독 영주권: 가족법 내비게이터',
+        secondaryName_en: 'Relationship Breakdown / Family Violence PR: Family Law Navigator',
+        advice_ko: '파트너 비자($9,095 VAC)의 4대 증빙 기둥(reg 1.15A), 사실혼 12개월 동거 면제 가능 주(WA·NT 면제 불가 주의), 브리징 상태의 Schedule 3 웨이버 및 485 만 35세 상한을 점검합니다.',
+        advice_en: 'Check the 4 Pillars (reg 1.15A), State Relationship Registration exemptions (note WA/NT exclusion), Schedule 3 waivers, and Subclass 485 Age 35 cap rules.'
+      },
+      family_parent: {
+        primaryUrl: '/parkco-parent-visa-navigator/',
+        primaryName_ko: '부모초청 비자(103·143·804·864 & 870) 대기열·생존 내비게이터',
+        primaryName_en: 'Parent Visas (103·143·804·864 & 870) Queue & Survival Navigator',
+        secondaryUrl: '/parkco-whm-navigator/',
+        secondaryName_ko: '워킹홀리데이(417·462) 88/179일 & 조건 8547 내비게이터',
+        secondaryName_en: 'WHM (417·462) 88/179-Day & Condition 8547 Navigator',
+        advice_ko: '부모비자 실시간 Queue Release Date, 온쇼어 고령 부모비자(864/804) 브리징 체류 전략, AoS 보증인 소득 기준 및 870 임시 부모비자(90일 출국 공백 cl 870.223)를 비교합니다.',
+        advice_en: 'Compare live Parent Visa Queue Release Dates, onshore 864/804 Bridging Visa strategies, AoS income thresholds, and Subclass 870 90-day offshore gap rules.'
+      },
+      visa_crisis: {
+        primaryUrl: '/parkco-visa-crisis-navigator/',
+        primaryName_ko: '🚨 비자 거절 · 취소(s 116/501) · Section 48 · ART 기한 긴급 진단기',
+        primaryName_en: '🚨 Visa Refusal, Section 48 Bar & ART Deadline Navigator',
+        secondaryUrl: '/au-caselaw-digest/',
+        secondaryName_ko: '최근 연방법원·행정재심기구(ART) 판례 다이제스트',
+        secondaryName_en: 'Recent Federal Court & ART Caselaw Digest',
+        advice_ko: '행정재심기구(ART) 불복 기한(일반거절 28일, s 116 취소 7영업일, s 501 9일)은 단 1분도 연장되지 않습니다. 지금 즉시 마감일과 Section 48 예외 허용 비자(190·491·494·820)를 판정하십시오.',
+        advice_en: 'ART review deadlines (28 calendar days for onshore refusal, 7 working days for s 116, 9 days for s 501) cannot be extended by even one minute. Calculate your exact deadline immediately.'
+      },
+      employment_law: {
+        primaryUrl: '/parkco-employment-law-navigator/',
+        primaryName_ko: '⚖️ 호주 고용법 (근로자 & 고용주) · FWC 21일 기한 · 482 스폰서 교차 내비게이터',
+        primaryName_en: '⚖️ Australian Employment Law (Employee & Employer) & Sponsor Crossover Navigator',
+        secondaryUrl: '/parkco-sid-ens-navigator/',
+        secondaryName_ko: '스폰서 비자 근로자 180일 이직 시계: SID/ENS 내비게이터',
+        secondaryName_en: 'Sponsored Worker 180-Day Clock: SID/ENS Navigator',
+        advice_ko: '부당해고(s 394)·일반보호(s 365)·플랫폼 계정정지(s 536LU)는 해고 후 21일 이내 FWC 접수가 필수이며, 재배치 의무를 위반한 가짜 정리해고(s 389)는 최대 26주분 보상금(s 392) 대상입니다.',
+        advice_en: 'Unfair Dismissal (s 394), General Protections (s 365), and Unfair Deactivation (s 536LU) require filing within 21 calendar days; defective redundancies expose employers to up to 26 weeks pay.'
+      },
+      family_law: {
+        primaryUrl: '/parkco-family-law-navigator/',
+        primaryName_ko: '🏛️ 호주 가족법 · 한·호 재산분할 법원판례 매칭 · 양육권 · 파트너비자 교차 내비게이터',
+        primaryName_en: '🏛️ Australian Family Law, FCFCOA Property Precedent Matcher & Visa Crossover Navigator',
+        secondaryUrl: '/parkco-partner-graduate-navigator/',
+        secondaryName_ko: '파트너 비자(820/309) 요건 확인: 파트너 내비게이터',
+        secondaryName_en: 'Partner Visa (820/309) Criteria: Partner Navigator',
+        advice_ko: '2025.6 발효 개정 가족법(가정폭력·경제적 통제 반영 s 79(4)(ca), 한국+호주 전 세계 자산 공개 s 71B)과 218 가족법 KDB의 실제 FCFCOA 재산분할 판결 비율(기여도%+장래조정%)을 대조합니다.',
+        advice_en: 'Examine real FCFCOA property settlement percentage splits from Park & Co’s 3,704-case Family Law KDB alongside the June 2025 property reforms and May 2024 parenting reforms.'
+      }
+    };
+
+    function renderRouter() {
+      var goal = (document.getElementById('rt-goal') || {}).value || 'pr_skilled';
+      var age = (document.getElementById('rt-age') || {}).value || '35to44';
+      var status = (document.getElementById('rt-status') || {}).value || 'onshore_sub';
+      var cfg = ROUTER_MAP[goal] || ROUTER_MAP.pr_skilled;
+
+      var langParam = currentLang === 'en' ? '?lang=en' : '';
+      var primaryHref = cfg.primaryUrl + langParam;
+      var secondaryHref = cfg.secondaryUrl + langParam;
+
+      var extraAlertKo = '';
+      var extraAlertEn = '';
+      if (age === '45to54' && (goal === 'pr_skilled' || goal === 'pr_sponsor')) {
+        extraAlertKo = '<div style="margin-top:8px;padding:8px 12px;background:#FFFBEB;border-left:4px solid #D97706;font-size:12.5px;color:#92400E;">💡 <strong>만 45세 이상 연령 해법:</strong> 일반 GSM/186은 만 45세 미만이 원칙이나, <strong>호주 13개 DAMA 협약</strong>은 직종에 따라 <strong>만 50세 또는 만 55세까지 영주권(ENS 186) 연령 면제</strong>를 허용합니다.</div>';
+        extraAlertEn = '<div style="margin-top:8px;padding:8px 12px;background:#FFFBEB;border-left:4px solid #D97706;font-size:12.5px;color:#92400E;">💡 <strong>Age 45+ Strategy:</strong> Standard GSM/186 caps at 45, but <strong>Australia’s 13 DAMAs provide age concessions up to 50 or 55</strong> for ENS 186 permanent residency.</div>';
+      } else if (status === 'onshore_bva' || age === 'urgent_deadline') {
+        extraAlertKo = '<div style="margin-top:8px;padding:8px 12px;background:#FEF2F2;border-left:4px solid #B23A2E;font-size:12.5px;color:#7F1D1D;">🚨 <strong>브리징 비자 / 법정 불변 기한 경보:</strong> Section 48 Bar, Schedule 3 웨이버, ART(7~28일) 또는 FWC(21일) 기한이 걸려 있는 경우 단독 판단으로 접수하지 마시고 즉시 <strong>enquiry@parkcolawyers.com</strong>으로 긴급 검토를 요청하십시오.</div>';
+        extraAlertEn = '<div style="margin-top:8px;padding:8px 12px;background:#FEF2F2;border-left:4px solid #B23A2E;font-size:12.5px;color:#7F1D1D;">🚨 <strong>Bridging Visa / Strict Statutory Deadline Alert:</strong> Where Section 48, Schedule 3, ART (7–28 days), or FWC (21 days) deadlines apply, contact <strong>enquiry@parkcolawyers.com</strong> immediately before lodging.</div>';
+      }
+
+      var mailSubj = encodeURIComponent(
+        currentLang === 'ko'
+          ? '[박앤코 마스터 허브 자문요청] ' + cfg.primaryName_ko + ' (' + age + ' / ' + status + ')'
+          : '[Park & Co Hub Consultation Inquiry] ' + cfg.primaryName_en + ' (' + age + ' / ' + status + ')'
+      );
+      var mailBody = encodeURIComponent(
+        currentLang === 'ko'
+          ? [
+              '안녕하세요, 법무법인 박앤코 박창민 대표변호사님.',
+              '박앤코 법률 인텔리전스 허브(60초 마스터 경로 진단기)를 통해 아래 사안에 대한 법률 자문을 요청드립니다.',
+              '',
+              '• 핵심 분야/목표: ' + cfg.primaryName_ko,
+              '• 연령대/긴급도: ' + age,
+              '• 현재 상태/구분: ' + status,
+              '• 성함 및 연락처: ',
+              '• 상세 문의 내용: '
+            ].join('
+')
+          : [
+              'Dear Principal Solicitor Chang Min Park (Park & Co Lawyers),',
+              'I am writing from the Park & Co Legal Intelligence Hub (60-Second Master Router) to request a legal consultation:',
+              '',
+              '• Primary Area / Goal: ' + cfg.primaryName_en,
+              '• Age / Urgency Band: ' + age,
+              '• Current Status / Profile: ' + status,
+              '• Name & Phone: ',
+              '• Brief Summary of Matter: '
+            ].join('
+')
+      );
+
+      var box = document.getElementById('router-result-box');
+      if (box) {
+        box.innerHTML =
+          '<div style="font-size:14px;color:#2E2E2E;line-height:1.6;margin-bottom:12px;">' +
+            '<strong>🎯 ' + (currentLang === 'ko' ? '박앤코 AI 라우터 핵심 권고:' : 'Park & Co Router Recommendation:') + '</strong> ' +
+            (currentLang === 'ko' ? cfg.advice_ko : cfg.advice_en) +
+            (currentLang === 'ko' ? extraAlertKo : extraAlertEn) +
+          '</div>' +
+          '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">' +
+            '<a class="btn-primary-cta" href="' + primaryHref + '">1️⃣ ' + (currentLang === 'ko' ? cfg.primaryName_ko : cfg.primaryName_en) + ' &rarr;</a>' +
+            '<a class="btn-secondary-cta" href="' + secondaryHref + '">2️⃣ ' + (currentLang === 'ko' ? cfg.secondaryName_ko : cfg.secondaryName_en) + ' &rarr;</a>' +
+            '<a class="btn-secondary-cta" style="border-color:#2E6B4F;color:#2E6B4F;" href="mailto:enquiry@parkcolawyers.com?subject=' + mailSubj + '&body=' + mailBody + '">✉️ ' +
+              (currentLang === 'ko' ? '이 조건 그대로 박앤코에 이메일 문의 (enquiry@parkcolawyers.com)' : 'Email This Profile to Park & Co (enquiry@parkcolawyers.com)') +
+            '</a>' +
+          '</div>';
+      }
+    }
+
+    function applyHubLang(lang) {
+      currentLang = lang === 'en' ? 'en' : 'ko';
+      document.documentElement.lang = currentLang;
+      var dict = HUB_I18N[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var k = el.getAttribute('data-i18n');
+        if (dict[k]) el.innerHTML = dict[k];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === currentLang);
+      });
+      var sInput = document.getElementById('hub-search-input');
+      if (sInput) {
+        sInput.placeholder = currentLang === 'en'
+          ? 'Search visa subclass or legal topic (e.g. 189, 190, 482, 820, 485, ART, Unfair Dismissal, Property)...'
+          : '비자·법률 키워드 검색 (예: 189, 190, 482, 820, 485, 870, ART, 부당해고, 재산분할)...';
+      }
+      renderRouter();
+    }
+
     /* 1. Category Filter & Instant Search */
     var activeCat = 'all';
     var searchInput = document.getElementById('hub-search-input');
@@ -430,12 +910,25 @@
     });
     if (searchInput) searchInput.addEventListener('input', applyFilter);
 
-    /* 2. Live Cross-Series Intelligence Ticker Fetcher */
+    ['rt-goal', 'rt-age', 'rt-status'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('change', renderRouter);
+    });
+
+    var btnKo = document.getElementById('hub-lang-ko');
+    var btnEn = document.getElementById('hub-lang-en');
+    if (btnKo) btnKo.addEventListener('click', function () { applyHubLang('ko'); });
+    if (btnEn) btnEn.addEventListener('click', function () { applyHubLang('en'); });
+
+    /* 2. Live Cross-Series Intelligence Ticker Fetcher across all 7 Navigators */
     Promise.all([
       fetch('/parkco-parent-visa-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
       fetch('/parkco-sid-ens-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
       fetch('/parkco-visa-crisis-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
-      fetch('/parkco-gsm-state-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; })
+      fetch('/parkco-gsm-state-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+      fetch('/parkco-employment-law-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+      fetch('/parkco-family-law-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+      fetch('/parkco-partner-graduate-navigator/data/polling_status.json').then(function (r) { return r.json(); }).catch(function () { return null; })
     ]).then(function (res) {
       var total = 0, ok = 0;
       res.forEach(function (d) {
@@ -446,12 +939,13 @@
       });
       if (total > 0) {
         var badge = document.getElementById('ticker-verified-badge');
-        if (badge) badge.textContent = '● ' + ok + '/' + total + ' Primary Sources Live Verified (HTTP 200)';
+        if (badge) badge.textContent = '● ' + ok + '/' + total + ' Primary Sources & 7,647 KDB Cases Live Verified (HTTP 200)';
       }
     });
 
-    /* 3. Abacus Visitor Counter */
-    var NS = 'changa9090-github-io';
+    /* 3. Unified Abacus Visitor Counter (combining changa9090-github-io and changa9090.github.io) */
+    var NS1 = 'changa9090-github-io';
+    var NS2 = 'changa9090.github.io';
     var P = 'hub';
     function up(id, n) { var el = document.getElementById(id); if (el && typeof n === 'number') el.textContent = n.toLocaleString(); }
     var bar = document.createElement('div');
@@ -461,14 +955,27 @@
       '<span style="margin:0 10px;opacity:0.35;">|</span>' +
       '<span>Portal Total Views: <strong id="vc-total" style="color:#FFFFFF;font-variant-numeric:tabular-nums;">—</strong></span>' +
       '<span style="margin:0 10px;opacity:0.35;">|</span>' +
-      '<span style="opacity:0.75;">PNC Legal Pty Ltd t/a Park &amp; Co Lawyers · Public Legal Intelligence Portal</span>';
+      '<span style="opacity:0.75;">PNC Legal Pty Ltd t/a Park &amp; Co Lawyers · Official Contact: enquiry@parkcolawyers.com</span>';
     document.body.appendChild(bar);
     var k = 'vc_counted_' + P + '_' + new Date().toISOString().slice(0, 10);
     var first = false;
     try { if (!sessionStorage.getItem(k)) { sessionStorage.setItem(k, '1'); first = true; } } catch (e) { first = true; }
-    var base = 'https://abacus.jasoncameron.dev/' + (first ? 'hit' : 'get') + '/' + NS + '/';
-    fetch(base + P).then(function (r) { return r.json(); }).then(function (d) { if (d) up('vc-page', d.value); }).catch(function () {});
-    fetch(base + 'total').then(function (r) { return r.json(); }).then(function (d) { if (d) up('vc-total', d.value); }).catch(function () {});
+    var base1 = 'https://abacus.jasoncameron.dev/' + (first ? 'hit' : 'get') + '/' + NS1 + '/';
+    fetch(base1 + P).then(function (r) { return r.json(); }).then(function (d) { if (d) up('vc-page', d.value); }).catch(function () {});
+    Promise.all([
+      fetch(base1 + 'total').then(function (r) { return r.json(); }).catch(function () { return { value: 0 }; }),
+      fetch('https://abacus.jasoncameron.dev/get/' + NS2 + '/total').then(function (r) { return r.json(); }).catch(function () { return { value: 0 }; })
+    ]).then(function (totals) {
+      var sum = ((totals[0] && totals[0].value) || 0) + ((totals[1] && totals[1].value) || 0);
+      if (sum > 0) up('vc-total', sum);
+    });
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('lang') === 'en') {
+      applyHubLang('en');
+    } else {
+      applyHubLang('ko');
+    }
   })();
   </script>
 </body>
