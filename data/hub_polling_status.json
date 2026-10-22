@@ -1,7 +1,7 @@
 {
-  "last_polled_iso": "2026-10-22T09:31:41+10:00",
-  "total_primary_sources": 101,
-  "verified_ok_sources": 101,
+  "last_polled_iso": "2026-10-22T12:31:03+10:00",
+  "total_primary_sources": 106,
+  "verified_ok_sources": 106,
   "total_kdb_cases": 16951,
   "kdb_summary": {
     "immi_cases": 9270,
@@ -24,43 +24,43 @@
       "metrics_ko": "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630",
       "metrics_en": "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630",
       "sha256_prefix": "a964fbdacae4f71a",
-      "last_polled": "2026-10-22T00:00:36+10:00"
+      "last_polled": "2026-10-22T12:30:54+10:00"
     },
     {
       "id": "sid-ens",
-      "name_ko": "2. 고용주 스폰서 (SID 482 · ENS 186 · 494) & ABF 제재 등록부",
-      "name_en": "2. Employer Sponsored (SID 482 · ENS 186 · 494) & ABF Sanctions",
+      "name_ko": "2. 고용주 스폰서 (SID 482 · ENS 186 · 494) & ABF 제재 · ART 노미네이션",
+      "name_en": "2. Employer Sponsored (SID 482 · ENS 186 · 494), ABF Sanctions & ART Nomination",
       "url": "/parkco-sid-ens-navigator/",
       "engine": "sid_ens_poller.py (Mon 07:40 AEST)",
-      "sources": 13,
-      "metrics_ko": "3-Layer Salary(CSIT $79,423/SSIT $146,576) · ABF 제재 1,842건(현행 121) · s 245AYM 고용금지 · 8607 180/365일",
-      "metrics_en": "3-Layer Salary (CSIT $79,423/SSIT $146,576) · 1,842 ABF Sanctions (121 Active) · s 245AYM Bar · 8607 180/365d",
+      "sources": 14,
+      "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,842건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
+      "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,842 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
       "sha256_prefix": "9acaf07d0f8bad39",
-      "last_polled": "2026-10-22T09:09:01+10:00"
+      "last_polled": "2026-10-22T12:30:43+10:00"
     },
     {
       "id": "partner",
-      "name_ko": "3. 파트너 비자 (820/801 · 309/100 · 300) & Sch 3",
-      "name_en": "3. Partner Visas (820/309/300) & Schedule 3",
+      "name_ko": "3. 파트너 비자 (820/801 · 309/100 · 300) · Sch 3 & 호주 시민권 소요기간",
+      "name_en": "3. Partner Visas (820/309/300), Schedule 3 & Citizenship Processing",
       "url": "/parkco-partner-graduate-navigator/",
       "engine": "partner_graduate_poller.py (Mon 07:50 AEST)",
-      "sources": 6,
-      "metrics_ko": "820/309/300 $11,710 · 300→820 $1,955 · 만료300→820 $2,475 · 445 $4,040 · Immi KDB 9,269건",
-      "metrics_en": "820/309/300 $11,710 · 300→820 $1,955 · Ceased 300 $2,475 · 445 $4,040 · Immi KDB 9,269 cases",
+      "sources": 8,
+      "metrics_ko": "820/309 $11,710 · 시민권 Conferral 8m/13m(미결 53,298건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%",
+      "metrics_en": "820/309 $11,710 · Citizenship Conferral 8m/13m (53,298 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-21T23:31:22Z"
+      "last_polled": "2026-10-22T02:30:37Z"
     },
     {
       "id": "visa-crisis",
-      "name_ko": "4. 비자 거절·취소 · Section 48 · ART 재심 기한",
-      "name_en": "4. Visa Refusal, Section 48 & ART Deadlines",
+      "name_ko": "4. 비자 거절·취소 · Section 48 · ART 비자별 이중분모 인용률 & 소요기간",
+      "name_en": "4. Visa Refusal, Section 48, ART Subclass Outcomes & Processing Times",
       "url": "/parkco-visa-crisis-navigator/",
       "engine": "visa_crisis_poller.py (Mon 07:55 AEST)",
-      "sources": 12,
-      "metrics_ko": "ART 재심비 $3,727 (50% 감면 $1,863.50) · 거절 28일 · s116 7영업일 · s501 9일 · KDB 9,269건(48.0%)",
-      "metrics_en": "ART Fee $3,727 (50% $1,863.50) · Refusal 28d · s116 7wd · s501 9d · KDB 9,269 cases (48.0%)",
+      "sources": 14,
+      "metrics_ko": "ART $3,727 · 13개 카테고리 소요기간(p50/p95) · 비자별 이중분모 Set Aside(485 93.3%·820 85.2%·482 83.3%·500 81.3%)",
+      "metrics_en": "ART $3,727 · 13-Category Processing (p50/p95) · Dual-Denominator Set Aside (485 93.3% · 820 85.2% · 482 83.3% · 500 81.3%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-10-22T09:31:14+10:00"
+      "last_polled": "2026-10-22T12:30:28+10:00"
     },
     {
       "id": "employment-law",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-22T09:31:41+10:00"
+      "last_polled": "2026-10-22T12:31:03+10:00"
     }
   ]
 }
