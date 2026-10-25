@@ -1,10 +1,10 @@
 {
-  "last_polled_iso": "2026-10-25T08:15:58+10:00",
+  "last_polled_iso": "2026-10-26T08:15:37+10:00",
   "total_primary_sources": 106,
   "verified_ok_sources": 106,
-  "total_kdb_cases": 16996,
+  "total_kdb_cases": 17026,
   "kdb_summary": {
-    "immi_cases": 9269,
+    "immi_cases": 9299,
     "immi_favorable_pct": 48.0,
     "emp_cases": 4012,
     "emp_win_pct": 28.4,
@@ -24,7 +24,7 @@
       "metrics_ko": "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630",
       "metrics_en": "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630",
       "sha256_prefix": "a964fbdacae4f71a",
-      "last_polled": "2026-10-22T12:30:54+10:00"
+      "last_polled": "2026-10-26T07:46:00+10:00"
     },
     {
       "id": "sid-ens",
@@ -36,7 +36,7 @@
       "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,842건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
       "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,842 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
       "sha256_prefix": "9acaf07d0f8bad39",
-      "last_polled": "2026-10-22T12:30:43+10:00"
+      "last_polled": "2026-10-26T07:40:25+10:00"
     },
     {
       "id": "partner",
@@ -48,7 +48,7 @@
       "metrics_ko": "820/309 $11,710 · 시민권 Conferral 8m/13m(미결 53,298건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%",
       "metrics_en": "820/309 $11,710 · Citizenship Conferral 8m/13m (53,298 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-22T02:30:37Z"
+      "last_polled": "2026-10-25T21:50:44Z"
     },
     {
       "id": "visa-crisis",
@@ -60,7 +60,7 @@
       "metrics_ko": "ART $3,727 · 13개 카테고리 소요기간(p50/p95) · 비자별 이중분모 Set Aside(485 93.3%·820 85.2%·482 83.3%·500 81.3%)",
       "metrics_en": "ART $3,727 · 13-Category Processing (p50/p95) · Dual-Denominator Set Aside (485 93.3% · 820 85.2% · 482 83.3% · 500 81.3%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-10-22T12:30:28+10:00"
+      "last_polled": "2026-10-26T07:55:48+10:00"
     },
     {
       "id": "employment-law",
@@ -71,8 +71,8 @@
       "sources": 7,
       "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · ABF 제재 1,842건 교차 · Emp KDB 3,968건(28.4%)",
       "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · 1,842 ABF Sanctions Crossover · Emp KDB 3,968 cases (28.4%)",
-      "sha256_prefix": "930391752f6a8a84",
-      "last_polled": "2026-10-21T23:31:28Z"
+      "sha256_prefix": "cc3a6a66aaf1957d",
+      "last_polled": "2026-10-25T22:00:17Z"
     },
     {
       "id": "family-law",
@@ -84,7 +84,7 @@
       "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · Family KDB 3,704건 ([2026] FedCFamC1A 186)",
       "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · Family KDB 3,704 cases ([2026] FedCFamC1A 186)",
       "sha256_prefix": "ca05d60230aea061",
-      "last_polled": "2026-10-21T23:31:35Z"
+      "last_polled": "2026-10-25T22:05:46Z"
     },
     {
       "id": "parent-visa",
@@ -96,7 +96,7 @@
       "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
       "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
       "sha256_prefix": "39450ed5bcee9ff1",
-      "last_polled": "2026-10-21T22:16:25+10:00"
+      "last_polled": "2026-10-26T07:35:22+10:00"
     },
     {
       "id": "dama",
@@ -108,7 +108,7 @@
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-21T00:22:57.954277+10:00"
+      "last_polled": "2026-10-26T07:15:21.968368+10:00"
     },
     {
       "id": "whm",
@@ -120,7 +120,7 @@
       "metrics_ko": "LIN 22/012 · LIN 22/013 · LIN 25/048 산불·재해 우편번호 6대 표 · VAC $745",
       "metrics_en": "LIN 22/012 · LIN 22/013 · LIN 25/048 6 Disaster Postcode Tables · VAC $745",
       "sha256_prefix": "f6b5dd9a4754e7db",
-      "last_polled": "2026-10-21T00:23:11+10:00"
+      "last_polled": "2026-10-26T07:25:57+10:00"
     },
     {
       "id": "trackers",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "361fc744ca4e3b96",
-      "last_polled": "2026-10-25T08:15:58+10:00"
+      "last_polled": "2026-10-26T08:15:37+10:00"
     }
   ]
 }
