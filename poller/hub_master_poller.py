@@ -39,6 +39,13 @@ NAVIGATOR_STATUS_PATHS = [
 ]
 
 
+def resolve_verified_count(d: dict, fallback: int) -> int:
+    for key in ("verified_ok_count", "live_verified_count", "live_count"):
+        if key in d and d[key] is not None:
+            return int(d[key])
+    return int(fallback)
+
+
 def run_poller(deploy: bool = False) -> None:
     now_iso = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=10))).isoformat(timespec="seconds")
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -68,7 +75,7 @@ def run_poller(deploy: bool = False) -> None:
             try:
                 d = json.loads(path.read_text(encoding="utf-8"))
                 src_count = int(d.get("total_sources") or d.get("total_targets") or len(d.get("sources", [])) or 10)
-                ok_count = int(d.get("verified_ok_count") or d.get("live_verified_count") or d.get("live_count") or src_count)
+                ok_count = resolve_verified_count(d, src_count)
                 last_polled = d.get("last_polled_iso") or d.get("last_polled_at") or d.get("last_polled") or d.get("generated_at") or now_iso
                 srcs = d.get("sources", [])
                 if srcs and isinstance(srcs, list) and isinstance(srcs[0], dict):
@@ -98,11 +105,42 @@ def run_poller(deploy: bool = False) -> None:
         "name_ko": "10~12. 글로벌 심사기간 · 법령 개정 · 판례 다이제스트 (3종)",
         "name_en": "10–12. Daily Processing Time, Legislation & Caselaw Trackers",
         "url": "/visa-global-processing-time/",
-        "engine": "Daily 05:15–06:30 AEST Timers",
+        "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 3,
-        "metrics_ko": "이민성 글로벌 심사기간(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
-        "metrics_en": "DHA Global Processing Times (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
+        "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
+        "metrics_en": "DHA Global Processing Times 74 Streams (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
         "sha256_prefix": dha_price.get("sha256_prefix", "361fc744ca4e3b96"),
+        "last_polled": now_iso,
+    })
+
+    # Add /intelligence/ Hash-Bound Public Legal Intelligence Portal
+    intel_manifest_path = HUB_DIR / "intelligence" / "data" / "release-manifest.json"
+    intel_src_total = 12
+    intel_src_ok = 12
+    intel_sha = dha_price.get("sha256_prefix", "361fc744ca4e3b96")
+    intel_records = 0
+    if intel_manifest_path.exists():
+        try:
+            im = json.loads(intel_manifest_path.read_text(encoding="utf-8"))
+            st_list = im.get("sources_status") or []
+            intel_src_total = len(st_list) or 12
+            intel_src_ok = sum(1 for s in st_list if s.get("fetch_status") == "fetched")
+            intel_sha = str(im.get("release_id") or intel_sha)[:16]
+            intel_records = int((im.get("counts") or {}).get("total", 0))
+        except Exception:
+            pass
+    total_sources += intel_src_total
+    verified_ok += intel_src_ok
+    series_rows.append({
+        "id": "public-legal-intel",
+        "name_ko": "13. 호주 공개 법률 인텔리전스 & SHA-256 원문 검증 센터 (/intelligence/)",
+        "name_en": "13. Public Legal Intelligence & SHA-256 Provenance Centre (/intelligence/)",
+        "url": "/intelligence/",
+        "engine": "public_legal_intel (Mon 08:10 AEST)",
+        "sources": intel_src_total,
+        "metrics_ko": f"ABF 법인 제재·금지 고용주 · FRL 시맨틱 개정 · FWO 체크리스트 · DHA/FWO FOI ({intel_records:,}건 승인)",
+        "metrics_en": f"ABF Sanctions & Prohibited · FRL Semantic Diff · FWO Checklists · DHA/FWO FOI ({intel_records:,} approved)",
+        "sha256_prefix": intel_sha,
         "last_polled": now_iso,
     })
 
