@@ -1,12 +1,12 @@
 {
-  "last_polled_iso": "2026-10-28T00:09:07+10:00",
-  "total_primary_sources": 118,
-  "verified_ok_sources": 118,
-  "total_kdb_cases": 17234,
+  "last_polled_iso": "2026-10-28T08:12:55+10:00",
+  "total_primary_sources": 106,
+  "verified_ok_sources": 106,
+  "total_kdb_cases": 17381,
   "kdb_summary": {
-    "immi_cases": 9570,
+    "immi_cases": 9569,
     "immi_favorable_pct": 48.0,
-    "emp_cases": 3949,
+    "emp_cases": 4097,
     "emp_win_pct": 28.4,
     "emp_hit_aud": 190100,
     "emp_cap_aud": 95050,
@@ -132,19 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times 74 Streams (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-10-28T00:09:07+10:00"
-    },
-    {
-      "id": "public-legal-intel",
-      "name_ko": "13. 호주 공개 법률 인텔리전스 & SHA-256 원문 검증 센터 (/intelligence/)",
-      "name_en": "13. Public Legal Intelligence & SHA-256 Provenance Centre (/intelligence/)",
-      "url": "/intelligence/",
-      "engine": "public_legal_intel (Mon 08:10 AEST)",
-      "sources": 12,
-      "metrics_ko": "ABF 법인 제재·금지 고용주 · FRL 시맨틱 개정 · FWO 체크리스트 · DHA/FWO FOI (2,261건 승인)",
-      "metrics_en": "ABF Sanctions & Prohibited · FRL Semantic Diff · FWO Checklists · DHA/FWO FOI (2,261 approved)",
-      "sha256_prefix": "24ed5a629f33ddd9",
-      "last_polled": "2026-10-28T00:09:07+10:00"
+      "last_polled": "2026-10-28T08:12:55+10:00"
     }
   ]
 }

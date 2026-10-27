@@ -113,37 +113,6 @@ def run_poller(deploy: bool = False) -> None:
         "last_polled": now_iso,
     })
 
-    # Add /intelligence/ Hash-Bound Public Legal Intelligence Portal
-    intel_manifest_path = HUB_DIR / "intelligence" / "data" / "release-manifest.json"
-    intel_src_total = 12
-    intel_src_ok = 12
-    intel_sha = dha_price.get("sha256_prefix", "361fc744ca4e3b96")
-    intel_records = 0
-    if intel_manifest_path.exists():
-        try:
-            im = json.loads(intel_manifest_path.read_text(encoding="utf-8"))
-            st_list = im.get("sources_status") or []
-            intel_src_total = len(st_list) or 12
-            intel_src_ok = sum(1 for s in st_list if s.get("fetch_status") == "fetched")
-            intel_sha = str(im.get("release_id") or intel_sha)[:16]
-            intel_records = int((im.get("counts") or {}).get("total", 0))
-        except Exception:
-            pass
-    total_sources += intel_src_total
-    verified_ok += intel_src_ok
-    series_rows.append({
-        "id": "public-legal-intel",
-        "name_ko": "13. 호주 공개 법률 인텔리전스 & SHA-256 원문 검증 센터 (/intelligence/)",
-        "name_en": "13. Public Legal Intelligence & SHA-256 Provenance Centre (/intelligence/)",
-        "url": "/intelligence/",
-        "engine": "public_legal_intel (Mon 08:10 AEST)",
-        "sources": intel_src_total,
-        "metrics_ko": f"ABF 법인 제재·금지 고용주 · FRL 시맨틱 개정 · FWO 체크리스트 · DHA/FWO FOI ({intel_records:,}건 승인)",
-        "metrics_en": f"ABF Sanctions & Prohibited · FRL Semantic Diff · FWO Checklists · DHA/FWO FOI ({intel_records:,} approved)",
-        "sha256_prefix": intel_sha,
-        "last_polled": now_iso,
-    })
-
     hub_telemetry = {
         "last_polled_iso": now_iso,
         "total_primary_sources": total_sources,
