@@ -1,15 +1,15 @@
 {
   "schema_version": "public-legal-intel-manifest-1.0",
-  "release_id": "0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870",
+  "release_id": "24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb",
   "as_of": "2026-10-27",
-  "bundle_path": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/bundle.json",
-  "bundle_sha256": "44ded90e28bcde0e2904f812810a2c85f7d364c21a7e091bbcca2158456ff571",
+  "bundle_path": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/bundle.json",
+  "bundle_sha256": "df67e516eb492a108699780a20c31b6b87eb15c3f179aedb658561ddbab415ac",
   "shards": {
-    "abf_enforcement": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/abf_enforcement.json",
-    "foi_disclosure": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/foi_disclosure.json",
-    "fwo_compliance": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/fwo_compliance.json",
-    "legislation_watch": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/legislation_watch.json",
-    "tribunal_and_citizenship_stats": "releases/0b3a24991a16285e61e3957f648d956244a924229471c029f658b765d7f88870/tribunal_and_citizenship_stats.json"
+    "abf_enforcement": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/abf_enforcement.json",
+    "foi_disclosure": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/foi_disclosure.json",
+    "fwo_compliance": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/fwo_compliance.json",
+    "legislation_watch": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/legislation_watch.json",
+    "tribunal_and_citizenship_stats": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/tribunal_and_citizenship_stats.json"
   },
   "counts": {
     "total": 2261,
@@ -119,11 +119,11 @@
     {
       "source_id": "frl-migration-act",
       "agency": "OPC/FRL",
-      "landing_url": "https://www.legislation.gov.au/C2004A00818/latest/text",
+      "landing_url": "https://www.legislation.gov.au/C1958A00062/latest/text",
       "fetch_status": "fetched",
       "freshness": "fresh",
-      "last_retrieved_utc": "2026-10-27T13:42:53Z",
-      "snapshot_sha256": "2ce1c3e10eba5610ddbe6f048d36e8fd13bcc499828f2224f356876fee4aa736",
+      "last_retrieved_utc": "2026-10-27T14:07:25Z",
+      "snapshot_sha256": "64d501872bb0b81f0c94f4184b146e1aa4386b8736a79e1daffc35ad9a08fdca",
       "approved_records": 1,
       "licence": "Creative Commons Attribution 4.0 International (FRL Authorised Legislation)",
       "rights_status": "approved_scoped"
