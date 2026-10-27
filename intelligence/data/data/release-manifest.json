@@ -1,0 +1,168 @@
+{
+  "schema_version": "public-legal-intel-manifest-1.0",
+  "release_id": "24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb",
+  "as_of": "2026-10-27",
+  "bundle_path": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/bundle.json",
+  "bundle_sha256": "df67e516eb492a108699780a20c31b6b87eb15c3f179aedb658561ddbab415ac",
+  "shards": {
+    "abf_enforcement": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/abf_enforcement.json",
+    "foi_disclosure": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/foi_disclosure.json",
+    "fwo_compliance": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/fwo_compliance.json",
+    "legislation_watch": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/legislation_watch.json",
+    "tribunal_and_citizenship_stats": "releases/24ed5a629f33ddd9e4c5f9c8d7256c9308a3d0c289e99eb2c6ba25181015dadb/tribunal_and_citizenship_stats.json"
+  },
+  "counts": {
+    "total": 2261,
+    "abf_enforcement": 1702,
+    "foi_disclosure": 542,
+    "fwo_compliance": 6,
+    "legislation_watch": 8,
+    "tribunal_and_citizenship_stats": 3
+  },
+  "sources_status": [
+    {
+      "source_id": "abf-prohibited",
+      "agency": "ABF",
+      "landing_url": "https://www.abf.gov.au/about-us/what-we-do/prohibited/prohibited-employer-register",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:52Z",
+      "snapshot_sha256": "c89948bdd84b989bb87c471579baf2e0d3c39eeacf094f339b38b095bf1d7e2d",
+      "approved_records": 1,
+      "licence": "CC BY 3.0 Australia",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "abf-sponsors",
+      "agency": "ABF",
+      "landing_url": "https://www.abf.gov.au/about-us/what-we-do/sponsor-sanctions/register-of-sanctioned-sponsors",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:51Z",
+      "snapshot_sha256": "c6bbcf8162d5eed85b1d6e802fd595c292cd352b327d19e84746498b2c3de030",
+      "approved_records": 1701,
+      "licence": "CC BY 3.0 Australia",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "art-caseload",
+      "agency": "ART",
+      "landing_url": "https://www.art.gov.au/help-and-resources/statistics",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:44:18Z",
+      "snapshot_sha256": "d272935fa9806cb262028fbf3aab64dd40e55b25d393d2af0ae8efc4281aa19e",
+      "approved_records": 3,
+      "licence": "CC BY 4.0 International (Administrative Review Tribunal Caseload Statistics)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "dha-foi-2025",
+      "agency": "DHA",
+      "landing_url": "https://www.homeaffairs.gov.au/access-and-accountability/freedom-of-information/disclosure-logs/2025",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:56Z",
+      "snapshot_sha256": "6edd3067be76c57428de2390f38bc8556e86416cc790dc1e70e8a436411eb102",
+      "approved_records": 300,
+      "licence": "CC BY 3.0 Australia",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "dha-foi-2026",
+      "agency": "DHA",
+      "landing_url": "https://www.homeaffairs.gov.au/access-and-accountability/freedom-of-information/disclosure-logs/2026",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:55Z",
+      "snapshot_sha256": "172816049457eba92505c585efb2907780ed81210bf174b2b2aaa2894b0fd0ad",
+      "approved_records": 187,
+      "licence": "CC BY 3.0 Australia",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "dha-salary",
+      "agency": "DHA",
+      "landing_url": "https://immi.homeaffairs.gov.au/visas/employing-and-sponsoring-someone/sponsoring-workers/nominating-a-position/salary-requirements",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:58Z",
+      "snapshot_sha256": "c5427e82e3cc679d1b7056018c97bc0a4e24466151f68528b9142665f526ed08",
+      "approved_records": 4,
+      "licence": "CC BY 3.0 Australia",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "frl-fair-work-act",
+      "agency": "OPC/FRL",
+      "landing_url": "https://www.legislation.gov.au/C2009A00028/latest/text",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:54Z",
+      "snapshot_sha256": "b0738cea9832a852ad7155210087ff7bb224b0accb11454c21da0731859fbc66",
+      "approved_records": 1,
+      "licence": "Creative Commons Attribution 4.0 International (FRL Authorised Legislation)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "frl-family-law-act",
+      "agency": "OPC/FRL",
+      "landing_url": "https://www.legislation.gov.au/C2004A00275/latest/text",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:54Z",
+      "snapshot_sha256": "f977017316c865588bea1779d2b0c6652427ca60f7c6cde4365129997199c12b",
+      "approved_records": 1,
+      "licence": "Creative Commons Attribution 4.0 International (FRL Authorised Legislation)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "frl-migration-act",
+      "agency": "OPC/FRL",
+      "landing_url": "https://www.legislation.gov.au/C1958A00062/latest/text",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T14:07:25Z",
+      "snapshot_sha256": "64d501872bb0b81f0c94f4184b146e1aa4386b8736a79e1daffc35ad9a08fdca",
+      "approved_records": 1,
+      "licence": "Creative Commons Attribution 4.0 International (FRL Authorised Legislation)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "frl-migration-regs",
+      "agency": "OPC/FRL",
+      "landing_url": "https://www.legislation.gov.au/F1996B03551/latest/text",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:53Z",
+      "snapshot_sha256": "26400f4b4eca076f9d4150b6497cef56efd4c1366bb74f7afbb8c10bc915708e",
+      "approved_records": 1,
+      "licence": "Creative Commons Attribution 4.0 International (FRL Authorised Legislation)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "fwo-compliance",
+      "agency": "FWO",
+      "landing_url": "https://www.fairwork.gov.au/about-us/compliance-and-enforcement",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:57Z",
+      "snapshot_sha256": "09a68e4edb4371d978d8b72927e2b886f503e2b9cf285e529cc44b4159d3b49e",
+      "approved_records": 6,
+      "licence": "Official Metadata & Direct Link Only (Source Page: CC BY-NC 4.0 International)",
+      "rights_status": "approved_scoped"
+    },
+    {
+      "source_id": "fwo-foi",
+      "agency": "FWO",
+      "landing_url": "https://www.fairwork.gov.au/about-us/accountability/accessing-our-information",
+      "fetch_status": "fetched",
+      "freshness": "fresh",
+      "last_retrieved_utc": "2026-10-27T13:42:57Z",
+      "snapshot_sha256": "4c56745f65a6b36387dca2c981aeee2f1f37d0bce6103739613e1baeb488615e",
+      "approved_records": 55,
+      "licence": "Official Metadata & Direct Link Only (Source Page: CC BY-NC 4.0 International)",
+      "rights_status": "approved_scoped"
+    }
+  ]
+}
