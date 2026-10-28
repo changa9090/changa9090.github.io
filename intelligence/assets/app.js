@@ -9,6 +9,8 @@
       brandTag: '법무법인 박앤코 · SHA-256 원문 검증 인텔리전스',
       navHub: '← 전체 12개 내비게이터 허브',
       navTracker: '비자 심사기간 (50%·90%)',
+      navInquiry: '🔗 공식 상담 · 문의 ↗',
+      footerInquiry: '박앤코 공식 문의 · 상담 채널 (parklawyers.com.au/links)',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: '호주 공개 법률정보 · 제재 등록부 · FOI 원문 검증 센터',
       heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 내무부(DHA)·FWO 정보공개(FOI) 로그 및 행정재심심판소(ART) 통계를 원문 SHA-256 해시와 함께 검증합니다.',
@@ -36,6 +38,8 @@
       brandTag: 'Park & Co Lawyers · Hash-Bound Legal Intelligence',
       navHub: '← All 12 Legal Navigators',
       navTracker: 'Visa Processing Times (50%·90%)',
+      navInquiry: '🔗 Official Inquiry ↗',
+      footerInquiry: 'Park & Co Official Inquiry Hub (parklawyers.com.au/links)',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: 'Australian Public Legal Intelligence & Provenance Centre',
       heroSub: 'Verify corporate ABF Sanctioned Sponsors & Prohibited Employers, Federal Register of Legislation (FRL) & threshold semantic diffs, Fair Work (FWO) HR compliance checklists, DHA/FWO FOI disclosure logs, and dual-denominator ART statistics with SHA-256 provenance.',
@@ -108,6 +112,10 @@
     document.querySelectorAll('[data-i18n]').forEach(function (node) {
       var k = node.getAttribute('data-i18n');
       if (I18N[state.lang][k]) node.textContent = I18N[state.lang][k];
+    });
+    document.querySelectorAll('.intel-inquiry-link').forEach(function (lnk) {
+      var href = state.lang === 'en' ? lnk.getAttribute('data-en-href') : lnk.getAttribute('data-ko-href');
+      if (href) lnk.setAttribute('href', href);
     });
     var searchEl = document.getElementById('intel-search');
     if (searchEl) searchEl.placeholder = t('searchPlaceholder');
