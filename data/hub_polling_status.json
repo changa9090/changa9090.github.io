@@ -1,16 +1,16 @@
 {
-  "last_polled_iso": "2026-10-28T08:15:45+10:00",
+  "last_polled_iso": "2026-10-29T08:15:02+10:00",
   "total_primary_sources": 106,
   "verified_ok_sources": 106,
-  "total_kdb_cases": 17385,
+  "total_kdb_cases": 20036,
   "kdb_summary": {
-    "immi_cases": 9569,
+    "immi_cases": 9269,
     "immi_favorable_pct": 48.0,
-    "emp_cases": 4101,
+    "emp_cases": 6576,
     "emp_win_pct": 28.4,
     "emp_hit_aud": 190100,
     "emp_cap_aud": 95050,
-    "family_cases": 3715,
+    "family_cases": 4191,
     "family_latest_cit": "[2026] FedCFamC1A 186"
   },
   "series": [
@@ -24,7 +24,7 @@
       "metrics_ko": "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630",
       "metrics_en": "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630",
       "sha256_prefix": "a964fbdacae4f71a",
-      "last_polled": "2026-10-26T07:46:00+10:00"
+      "last_polled": "2026-10-28T13:35:37+10:00"
     },
     {
       "id": "sid-ens",
@@ -108,7 +108,7 @@
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-10-26T07:15:21.968368+10:00"
+      "last_polled": "2026-10-28T13:35:59.643352+10:00"
     },
     {
       "id": "whm",
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times 74 Streams (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-10-28T08:15:45+10:00"
+      "last_polled": "2026-10-29T08:15:02+10:00"
     }
   ]
 }
