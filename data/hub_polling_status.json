@@ -1,16 +1,16 @@
 {
-  "last_polled_iso": "2026-10-30T08:15:37+10:00",
+  "last_polled_iso": "2026-10-31T08:15:41+10:00",
   "total_primary_sources": 106,
   "verified_ok_sources": 106,
-  "total_kdb_cases": 20044,
+  "total_kdb_cases": 18204,
   "kdb_summary": {
     "immi_cases": 9269,
     "immi_favorable_pct": 48.0,
-    "emp_cases": 6584,
+    "emp_cases": 3968,
     "emp_win_pct": 28.4,
     "emp_hit_aud": 190100,
     "emp_cap_aud": 95050,
-    "family_cases": 4191,
+    "family_cases": 4967,
     "family_latest_cit": "[2026] FedCFamC1A 186"
   },
   "series": [
@@ -132,7 +132,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
       "metrics_en": "DHA Global Processing Times 74 Streams (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-10-30T08:15:37+10:00"
+      "last_polled": "2026-10-31T08:15:41+10:00"
     }
   ]
 }
