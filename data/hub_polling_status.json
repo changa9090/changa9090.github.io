@@ -1,5 +1,5 @@
 {
-  "last_polled_iso": "2026-11-05T15:17:56+10:00",
+  "last_polled_iso": "2026-11-06T08:15:59+10:00",
   "total_primary_sources": 115,
   "verified_ok_sources": 115,
   "official_links": {
@@ -137,7 +137,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설",
       "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-05T15:17:56+10:00"
+      "last_polled": "2026-11-06T08:15:59+10:00"
     }
   ]
 }
