@@ -1,19 +1,24 @@
 {
-  "last_polled_iso": "2026-11-05T08:15:26+10:00",
-  "total_primary_sources": 106,
-  "verified_ok_sources": 106,
-  "total_kdb_cases": 23680,
-  "kdb_summary": {
-    "immi_cases": 11905,
-    "immi_favorable_pct": 48.0,
-    "emp_cases": 6808,
-    "emp_win_pct": 28.4,
-    "emp_hit_aud": 190100,
-    "emp_cap_aud": 95050,
-    "family_cases": 4967,
-    "family_latest_cit": "[2026] FedCFamC1A 186"
+  "last_polled_iso": "2026-11-05T15:17:56+10:00",
+  "total_primary_sources": 115,
+  "verified_ok_sources": 115,
+  "official_links": {
+    "visa_solution_guide": "https://changa9090.github.io/parkco-visa-solution-guide/",
+    "faq_portal": "https://faq.immispecialist.com/"
   },
   "series": [
+    {
+      "id": "visa-solution-guide",
+      "name_ko": "0. 호주 비자 솔루션 가이드 시스템 (714개 SOL · 이력서 매칭 · 12장 백과)",
+      "name_en": "0. Australia Visa Solution Guide (714 SOL · CV Matcher · 12-Ch Manual)",
+      "url": "/parkco-visa-solution-guide/",
+      "engine": "visa_guide_poller.py (Mon 08:02 AEST)",
+      "sources": 10,
+      "metrics_ko": "714개 공식 SOL 직종 · 로컬 이력서 판독 · Schedule 6D 점수 · FY2026–27 1차 법령 동기화",
+      "metrics_en": "714 Official SOL Occupations · Local CV Matcher · Schedule 6D Points · FY2026–27 Statutory Sync",
+      "sha256_prefix": "c3c782b878061b3d",
+      "last_polled": "2026-11-05T14:39:36+10:00"
+    },
     {
       "id": "gsm-state",
       "name_ko": "1. GSM 기술이민(189·190·491) & 8개 주정부 · SkillSelect 커트라인",
@@ -21,10 +26,10 @@
       "url": "/parkco-gsm-state-navigator/",
       "engine": "gsm_state_poller.py (Mon 07:45 AEST)",
       "sources": 12,
-      "metrics_ko": "65점(6D51 캡) · SkillSelect 139개 직종 커트라인(2026.06.04) · 8개주 쿼터 20,350석 · 191 $630",
-      "metrics_en": "65 pts (6D51 cap) · 139 SkillSelect Occupation Cut-Offs (4 Jun 2026) · 20,350 State Places · 191 $630",
+      "metrics_ko": "65점(6D51 캡) · SkillSelect 160개 직종 커트라인 · QLD 2026–27 개시(20h/주·11.06 ROI) · 8개주 20,350석",
+      "metrics_en": "65 pts (6D51 cap) · 160 SkillSelect Cut-Offs · QLD 2026–27 Open (20h/wk · 6 Nov ROI) · 20,350 State Places",
       "sha256_prefix": "a964fbdacae4f71a",
-      "last_polled": "2026-11-02T07:45:14+10:00"
+      "last_polled": "2026-11-05T14:19:34+10:00"
     },
     {
       "id": "sid-ens",
@@ -33,10 +38,10 @@
       "url": "/parkco-sid-ens-navigator/",
       "engine": "sid_ens_poller.py (Mon 07:40 AEST)",
       "sources": 14,
-      "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,842건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
-      "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,842 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
+      "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,850건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
+      "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,850 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
       "sha256_prefix": "766674f2e5cfa204",
-      "last_polled": "2026-11-02T07:40:59+10:00"
+      "last_polled": "2026-11-05T14:41:28+10:00"
     },
     {
       "id": "partner",
@@ -48,7 +53,7 @@
       "metrics_ko": "820/309 $11,710 · 시민권 Conferral 8m/13m(미결 53,298건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%",
       "metrics_en": "820/309 $11,710 · Citizenship Conferral 8m/13m (53,298 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-01T21:50:23Z"
+      "last_polled": "2026-11-05T04:59:20Z"
     },
     {
       "id": "visa-crisis",
@@ -57,10 +62,10 @@
       "url": "/parkco-visa-crisis-navigator/",
       "engine": "visa_crisis_poller.py (Mon 07:55 AEST)",
       "sources": 14,
-      "metrics_ko": "ART $3,727 · 13개 카테고리 소요기간(p50/p95) · 비자별 이중분모 Set Aside(485 93.3%·820 85.2%·482 83.3%·500 81.3%)",
-      "metrics_en": "ART $3,727 · 13-Category Processing (p50/p95) · Dual-Denominator Set Aside (485 93.3% · 820 85.2% · 482 83.3% · 500 81.3%)",
+      "metrics_ko": "ART $3,727(난민 선납 $1,863.50) · Direction 123 · s116 5영업일 · 비자별 Set Aside(485 93.3%·820 85.2%·482 83.3%)",
+      "metrics_en": "ART $3,727 (Protection Upfront $1,863.50) · Direction 123 · s116 5wd · Dual-Denominator Set Aside (485 93.3% · 820 85.2%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-11-02T07:55:43+10:00"
+      "last_polled": "2026-11-05T15:15:57+10:00"
     },
     {
       "id": "employment-law",
@@ -69,22 +74,22 @@
       "url": "/parkco-employment-law-navigator/",
       "engine": "employment_law_poller.py (Mon 08:00 AEST)",
       "sources": 7,
-      "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · ABF 제재 1,842건 교차 · Emp KDB 3,968건(28.4%)",
-      "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · 1,842 ABF Sanctions Crossover · Emp KDB 3,968 cases (28.4%)",
-      "sha256_prefix": "cc3a6a66aaf1957d",
-      "last_polled": "2026-11-01T22:00:52Z"
+      "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · ABF 스폰서 제재 1,850건 교차",
+      "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · 1,850 ABF Sanctions Crossover",
+      "sha256_prefix": "c426bc2d98dba8e6",
+      "last_polled": "2026-11-05T04:59:27Z"
     },
     {
       "id": "family-law",
-      "name_ko": "6. 호주 가족법 · 한·호 재산분할 FCFCOA 판례 매칭",
-      "name_en": "6. Australian Family Law & FCFCOA Precedent Matcher",
+      "name_ko": "6. 호주 가족법 · 한·호 재산분할 · 양육권 · 비자 교차",
+      "name_en": "6. Australian Family Law, Global Property Pool & Visa Crossover",
       "url": "/parkco-family-law-navigator/",
       "engine": "family_law_poller.py (Mon 08:05 AEST)",
       "sources": 6,
-      "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · Family KDB 3,704건 ([2026] FedCFamC1A 186)",
-      "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · Family KDB 3,704 cases ([2026] FedCFamC1A 186)",
+      "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · 이혼 후 12개월/사실혼 2년 기한 · 전세계 자산 공개(s 71B)",
+      "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · 12m/2yr Time Limits · Global Asset Disclosure (s 71B)",
       "sha256_prefix": "ca05d60230aea061",
-      "last_polled": "2026-11-01T22:05:04Z"
+      "last_polled": "2026-11-05T04:59:53Z"
     },
     {
       "id": "parent-visa",
@@ -96,7 +101,7 @@
       "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
       "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
       "sha256_prefix": "39450ed5bcee9ff1",
-      "last_polled": "2026-11-02T07:35:09+10:00"
+      "last_polled": "2026-11-05T14:51:53+10:00"
     },
     {
       "id": "dama",
@@ -108,7 +113,7 @@
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-02T07:15:16.236568+10:00"
+      "last_polled": "2026-11-05T14:56:15.173327+10:00"
     },
     {
       "id": "whm",
@@ -119,20 +124,20 @@
       "sources": 12,
       "metrics_ko": "LIN 22/012 · LIN 22/013 · LIN 25/048 산불·재해 우편번호 6대 표 · VAC $745",
       "metrics_en": "LIN 22/012 · LIN 22/013 · LIN 25/048 6 Disaster Postcode Tables · VAC $745",
-      "sha256_prefix": "f6b5dd9a4754e7db",
-      "last_polled": "2026-11-02T07:25:57+10:00"
+      "sha256_prefix": "eff61b2fc868fcc3",
+      "last_polled": "2026-11-05T15:07:23+10:00"
     },
     {
       "id": "trackers",
-      "name_ko": "10~12. 글로벌 심사기간 · 법령 개정 · 판례 다이제스트 (3종)",
-      "name_en": "10–12. Daily Processing Time, Legislation & Caselaw Trackers",
+      "name_ko": "10~11. 글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 (2종)",
+      "name_en": "10–11. Daily Visa Processing Times (74 Streams) & Legislation Trackers",
       "url": "/visa-global-processing-time/",
       "engine": "Daily 05:15–06:55 AEST Timers",
-      "sources": 3,
-      "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(50%/90%) · 연방 법령 등록부 일간 개정 · AustLII/ART 최신 판결",
-      "metrics_en": "DHA Global Processing Times 74 Streams (50%/90%) · Daily FRL Instruments · AustLII/ART Digest",
+      "sources": 2,
+      "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설",
+      "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-05T08:15:26+10:00"
+      "last_polled": "2026-11-05T15:17:56+10:00"
     }
   ]
 }
