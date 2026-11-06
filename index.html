@@ -1131,12 +1131,15 @@
         secondaryUrl: '/parkco-visa-solution-guide/',
         secondaryName_ko: 'CSOL 직종 해당 여부 확인: 호주 비자 솔루션 가이드 (714개 SOL)',
         secondaryName_en: 'Verify CSOL Eligibility: Australia Visa Solution Guide (714 SOL)',
+        thirdUrl: '/parkco-dama-navigator/',
+        thirdName_ko: '3️⃣ 호주 13개 DAMA 협약 탐색기 (781개 직종 · CSIT 90% $71,481 · 만 50/55세 연령 면제)',
+        thirdName_en: '3️⃣ Australia 13 DAMA Navigator (781 Occupations · 90% CSIT $71,481 · Age 50/55 Concessions)',
         lawyers_ko: '박앤코 이민법 전담팀 (박창민 대표변호사 외)',
         lawyers_en: 'Park & Co Immigration Team (Chang Min Park, Legal Practitioner Director & Team)',
-        cost_ko: 'CSIT $79,423 (DAMA 90% $71,481) · SAF Levy 연 $1,200/$1,800',
-        cost_en: 'CSIT $79,423 (DAMA 90% $71,481) · SAF Levy $1,200/$1,800/yr',
-        advice_ko: 'CSIT($79,423)와 DAMA 90%($71,481) 연봉 요건, 복수 고용주 경력을 합산하는 186 TRT 2년 기준, 퇴사 후 180일 유예 시계(Condition 8607)를 차례로 확인합니다.',
-        advice_en: 'Check CSIT ($79,423), multi-sponsor 2-year 186 TRT accrual, and Condition 8607 180-day grace periods.'
+        cost_ko: 'CSIT $79,423 (DAMA 90% $71,481) · SAF Levy 연 $1,200/$1,800 · 13개 DAMA 연령·영어·연봉 특례',
+        cost_en: 'CSIT $79,423 (DAMA 90% $71,481) · SAF Levy $1,200/$1,800/yr · 13 DAMA Concessions',
+        advice_ko: 'CSIT($79,423)와 13개 DAMA 90%($71,481) 연봉 특례, 복수 고용주 경력을 합산하는 186 TRT 2년 기준, 퇴사 후 180일 유예 시계(Condition 8607)를 함께 확인합니다.',
+        advice_en: 'Check CSIT ($79,423), 13 DAMA 90% salary/age concessions ($71,481), multi-sponsor 2-year 186 TRT accrual, and Condition 8607 180-day grace periods.'
       },
       family_partner: {
         primaryUrl: '/parkco-partner-graduate-navigator/',
@@ -1234,9 +1237,12 @@
       var cost_en = baseCfg.cost_en;
       var advice_ko = baseCfg.advice_ko;
       var advice_en = baseCfg.advice_en;
-      var thirdUrl = '';
-      var thirdName_ko = '';
-      var thirdName_en = '';
+      var thirdUrl = baseCfg.thirdUrl || '';
+      var thirdName_ko = baseCfg.thirdName_ko || '';
+      var thirdName_en = baseCfg.thirdName_en || '';
+      var fourthUrl = baseCfg.fourthUrl || '';
+      var fourthName_ko = baseCfg.fourthName_ko || '';
+      var fourthName_en = baseCfg.fourthName_en || '';
 
       /* Dynamic Multi-Dimensional Overrides based on Age & Status */
       if (age === '45to54' && goal === 'pr_skilled') {
@@ -1251,6 +1257,29 @@
         thirdName_en = 'Ref: GSM 189·190·491 (Verify Age 45 Cap)';
         advice_ko = '⚠️ 일반 기술이민(189·190·491)은 초청 시점에 만 45세 미만이어야 신청할 수 있습니다. 만 45~54세 구간에서는 만 50세·55세까지 ENS 186 영주권 연령 면제를 열어 둔 호주 13개 DAMA 협약이나 연령 상한이 없는 SID 482 고용주 스폰서 비자로 경로를 전환하시는 것이 현실적입니다.';
         advice_en = '⚠️ Standard GSM (189/190/491) strictly caps at under age 45 at invitation. At age 45–54, your primary PR pathways are (1) Australia’s 13 DAMAs (offering ENS 186 age concessions up to 50 or 55) and (2) Subclass 482 (no age cap).';
+      } else if (age === '45to54' && goal === 'pr_sponsor') {
+        primaryUrl = '/parkco-dama-navigator/';
+        primaryName_ko = '만 45세+ 스폰서 영주권 1순위 · 호주 13개 DAMA 탐색기 (만 50/55세 186 연령 면제 · CSIT 90%)';
+        primaryName_en = 'Age 45+ Sponsor PR #1 · Australia 13 DAMA Navigator (Age 50/55 ENS 186 Concessions · 90% CSIT)';
+        secondaryUrl = '/parkco-sid-ens-navigator/';
+        secondaryName_ko = 'SID 482 (연령 상한 없음) & ENS 186 고소득(FWHIT $190,100) 연령 면제 내비게이터';
+        secondaryName_en = 'SID 482 (No Age Cap) & ENS 186 High-Income (FWHIT $190,100) Exemption Navigator';
+        thirdUrl = '/parkco-visa-solution-guide/';
+        thirdName_ko = '3️⃣ CSOL · 714개 SOL 및 13개 DAMA 직종 등재 여부 판독 (비자 솔루션 가이드)';
+        thirdName_en = '3️⃣ Check CSOL, 714 SOL & 13 DAMA Occupation Eligibility (Visa Solution Guide)';
+        cost_ko = '13개 DAMA 만 50/55세 미만 연령 면제 · DAMA CSIT 90% $71,481 · 일반 186 TRT 고소득 면제 FWHIT $190,100';
+        cost_en = '13 DAMA Under-50/55 Age Concessions · DAMA 90% CSIT $71,481 · Standard 186 TRT FWHIT Exemption $190,100';
+        advice_ko = '⚠️ 일반 ENS 186(Direct Entry·표준 TRT)과 494 비자는 신청 시점 만 45세 미만 상한이 적용됩니다. 만 45~54세 고용주 스폰서 영주권은 (1) 만 50세·55세 미만까지 186 영주권 연령 면제와 연봉 완화(CSIT 90% $71,481)를 열어 둔 호주 13개 DAMA 협약 지역 트랙과 (2) 연령 제한이 없는 SID 482로 입사해 2년간 고소득 기준(FWHIT $190,100 이상) 또는 학계·의료 법정 연령 면제를 충족해 186 TRT로 전환하는 경로를 최우선으로 비교해야 합니다.';
+        advice_en = '⚠️ Standard ENS Subclass 186 (DE & TRT) and Subclass 494 cap at under age 45 at application. At age 45–54, your two core employer-sponsored PR tracks are (1) Australia’s 13 DAMAs (offering ENS 186 age concessions up to under 50 or 55 plus 90% CSIT at $71,481) and (2) Subclass 482 (no age cap) bridging to 186 TRT via the 2-year FWHIT ($190,100+) high-income or academic/medical age exemptions.';
+      } else if (age === '45to54' && goal === 'visa_guide') {
+        secondaryUrl = '/parkco-dama-navigator/';
+        secondaryName_ko = '만 45세+ 핵심 영주권: 호주 13개 DAMA 협약 탐색기 (만 50/55세 연령 면제)';
+        secondaryName_en = 'Age 45+ Key PR: Australia 13 DAMA Navigator (Age 50/55 Concessions)';
+        thirdUrl = '/parkco-sid-ens-navigator/';
+        thirdName_ko = '3️⃣ SID 482 (연령 무관) & ENS 186 고소득(FWHIT $190,100) 면제 내비게이터';
+        thirdName_en = '3️⃣ SID 482 (No Age Cap) & ENS 186 FWHIT ($190,100) Exemption Navigator';
+        advice_ko = '⚠️ 만 45세 이상은 일반 점수제 기술이민(189·190·491)과 표준 186 비자 연령 상한에 걸립니다. 먼저 비자 솔루션 가이드에서 내 직종의 CSOL·DAMA 등재 여부를 판독한 뒤 13개 DAMA 연령 면제(만 50·55세 미만)와 SID 482 후 고소득(FWHIT $190,100) 186 전환 또는 파트너·국가혁신비자(858) 경로를 함께 점검하세요.';
+        advice_en = '⚠️ At age 45+, standard points-tested GSM (189/190/491) and standard Subclass 186 age caps apply. Check your occupation across CSOL and DAMA lists first, then compare Australia’s 13 DAMA age concessions (under 50/55), Subclass 482 + FWHIT ($190,100) 186 transition, Partner, or NIV 858 pathways.';
       } else if (age === 'under35' && goal === 'pr_skilled') {
         secondaryUrl = '/parkco-whm-navigator/';
         secondaryName_ko = '플랜 B: 워홀(417/462) 88/179일 & 조건 8547 내비게이터';
@@ -1269,9 +1298,18 @@
       }
 
       if (status === 'employer_b2b' && goal !== 'employment_law') {
-        secondaryUrl = '/parkco-employment-law-navigator/';
-        secondaryName_ko = '🏢 사업주 필수: 호주 고용법 컴플라이언스·정리해고·위장도급 감사 내비게이터';
-        secondaryName_en = '🏢 Employer Essential: Employment Law & Sponsor Audit Navigator';
+        var empUrl = '/parkco-employment-law-navigator/';
+        var empKo = '🏢 사업주 필수: 호주 고용법 컴플라이언스·정리해고·위장도급 감사 내비게이터';
+        var empEn = '🏢 Employer Essential: Employment Law & Sponsor Audit Navigator';
+        if (!thirdUrl) {
+          thirdUrl = empUrl;
+          thirdName_ko = empKo;
+          thirdName_en = empEn;
+        } else if (primaryUrl !== empUrl && secondaryUrl !== empUrl && thirdUrl !== empUrl) {
+          fourthUrl = empUrl;
+          fourthName_ko = empKo;
+          fourthName_en = empEn;
+        }
         lawyers_ko = '박창민 대표변호사 (Acc. Spec. Immi) · 박기성 변호사 (Kevin Park)';
         lawyers_en = 'Chang Min Park (Legal Practitioner Director, Acc. Spec. Immi) · Kevin Park (Solicitor)';
       }
@@ -1283,10 +1321,19 @@
       var extraAlertKo = '';
       var extraAlertEn = '';
       if (status === 'onshore_bva' || age === 'urgent_deadline') {
-        if (primaryUrl !== '/parkco-visa-crisis-navigator/') {
-          thirdUrl = '/parkco-visa-crisis-navigator/';
-          thirdName_ko = '🚨 긴급 점검 · 비자 거절 · Section 48 Bar · Schedule 3 · ART 기한 진단기';
-          thirdName_en = '🚨 Urgent Check · Visa Refusal, Section 48 Bar & ART Deadline Navigator';
+        var crisisUrl = '/parkco-visa-crisis-navigator/';
+        var crisisKo = '🚨 긴급 점검 · 비자 거절 · Section 48 Bar · Schedule 3 · ART 기한 진단기';
+        var crisisEn = '🚨 Urgent Check · Visa Refusal, Section 48 Bar & ART Deadline Navigator';
+        if (primaryUrl !== crisisUrl && secondaryUrl !== crisisUrl && thirdUrl !== crisisUrl) {
+          if (!thirdUrl) {
+            thirdUrl = crisisUrl;
+            thirdName_ko = crisisKo;
+            thirdName_en = crisisEn;
+          } else {
+            fourthUrl = crisisUrl;
+            fourthName_ko = crisisKo;
+            fourthName_en = crisisEn;
+          }
         }
         extraAlertKo = '<div style="margin-top:10px;padding:10px 14px;background:#FEF2F2;border-left:4px solid #B23A2E;border-radius:6px;font-size:12.5px;color:#7F1D1D;">🚨 <strong>브리징 비자 · 법정 불변 기한 경보:</strong> 브리징 비자를 소지하고 계시거나 거절·취소·해고·이혼 기한이 임박한 상황에서는 <strong>Section 48 Bar(reg 2.12)</strong>, <strong>Schedule 3</strong>, <strong>행정재심기구(ART) 불복 기한(5~28일)</strong>, <strong>공정근로위원회(FWC) 21일 기한</strong>, <strong>가족법 재산분할 제척기간(이혼 후 12개월·사실혼 2년)</strong>을 먼저 확인하시고 <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" style="color:#7F1D1D;font-weight:800;text-decoration:underline;">박앤코 공식 문의 링크(parklawyers.com.au/links)</a>로 바로 접수해 주십시오.</div>';
         extraAlertEn = '<div style="margin-top:10px;padding:10px 14px;background:#FEF2F2;border-left:4px solid #B23A2E;border-radius:6px;font-size:12.5px;color:#7F1D1D;">🚨 <strong>Bridging Visa / Strict Statutory Deadline Alert:</strong> Where Section 48, Schedule 3, ART (5–28 days), FWC (21 days), or Family Law (12m/2yr) limits apply, run the Crisis/Deadline check first and submit an urgent inquiry via <a href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#7F1D1D;font-weight:800;text-decoration:underline;">Park &amp; Co Official Inquiry Hub (parklawyers.com.au/links)</a> immediately.</div>';
@@ -1296,8 +1343,9 @@
       }
 
       recommendedHrefs = [primaryUrl];
-      if (secondaryUrl) recommendedHrefs.push(secondaryUrl);
-      if (thirdUrl) recommendedHrefs.push(thirdUrl);
+      if (secondaryUrl && recommendedHrefs.indexOf(secondaryUrl) === -1) recommendedHrefs.push(secondaryUrl);
+      if (thirdUrl && recommendedHrefs.indexOf(thirdUrl) === -1) recommendedHrefs.push(thirdUrl);
+      if (fourthUrl && recommendedHrefs.indexOf(fourthUrl) === -1) recommendedHrefs.push(fourthUrl);
       if (recommendedHrefs.indexOf('/diy-service-save-money/') === -1 && (goal === 'employment_law' || goal === 'family_law' || goal === 'diy_save_money')) {
         recommendedHrefs.push('/diy-service-save-money/');
       }
@@ -1313,10 +1361,11 @@
       var primaryHref = buildInternalHref(primaryUrl);
       var secondaryHref = buildInternalHref(secondaryUrl);
       var thirdHref = buildInternalHref(thirdUrl);
+      var fourthHref = buildInternalHref(fourthUrl);
       var diyCompanionHref = buildInternalHref('/diy-service-save-money/');
 
       var diyCompanionBtnHtml = '';
-      if (primaryUrl !== '/diy-service-save-money/' && thirdUrl !== '/diy-service-save-money/') {
+      if (primaryUrl !== '/diy-service-save-money/' && thirdUrl !== '/diy-service-save-money/' && fourthUrl !== '/diy-service-save-money/') {
         var diyBtnLabel = currentLang === 'ko'
           ? (goal === 'employment_law'
               ? '🛠️ 25개 어워드 미지급 임금 계산기 · 셀프 서식 보기'
@@ -1414,6 +1463,7 @@
             '<a class="btn-primary-cta" href="' + primaryHref + '">1️⃣ ' + (currentLang === 'ko' ? primaryName_ko : primaryName_en) + ' &rarr;</a>' +
             (secondaryUrl ? '<a class="btn-secondary-cta" href="' + secondaryHref + '">2️⃣ ' + (currentLang === 'ko' ? secondaryName_ko : secondaryName_en) + ' &rarr;</a>' : '') +
             (thirdUrl ? '<a class="btn-secondary-cta" style="border-color:#B23A2E;color:#B23A2E;" href="' + thirdHref + '">' + (currentLang === 'ko' ? thirdName_ko : thirdName_en) + ' &rarr;</a>' : '') +
+            (fourthUrl ? '<a class="btn-secondary-cta" style="border-color:#1E3A8A;color:#1E3A8A;" href="' + fourthHref + '">' + (currentLang === 'ko' ? fourthName_ko : fourthName_en) + ' &rarr;</a>' : '') +
             diyCompanionBtnHtml +
             officialSvcHtml +
             '<a class="btn-secondary-cta" id="btn-router-inquiry" style="border-color:#2E6B4F;color:#2E6B4F;" href="' + inquiryUrl + '" target="_blank" rel="noopener">🔗 ' +
