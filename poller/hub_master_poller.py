@@ -112,8 +112,8 @@ def run_poller(deploy: bool = False) -> None:
     verified_ok += 2
     series_rows.append({
         "id": "trackers",
-        "name_ko": "글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 · 48선 FAQ 백과",
-        "name_en": "Daily Visa Processing Times (74 Streams), Legislation Tracker & 48-Guide FAQ",
+        "name_ko": "글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 · 호주이민 FAQ 백과",
+        "name_en": "Daily Visa Processing Times (74 Streams), Legislation Tracker & Immigration FAQ",
         "url": "/visa-global-processing-time/",
         "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 2,
