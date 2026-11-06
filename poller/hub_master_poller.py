@@ -91,18 +91,18 @@ def run_poller(deploy: bool = False) -> None:
             "last_polled": last_polled,
         })
 
-    # Add DIY Legal Self-Help & Save-Money Guide (25 Modern Awards, 18 Columns, 36 Free Resources)
+    # Add DIY Legal Self-Help & Save-Money Guide (25 Modern Awards, 18 Columns, 32 Free Resources)
     total_sources += 4
     verified_ok += 4
     series_rows.append({
         "id": "diy-service-save-money",
-        "name_ko": "셀프 법률 해결 · 비용절감 가이드 (25개 어워드 임금 계산기 · 실전 칼럼 18편 · 무료 자료 36종)",
-        "name_en": "Australian DIY Legal Self-Help & Cost Protection Guide (25 Modern Awards · 18 Columns · 36 Free Kits)",
+        "name_ko": "셀프 법률 해결 · 비용절감 가이드 (25개 어워드 임금 계산기 · 실전 칼럼 18편 · 무료 자료 32종)",
+        "name_en": "Australian DIY Legal Self-Help & Cost Protection Guide (25 Modern Awards · 18 Columns · 32 Free Kits)",
         "url": "/diy-service-save-money/",
-        "engine": "FWO 25 Modern Awards · DHA · FCFCOA · QLD Statutory Time Limits",
+        "engine": "FWO 25 Modern Awards · DHA · FCFCOA · ART",
         "sources": 4,
-        "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법·QLD 사고 기한 칼럼 18편 · 무료 자료 36종",
-        "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 36 Free PDF/Word/Slides/Shorts",
+        "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
+        "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
         "sha256_prefix": dha_price.get("sha256_prefix", "361fc744ca4e3b96"),
         "last_polled": now_iso,
     })
