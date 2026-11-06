@@ -377,7 +377,7 @@
           var da = el('a', 'btn-link-ext', '📄 ' + (en ? 'Official Released PDF #' + (idx + 1) : '공식 공개 PDF 원문 #' + (idx + 1)) + ' ↗');
           da.href = u;
           da.target = '_blank';
-          da.rel = 'noopener noreferrer';
+          da.rel = 'noopener';
           docRow.appendChild(da);
         });
         card.appendChild(docRow);
@@ -415,7 +415,7 @@
       var extA = el('a', 'btn-link-ext', t('officialUrlBtn'));
       extA.href = extUrl;
       extA.target = '_blank';
-      extA.rel = 'noopener noreferrer';
+      extA.rel = 'noopener';
       actWrap.appendChild(extA);
     }
     var evBtn = el('button', 'btn-evidence', t('inspectBtn'));
@@ -475,7 +475,7 @@
     var srcLink = el('a', 'btn-link-ext', rec.source_url);
     srcLink.href = rec.source_url;
     srcLink.target = '_blank';
-    srcLink.rel = 'noopener noreferrer';
+    srcLink.rel = 'noopener';
     srcLink.style.marginTop = '8px';
     srcLink.style.wordBreak = 'break-all';
     secAttr.appendChild(srcLink);
@@ -542,7 +542,7 @@
       var a = el('a', '', s.source_id);
       a.href = s.landing_url;
       a.target = '_blank';
-      a.rel = 'noopener noreferrer';
+      a.rel = 'noopener';
       tdId.appendChild(a);
       tr.appendChild(tdId);
       tr.appendChild(el('td', '', s.agency));

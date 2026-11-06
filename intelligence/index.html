@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
   <title>법무법인 박앤코 (Park &amp; Co Lawyers) · 호주 공개 법률 인텔리전스 &amp; SHA-256 원문 검증 센터</title>
   <meta name="description" content="호주 국경수비대(ABF) 법인 스폰서 제재·금지 고용주 조회, 연방법령(FRL)·소득기준 개정 대조, 공정근로옴부즈만(FWO) 법규준수 체크리스트, 이민성(DHA)·FWO FOI 공개문서 및 행정재심기구(ART) 이중분모 통계 원문 검증 포털." />
@@ -14,6 +15,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
+  <style>
+/* Park & Co Unified Visit Counter & Referral Modal v2 */
+.visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
+.visit-counter[hidden] { display: none !important; }
+.visit-counter:not([hidden]) { cursor: pointer; }
+.visit-counter > span em { font-style: normal; }
+.visit-counter > span { background: #FFFFFF; border: 1px solid #DED6C8; border-radius: 999px; padding: 5px 13px; font-size: 12.5px; color: #4A4644; display: inline-flex; align-items: center; transition: border-color 0.15s ease, background 0.15s ease; }
+.visit-counter:not([hidden]):hover > span { border-color: #7A1F2B; background: #FFFDF9; }
+.visit-counter b { color: #7A1F2B; font-weight: 800; margin-left: 6px; font-variant-numeric: tabular-nums; }
+#vc-modal { display: none; position: fixed; inset: 0; z-index: 3200; background: rgba(26, 18, 17, 0.56);
+  align-items: center; justify-content: center; padding: 16px; }
+#vc-modal.open { display: flex; }
+#vc-modal .vc-dialog { background: #FFFFFF; color: #1C1B1A; text-align: left; border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(26, 18, 17, 0.28); width: min(700px, 100%); max-height: calc(100vh - 32px);
+  overflow: auto; padding: 18px 20px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif; }
+#vc-modal h3 { margin: 0 0 10px; font-size: 1.04rem; font-weight: 800; padding-right: 32px; color: #1C1B1A; line-height: 1.35; }
+#vc-modal h3 small { font-weight: 500; color: #5A5654; font-size: 0.78rem; }
+#vc-modal .vc-close { float: right; border: 0; background: none; font-size: 1.45rem; line-height: 1; cursor: pointer;
+  color: #5A5654; min-width: 34px; min-height: 34px; padding: 0; }
+#vc-modal .vc-close:hover { color: #7A1F2B; }
+.vc-svg { width: 100%; height: auto; display: block; }
+.vc-grid { stroke: #E5DEC9; stroke-width: 1; }
+.vc-ylab { font-size: 11px; fill: #5A5654; text-anchor: end; }
+.vc-xlab { font-size: 11px; fill: #5A5654; text-anchor: middle; }
+.vc-bar { fill: #F4E6E8; stroke: #D9A7AD; }
+.vc-line { fill: none; stroke: #7A1F2B; stroke-width: 2; }
+.vc-dot { fill: #7A1F2B; }
+.vc-legend { display: flex; gap: 16px; font-size: 0.8rem; color: #5A5654; margin-top: 6px; }
+.vc-legend i { display: inline-block; width: 14px; height: 10px; margin-right: 6px; vertical-align: middle; }
+.vc-k-bar { background: #F4E6E8; border: 1px solid #D9A7AD; }
+.vc-k-line { height: 2px !important; background: #7A1F2B; }
+.vc-sum { font-size: 0.8rem; color: #5A5654; margin: 8px 0 0; line-height: 1.5; }
+.vc-ref-box { margin-top: 14px; padding-top: 12px; border-top: 1px solid #E5DEC9; }
+.vc-ref-title { font-size: 0.86rem; font-weight: 800; color: #1C1B1A; margin: 0 0 6px;
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+.vc-ref-title small { font-weight: 500; font-size: 0.75rem; color: #5A5654; }
+.vc-ref-list { display: grid; gap: 5px; margin: 6px 0 0; }
+.vc-ref-row { display: grid; grid-template-columns: minmax(135px, 1.35fr) minmax(80px, 2fr) auto;
+  align-items: center; gap: 8px; font-size: 0.79rem; }
+.vc-ref-name { font-weight: 600; color: #1C1B1A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-ref-track { height: 8px; background: #F4F0E8; border-radius: 999px; overflow: hidden; }
+.vc-ref-fill { height: 100%; background: #7A1F2B; border-radius: 999px; }
+.vc-ref-val { font-variant-numeric: tabular-nums; font-weight: 700; color: #5A5654; text-align: right; min-width: 74px; }
+.vc-ref-note { font-size: 0.74rem; color: #75706B; margin: 6px 0 0; line-height: 1.45; }
+.vc-share-box { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #E5DEC9; }
+.vc-share-lbl { font-size: 0.76rem; font-weight: 700; color: #4A4644; margin: 0 0 6px; }
+.vc-share-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.vc-share-chip { border: 1px solid #DED6C8; background: #FAF7F2; color: #2E2A28; border-radius: 999px;
+  padding: 4px 10px; font-size: 0.74rem; font-weight: 600; cursor: pointer; transition: all 0.14s ease; }
+.vc-share-chip:hover { border-color: #7A1F2B; background: #F4E6E8; color: #7A1F2B; }
+  </style>
 </head>
 <body>
   <header class="site-hero">
@@ -201,6 +254,11 @@
 
   <footer class="site-footer">
     <div class="wrap">
+      <div class="visit-counter" id="visit-counter" title="클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있어요" hidden>
+        <span><em id="vc-lbl-total">누적 방문</em><b id="vc-total">-</b></span>
+        <span><em id="vc-lbl-today">오늘 방문</em><b id="vc-today">-</b></span>
+        <span><em id="vc-lbl-visitors">방문자</em><b id="vc-visitors">-</b></span>
+      </div>
       <p style="margin:0 0 8px;">
         <strong data-i18n="footerFirmName">법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · Chang Min Park (Legal Practitioner Director · Accredited Specialist in Immigration Law, QLS) · <span data-i18n="footerPracticeAreas">호주 이민법 · 고용법 · 가족법 · 퀸즐랜드 사고 기한 안내</span>
       </p>
@@ -218,5 +276,503 @@
   </footer>
 
   <script src="./assets/app.js"></script>
+  <script>
+/* Resilient Visit Counters + 30-Day Chart + Privacy-Safe Referral Channels v2 */
+(function () {
+  var NS = 'changa9090.github.io', API = 'https://abacus.jasoncameron.dev/', START = '2026-11-01';
+  var BASE_P = 'intel';
+  var SELF_PATH = '/intelligence';
+  var IS_PROD = (location.hostname === 'changa9090.github.io');
+  var P = BASE_P + (IS_PROD ? '' : '-dev');
+  var LEGACY_TOTAL = IS_PROD ? 0 : 0;
+  var LEGACY_VIS = IS_PROD ? 0 : 0;
+  var CACHE_KEY = P + '-counts-cache-v1';
+  var HIST_KEY = P + '-hist-v1';
+  var REF_BUCKETS = [
+    { id: 'naver-search', ko: '네이버 통합·웹검색', en: 'Naver Search' },
+    { id: 'naver-cafe', ko: '네이버 카페 (호주이민 사랑방 등)', en: 'Naver Cafe' },
+    { id: 'kakaotalk', ko: '카카오톡 공유·오픈채팅', en: 'KakaoTalk In-App / Share' },
+    { id: 'google', ko: '구글 검색 (Google)', en: 'Google Search' },
+    { id: 'threads-ig', ko: '스레드 · 인스타그램', en: 'Threads & Instagram' },
+    { id: 'youtube', ko: '유튜브 (@immispecialist 등)', en: 'YouTube' },
+    { id: 'faq-portal', ko: '박앤코 이민 FAQ 백과', en: 'Park & Co FAQ Portal' },
+    { id: 'diy-guide', ko: '박앤코 셀프 법률·비용절감 가이드', en: 'Park & Co DIY Legal Guide' },
+    { id: 'parkco-hub', ko: '박앤코 법률·비자 허브 · 내비게이터', en: 'Park & Co Legal Hub & Navigators' },
+    { id: 'parkco-sites', ko: '박앤코 공식 홈페이지 · 블로그', en: 'Park & Co Website & Blog' },
+    { id: 'other-web', ko: '기타 외부 웹사이트·커뮤니티', en: 'Other External Referrers' },
+    { id: 'direct', ko: '직접 접속 · 북마크 · 개인 공유', en: 'Direct / Bookmark / Private Link' }
+  ];
+  var SHARE_CHANNELS = [
+    { ref: 'cafe', ko: '네이버 카페', en: 'Naver Cafe' },
+    { ref: 'kakao', ko: '카카오톡', en: 'KakaoTalk' },
+    { ref: 'threads', ko: '스레드·인스타', en: 'Threads / IG' },
+    { ref: 'youtube', ko: '유튜브', en: 'YouTube' },
+    { ref: 'blog', ko: '블로그', en: 'Blog' }
+  ];
+  var box = document.getElementById('visit-counter');
+  if (!box) return;
+
+  function uiLang() {
+    var bLang = document.body && (document.body.getAttribute('data-ui-lang') || document.body.getAttribute('data-lang'));
+    if (bLang === 'en' || bLang === 'ko') return bLang;
+    var hLang = (document.documentElement && document.documentElement.getAttribute('lang')) || '';
+    if (hLang.toLowerCase().indexOf('en') === 0) return 'en';
+    if (hLang.toLowerCase().indexOf('ko') === 0) return 'ko';
+    try {
+      var q = new URLSearchParams(location.search || '').get('lang');
+      if (q === 'en') return 'en';
+    } catch (e) {}
+    return 'ko';
+  }
+
+  function isSelfPath(p) {
+    var clean = (p || '/').toLowerCase();
+    if (SELF_PATH === '/') {
+      return clean === '/' || clean === '/index.html';
+    }
+    return clean === SELF_PATH || clean.indexOf(SELF_PATH + '/') === 0;
+  }
+
+  function syncCounterLang() {
+    var en = uiLang() === 'en';
+    var lt = document.getElementById('vc-lbl-total');
+    var ld = document.getElementById('vc-lbl-today');
+    var lv = document.getElementById('vc-lbl-visitors');
+    if (lt) lt.textContent = en ? 'Total visits' : '누적 방문';
+    if (ld) ld.textContent = en ? 'Today' : '오늘 방문';
+    if (lv) lv.textContent = en ? 'Visitors' : '방문자';
+    box.title = en
+      ? 'Click for daily visits & referral sources'
+      : '클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있어요';
+    var mt = document.getElementById('vc-modal-title');
+    if (mt) {
+      mt.innerHTML = en
+        ? 'Daily Visits &amp; Referral Sources <small>(last 30 days &middot; Brisbane time)</small>'
+        : '일별 방문 추이 · 유입 경로 <small>(최근 30일 · 브리즈번 시간 기준)</small>';
+    }
+  }
+  syncCounterLang();
+  if (typeof MutationObserver !== 'undefined') {
+    try {
+      var mo = new MutationObserver(syncCounterLang);
+      if (document.documentElement) mo.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-lang'] });
+      if (document.body) mo.observe(document.body, { attributes: true, attributeFilter: ['data-ui-lang', 'data-lang', 'class'] });
+    } catch (e) {}
+  }
+
+  /* Preserve cross-system referral attribution across changa9090.github.io & faq.immispecialist.com */
+  document.addEventListener('click', function (ev) {
+    try {
+      var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+      if (!a) return;
+      var raw = a.getAttribute('href') || '';
+      if (!raw || raw.charAt(0) === '#') return;
+      var u = new URL(a.href, location.href);
+      if (u.protocol !== 'http:' && u.protocol !== 'https:') return;
+      var th = (u.hostname || '').toLowerCase();
+      var tp = (u.pathname || '/').toLowerCase();
+      if (th !== 'changa9090.github.io' && th !== 'faq.immispecialist.com') return;
+      if (th === location.hostname && isSelfPath(tp)) return;
+      if (!u.searchParams.get('ref') && !u.searchParams.get('utm_source')) {
+        u.searchParams.set('ref', BASE_P);
+        a.href = u.toString();
+      }
+    } catch (e) {}
+  }, true);
+
+  function bne(d) { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Brisbane' }).format(d); }
+  var today = bne(new Date()), day = today.replace(/-/g, '');
+  var seen = false, lastDay = null, lastRefDay = null, cached = {};
+  try {
+    seen = !!localStorage.getItem(P + '-seen');
+    lastDay = localStorage.getItem(P + '-day');
+    lastRefDay = localStorage.getItem(P + '-ref-day');
+    cached = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
+  } catch (e) {}
+
+  function classifyReferralBucket() {
+    try {
+      var qs = new URLSearchParams(location.search || '');
+      var utm = (qs.get('utm_source') || qs.get('ref') || qs.get('channel') || '').toLowerCase().trim();
+      if (utm) {
+        if (utm.indexOf('cafe') >= 0) return 'naver-cafe';
+        if (utm.indexOf('naver') >= 0) return 'naver-search';
+        if (utm.indexOf('kakao') >= 0) return 'kakaotalk';
+        if (utm.indexOf('google') >= 0) return 'google';
+        if (utm.indexOf('thread') >= 0 || utm.indexOf('insta') >= 0 || utm === 'ig') return 'threads-ig';
+        if (utm.indexOf('youtube') >= 0 || utm === 'yt') return 'youtube';
+        if (utm.indexOf('faq') >= 0) return 'faq-portal';
+        if (utm.indexOf('diy') >= 0) return 'diy-guide';
+        if (utm.indexOf('blog') >= 0 || utm.indexOf('aussielife') >= 0 || utm.indexOf('parklawyers') >= 0 || utm === 'website') return 'parkco-sites';
+        if (
+          utm.indexOf('hub') >= 0 || utm.indexOf('guide') >= 0 || utm.indexOf('parkco') >= 0 ||
+          utm.indexOf('vgpt') >= 0 || utm.indexOf('aumlt') >= 0 || utm.indexOf('dama') >= 0 ||
+          utm.indexOf('whm') >= 0 || utm.indexOf('parent') >= 0 || utm.indexOf('gsm') >= 0 ||
+          utm.indexOf('sid') >= 0 || utm.indexOf('crisis') >= 0 || utm.indexOf('partner') >= 0 ||
+          utm.indexOf('employment') >= 0 || utm.indexOf('family') >= 0 || utm.indexOf('settlement') >= 0 ||
+          utm.indexOf('intel') >= 0
+        ) return 'parkco-hub';
+        return 'other-web';
+      }
+      var ref = String(document.referrer || '').trim();
+      var ua = String((navigator && navigator.userAgent) || '');
+      if (ref) {
+        if (ref.indexOf('android-app://com.google') === 0) return 'google';
+        var u = new URL(ref);
+        var h = (u.hostname || '').toLowerCase();
+        var p = (u.pathname || '/').toLowerCase();
+        if (h === location.hostname && (IS_PROD ? isSelfPath(p) : true)) {
+          /* Same-app internal navigation; fall through to mobile UA / direct */
+        } else if (h.indexOf('cafe.naver.') >= 0) {
+          return 'naver-cafe';
+        } else if (h.indexOf('naver.') >= 0) {
+          return 'naver-search';
+        } else if (h.indexOf('kakao.') >= 0 || h.indexOf('daum.') >= 0) {
+          return 'kakaotalk';
+        } else if (h.indexOf('google.') >= 0) {
+          return 'google';
+        } else if (h.indexOf('threads.') >= 0 || h.indexOf('instagram.') >= 0) {
+          return 'threads-ig';
+        } else if (h.indexOf('youtube.') >= 0 || h === 'youtu.be') {
+          return 'youtube';
+        } else if (h.indexOf('immispecialist.com') >= 0) {
+          return 'faq-portal';
+        } else if (h === 'changa9090.github.io' && p.indexOf('/diy-service-save-money') === 0) {
+          return 'diy-guide';
+        } else if (h === 'changa9090.github.io') {
+          return 'parkco-hub';
+        } else if (h.indexOf('aussielife.org') >= 0 || h.indexOf('parklawyers.com.au') >= 0 || h.indexOf('parkcolawyers.com') >= 0 || h.indexOf('hojuro.net') >= 0) {
+          return 'parkco-sites';
+        } else {
+          return 'other-web';
+        }
+      }
+      if (/KAKAOTALK/i.test(ua)) return 'kakaotalk';
+      if (/NAVER\(inapp/i.test(ua)) return 'naver-search';
+      if (/Barcelona|Threads|Instagram/i.test(ua)) return 'threads-ig';
+    } catch (e) {}
+    return 'direct';
+  }
+
+  function fmt(n) { return typeof n === 'number' && !isNaN(n) ? Number(n).toLocaleString('en-AU') : '-'; }
+
+  function renderBadge(tot, tod, vis) {
+    var elTot = document.getElementById('vc-total');
+    var elTod = document.getElementById('vc-today');
+    var elVis = document.getElementById('vc-visitors');
+    if (tot != null && elTot) elTot.textContent = fmt(tot);
+    if (tod != null && elTod) elTod.textContent = fmt(tod);
+    if (vis != null && elVis) elVis.textContent = fmt(vis);
+    if (tot != null || tod != null || vis != null) box.hidden = false;
+  }
+
+  var seedTot = Number(box.getAttribute('data-seed-total')) || LEGACY_TOTAL || 0;
+  var seedVis = Number(box.getAttribute('data-seed-visitors')) || LEGACY_VIS || 0;
+  var initTot = Math.max(cached.total || 0, seedTot) || null;
+  var initVis = Math.max(cached.visitors || 0, seedVis) || null;
+  if (initTot != null || initVis != null) {
+    renderBadge(initTot, cached.day === day ? cached.today : null, initVis);
+  }
+
+  function fetchRetry(url, isHit, attempt) {
+    var tries = attempt || 0;
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+    var opts = { mode: 'cors' };
+    if (ctrl) opts.signal = ctrl.signal;
+    if (isHit) opts.keepalive = true;
+    return fetch(url, opts)
+      .then(function (r) {
+        if (timer) clearTimeout(timer);
+        if (!isHit && r.status === 404) return { value: 0 };
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (j) {
+        if (typeof j.value !== 'number') throw new Error('bad payload');
+        return j.value;
+      })
+      .catch(function (err) {
+        if (timer) clearTimeout(timer);
+        if (tries < 2) {
+          return new Promise(function (res) { setTimeout(res, 1100 * (tries + 1)); })
+            .then(function () { return fetchRetry(url, isHit, tries + 1); });
+        }
+        throw err;
+      });
+  }
+
+  function call(kind, key) {
+    return fetchRetry(API + kind + '/' + NS + '/' + P + '-' + key, kind === 'hit', 0);
+  }
+  function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  if (lastDay !== day) {
+    call('hit', 'vday-' + day).then(function () {
+      try { localStorage.setItem(P + '-day', day); } catch (e) {}
+    }).catch(function () {});
+  }
+
+  if (lastRefDay !== day) {
+    var refBucket = classifyReferralBucket();
+    delay(260).then(function () {
+      return call('hit', 'ref-' + refBucket + '-' + day);
+    }).then(function () {
+      try {
+        localStorage.setItem(P + '-ref-day', day);
+        localStorage.setItem(P + '-ref-bucket', refBucket);
+      } catch (e) {}
+    }).catch(function () {});
+  }
+
+  Promise.allSettled([
+    call('hit', 'total'),
+    delay(90).then(function () { return call('hit', 'day-' + day); }),
+    delay(180).then(function () {
+      return call(seen ? 'get' : 'hit', 'visitors').then(function (val) {
+        if (!seen) {
+          try { localStorage.setItem(P + '-seen', '1'); } catch (e) {}
+        }
+        return val;
+      });
+    })
+  ]).then(function (res) {
+    var tot = res[0].status === 'fulfilled' ? (res[0].value + LEGACY_TOTAL) : initTot;
+    var tod = res[1].status === 'fulfilled' ? res[1].value : (cached.day === day ? cached.today : null);
+    var vis = res[2].status === 'fulfilled' ? (res[2].value + LEGACY_VIS) : initVis;
+    renderBadge(tot, tod, vis);
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        total: tot != null ? tot : initTot,
+        today: tod != null ? tod : cached.today,
+        visitors: vis != null ? vis : initVis,
+        day: day
+      }));
+    } catch (e) {}
+  });
+
+  function lastDays(n) {
+    var p = today.split('-').map(Number), base = Date.UTC(p[0], p[1] - 1, p[2]), out = [];
+    for (var i = n - 1; i >= 0; i--) {
+      var s = new Date(base - i * 864e5).toISOString().slice(0, 10);
+      if (s >= START) out.push(s);
+    }
+    return out.length ? out : [today];
+  }
+
+  var modal = document.createElement('div');
+  modal.id = 'vc-modal';
+  modal.innerHTML = '<div class="vc-dialog" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title">' +
+    '<button type="button" class="vc-close" aria-label="Close">&times;</button>' +
+    '<h3 id="vc-modal-title"></h3>' +
+    '<div class="vc-body">Loading&hellip;</div></div>';
+  document.body.appendChild(modal);
+  syncCounterLang();
+
+  function close() { modal.classList.remove('open'); }
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+  modal.querySelector('.vc-close').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+  function copyShareLink(refCode, btnEl) {
+    try {
+      var u = new URL(location.href);
+      u.searchParams.delete('utm_source');
+      u.searchParams.set('ref', refCode);
+      var text = u.toString();
+      var done = function () {
+        if (!btnEl) return;
+        var prev = btnEl.getAttribute('data-orig') || btnEl.textContent;
+        btnEl.setAttribute('data-orig', prev);
+        btnEl.textContent = uiLang() === 'en' ? 'Copied ✓' : '복사됨 ✓';
+        setTimeout(function () { btnEl.textContent = prev; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        done();
+      }
+    } catch (e) {}
+  }
+
+  modal.addEventListener('click', function (e) {
+    var chip = e.target && e.target.closest ? e.target.closest('.vc-share-chip') : null;
+    if (chip) {
+      var rc = chip.getAttribute('data-ref-code');
+      if (rc) copyShareLink(rc, chip);
+    }
+  });
+
+  function renderShareBar(isEn) {
+    var lbl = isEn
+      ? 'Copy Tracked Referral Share Link (?ref=)'
+      : '채널별 유입 측정 공유 링크 복사 (?ref=)';
+    var chips = SHARE_CHANNELS.map(function (c) {
+      var name = isEn ? c.en : c.ko;
+      return '<button type="button" class="vc-share-chip" data-ref-code="' + c.ref + '">' +
+        name + ' (?ref=' + c.ref + ')</button>';
+    }).join('');
+    return '<div id="vc-share-box" class="vc-share-box"><div class="vc-share-lbl">' + lbl +
+      '</div><div class="vc-share-chips">' + chips + '</div></div>';
+  }
+
+  function render(days, rows) {
+    var isEn = uiLang() === 'en';
+    var W = 640, H = 250, L = 40, R = 12, T = 14, B = 38;
+    var max = Math.max(1, Math.max.apply(null, rows.map(function (r) { return Math.max(r[0], r[1]); })));
+    var step = (W - L - R) / days.length, bw = Math.min(36, Math.max(4, step * 0.6));
+    var y = function (v) { return T + (H - T - B) * (1 - v / max); };
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="vc-svg" role="img" aria-label="Daily visits chart">';
+    [0, 0.5, 1].forEach(function (f) {
+      var v = Math.round(max * f), yy = y(v);
+      svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yy + '" y2="' + yy + '" class="vc-grid"/>' +
+        '<text x="' + (L - 6) + '" y="' + (yy + 4) + '" class="vc-ylab">' + fmt(v) + '</text>';
+    });
+    var pts = [];
+    days.forEach(function (d, i) {
+      var cx = L + step * i + step / 2, views = rows[i][0], vis = rows[i][1];
+      svg += '<rect x="' + (cx - bw / 2) + '" y="' + y(views) + '" width="' + bw + '" height="' +
+        (H - B - y(views)) + '" class="vc-bar"><title>' + d + ': ' + fmt(views) + (isEn ? ' page views' : '회 조회') + '</title></rect>';
+      pts.push(cx + ',' + y(vis));
+      if (days.length <= 10 || i % Math.ceil(days.length / 8) === 0 || i === days.length - 1)
+        svg += '<text x="' + cx + '" y="' + (H - B + 16) + '" class="vc-xlab">' + d.slice(5) + '</text>';
+    });
+    svg += '<polyline points="' + pts.join(' ') + '" class="vc-line"/>';
+    pts.forEach(function (p, i) {
+      var xy = p.split(',');
+      svg += '<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="3.5" class="vc-dot"><title>' + days[i] + ': ' +
+        fmt(rows[i][1]) + (isEn ? ' visitors' : '명 방문자') + '</title></circle>';
+    });
+    svg += '</svg>';
+    var sum = rows.reduce(function (a, r) { return [a[0] + r[0], a[1] + r[1]]; }, [0, 0]);
+    var summaryLine = isEn
+      ? (days.length + ' day(s) &middot; ' + fmt(sum[0]) + ' page views &middot; ' + fmt(sum[1]) + ' daily visitors (since ' + START + '; 1 daily visitor per browser).')
+      : ('최근 ' + days.length + '일 합계 &middot; 페이지 조회 ' + fmt(sum[0]) + '회 &middot; 일별 순방문자 ' + fmt(sum[1]) + '명 (' + START + ' 집계 시작 &middot; 하루 브라우저당 1회)');
+    var refLoading = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중이에요&hellip;';
+    return svg + '<div class="vc-legend"><span><i class="vc-k-bar"></i>' + (isEn ? 'Page views' : '페이지 조회') + '</span>' +
+      '<span><i class="vc-k-line"></i>' + (isEn ? 'Daily visitors' : '일별 순방문자') + '</span></div>' +
+      '<p class="vc-sum">' + summaryLine + '</p>' +
+      '<div id="vc-ref-box" class="vc-ref-box"><div class="vc-ref-note">' + refLoading + '</div></div>' +
+      renderShareBar(isEn);
+  }
+
+  function loadTodayReferrers(dayKey) {
+    var firstSlice = REF_BUCKETS.slice(0, 6);
+    var secondSlice = REF_BUCKETS.slice(6);
+    var out = {};
+    return Promise.all(firstSlice.map(function (b) {
+      return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
+    })).then(function () {
+      return delay(340);
+    }).then(function () {
+      return Promise.all(secondSlice.map(function (b) {
+        return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
+      }));
+    }).then(function () {
+      return out;
+    });
+  }
+
+  function renderReferrerBox(countsMap) {
+    var isEn = uiLang() === 'en';
+    var items = REF_BUCKETS.map(function (b) {
+      return { id: b.id, label: isEn ? b.en : b.ko, count: countsMap[b.id] || 0 };
+    }).filter(function (x) { return x.count > 0; }).sort(function (a, b) { return b.count - a.count; });
+    var totalRef = items.reduce(function (acc, x) { return acc + x.count; }, 0);
+    var head = '<div class="vc-ref-title"><span>' +
+      (isEn ? ('Today&rsquo;s Referral Channels (' + today + ')') : ('오늘 유입 채널 분포 (' + today + ')')) +
+      '</span><small>' + (isEn ? ('Tracked visitors: ' + fmt(totalRef)) : ('채널 집계 방문자: ' + fmt(totalRef) + '명')) + '</small></div>';
+    if (!items.length) {
+      return head + '<p class="vc-ref-note">' +
+        (isEn
+          ? 'Anonymous referral channel buckets (Naver, Cafe, KakaoTalk, Threads, Hub, Direct) are recorded once per browser per day as new visits arrive (zero personal or URL path data stored).'
+          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록돼요 (세부 URL·개인정보 미수집).') +
+        '</p>';
+    }
+    var rowsHtml = items.map(function (item) {
+      var pct = totalRef > 0 ? Math.round((item.count / totalRef) * 100) : 0;
+      return '<div class="vc-ref-row">' +
+        '<span class="vc-ref-name" title="' + item.label + '">' + item.label + '</span>' +
+        '<div class="vc-ref-track"><div class="vc-ref-fill" style="width:' + Math.max(4, pct) + '%"></div></div>' +
+        '<span class="vc-ref-val">' + fmt(item.count) + ' (' + pct + '%)</span>' +
+        '</div>';
+    }).join('');
+    var note = isEn
+      ? 'Privacy-safe coarse channel buckets only (1 per browser/day; zero IP, query string, or full referrer URL stored).'
+      : '개인정보 보호형 채널 그룹 집계 (하루 브라우저당 1회 기준 &middot; 검색어·세부 URL·IP 미수집)';
+    return head + '<div class="vc-ref-list">' + rowsHtml + '</div><p class="vc-ref-note">' + note + '</p>';
+  }
+
+  function loadHistoryRows(days) {
+    var histCache = {};
+    try { histCache = JSON.parse(localStorage.getItem(HIST_KEY) || '{}') || {}; } catch (e) {}
+    var results = new Array(days.length);
+    var pending = [];
+    days.forEach(function (d, idx) {
+      if (d < today && Array.isArray(histCache[d])) {
+        results[idx] = histCache[d];
+      } else {
+        pending.push({ d: d, idx: idx });
+      }
+    });
+
+    var chain = Promise.resolve();
+    for (var c = 0; c < pending.length; c += 3) {
+      (function (slice, waitFirst) {
+        chain = chain.then(function () {
+          return (waitFirst ? delay(360) : Promise.resolve()).then(function () {
+            return Promise.all(slice.map(function (item) {
+              var k = item.d.replace(/-/g, '');
+              return Promise.all([
+                call('get', 'day-' + k).catch(function () { return 0; }),
+                call('get', 'vday-' + k).catch(function () { return 0; })
+              ]).then(function (pair) {
+                results[item.idx] = pair;
+                if (item.d < today && (pair[0] > 0 || pair[1] > 0)) histCache[item.d] = pair;
+              });
+            }));
+          });
+        });
+      })(pending.slice(c, c + 3), c > 0);
+    }
+    return chain.then(function () {
+      try { localStorage.setItem(HIST_KEY, JSON.stringify(histCache)); } catch (e) {}
+      return results.map(function (r) { return r || [0, 0]; });
+    });
+  }
+
+  function open() {
+    syncCounterLang();
+    modal.classList.add('open');
+    var body = modal.querySelector('.vc-body');
+    body.innerHTML = uiLang() === 'en' ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
+    var days = lastDays(30);
+    loadHistoryRows(days)
+      .then(function (rows) {
+        body.innerHTML = render(days, rows);
+        return delay(320).then(function () { return loadTodayReferrers(day); });
+      })
+      .then(function (refMap) {
+        var refBox = document.getElementById('vc-ref-box');
+        if (refBox && refMap) refBox.innerHTML = renderReferrerBox(refMap);
+      })
+      .catch(function () {
+        if (!body.querySelector('svg')) {
+          body.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
+        }
+      });
+  }
+  box.setAttribute('role', 'button');
+  box.setAttribute('tabindex', '0');
+  box.addEventListener('click', open);
+  box.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+})();
+  </script>
 </body>
 </html>
