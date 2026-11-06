@@ -1,19 +1,23 @@
 {
   "schema_version": "public-legal-intel-manifest-1.0",
-  "release_id": "3e08164354f3bce060f58ae3c4f67b073b0337926551b888965fab2870ec776c",
-  "as_of": "2026-11-05",
-  "bundle_path": "releases/3e08164354f3bce060f58ae3c4f67b073b0337926551b888965fab2870ec776c/bundle.json",
-  "bundle_sha256": "e503ef8acaaf2f44336051ca9837727d7b8dced57bcf9618ad5882df89ab545a",
+  "release_id": "1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779",
+  "as_of": "2026-11-06",
+  "bundle_path": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/bundle.json",
+  "bundle_sha256": "3eaf3f134ec40d5c32ed4af4ef22288c287c9f24d8d0f23e90b1fb8c77a64931",
   "shards": {
-    "abf_enforcement": "releases/3e08164354f3bce060f58ae3c4f67b073b0337926551b888965fab2870ec776c/abf_enforcement.json",
-    "foi_disclosure": "releases/3e08164354f3bce060f58ae3c4f67b073b0337926551b888965fab2870ec776c/foi_disclosure.json",
-    "legislation_watch": "releases/3e08164354f3bce060f58ae3c4f67b073b0337926551b888965fab2870ec776c/legislation_watch.json"
+    "abf_enforcement": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/abf_enforcement.json",
+    "foi_disclosure": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/foi_disclosure.json",
+    "fwo_compliance": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/fwo_compliance.json",
+    "legislation_watch": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/legislation_watch.json",
+    "tribunal_and_citizenship_stats": "releases/1bda8f846c852bb611a8ced038fa52463880ee7b63cc21ca949b70252f003779/tribunal_and_citizenship_stats.json"
   },
   "counts": {
-    "total": 2201,
+    "total": 2269,
     "abf_enforcement": 1710,
-    "foi_disclosure": 487,
-    "legislation_watch": 4
+    "foi_disclosure": 542,
+    "fwo_compliance": 6,
+    "legislation_watch": 8,
+    "tribunal_and_citizenship_stats": 3
   },
   "sources_status": [
     {
@@ -48,7 +52,7 @@
       "freshness": "fresh",
       "last_retrieved_utc": "2026-11-05T04:38:46Z",
       "snapshot_sha256": "312746f7856ddb5dff30e147242fc543553f7a3c0b085178f1dc37639ade560e",
-      "approved_records": 0,
+      "approved_records": 3,
       "licence": "CC BY 4.0 International (Administrative Review Tribunal Caseload Statistics)",
       "rights_status": "approved_scoped"
     },
@@ -84,7 +88,7 @@
       "freshness": "fresh",
       "last_retrieved_utc": "2026-11-05T04:38:45Z",
       "snapshot_sha256": "f3a908a8cd32994c7ef6aa1797b2d666da9902464a4c9f0972a82b0cd5bd7cb2",
-      "approved_records": 0,
+      "approved_records": 4,
       "licence": "CC BY 3.0 Australia",
       "rights_status": "approved_scoped"
     },
@@ -144,7 +148,7 @@
       "freshness": "fresh",
       "last_retrieved_utc": "2026-11-05T04:38:45Z",
       "snapshot_sha256": "51ff17f7cc2a6f62524bfd84cc12e0191e2da843796c74695da2f5df22679bc9",
-      "approved_records": 0,
+      "approved_records": 6,
       "licence": "Official Metadata & Direct Link Only (Source Page: CC BY-NC 4.0 International)",
       "rights_status": "approved_scoped"
     },
@@ -156,7 +160,7 @@
       "freshness": "fresh",
       "last_retrieved_utc": "2026-11-05T04:38:44Z",
       "snapshot_sha256": "a042e0972510012693b8e47e053b988a3df5d4f42935703fa0f40c2f71b46f80",
-      "approved_records": 0,
+      "approved_records": 55,
       "licence": "Official Metadata & Direct Link Only (Source Page: CC BY-NC 4.0 International)",
       "rights_status": "approved_scoped"
     }

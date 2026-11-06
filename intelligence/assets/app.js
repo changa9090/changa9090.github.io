@@ -6,19 +6,25 @@
 
   var I18N = {
     ko: {
+      pageTitle: '법무법인 박앤코 (Park & Co Lawyers) · 호주 공개 법률 인텔리전스 & SHA-256 원문 검증 센터',
+      langBtnKo: '한국어 (KO)',
       brandTag: '법무법인 박앤코 · SHA-256 원문 검증 인텔리전스',
       navHub: '← 박앤코 법률·비자 통합 허브',
+      navDiy: '셀프 법률 해결 · 비용절감 가이드',
       navVisaGuide: '비자 솔루션 가이드',
       navFaq: '호주이민 FAQ',
       navTracker: '비자 심사기간 (50%·90%)',
       navInquiry: '🔗 공식 상담 · 문의 ↗',
+      footerFirmName: '법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)',
+      footerPracticeAreas: '호주 이민법 · 고용법 · 가족법 · 퀸즐랜드 사고 기한 안내',
       footerInquiry: '박앤코 공식 문의 · 상담 채널 (parklawyers.com.au/links)',
       footerHubLink: '박앤코 법률·비자 통합 허브',
+      footerDiy: '셀프 법률 해결 · 비용절감 가이드',
       footerVisaGuide: '호주 비자 솔루션 가이드',
       footerFaq: '호주이민 실전 FAQ',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: '호주 공개 법률정보 · 제재 등록부 · FOI 원문 검증 센터',
-      heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 이민성(DHA)·FWO 정보공개(FOI) 로그 및 행정재심기구(ART) 통계를 원문 SHA-256 해시와 함께 검증합니다.',
+      heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 이민성(DHA)·FWO 정보공개(FOI) 목록 및 행정재심기구(ART) 통계를 원문 SHA-256 해시와 함께 검증합니다.',
       provReleaseLabel: '결정적 릴리즈 해시 (Release ID)',
       provAsOfLabel: '기준일 (As-Of Snapshot)',
       provApprovedLabel: '변호사 승인 공개 레코드',
@@ -28,10 +34,21 @@
       tabFrl: 'F04 · 법령·기준액 개정 대조',
       tabFwo: 'F05 · FWO 노무 패턴·시정 체크리스트',
       tabFoi: 'F07 · 공개 FOI & ART·시민권 통계',
+      optStateAll: '전체 주/관할 (All States)',
+      optTypeAll: '전체 세부유형 (All Types)',
+      optTypeWithin: 'ABF 원문 제재기간 내 (Within Period)',
+      optTypeEnded: 'ABF 원문 종료일 경과 (Period Ended)',
+      optTypeProh: 's 245AYB 금지 고용주 (Prohibited Employer)',
+      optTypeStat: 'FWO 법정 강행의무 (Statutory Duty)',
+      optTypeGuid: 'FWO 행정 가이드라인 (Official Guidance)',
+      optTypeEu: 'FWO s 715 집행약정 패턴 (EU Pattern)',
+      optTypeDha: '이민성 FOI (DHA Disclosure Log)',
+      optTypeFwo: '공정근로 FOI (FWO Disclosure Log)',
+      drawerTitle: '원문 증거 및 해시 검증 상세',
       guardTitle: '법률 정보 범위 및 개인정보 보호 원칙:',
-      guardText: '본 포털은 호주 연방 기관이 공개한 1차 공공 데이터를 SHA-256 해시로 고정·검증한 일반 법률 리서치 자료이며 개별 사건에 대한 법률 자문이 아닙니다. 개인정보 최소화를 위해 자연인·개인사업자(Sole Trader) 성명은 공개 법인 검색에서 자동 격리·제외되며, 검색어는 외부 분석 서버로 전송되지 않고 브라우저 내에서만 처리됩니다.',
+      guardText: '이 포털은 호주 연방 기관이 공개한 1차 공공 데이터를 SHA-256 해시로 검증해 제공하는 일반 법률 리서치 자료로 개별 사건의 법률 자문이 아닙니다. 개인정보 최소화를 위해 자연인·개인사업자(Sole Trader) 성명은 공개 법인 검색에서 제외하고 입력한 검색어는 외부 서버로 전송하지 않고 브라우저 안에서만 처리합니다.',
       sourcesHeading: '공식 1차 공공 출처 수집 상태 및 라이선스 명세 (Allowlisted .gov.au Sources)',
-      footerDisclaimer: '면책 및 저작권 고지: 본 시스템은 호주 정부 부처(Home Affairs, ABF, OPC Federal Register of Legislation, Fair Work Ombudsman, ART)와 제휴·보증 관계가 없는 독립 법률 정보 서비스입니다. CC BY 3.0 AU / CC BY 4.0 및 FWO CC BY-NC 4.0 메타데이터·링크 원칙을 준수하며, 수록 정보는 일반 참고용으로서 법적 효력을 갖는 자문서가 아닙니다.',
+      footerDisclaimer: '면책 및 저작권 고지: 이 시스템은 호주 정부 부처(이민성, ABF, 연방법령 등록부 FRL, 공정근로옴부즈만 FWO, 행정재심기구 ART)와 제휴·보증 관계가 없는 독립 법률 정보 서비스입니다. CC BY 3.0 AU / CC BY 4.0 및 FWO CC BY-NC 4.0 메타데이터·링크 원칙을 준수하고 수록 정보는 일반 참고용일 뿐 법적 효력을 갖는 자문서가 아닙니다.',
       searchPlaceholder: '법인명, 11자리 ABN, 비자 서브클래스(482/820), 법령 ID(F1996B03551), FOI 번호(FA 25/...) 검색',
       inspectBtn: '🔍 원문 증거 & SHA-256 검증',
       officialUrlBtn: '공식 원문 열기 ↗',
@@ -40,14 +57,20 @@
       noResults: '선택하신 검색어·필터 조건과 일치하는 승인 레코드가 없습니다.'
     },
     en: {
+      pageTitle: 'Park & Co Lawyers · Australian Public Legal Intelligence & SHA-256 Provenance Centre',
+      langBtnKo: 'Korean (KO)',
       brandTag: 'Park & Co Lawyers · Hash-Bound Legal Intelligence',
       navHub: '← Park & Co Legal & Visa Hub',
+      navDiy: 'DIY Legal & Save-Money Guide',
       navVisaGuide: 'Visa Solution Guide',
       navFaq: 'Immigration FAQ',
       navTracker: 'Visa Processing Times (50%·90%)',
       navInquiry: '🔗 Official Inquiry ↗',
+      footerFirmName: 'PNC Legal Pty Ltd t/a Park & Co Lawyers',
+      footerPracticeAreas: 'Australian Immigration · Employment · Family Law · QLD Time-Limit Guidance',
       footerInquiry: 'Park & Co Official Inquiry Hub (parklawyers.com.au/links)',
       footerHubLink: 'Park & Co Legal & Visa Hub',
+      footerDiy: 'DIY Legal & Save-Money Guide',
       footerVisaGuide: 'Australian Visa Solution Guide',
       footerFaq: 'Australian Immigration FAQ',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
@@ -62,6 +85,17 @@
       tabFrl: 'F04 · Legislation & Threshold Diffs',
       tabFwo: 'F05 · FWO Patterns & HR Checklists',
       tabFoi: 'F07 · Official FOI & ART/Citizenship Stats',
+      optStateAll: 'All States & Jurisdictions',
+      optTypeAll: 'All Record Categories',
+      optTypeWithin: 'ABF Within Published Period',
+      optTypeEnded: 'ABF Published End Date Passed',
+      optTypeProh: 's 245AYB Prohibited Employer',
+      optTypeStat: 'FWO Statutory Obligation',
+      optTypeGuid: 'FWO Official Agency Guidance',
+      optTypeEu: 'FWO s 715 EU Pattern',
+      optTypeDha: 'Home Affairs FOI (DHA Log)',
+      optTypeFwo: 'Fair Work FOI (FWO Log)',
+      drawerTitle: 'Cryptographic Source Evidence & SHA-256 Details',
       guardTitle: 'Legal Scope & Privacy Minimization Notice:',
       guardText: 'This portal presents hash-bound primary Australian government metadata for general legal research and does not constitute legal advice. Natural-person / sole-trader names are excluded from corporate search for privacy minimization, and search queries never leave your browser.',
       sourcesHeading: 'Allowlisted Primary .gov.au Source Health & Licence Matrix',
@@ -105,7 +139,7 @@
   }
 
   function formatAbn(abn) {
-    if (!abn || String(abn).length !== 11) return abn || '—';
+    if (!abn || String(abn).length !== 11) return abn || '-';
     var s = String(abn);
     return s.slice(0, 2) + ' ' + s.slice(2, 5) + ' ' + s.slice(5, 8) + ' ' + s.slice(8, 11);
   }
@@ -117,6 +151,9 @@
   function applyLanguage(lang) {
     state.lang = lang === 'en' ? 'en' : 'ko';
     document.documentElement.lang = state.lang;
+    if (I18N[state.lang] && I18N[state.lang].pageTitle) {
+      document.title = I18N[state.lang].pageTitle;
+    }
     document.getElementById('lang-ko').classList.toggle('active', state.lang === 'ko');
     document.getElementById('lang-en').classList.toggle('active', state.lang === 'en');
     document.querySelectorAll('[data-i18n]').forEach(function (node) {
@@ -211,7 +248,7 @@
   function addKv(grid, label, val, isMono) {
     var item = el('div', 'kv-item');
     item.appendChild(el('span', '', label));
-    item.appendChild(el('strong', isMono ? 'mono num' : 'num', val == null || val === '' ? '—' : val));
+    item.appendChild(el('strong', isMono ? 'mono num' : 'num', val == null || val === '' ? '-' : val));
     grid.appendChild(item);
   }
 
@@ -273,7 +310,7 @@
       card.appendChild(el('h3', 'intel-card__title', titleStr));
       var kv = el('div', 'kv-grid');
       addKv(kv, 'ABN (Mod-89 Verified)', formatAbn(p.abn), true);
-      addKv(kv, en ? 'State / Postcode' : '주 / 우편번호', (p.state || '—') + ' ' + (p.postcode || ''), true);
+      addKv(kv, en ? 'State / Postcode' : '주 / 우편번호', (p.state || '-') + ' ' + (p.postcode || ''), true);
       addKv(kv, en ? 'Imposed Date' : '처분 부과일', p.imposed_date);
       addKv(kv, en ? 'Published End Date' : '원문 종료일', p.end_date || (en ? 'Not specified' : '원문 미기재'));
       addKv(kv, en ? 'Action / Sanction' : '처분 요약', p.action_summary);
@@ -282,7 +319,7 @@
     } else if (rec.domain === 'legislation_watch') {
       var lTitle = p.change_kind === 'statutory_threshold_diff'
         ? (en ? p.title_en : p.title_ko)
-        : (p.title_name + ' — ' + p.register_id + ' (Comp. ' + (p.compilation_number || '-') + ')');
+        : (p.title_name + ' · ' + p.register_id + ' (Comp. ' + (p.compilation_number || '-') + ')');
       card.appendChild(el('h3', 'intel-card__title', lTitle));
       card.appendChild(el('p', 'intel-card__body', en ? p.summary_en : p.summary_ko));
       var kvL = el('div', 'kv-grid');
@@ -326,7 +363,7 @@
         card.appendChild(ul);
       }
     } else if (rec.domain === 'foi_disclosure') {
-      card.appendChild(el('h3', 'intel-card__title', p.foi_ref + ' — ' + p.summary));
+      card.appendChild(el('h3', 'intel-card__title', p.foi_ref + ' · ' + p.summary));
       var kvFoi = el('div', 'kv-grid');
       addKv(kvFoi, en ? 'FOI Reference' : '공개 참조번호', p.foi_ref, true);
       addKv(kvFoi, en ? 'Disclosure Date' : '공개일자', p.disclosure_date);
@@ -434,7 +471,7 @@
     var secAttr = el('div', 'drawer-section');
     secAttr.appendChild(el('h4', '', en ? '4. Official Source & Licence Attribution' : '4. 공식 출처 URL 및 라이선스 출처 표시'));
     var attr = rec.attribution || {};
-    secAttr.appendChild(el('div', '', (attr.licence || '') + ' — ' + (attr.attribution_text || '')));
+    secAttr.appendChild(el('div', '', (attr.licence || '') + ' · ' + (attr.attribution_text || '')));
     var srcLink = el('a', 'btn-link-ext', rec.source_url);
     srcLink.href = rec.source_url;
     srcLink.target = '_blank';
@@ -513,7 +550,7 @@
       tdSt.appendChild(el('span', s.fetch_status === 'fetched' ? 'badge badge--green' : 'badge badge--warn', s.fetch_status));
       tr.appendChild(tdSt);
       tr.appendChild(el('td', 'num', Number(s.approved_records || 0).toLocaleString()));
-      tr.appendChild(el('td', 'mono', s.snapshot_sha256 ? String(s.snapshot_sha256).slice(0, 16) + '…' : '—'));
+      tr.appendChild(el('td', 'mono', s.snapshot_sha256 ? String(s.snapshot_sha256).slice(0, 16) + '…' : '-'));
       tr.appendChild(el('td', '', s.licence));
       tbody.appendChild(tr);
     });
@@ -620,7 +657,7 @@
       .then(function (manifest) {
         state.manifest = manifest;
         document.getElementById('prov-release-id').textContent = String(manifest.release_id || '').slice(0, 16) + '…';
-        document.getElementById('prov-as-of').textContent = manifest.as_of || '—';
+        document.getElementById('prov-as-of').textContent = manifest.as_of || '-';
         var okSrc = (manifest.sources_status || []).filter(function (s) { return s.fetch_status === 'fetched'; }).length;
         var totSrc = (manifest.sources_status || []).length;
         document.getElementById('prov-sources-health').textContent = okSrc + ' / ' + totSrc + ' Verified (HTTP 200)';

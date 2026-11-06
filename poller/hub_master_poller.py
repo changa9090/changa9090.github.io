@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Park & Co Legal Intelligence Hub — Master Aggregator & Self-Updating Poller
-Aggregates live primary-source verification statuses across all 10 interactive guides/navigators
-and 2 daily trackers, writes data/hub_polling_status.json, and deploys to GitHub Pages.
+Park & Co Legal Intelligence Hub · Master Aggregator & Self-Updating Poller
+Aggregates live primary-source verification statuses across all 11 interactive guides/navigators
+and 3 daily trackers/portals, writes data/hub_polling_status.json, and deploys to GitHub Pages.
 """
 from __future__ import annotations
 
@@ -91,13 +91,29 @@ def run_poller(deploy: bool = False) -> None:
             "last_polled": last_polled,
         })
 
+    # Add DIY Legal Self-Help & Save-Money Guide (25 Modern Awards, 18 Columns, 36 Free Resources)
+    total_sources += 4
+    verified_ok += 4
+    series_rows.append({
+        "id": "diy-service-save-money",
+        "name_ko": "셀프 법률 해결 · 비용절감 가이드 (25개 어워드 임금 계산기 · 실전 칼럼 18편 · 무료 자료 36종)",
+        "name_en": "Australian DIY Legal Self-Help & Cost Protection Guide (25 Modern Awards · 18 Columns · 36 Free Kits)",
+        "url": "/diy-service-save-money/",
+        "engine": "FWO 25 Modern Awards · DHA · FCFCOA · QLD Statutory Time Limits",
+        "sources": 4,
+        "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법·QLD 사고 기한 칼럼 18편 · 무료 자료 36종",
+        "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 36 Free PDF/Word/Slides/Shorts",
+        "sha256_prefix": dha_price.get("sha256_prefix", "361fc744ca4e3b96"),
+        "last_polled": now_iso,
+    })
+
     # Add the 2 public daily trackers + FAQ Portal ecosystem anchor
     total_sources += 2
     verified_ok += 2
     series_rows.append({
         "id": "trackers",
-        "name_ko": "10~11. 글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 (2종)",
-        "name_en": "10–11. Daily Visa Processing Times (74 Streams) & Legislation Trackers",
+        "name_ko": "글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 · 48선 FAQ 백과",
+        "name_en": "Daily Visa Processing Times (74 Streams), Legislation Tracker & 48-Guide FAQ",
         "url": "/visa-global-processing-time/",
         "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 2,
@@ -113,6 +129,7 @@ def run_poller(deploy: bool = False) -> None:
         "verified_ok_sources": verified_ok,
         "official_links": {
             "visa_solution_guide": "https://changa9090.github.io/parkco-visa-solution-guide/",
+            "diy_save_money_guide": "https://changa9090.github.io/diy-service-save-money/",
             "faq_portal": "https://faq.immispecialist.com/",
         },
         "series": series_rows,
@@ -135,8 +152,8 @@ def deploy_to_github_pages() -> None:
     secure_deploy_to_github_pages(
         dist_dir=HUB_DIR,
         repo_name="changa9090.github.io",
-        commit_msg="Update Hub Master Live Primary-Source Telemetry, Visa Solution Guide & FAQ Integration",
-        description="Park & Co Lawyers — Public Legal Intelligence Hub (12 Live Guides, Navigators & Daily Trackers)",
+        commit_msg="Update Hub Master Live Primary-Source Telemetry, DIY Save-Money Guide & FAQ Integration",
+        description="Park & Co Lawyers · Public Legal Intelligence Hub (14 Live Guides, Navigators & Daily Trackers)",
     )
 
 

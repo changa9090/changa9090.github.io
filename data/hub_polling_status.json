@@ -1,9 +1,10 @@
 {
-  "last_polled_iso": "2026-11-06T08:15:59+10:00",
-  "total_primary_sources": 115,
-  "verified_ok_sources": 115,
+  "last_polled_iso": "2026-11-06T12:03:15+10:00",
+  "total_primary_sources": 119,
+  "verified_ok_sources": 119,
   "official_links": {
     "visa_solution_guide": "https://changa9090.github.io/parkco-visa-solution-guide/",
+    "diy_save_money_guide": "https://changa9090.github.io/diy-service-save-money/",
     "faq_portal": "https://faq.immispecialist.com/"
   },
   "series": [
@@ -128,16 +129,28 @@
       "last_polled": "2026-11-05T15:07:23+10:00"
     },
     {
+      "id": "diy-service-save-money",
+      "name_ko": "셀프 법률 해결 · 비용절감 가이드 (25개 어워드 임금 계산기 · 실전 칼럼 18편 · 무료 자료 36종)",
+      "name_en": "Australian DIY Legal Self-Help & Cost Protection Guide (25 Modern Awards · 18 Columns · 36 Free Kits)",
+      "url": "/diy-service-save-money/",
+      "engine": "FWO 25 Modern Awards · DHA · FCFCOA · QLD Statutory Time Limits",
+      "sources": 4,
+      "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법·QLD 사고 기한 칼럼 18편 · 무료 자료 36종",
+      "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 36 Free PDF/Word/Slides/Shorts",
+      "sha256_prefix": "0ab169e8525c9030",
+      "last_polled": "2026-11-06T12:03:15+10:00"
+    },
+    {
       "id": "trackers",
-      "name_ko": "10~11. 글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 (2종)",
-      "name_en": "10–11. Daily Visa Processing Times (74 Streams) & Legislation Trackers",
+      "name_ko": "글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 · 48선 FAQ 백과",
+      "name_en": "Daily Visa Processing Times (74 Streams), Legislation Tracker & 48-Guide FAQ",
       "url": "/visa-global-processing-time/",
       "engine": "Daily 05:15–06:55 AEST Timers",
       "sources": 2,
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설",
       "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-06T08:15:59+10:00"
+      "last_polled": "2026-11-06T12:03:15+10:00"
     }
   ]
 }
