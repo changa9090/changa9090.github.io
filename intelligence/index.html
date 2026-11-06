@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
   <style>
-/* Park & Co Unified Visit Counter & Referral Modal v2 */
+/* Park & Co Unified Visit Counter & Referral Modal v2.1 */
 .visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
 .visit-counter[hidden] { display: none !important; }
 .visit-counter:not([hidden]) { cursor: pointer; }
@@ -36,6 +36,11 @@
 #vc-modal .vc-close { float: right; border: 0; background: none; font-size: 1.45rem; line-height: 1; cursor: pointer;
   color: #5A5654; min-width: 34px; min-height: 34px; padding: 0; }
 #vc-modal .vc-close:hover { color: #7A1F2B; }
+.vc-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 0 0 8px; flex-wrap: wrap; }
+.vc-range-tabs { display: inline-flex; gap: 4px; background: #F4F0E8; padding: 3px; border-radius: 999px; }
+.vc-range-btn { border: 0; background: transparent; color: #5A5654; font-size: 0.75rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.vc-range-btn.active { background: #7A1F2B; color: #FFFFFF; }
 .vc-svg { width: 100%; height: auto; display: block; }
 .vc-grid { stroke: #E5DEC9; stroke-width: 1; }
 .vc-ylab { font-size: 11px; fill: #5A5654; text-anchor: end; }
@@ -277,13 +282,13 @@
 
   <script src="./assets/app.js"></script>
   <script>
-/* Resilient Visit Counters + 30-Day Chart + Privacy-Safe Referral Channels v2 */
+/* Resilient Visit Counters + Daily Chart (intel-hist-v1) + Privacy-Safe Referral Channels v2.1 */
 (function () {
   var NS = 'changa9090.github.io', API = 'https://abacus.jasoncameron.dev/', START = '2026-11-01';
-  var BASE_P = 'intel';
   var SELF_PATH = '/intelligence';
   var IS_PROD = (location.hostname === 'changa9090.github.io');
-  var P = BASE_P + (IS_PROD ? '' : '-dev');
+  var P = 'intel' + (IS_PROD ? '' : '-dev');
+  var BASE_P = 'intel';
   var LEGACY_TOTAL = IS_PROD ? 0 : 0;
   var LEGACY_VIS = IS_PROD ? 0 : 0;
   var CACHE_KEY = P + '-counts-cache-v1';
@@ -343,12 +348,12 @@
     if (lv) lv.textContent = en ? 'Visitors' : '방문자';
     box.title = en
       ? 'Click for daily visits & referral sources'
-      : '클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있어요';
+      : '클릭하면 일별 방문 추이와 유입 경로를 볼 수 있어요';
     var mt = document.getElementById('vc-modal-title');
     if (mt) {
       mt.innerHTML = en
-        ? 'Daily Visits &amp; Referral Sources <small>(last 30 days &middot; Brisbane time)</small>'
-        : '일별 방문 추이 · 유입 경로 <small>(최근 30일 · 브리즈번 시간 기준)</small>';
+        ? 'Daily Visits &amp; Referral Sources <small>(Brisbane time)</small>'
+        : '일별 방문 추이 · 유입 경로 <small>(브리즈번 시간 기준)</small>';
     }
   }
   syncCounterLang();
@@ -389,6 +394,10 @@
     lastRefDay = localStorage.getItem(P + '-ref-day');
     cached = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
   } catch (e) {}
+
+  var liveTodayViews = (cached.day === day && typeof cached.today === 'number') ? cached.today : null;
+  var liveTodayVis = (cached.day === day && typeof cached.todayVis === 'number') ? cached.todayVis : null;
+  var liveRefHints = {};
 
   function classifyReferralBucket() {
     try {
@@ -471,9 +480,10 @@
   var initTot = Math.max(cached.total || 0, seedTot) || null;
   var initVis = Math.max(cached.visitors || 0, seedVis) || null;
   if (initTot != null || initVis != null) {
-    renderBadge(initTot, cached.day === day ? cached.today : null, initVis);
+    renderBadge(initTot, liveTodayViews, initVis);
   }
 
+  /* 429-aware retry spanning >15s across retries to cleanly outlast Abacus 30;w=10 windows */
   function fetchRetry(url, isHit, attempt) {
     var tries = attempt || 0;
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
@@ -485,6 +495,11 @@
       .then(function (r) {
         if (timer) clearTimeout(timer);
         if (!isHit && r.status === 404) return { value: 0 };
+        if (r.status === 429) {
+          var err429 = new Error('HTTP 429');
+          err429.isRateLimit = true;
+          throw err429;
+        }
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
@@ -494,8 +509,10 @@
       })
       .catch(function (err) {
         if (timer) clearTimeout(timer);
-        if (tries < 2) {
-          return new Promise(function (res) { setTimeout(res, 1100 * (tries + 1)); })
+        var maxTries = (err && err.isRateLimit) ? 3 : 2;
+        if (tries < maxTries) {
+          var waitMs = (err && err.isRateLimit) ? (3800 + tries * 3600) : (1100 * (tries + 1));
+          return new Promise(function (res) { setTimeout(res, waitMs); })
             .then(function () { return fetchRetry(url, isHit, tries + 1); });
         }
         throw err;
@@ -508,16 +525,24 @@
   function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
 
   if (lastDay !== day) {
-    call('hit', 'vday-' + day).then(function () {
-      try { localStorage.setItem(P + '-day', day); } catch (e) {}
+    call('hit', 'vday-' + day).then(function (v) {
+      liveTodayVis = v;
+      try {
+        localStorage.setItem(P + '-day', day);
+        var cur = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
+        cur.todayVis = v;
+        cur.day = day;
+        localStorage.setItem(CACHE_KEY, JSON.stringify(cur));
+      } catch (e) {}
     }).catch(function () {});
   }
 
   if (lastRefDay !== day) {
     var refBucket = classifyReferralBucket();
-    delay(260).then(function () {
+    delay(220).then(function () {
       return call('hit', 'ref-' + refBucket + '-' + day);
-    }).then(function () {
+    }).then(function (rv) {
+      liveRefHints[refBucket] = rv;
       try {
         localStorage.setItem(P + '-ref-day', day);
         localStorage.setItem(P + '-ref-bucket', refBucket);
@@ -527,8 +552,8 @@
 
   Promise.allSettled([
     call('hit', 'total'),
-    delay(90).then(function () { return call('hit', 'day-' + day); }),
-    delay(180).then(function () {
+    delay(80).then(function () { return call('hit', 'day-' + day); }),
+    delay(160).then(function () {
       return call(seen ? 'get' : 'hit', 'visitors').then(function (val) {
         if (!seen) {
           try { localStorage.setItem(P + '-seen', '1'); } catch (e) {}
@@ -538,13 +563,15 @@
     })
   ]).then(function (res) {
     var tot = res[0].status === 'fulfilled' ? (res[0].value + LEGACY_TOTAL) : initTot;
-    var tod = res[1].status === 'fulfilled' ? res[1].value : (cached.day === day ? cached.today : null);
+    var tod = res[1].status === 'fulfilled' ? res[1].value : liveTodayViews;
     var vis = res[2].status === 'fulfilled' ? (res[2].value + LEGACY_VIS) : initVis;
+    if (typeof tod === 'number') liveTodayViews = tod;
     renderBadge(tot, tod, vis);
     try {
       localStorage.setItem(CACHE_KEY, JSON.stringify({
         total: tot != null ? tot : initTot,
-        today: tod != null ? tod : cached.today,
+        today: tod != null ? tod : liveTodayViews,
+        todayVis: liveTodayVis,
         visitors: vis != null ? vis : initVis,
         day: day
       }));
@@ -560,6 +587,7 @@
     return out.length ? out : [today];
   }
 
+  var activeRange = 7;
   var modal = document.createElement('div');
   modal.id = 'vc-modal';
   modal.innerHTML = '<div class="vc-dialog" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title">' +
@@ -606,6 +634,15 @@
     if (chip) {
       var rc = chip.getAttribute('data-ref-code');
       if (rc) copyShareLink(rc, chip);
+      return;
+    }
+    var rbtn = e.target && e.target.closest ? e.target.closest('.vc-range-btn') : null;
+    if (rbtn) {
+      var nr = Number(rbtn.getAttribute('data-range')) || 7;
+      if (nr !== activeRange) {
+        activeRange = nr;
+        loadAndRenderModal(false);
+      }
     }
   });
 
@@ -622,9 +659,17 @@
       '</div><div class="vc-share-chips">' + chips + '</div></div>';
   }
 
-  function render(days, rows) {
-    var isEn = uiLang() === 'en';
-    var W = 640, H = 250, L = 40, R = 12, T = 14, B = 38;
+  function renderToolbar(isEn, fullDaysLen) {
+    if (fullDaysLen <= 7) return '';
+    var b7 = '<button type="button" class="vc-range-btn' + (activeRange === 7 ? ' active' : '') + '" data-range="7">' +
+      (isEn ? 'Last 7 days' : '최근 7일') + '</button>';
+    var b30 = '<button type="button" class="vc-range-btn' + (activeRange === 30 ? ' active' : '') + '" data-range="30">' +
+      (isEn ? 'Last 30 days' : '최근 30일') + '</button>';
+    return '<div class="vc-toolbar"><div class="vc-range-tabs">' + b7 + b30 + '</div></div>';
+  }
+
+  function renderChartSvg(days, rows, isEn) {
+    var W = 640, H = 240, L = 40, R = 12, T = 14, B = 38;
     var max = Math.max(1, Math.max.apply(null, rows.map(function (r) { return Math.max(r[0], r[1]); })));
     var step = (W - L - R) / days.length, bw = Math.min(36, Math.max(4, step * 0.6));
     var y = function (v) { return T + (H - T - B) * (1 - v / max); };
@@ -653,23 +698,31 @@
     var sum = rows.reduce(function (a, r) { return [a[0] + r[0], a[1] + r[1]]; }, [0, 0]);
     var summaryLine = isEn
       ? (days.length + ' day(s) &middot; ' + fmt(sum[0]) + ' page views &middot; ' + fmt(sum[1]) + ' daily visitors (since ' + START + '; 1 daily visitor per browser).')
-      : ('최근 ' + days.length + '일 합계 &middot; 페이지 조회 ' + fmt(sum[0]) + '회 &middot; 일별 순방문자 ' + fmt(sum[1]) + '명 (' + START + ' 집계 시작 &middot; 하루 브라우저당 1회)');
-    var refLoading = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중이에요&hellip;';
+      : ('표시 구간 ' + days.length + '일 합계 &middot; 페이지 조회 ' + fmt(sum[0]) + '회 &middot; 일별 순방문자 ' + fmt(sum[1]) + '명 (' + START + ' 집계 시작 &middot; 하루 브라우저당 1회)');
     return svg + '<div class="vc-legend"><span><i class="vc-k-bar"></i>' + (isEn ? 'Page views' : '페이지 조회') + '</span>' +
       '<span><i class="vc-k-line"></i>' + (isEn ? 'Daily visitors' : '일별 순방문자') + '</span></div>' +
-      '<p class="vc-sum">' + summaryLine + '</p>' +
-      '<div id="vc-ref-box" class="vc-ref-box"><div class="vc-ref-note">' + refLoading + '</div></div>' +
-      renderShareBar(isEn);
+      '<p class="vc-sum">' + summaryLine + '</p>';
   }
 
   function loadTodayReferrers(dayKey) {
-    var firstSlice = REF_BUCKETS.slice(0, 6);
-    var secondSlice = REF_BUCKETS.slice(6);
+    if (liveTodayViews === 0 && liveTodayVis === 0) {
+      return Promise.resolve({});
+    }
     var out = {};
+    var remaining = [];
+    REF_BUCKETS.forEach(function (b) {
+      if (typeof liveRefHints[b.id] === 'number') {
+        out[b.id] = liveRefHints[b.id];
+      } else {
+        remaining.push(b);
+      }
+    });
+    var firstSlice = remaining.slice(0, 6);
+    var secondSlice = remaining.slice(6);
     return Promise.all(firstSlice.map(function (b) {
       return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
     })).then(function () {
-      return delay(340);
+      return secondSlice.length ? delay(260) : Promise.resolve();
     }).then(function () {
       return Promise.all(secondSlice.map(function (b) {
         return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
@@ -717,29 +770,40 @@
     days.forEach(function (d, idx) {
       if (d < today && Array.isArray(histCache[d])) {
         results[idx] = histCache[d];
+      } else if (d === today && typeof liveTodayViews === 'number' && typeof liveTodayVis === 'number') {
+        results[idx] = [liveTodayViews, liveTodayVis];
       } else {
         pending.push({ d: d, idx: idx });
       }
     });
 
+    var batchSize = pending.length > 7 ? 4 : 6;
+    var pauseMs = pending.length > 7 ? 2900 : 180;
     var chain = Promise.resolve();
-    for (var c = 0; c < pending.length; c += 3) {
+    for (var c = 0; c < pending.length; c += batchSize) {
       (function (slice, waitFirst) {
         chain = chain.then(function () {
-          return (waitFirst ? delay(360) : Promise.resolve()).then(function () {
+          return (waitFirst ? delay(pauseMs) : Promise.resolve()).then(function () {
             return Promise.all(slice.map(function (item) {
               var k = item.d.replace(/-/g, '');
-              return Promise.all([
-                call('get', 'day-' + k).catch(function () { return 0; }),
-                call('get', 'vday-' + k).catch(function () { return 0; })
-              ]).then(function (pair) {
-                results[item.idx] = pair;
-                if (item.d < today && (pair[0] > 0 || pair[1] > 0)) histCache[item.d] = pair;
+              var pViews = (item.d === today && typeof liveTodayViews === 'number')
+                ? Promise.resolve(liveTodayViews)
+                : call('get', 'day-' + k).catch(function () { return null; });
+              var pVis = (item.d === today && typeof liveTodayVis === 'number')
+                ? Promise.resolve(liveTodayVis)
+                : call('get', 'vday-' + k).catch(function () { return null; });
+              return Promise.all([pViews, pVis]).then(function (pair) {
+                var v0 = pair[0] == null ? 0 : pair[0];
+                var v1 = pair[1] == null ? 0 : pair[1];
+                results[item.idx] = [v0, v1];
+                if (item.d < today && pair[0] !== null && pair[1] !== null) {
+                  histCache[item.d] = [v0, v1];
+                }
               });
             }));
           });
         });
-      })(pending.slice(c, c + 3), c > 0);
+      })(pending.slice(c, c + batchSize), c > 0);
     }
     return chain.then(function () {
       try { localStorage.setItem(HIST_KEY, JSON.stringify(histCache)); } catch (e) {}
@@ -747,26 +811,48 @@
     });
   }
 
-  function open() {
+  var cachedRefMap = null;
+
+  function loadAndRenderModal(refreshRefs) {
     syncCounterLang();
-    modal.classList.add('open');
+    var isEn = uiLang() === 'en';
+    var fullDays = lastDays(30);
+    var days = activeRange === 7 ? lastDays(7) : fullDays;
     var body = modal.querySelector('.vc-body');
-    body.innerHTML = uiLang() === 'en' ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
-    var days = lastDays(30);
+    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
+    var refWaitMsg = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중이에요&hellip;';
+    var existingRefHtml = (!refreshRefs && cachedRefMap) ? renderReferrerBox(cachedRefMap) : ('<div class="vc-ref-note">' + refWaitMsg + '</div>');
+
+    /* Render toolbar, loading placeholder, referral box, and 1-click share bar IMMEDIATELY (0ms) */
+    body.innerHTML = renderToolbar(isEn, fullDays.length) +
+      '<div id="vc-chart-slot"><p class="vc-sum">' + chartWaitMsg + '</p></div>' +
+      '<div id="vc-ref-box" class="vc-ref-box">' + existingRefHtml + '</div>' +
+      renderShareBar(isEn);
+
     loadHistoryRows(days)
       .then(function (rows) {
-        body.innerHTML = render(days, rows);
-        return delay(320).then(function () { return loadTodayReferrers(day); });
+        var slot = document.getElementById('vc-chart-slot');
+        if (slot) slot.innerHTML = renderChartSvg(days, rows, uiLang() === 'en');
+        if (!refreshRefs && cachedRefMap) return cachedRefMap;
+        return delay(180).then(function () { return loadTodayReferrers(day); });
       })
       .then(function (refMap) {
+        if (refMap) cachedRefMap = refMap;
         var refBox = document.getElementById('vc-ref-box');
         if (refBox && refMap) refBox.innerHTML = renderReferrerBox(refMap);
       })
       .catch(function () {
-        if (!body.querySelector('svg')) {
-          body.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
+        var slot = document.getElementById('vc-chart-slot');
+        if (slot && !slot.querySelector('svg')) {
+          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
         }
       });
+  }
+
+  function open() {
+    activeRange = 7;
+    modal.classList.add('open');
+    loadAndRenderModal(true);
   }
   box.setAttribute('role', 'button');
   box.setAttribute('tabindex', '0');
