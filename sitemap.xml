@@ -145,6 +145,15 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://changa9090.github.io/intelligence/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://changa9090.github.io/intelligence/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://changa9090.github.io/intelligence/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/intelligence/" />
+  </url>
+  <url>
     <loc>https://changa9090.github.io/diy-service-save-money/columns/annualised-salary-setoff-audit-2026/</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>

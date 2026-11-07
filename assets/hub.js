@@ -1,4 +1,4 @@
-/* Park & Co Lawyers — Main Hub Router, Directory Filter, i18n & Live Source Status (2026.11) */
+/* Park & Co Lawyers · Main Hub Router, Directory Filter, i18n & Live Source Status (2026.11) */
 (function () {
   'use strict';
 
