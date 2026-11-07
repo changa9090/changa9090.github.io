@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /au-caselaw-digest/
+
+Sitemap: https://changa9090.github.io/sitemap.xml
