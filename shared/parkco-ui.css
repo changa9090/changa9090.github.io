@@ -1,0 +1,287 @@
+/* Park & Co Lawyers — Unified Editorial Legal Design System (2026.11)
+   Self-hosted typography + calm high-trust tokens + mobile-first guardrails */
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/Manrope-VF.ttf") format("truetype");
+}
+
+:root {
+  --pk-bg: #FBF9F5;
+  --pk-surface: #FFFFFF;
+  --pk-surface-2: #F4EFE6;
+  --pk-ink: #14282A;
+  --pk-ink-2: #3A4D4F;
+  --pk-muted: #667678;
+  --pk-brand: #0E3A3E;
+  --pk-brand-2: #1F5A5E;
+  --pk-accent: #B68B40;
+  --pk-danger: #9E2A2B;
+  --pk-danger-bg: #FDF2F2;
+  --pk-warn: #946200;
+  --pk-warn-bg: #FFF9EB;
+  --pk-ok: #1D6B47;
+  --pk-ok-bg: #EEF8F2;
+  --pk-line: #E5DFD3;
+  --pk-radius: 12px;
+  --pk-radius-sm: 8px;
+  --pk-shadow: 0 4px 18px rgba(20, 40, 42, 0.05);
+  --pk-font: "Pretendard Variable", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+[id] {
+  scroll-margin-top: 76px;
+}
+
+/* Unified Compact 1-Row Header */
+.pk-unified-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(251, 249, 245, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--pk-line);
+}
+
+.pk-unified-header__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pk-unified-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--pk-ink);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.pk-unified-brand img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.pk-unified-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pk-unified-nav a {
+  color: var(--pk-ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pk-unified-nav a:hover {
+  color: var(--pk-brand);
+  text-decoration: underline;
+}
+
+.pk-unified-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pk-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--pk-brand);
+  color: #FFFFFF !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--pk-brand);
+  transition: background 0.15s ease;
+}
+
+.pk-btn-cta:hover {
+  background: var(--pk-brand-2);
+}
+
+.pk-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--pk-surface);
+  color: var(--pk-ink);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid var(--pk-line);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Urgent 1-line Strip */
+.pk-urgent-strip {
+  background: var(--pk-danger-bg);
+  border-bottom: 1px solid #EBCACA;
+  color: #6B1A1B;
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.pk-urgent-strip a {
+  color: #6B1A1B;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Side-by-side Statutory vs Safe Deadline Pair */
+.pk-deadline-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.pk-deadline-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-line);
+  border-radius: var(--pk-radius-sm);
+  padding: 14px 16px;
+}
+
+.pk-deadline-card--safe {
+  border-left: 4px solid var(--pk-brand);
+  background: #F5F9F9;
+}
+
+.pk-deadline-card--statutory {
+  border-left: 4px solid var(--pk-danger);
+  background: var(--pk-danger-bg);
+}
+
+.pk-deadline-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pk-muted);
+  margin-bottom: 4px;
+}
+
+.pk-deadline-card__date {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--pk-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Neutral Empty State Before User Input */
+.pk-empty-prompt {
+  background: var(--pk-surface-2);
+  border: 1px dashed #CEC5B4;
+  border-radius: var(--pk-radius-sm);
+  padding: 18px 20px;
+  color: var(--pk-ink-2);
+  font-size: 14.5px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Progressive Disclosure Accordion */
+details.pk-disclosure {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-line);
+  border-radius: var(--pk-radius);
+  margin: 14px 0;
+  overflow: hidden;
+}
+
+details.pk-disclosure > summary {
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pk-ink);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--pk-surface);
+}
+
+details.pk-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.pk-disclosure > summary::after {
+  content: "+";
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--pk-muted);
+}
+
+details.pk-disclosure[open] > summary {
+  border-bottom: 1px solid var(--pk-line);
+  background: var(--pk-surface-2);
+}
+
+details.pk-disclosure[open] > summary::after {
+  content: "−";
+}
+
+.pk-disclosure__body {
+  padding: 16px 18px;
+}
+
+/* Responsive Table Wrapper */
+.pk-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .pk-unified-header__inner {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .pk-unified-nav {
+    gap: 10px;
+    font-size: 13px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "2026.11.07",
+  "firm": {
+    "legal_name": "PNC Legal Pty Ltd t/a Park & Co Lawyers",
+    "brand_ko": "법무법인 박앤코",
+    "brand_en": "Park & Co Lawyers",
+    "principal_ko": "박창민 대표변호사 (퀸즐랜드주 공인 이민법 전문변호사 · QLS Accredited Specialist in Immigration Law)",
+    "principal_en": "Chang Min Park · Principal Lawyer & QLS Accredited Specialist in Immigration Law",
+    "official_email": "enquiry@parkcolawyers.com",
+    "inquiry_hub_ko": "https://parklawyers.com.au/links/?lang=ko",
+    "inquiry_hub_en": "https://parklawyers.com.au/links/?lang=en",
+    "faq_url_ko": "https://faq.immispecialist.com/?lang=ko",
+    "faq_url_en": "https://faq.immispecialist.com/?lang=en",
+    "hub_url": "https://changa9090.github.io/"
+  },
+  "thresholds_fy2026_27": {
+    "csit_aud": 79423,
+    "ssit_aud": 146576,
+    "tsmit_legacy_aud": 70000,
+    "fair_work_high_income_threshold_aud": 190100,
+    "fair_work_compensation_cap_26wk_aud": 95050
+  },
+  "deadlines": {
+    "s116_noicc_response_working_days": 5,
+    "s116_noicc_basis": "Migration Regulations 1994 reg 2.44(2)(b)",
+    "s116_art_review_working_days": 7,
+    "s116_art_review_basis": "Migration Regulations 1994 reg 4.10(1)(b)",
+    "detention_art_review_working_days": 7,
+    "detention_art_review_basis": "Migration Regulations 1994 reg 4.10(2)",
+    "onshore_refusal_calendar_days": 28,
+    "onshore_refusal_basis": "Migration Regulations 1994 reg 4.10(1)(a)",
+    "s501ca_revocation_calendar_days": 28,
+    "s501ca_basis": "Migration Act 1958 s 501CA · Direction No. 123",
+    "s500_character_art_calendar_days": 9,
+    "s500_character_art_basis": "Migration Act 1958 s 500(6B)",
+    "fcfcoa_judicial_review_calendar_days": 35,
+    "fcfcoa_judicial_review_basis": "Migration Act 1958 s 477",
+    "offshore_sponsor_art_calendar_days": 70,
+    "offshore_sponsor_art_basis": "Migration Regulations 1994 reg 4.10(1)(c)",
+    "fwc_dismissal_calendar_days": 21,
+    "fwc_dismissal_basis": "Fair Work Act 2009 ss 394(2), 366(1), 536LU & Acts Interpretation Act 1901 s 36(2)",
+    "family_divorce_property_months": 12,
+    "family_defacto_property_years": 2
+  },
+  "fees_aud": {
+    "art_standard_migration_review": 3727,
+    "art_reduced_or_refund_50pct": 1863.5,
+    "art_protection_upfront_mandatory": 1863.5,
+    "sbs_sponsorship_482_494": 420,
+    "nomination_482": 330,
+    "nomination_494_regional_nil": 0,
+    "nomination_186_standard": 540,
+    "nomination_186_regional_trt_nil": 0,
+    "saf_levy_482_per_year_small": 1200,
+    "saf_levy_482_per_year_large": 1800,
+    "saf_levy_186_494_one_off_small": 3000,
+    "saf_levy_186_494_one_off_large": 5000
+  }
+}
