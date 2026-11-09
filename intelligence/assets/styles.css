@@ -227,6 +227,7 @@ code, .mono {
   display: flex;
   gap: 6px;
   overflow-x: auto;
+  scrollbar-width: thin;
   padding: 10px 0;
 }
 
@@ -234,15 +235,15 @@ code, .mono {
   border: 1px solid var(--line-strong);
   background: var(--white);
   color: var(--charcoal-soft);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
-  padding: 8px 14px;
+  padding: 7px 11px;
   border-radius: 8px;
   cursor: pointer;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   transition: all 0.15s ease;
 }
 
