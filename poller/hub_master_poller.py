@@ -71,9 +71,15 @@ def run_poller(deploy: bool = False) -> None:
                     or d.get("generated_at")
                     or now_iso
                 )
-                srcs = d.get("sources", [])
+                srcs = d.get("sources") or d.get("targets") or []
                 if srcs and isinstance(srcs, list) and isinstance(srcs[0], dict):
-                    sha_prefix = srcs[0].get("sha256_prefix") or srcs[0].get("sha256", "")[:16] or sha_prefix
+                    sha_prefix = (
+                        srcs[0].get("sha256_prefix")
+                        or (srcs[0].get("sha256") or "")[:16]
+                        or (srcs[0].get("normalized_sha256") or "")[:16]
+                        or (srcs[0].get("raw_sha256") or "")[:16]
+                        or sha_prefix
+                    )
             except Exception:
                 pass
         total_sources += src_count
