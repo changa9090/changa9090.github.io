@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026.11.07",
+  "schema_version": "2026.11.11",
   "firm": {
     "legal_name": "PNC Legal Pty Ltd t/a Park & Co Lawyers",
     "brand_ko": "법무법인 박앤코",
@@ -11,14 +11,18 @@
     "inquiry_hub_en": "https://parklawyers.com.au/links/?lang=en",
     "faq_url_ko": "https://faq.immispecialist.com/?lang=ko",
     "faq_url_en": "https://faq.immispecialist.com/?lang=en",
-    "hub_url": "https://changa9090.github.io/"
+    "hub_url": "https://changa9090.github.io/",
+    "counter_api_base": "https://faq.immispecialist.com/vc/"
   },
   "thresholds_fy2026_27": {
     "csit_aud": 79423,
     "ssit_aud": 146576,
+    "amsr_exempt_earnings_aud": 250000,
     "tsmit_legacy_aud": 70000,
     "fair_work_high_income_threshold_aud": 190100,
-    "fair_work_compensation_cap_26wk_aud": 95050
+    "fair_work_compensation_cap_26wk_aud": 95050,
+    "superannuation_guarantee_pct": 12.0,
+    "sponsor_870_taxable_income_aud": 83454.8
   },
   "deadlines": {
     "s116_noicc_response_working_days": 5,
@@ -46,6 +50,7 @@
     "art_standard_migration_review": 3727,
     "art_reduced_or_refund_50pct": 1863.5,
     "art_protection_upfront_mandatory": 1863.5,
+    "fwc_unfair_dismissal_general_protections": 92.7,
     "sbs_sponsorship_482_494": 420,
     "nomination_482": 330,
     "nomination_494_regional_nil": 0,
@@ -54,6 +59,16 @@
     "saf_levy_482_per_year_small": 1200,
     "saf_levy_482_per_year_large": 1800,
     "saf_levy_186_494_one_off_small": 3000,
-    "saf_levy_186_494_one_off_large": 5000
+    "saf_levy_186_494_one_off_large": 5000,
+    "vac_gsm_189_190_491_primary": 4910,
+    "vac_gsm_189_190_491_secondary_adult": 2455,
+    "vac_gsm_189_190_491_child": 1230,
+    "vac_sid_482_primary": 3300,
+    "vac_ens_186_primary": 4910,
+    "vac_student_500_primary": 2000,
+    "vac_graduate_485_primary": 2300,
+    "vac_partner_820_309_primary": 9365,
+    "vac_national_innovation_858_primary": 6235,
+    "stac_subsequent_temporary_charge": 700
   }
 }

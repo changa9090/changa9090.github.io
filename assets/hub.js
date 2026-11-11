@@ -1,13 +1,15 @@
-/* Park & Co Lawyers · Main Hub Router, Directory Filter, i18n & Live Source Status (2026.11) */
+/* Park & Co Lawyers · Main Hub Router, Instant Filter, Directory, i18n & Live Source Status (2026.11) */
 (function () {
   'use strict';
 
   var currentLang = 'ko';
   var routerState = { q1: null, q2: null, q3: null };
   var activeCat = 'all';
+  var latestPollingData = null;
 
   var TOOLS = {
     guide: {
+      toolId: 'visa-solution-guide',
       hrefKo: './parkco-visa-solution-guide/?lang=ko',
       hrefEn: './parkco-visa-solution-guide/?lang=en',
       titleKo: '호주 비자 솔루션 가이드 (714개 직종 · 로컬 이력서 판독)',
@@ -16,6 +18,7 @@
       timeEn: '~3 min'
     },
     crisis: {
+      toolId: 'visa-crisis',
       hrefKo: './parkco-visa-crisis-navigator/?lang=ko',
       hrefEn: './parkco-visa-crisis-navigator/?lang=en',
       titleKo: '비자 거절 · 취소(NOICC/s 116/s 501) · 행정재심기구(ART) 기한 진단기',
@@ -24,6 +27,7 @@
       timeEn: '~1 min'
     },
     sid: {
+      toolId: 'sid-ens',
       hrefKo: './parkco-sid-ens-navigator/?lang=ko',
       hrefEn: './parkco-sid-ens-navigator/?lang=en',
       titleKo: '고용주 스폰서(482 · 186 · 494) 연봉 · 8607 유예 · 제재 명부 진단기',
@@ -32,6 +36,7 @@
       timeEn: '~2 min'
     },
     gsm: {
+      toolId: 'gsm-state',
       hrefKo: './parkco-gsm-state-navigator/?lang=ko',
       hrefEn: './parkco-gsm-state-navigator/?lang=en',
       titleKo: '일반기술이민(189 · 190 · 491) 점수 · 8개 주정부 배정 진단기',
@@ -40,6 +45,7 @@
       timeEn: '~2 min'
     },
     dama: {
+      toolId: 'dama',
       hrefKo: './parkco-dama-navigator/?lang=ko',
       hrefEn: './parkco-dama-navigator/?lang=en',
       titleKo: '호주 13개 지역 DAMA 협약 · 연령(만 50/55세) · 급여 완화 탐색기',
@@ -48,6 +54,7 @@
       timeEn: '~2 min'
     },
     whm: {
+      toolId: 'whm',
       hrefKo: './parkco-whm-navigator/?lang=ko',
       hrefEn: './parkco-whm-navigator/?lang=en',
       titleKo: '워킹홀리데이(417 · 462) 88/179일 지정근로 · 8547 제한 판정기',
@@ -56,6 +63,7 @@
       timeEn: '~2 min'
     },
     emp: {
+      toolId: 'employment-law',
       hrefKo: './parkco-employment-law-navigator/?lang=ko',
       hrefEn: './parkco-employment-law-navigator/?lang=en',
       titleKo: '호주 고용법 · 부당해고 21일 기한 · 정리해고 · 스폰서 교차 진단기',
@@ -64,6 +72,7 @@
       timeEn: '~2 min'
     },
     family: {
+      toolId: 'family-law',
       hrefKo: './parkco-family-law-navigator/?lang=ko',
       hrefEn: './parkco-family-law-navigator/?lang=en',
       titleKo: '호주 가족법 · 한·호 재산분할 · 양육권 · 파트너비자 교차 진단기',
@@ -72,6 +81,7 @@
       timeEn: '~3 min'
     },
     partner: {
+      toolId: 'partner',
       hrefKo: './parkco-partner-graduate-navigator/?lang=ko',
       hrefEn: './parkco-partner-graduate-navigator/?lang=en',
       titleKo: '파트너 비자(820/309/300) · Schedule 3 · 시민권 소요기간 진단기',
@@ -80,6 +90,7 @@
       timeEn: '~2 min'
     },
     parent: {
+      toolId: 'parent-visa',
       hrefKo: './parkco-parent-visa-navigator/?lang=ko',
       hrefEn: './parkco-parent-visa-navigator/?lang=en',
       titleKo: '부모초청 비자(143 · 864 · 870 등) 대기열 속도 · 재정보증 진단기',
@@ -88,6 +99,7 @@
       timeEn: '~2 min'
     },
     settle: {
+      toolId: 'parkco-settlement-cost-navigator',
       hrefKo: './parkco-settlement-cost-navigator/?lang=ko',
       hrefEn: './parkco-settlement-cost-navigator/?lang=en',
       titleKo: '비자별 주립 공립학비 · 메디케어 · 외국인 주택 취득세 비교기',
@@ -96,6 +108,7 @@
       timeEn: '~2 min'
     },
     vgpt: {
+      toolId: 'vgpt',
       hrefKo: './visa-global-processing-time/?lang=ko',
       hrefEn: './visa-global-processing-time/?lang=en',
       titleKo: '호주 비자 심사기간 · 내 대기일수(D-Day) 예상 완료일 계산기',
@@ -104,6 +117,7 @@
       timeEn: '~1 min'
     },
     diy: {
+      toolId: 'diy-service-save-money',
       hrefKo: './diy-service-save-money/?lang=ko',
       hrefEn: './diy-service-save-money/?lang=en',
       titleKo: '혼자 해결하는 호주 법률 가이드 · 25개 어워드 임금 계산기',
@@ -111,13 +125,59 @@
       timeKo: '소요 약 2분',
       timeEn: '~2 min'
     },
+    'au-migration-law-tracker': {
+      toolId: 'au-migration-law-tracker',
+      hrefKo: 'https://changa9090.github.io/au-migration-law-tracker/?lang=ko',
+      hrefEn: 'https://changa9090.github.io/au-migration-law-tracker/?lang=en',
+      titleKo: '호주 이민법령 개정 쉬운 해설 트래커',
+      titleEn: 'Australian Migration Law Reform Tracker',
+      timeKo: '상시 업데이트',
+      timeEn: 'Live tracker'
+    },
     faq: {
+      toolId: 'faq-immigration',
       hrefKo: 'https://faq.immispecialist.com/?lang=ko',
       hrefEn: 'https://faq.immispecialist.com/?lang=en',
       titleKo: '법무법인 박앤코 호주이민 대표 FAQ 백과',
       titleEn: 'Park & Co Immigration Law FAQ Encyclopedia',
       timeKo: '즉시 검색',
       timeEn: 'Instant search'
+    },
+    orgFaq: {
+      toolId: 'faq-organisations',
+      hrefKo: 'https://faq.immispecialist.com/organisations?lang=ko',
+      hrefEn: 'https://faq.immispecialist.com/organisations?lang=en',
+      titleKo: '기업 · 스폰서 인사담당자 전용 B2B 실무 FAQ',
+      titleEn: 'Employer & Sponsor HR B2B FAQ Encyclopedia',
+      timeKo: '즉시 검색',
+      timeEn: 'Instant search'
+    },
+    empFaq: {
+      toolId: 'faq-employment',
+      hrefKo: 'https://faq.immispecialist.com/employment?lang=ko',
+      hrefEn: 'https://faq.immispecialist.com/employment?lang=en',
+      titleKo: '법무법인 박앤코 호주 고용법 대표 실무 FAQ',
+      titleEn: 'Park & Co Employment Law FAQ Encyclopedia',
+      timeKo: '즉시 검색',
+      timeEn: 'Instant search'
+    },
+    familyFaq: {
+      toolId: 'faq-family',
+      hrefKo: 'https://faq.immispecialist.com/family?lang=ko',
+      hrefEn: 'https://faq.immispecialist.com/family?lang=en',
+      titleKo: '법무법인 박앤코 호주 가족법 대표 실무 FAQ',
+      titleEn: 'Park & Co Family Law FAQ Encyclopedia',
+      timeKo: '즉시 검색',
+      timeEn: 'Instant search'
+    },
+    intel: {
+      toolId: 'intelligence',
+      hrefKo: './intelligence/',
+      hrefEn: './intelligence/?lang=en',
+      titleKo: '데이터 출처 및 1차 법령 자동 검증 레지스트리',
+      titleEn: 'Primary-Source Verification & Audit Registry',
+      timeKo: '실시간 검증',
+      timeEn: 'Live audit'
     },
     emgSvc: {
       hrefKo: 'https://parklawyers.com.au/case-emergency/visa/?lang=ko',
@@ -136,19 +196,20 @@
   var I18N = {
     ko: {
       pageTitle: '법무법인 박앤코 법률·비자 진단 허브 | 호주 이민법 · 고용법 · 가족법',
-      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법 양방향 진단 허브입니다.',
+      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법 통합 진단 허브입니다. 14개 양방향 진단·추적기와 4대 공식 실무 FAQ(개인·기업 B2B·고용·가족법) 및 출처 검증 레지스트리 등 총 19종 공개 법률 시스템을 제공합니다.',
       brandTitle: '법무법인 박앤코 법률·비자 진단 허브',
       navRouter: '내 상황 찾기',
       navPopular: '주요 진단기',
-      navDir: '전체 도구(14)',
+      navDir: '전체 도구(19)',
       navFaq: '이민 대표 FAQ',
+      navOrgFaq: '기업·HR FAQ',
       navIntel: '데이터 출처',
       btnInquiry: '공식 문의 허브',
       urgentText: '긴급 기한 안내: 비자 취소 예고(NOICC) 소명 5영업일 · 취소 확정 후 ART 재심 7영업일 · 일반 비자·노미네이션 거절 28일 · 부당해고 구제 21일',
       urgentLink: '기한 계산기 바로가기 →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: '호주 비자 · 고용법 · 가족법 맞춤 진단 허브',
-      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 현재 상황에 맞는 절차와 법정 기한을 바로 점검하실 수 있습니다.',
+      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 14개 양방향 진단·추적기와 4대 실무 FAQ 백과 및 원문 검증 레지스트리(총 19종)를 제공합니다.',
       routerTitle: '내 상황에 맞는 진단 도구 찾기 (3문항 선택)',
       routerReset: '선택 초기화',
       q1Label: 'Q1. 어떤 문제를 해결하고 싶으신가요?',
@@ -170,11 +231,14 @@
       q3_45_54: '만 45~54세',
       q3_55_any: '만 55세 이상 또는 연령 무관',
       emptyPrompt: '위 3가지 질문에서 현재 상황을 선택하시면 가장 알맞은 진단 도구로 바로 안내해 드립니다.',
+      quickFilterLabel: '빠른 키워드 점프',
+      quickFilterPlaceholder: '비자 번호·법률 키워드 즉시 필터 (482 · 186 · NOICC · 거절 · 이혼 · 부당해고 · 임금 · 학비 · 부모 · 워홀 · DAMA)...',
+      quickFilterClear: '초기화 (Esc)',
       popTitle: '가장 많이 찾는 6대 핵심 진단기',
       popSub: '직종 판독부터 불변 기한 계산과 대기일수 확인까지 가장 자주 쓰이는 도구를 모았습니다.',
-      dirTitle: '주제별 전체 도구 디렉터리 (14개 진단기 + FAQ · 검증 레지스트리)',
+      dirTitle: '주제별 전체 도구 디렉터리 (14개 진단·추적기 + 4대 공식 FAQ · 검증 레지스트리 총 19종)',
       dirSub: '분야별 탭을 고르거나 비자 번호·법률 키워드로 바로 검색해 보십시오.',
-      cat_all: '전체 (16)',
+      cat_all: '전체 (19)',
       cat_crisis: '긴급·심사기간',
       cat_skilled: '기술·지방·워홀',
       cat_employer: '고용주·노무',
@@ -190,23 +254,25 @@
       trustLawyerName: '박창민 대표변호사 (Chang Min Park)',
       trustLawyerRole: '법무법인 박앤코 대표변호사 · 퀸즐랜드 변호사회 공인 이민법 전문변호사 (QLS Accredited Specialist in Immigration Law)',
       trustLawyerContact: '공식 이메일: enquiry@parkcolawyers.com · 사무소: Underwood QLD (Brisbane · Sydney · Perth)',
+      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 4대 분야별 공식 FAQ(개인·기업 B2B·고용·가족법) · 1차 출처 검증 레지스트리 등 총 19종 및 대표변호사 직접 검토 서비스 3종 운영',
       footerDisclaimer: '본 포털의 진단 결과와 가이드는 일반적인 법률 정보 제공을 목적으로 하며 개별 사안에 대한 법률 자문을 대신하지 않습니다. 법정 기한이 임박한 경우 즉시 전문변호사와 상의하시기 바랍니다.'
     },
     en: {
       pageTitle: 'Park & Co Legal & Visa Diagnostic Hub | Australian Immigration, Employment & Family Law',
-      metaDesc: 'Interactive Australian immigration, employment, and family law diagnostic tools built on primary legislation and official statistics by Park & Co Lawyers.',
+      metaDesc: 'Interactive Australian immigration, employment, and family law diagnostic hub by Park & Co Lawyers featuring 14 primary-source navigators and trackers, 4 official practice FAQs (including Employer B2B), and 1 live source registry (19 tools total).',
       brandTitle: 'Park & Co Legal & Visa Hub',
       navRouter: 'Find My Tool',
       navPopular: 'Popular Tools',
-      navDir: 'All Tools (14)',
+      navDir: 'All Tools (19)',
       navFaq: 'Immigration FAQ',
+      navOrgFaq: 'Employer B2B FAQ',
       navIntel: 'Data Sources',
       btnInquiry: 'Official Inquiry Hub',
       urgentText: 'Strict Deadlines: NOICC Response 5 working days · Post-Cancellation ART Review 7 working days · Onshore Refusal 28 days · Unfair Dismissal 21 days',
       urgentLink: 'Open Deadline Calculator →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: 'Australian Visa, Employment & Family Law Diagnostic Hub',
-      heroSub: 'Check your visa options, statutory time limits, workplace rights, and family law procedures directly against Australian Federal Legislation, Home Affairs, ART, FWC, and FCFCOA primary sources.',
+      heroSub: 'Explore 14 interactive diagnostic navigators and trackers, 4 bilingual FAQ encyclopedias (including Employer & HR B2B), and 1 primary-source verification registry (19 systems total) grounded in Federal Legislation, Home Affairs, ART, FWC, and FCFCOA data.',
       routerTitle: '3-Question Situation Router (Select Your Situation)',
       routerReset: 'Reset Selection',
       q1Label: 'Q1. What issue would you like to solve?',
@@ -228,11 +294,14 @@
       q3_45_54: 'Age 45–54',
       q3_55_any: 'Age 55+ or Not Age-Sensitive',
       emptyPrompt: 'Select any option in the 3 questions above and we will guide you straight to the right diagnostic tool.',
+      quickFilterLabel: 'Instant Keyword Jump',
+      quickFilterPlaceholder: 'Jump to any visa or topic instantly (482, 186, NOICC, refusal, divorce, unfair dismissal, wages, school fees, parent, WHM, DAMA)...',
+      quickFilterClear: 'Clear (Esc)',
       popTitle: '6 Most-Used Flagship Diagnostic Tools',
       popSub: 'Fast entry to occupation matching, strict statutory deadline checks, sponsor salary rules, and wait-time calculators.',
-      dirTitle: 'Complete Tool Directory by Topic (14 Navigators + FAQ & Source Registry)',
+      dirTitle: 'Complete Tool Directory by Topic (14 Navigators & Trackers + 4 Official FAQs & Source Registry · 19 Total)',
       dirSub: 'Filter by practice category or search by subclass number or legal keyword.',
-      cat_all: 'All (16)',
+      cat_all: 'All (19)',
       cat_crisis: 'Urgent & Processing',
       cat_skilled: 'Skilled, Regional & WHM',
       cat_employer: 'Sponsor & Workplace',
@@ -248,6 +317,7 @@
       trustLawyerName: 'Chang Min Park (Legal Practitioner Director)',
       trustLawyerRole: 'Principal Lawyer, Park & Co Lawyers · QLS Accredited Specialist in Immigration Law',
       trustLawyerContact: 'Official Email: enquiry@parkcolawyers.com · Office: Underwood QLD (Brisbane · Sydney · Perth)',
+      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 4 official FAQs (Individual, Employer B2B, Employment, Family Law) · 1 primary-source verification registry (19 systems total) + 3 Principal Lawyer review services',
       footerDisclaimer: 'General legal information only; does not constitute legal advice for individual matters. Seek urgent legal advice if a statutory deadline applies.'
     }
   };
@@ -277,7 +347,7 @@
         reasonEn = 'Checks the strict 21-day FWC filing limit alongside Subclass 482 180-day work cessation rules.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
-        secondary = ['emp', 'dama'];
+        secondary = ['emp', 'dama', 'orgFaq'];
         reasonKo = '사업주와 인사담당자를 위해 CSIT($79,423)·AMSR 연봉 기준과 SAF 부담금 및 494 노미네이션 수수료($0 면제) 규정을 계산합니다.';
         reasonEn = 'Verifies CSIT ($79,423), AMSR salary layers, SAF levy, and Subclass 494 Nil ($0) nomination fee rules for employers and HR.';
       } else if (q3 === '45_54') {
@@ -294,12 +364,12 @@
     } else if (q1 === 'family_partner') {
       if (q2 === 'onshore_temp' && q3 !== 'urgent') {
         primary = 'partner';
-        secondary = ['family', 'faq'];
+        secondary = ['family', 'familyFaq'];
         reasonKo = '파트너 비자(820/801 · 309/100) 4대 관계 입증 기준과 12개월 동거 면제 및 Schedule 3 요건을 차례대로 점검합니다.';
         reasonEn = 'Reviews Partner visa (820/309) relationship pillars, 12-month de facto exemptions, and Schedule 3 waiver criteria.';
       } else {
         primary = 'family';
-        secondary = ['partner', 'diy'];
+        secondary = ['partner', 'familyFaq'];
         reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 제척기간과 한·호 통합 재산분할 및 연방순회·가족법원(FCFCOA) 양육 절차를 안내합니다.';
         reasonEn = 'Covers Australian family law limitation periods, global property pools, FCFCOA parenting steps, and partner visa separation rules.';
       }
@@ -317,7 +387,7 @@
       }
     } else if (q1 === 'diy_cost') {
       primary = 'diy';
-      secondary = ['faq', 'guide'];
+      secondary = ['faq', 'au-migration-law-tracker'];
       reasonKo = '혼자 준비할 수 있는 절차와 변호사 선임이 필요한 경계를 구분하고 25개 현대 어워드 임금과 무료 점검표를 제공합니다.';
       reasonEn = 'Clarifies what you can safely handle yourself versus when to instruct a lawyer, with 25 Modern Award calculators and checklists.';
     } else {
@@ -333,7 +403,7 @@
         reasonEn = 'Diagnoses maximum-age-point GSM pathways, WHM extensions, and 714 SOL occupation options.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
-        secondary = ['dama', 'emp'];
+        secondary = ['dama', 'emp', 'orgFaq'];
         reasonKo = '기업 인사담당자 관점에서 스폰서 비자 연봉 요건과 노미네이션 절차 및 제재 리스크를 바로 점검합니다.';
         reasonEn = 'Checks sponsor salary compliance, nomination steps, and ABF sanction risks for employers.';
       } else {
@@ -387,16 +457,132 @@
       '</div>';
   }
 
+  function getCardSearchHaystack(card) {
+    var parts = [
+      card.textContent || '',
+      card.getAttribute('data-keywords') || '',
+      card.getAttribute('data-tool-id') || ''
+    ];
+    if (card.querySelectorAll) {
+      card.querySelectorAll('[data-ko],[data-en]').forEach(function (el) {
+        parts.push(el.getAttribute('data-ko') || '');
+        parts.push(el.getAttribute('data-en') || '');
+      });
+    }
+    return parts.join(' ').toLowerCase();
+  }
+
   function applyDirectoryFilter() {
+    var quickEl = document.getElementById('hub-quick-filter');
+    var qQuick = quickEl ? quickEl.value.trim().toLowerCase() : '';
     var searchEl = document.getElementById('hub-search-input');
-    var q = searchEl ? searchEl.value.trim().toLowerCase() : '';
-    var cards = document.querySelectorAll('#directory-grid .hub-tool-card');
-    cards.forEach(function (card) {
-      var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
-      var catMatch = activeCat === 'all' || cats.indexOf(activeCat) >= 0;
-      var text = ((card.textContent || '') + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase();
-      var qMatch = !q || text.indexOf(q) >= 0;
-      card.style.display = (catMatch && qMatch) ? '' : 'none';
+    var qDir = searchEl ? searchEl.value.trim().toLowerCase() : '';
+    var countEl = document.getElementById('hub-quick-filter-count');
+    var clearBtn = document.getElementById('hub-quick-filter-clear');
+    var popSection = document.getElementById('popular');
+    var popCards = document.querySelectorAll('#popular-grid .hub-tool-card');
+    var dirCards = document.querySelectorAll('#directory-grid .hub-tool-card');
+
+    document.querySelectorAll('.hub-quick-chip[data-kw-ko]').forEach(function (chip) {
+      var kwKo = (chip.getAttribute('data-kw-ko') || '').toLowerCase();
+      var kwEn = (chip.getAttribute('data-kw-en') || '').toLowerCase();
+      var active = Boolean(qQuick && (qQuick === kwKo || qQuick === kwEn));
+      if (chip.classList) chip.classList.toggle('is-active', active);
+    });
+
+    if (!qQuick) {
+      popCards.forEach(function (card) { card.style.display = ''; });
+      if (popSection) popSection.style.display = '';
+      if (countEl) countEl.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+
+      dirCards.forEach(function (card) {
+        var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
+        var catMatch = activeCat === 'all' || cats.indexOf(activeCat) >= 0;
+        var text = getCardSearchHaystack(card);
+        var qMatch = !qDir || text.indexOf(qDir) >= 0;
+        card.style.display = (catMatch && qMatch) ? '' : 'none';
+      });
+      return;
+    }
+
+    var popMatches = 0;
+    popCards.forEach(function (card) {
+      var match = getCardSearchHaystack(card).indexOf(qQuick) >= 0;
+      card.style.display = match ? '' : 'none';
+      if (match) popMatches += 1;
+    });
+    if (popSection) {
+      popSection.style.display = popMatches > 0 ? '' : 'none';
+    }
+
+    var dirMatches = 0;
+    dirCards.forEach(function (card) {
+      var text = getCardSearchHaystack(card);
+      var quickMatch = text.indexOf(qQuick) >= 0;
+      var dirSearchMatch = !qDir || text.indexOf(qDir) >= 0;
+      var visible = quickMatch && dirSearchMatch;
+      card.style.display = visible ? '' : 'none';
+      if (visible) dirMatches += 1;
+    });
+
+    if (countEl) {
+      countEl.hidden = false;
+      countEl.textContent = currentLang === 'en'
+        ? (dirMatches + (dirMatches === 1 ? ' matching tool' : ' matching tools'))
+        : (dirMatches + '개 도구 일치');
+    }
+    if (clearBtn) {
+      clearBtn.hidden = false;
+    }
+  }
+
+  function applyCardStatusBadges(data) {
+    if (!data) return;
+    var seriesMap = {};
+    (data.series || []).forEach(function (s) {
+      if (s && s.id) seriesMap[s.id] = s;
+    });
+    if (!seriesMap['vgpt'] && seriesMap['trackers']) {
+      seriesMap['vgpt'] = seriesMap['trackers'];
+    }
+    if (!seriesMap['au-migration-law-tracker'] && seriesMap['trackers']) {
+      seriesMap['au-migration-law-tracker'] = seriesMap['trackers'];
+    }
+
+    document.querySelectorAll('.hub-tool-card[data-tool-id]').forEach(function (card) {
+      if (!card.querySelector) return;
+      var statusEl = card.querySelector('[data-card-status]');
+      if (!statusEl) return;
+      var toolId = card.getAttribute('data-tool-id') || '';
+      var entry = seriesMap[toolId];
+      var isCached = false;
+      var koLabel = '● 출처 검증';
+      var enLabel = '● Verified';
+
+      if (entry) {
+        var failedCnt = typeof entry.warning_or_failed_sources === 'number' ? entry.warning_or_failed_sources : 0;
+        var cachedCnt = typeof entry.cached_fallback_sources === 'number' ? entry.cached_fallback_sources : 0;
+        if (failedCnt > 0 || entry.status === 'degraded' || entry.status === 'warning') {
+          isCached = true;
+          koLabel = '● 캐시 백업';
+          enLabel = '● Cached Backup';
+        } else if (cachedCnt > 0 || entry.status === 'cached_fallback') {
+          isCached = true;
+          koLabel = '● 캐시 스냅샷';
+          enLabel = '● Cached Snapshot';
+        }
+      } else if (toolId.indexOf('faq-') !== 0 && toolId !== 'intelligence') {
+        return;
+      }
+
+      if (statusEl.classList) {
+        statusEl.classList.toggle('hub-card-status--cached', isCached);
+      }
+      statusEl.setAttribute('data-ko', koLabel);
+      statusEl.setAttribute('data-en', enLabel);
+      statusEl.textContent = currentLang === 'en' ? enLabel : koLabel;
+      statusEl.hidden = false;
     });
   }
 
@@ -425,6 +611,9 @@
     var searchEl = document.getElementById('hub-search-input');
     if (searchEl) searchEl.setAttribute('placeholder', dict.searchPlaceholder);
 
+    var quickEl = document.getElementById('hub-quick-filter');
+    if (quickEl) quickEl.setAttribute('placeholder', dict.quickFilterPlaceholder);
+
     var btnKo = document.getElementById('hub-lang-ko');
     var btnEn = document.getElementById('hub-lang-en');
     if (btnKo) btnKo.classList.toggle('active', currentLang === 'ko');
@@ -442,6 +631,16 @@
     } catch (e) {}
 
     renderRouter();
+    applyDirectoryFilter();
+    if (latestPollingData) applyCardStatusBadges(latestPollingData);
+  }
+
+  function clearQuickFilter() {
+    var quickEl = document.getElementById('hub-quick-filter');
+    if (!quickEl) return;
+    quickEl.value = '';
+    applyDirectoryFilter();
+    if (quickEl.focus) quickEl.focus();
   }
 
   function initEvents() {
@@ -485,6 +684,53 @@
     var searchEl = document.getElementById('hub-search-input');
     if (searchEl) {
       searchEl.addEventListener('input', applyDirectoryFilter);
+      searchEl.addEventListener('keydown', function (ev) {
+        if (ev && ev.key === 'Escape' && searchEl.value) {
+          ev.preventDefault();
+          searchEl.value = '';
+          applyDirectoryFilter();
+        }
+      });
+    }
+
+    var quickEl = document.getElementById('hub-quick-filter');
+    if (quickEl) {
+      quickEl.addEventListener('input', applyDirectoryFilter);
+      quickEl.addEventListener('search', applyDirectoryFilter);
+      quickEl.addEventListener('keydown', function (ev) {
+        if (ev && ev.key === 'Escape') {
+          ev.preventDefault();
+          clearQuickFilter();
+        }
+      });
+    }
+
+    var quickClearBtn = document.getElementById('hub-quick-filter-clear');
+    if (quickClearBtn) {
+      quickClearBtn.addEventListener('click', clearQuickFilter);
+    }
+
+    document.querySelectorAll('.hub-quick-chip[data-kw-ko]').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        if (!quickEl) return;
+        var kw = currentLang === 'en'
+          ? (chip.getAttribute('data-kw-en') || chip.getAttribute('data-kw-ko') || '')
+          : (chip.getAttribute('data-kw-ko') || '');
+        if (quickEl.value.trim().toLowerCase() === kw.toLowerCase()) {
+          quickEl.value = '';
+        } else {
+          quickEl.value = kw;
+        }
+        applyDirectoryFilter();
+      });
+    });
+
+    if (typeof document.addEventListener === 'function') {
+      document.addEventListener('keydown', function (ev) {
+        if (ev && ev.key === 'Escape' && quickEl && quickEl.value) {
+          clearQuickFilter();
+        }
+      });
     }
 
     var btnKo = document.getElementById('hub-lang-ko');
@@ -498,16 +744,24 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data) return;
+        latestPollingData = data;
         var badge = document.getElementById('ticker-verified-badge');
         var okCnt = typeof data.verified_ok_sources === 'number' ? data.verified_ok_sources : 119;
         var totCnt = typeof data.total_primary_sources === 'number' ? data.total_primary_sources : okCnt;
+        var liveCnt = typeof data.live_verified_sources === 'number' ? data.live_verified_sources : okCnt;
+        var cachedCnt = typeof data.cached_fallback_sources === 'number' ? data.cached_fallback_sources : 0;
         if (badge) {
-          badge.setAttribute('data-ko', '● ' + okCnt + '/' + totCnt + '개 1차 출처 자동 검증 완료');
-          badge.setAttribute('data-en', '● ' + okCnt + '/' + totCnt + ' Primary Sources Verified');
-          badge.textContent = currentLang === 'en'
-            ? badge.getAttribute('data-en')
-            : badge.getAttribute('data-ko');
+          var koTxt = cachedCnt > 0
+            ? ('● ' + okCnt + '/' + totCnt + '개 1차 출처 검증 (실시간 ' + liveCnt + ' · 캐시 백업 ' + cachedCnt + ')')
+            : ('● ' + okCnt + '/' + totCnt + '개 1차 출처 자동 검증 완료');
+          var enTxt = cachedCnt > 0
+            ? ('● ' + okCnt + '/' + totCnt + ' Primary Sources Verified (' + liveCnt + ' Live · ' + cachedCnt + ' Cached)')
+            : ('● ' + okCnt + '/' + totCnt + ' Primary Sources Verified');
+          badge.setAttribute('data-ko', koTxt);
+          badge.setAttribute('data-en', enTxt);
+          badge.textContent = currentLang === 'en' ? enTxt : koTxt;
         }
+        applyCardStatusBadges(data);
       })
       .catch(function () {});
   }

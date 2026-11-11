@@ -1,14 +1,13 @@
-/* Resilient Visit Counters + Daily Chart (hub-hist-v1) + Privacy-Safe Referral Channels v2.1 */
+/* Resilient Self-Hosted Visit Counters + Daily Chart (hub-vc-v3) + Privacy-Safe Referral Channels v3.0 */
 (function () {
-  var NS = 'changa9090.github.io', API = 'https://abacus.jasoncameron.dev/', START = '2026-10-20';
+  var VC_BASE = 'https://faq.immispecialist.com/vc/', START = '2026-10-31';
   var SELF_PATH = '/';
   var IS_PROD = (location.hostname === 'changa9090.github.io');
   var P = 'hub' + (IS_PROD ? '' : '-dev');
   var BASE_P = 'hub';
-  var LEGACY_TOTAL = IS_PROD ? 116 : 0;
-  var LEGACY_VIS = IS_PROD ? 89 : 0;
-  var CACHE_KEY = P + '-counts-cache-v1';
-  var HIST_KEY = P + '-hist-v1';
+  var SEED_FLOOR_TOTAL = IS_PROD ? 116 : 0;
+  var SEED_FLOOR_VIS = IS_PROD ? 0 : 0;
+  var CACHE_KEY = P + '-counts-cache-v3';
   var REF_BUCKETS = [
     { id: 'naver-search', ko: '네이버 통합·웹검색', en: 'Naver Search' },
     { id: 'naver-cafe', ko: '네이버 카페 (호주이민 사랑방 등)', en: 'Naver Cafe' },
@@ -64,7 +63,7 @@
     if (lv) lv.textContent = en ? 'Visitors' : '방문자';
     box.title = en
       ? 'Click for daily visits & referral sources'
-      : '클릭하면 일별 방문 추이와 유입 경로를 확인할 수 있습니다';
+      : '클릭하면 일별 방문 추이와 유입 경로를 볼 수 있어요';
     var mt = document.getElementById('vc-modal-title');
     if (mt) {
       mt.innerHTML = en
@@ -113,7 +112,6 @@
 
   var liveTodayViews = (cached.day === day && typeof cached.today === 'number') ? cached.today : null;
   var liveTodayVis = (cached.day === day && typeof cached.todayVis === 'number') ? cached.todayVis : null;
-  var liveRefHints = {};
 
   function classifyReferralBucket() {
     try {
@@ -191,119 +189,77 @@
     if (tot != null || tod != null || vis != null) box.hidden = false;
   }
 
-  var seedTot = Number(box.getAttribute('data-seed-total')) || LEGACY_TOTAL || 0;
-  var seedVis = Number(box.getAttribute('data-seed-visitors')) || LEGACY_VIS || 0;
+  var seedTot = Number(box.getAttribute('data-seed-total')) || SEED_FLOOR_TOTAL || 0;
+  var seedVis = Number(box.getAttribute('data-seed-visitors')) || SEED_FLOOR_VIS || 0;
   var initTot = Math.max(cached.total || 0, seedTot) || null;
   var initVis = Math.max(cached.visitors || 0, seedVis) || null;
   if (initTot != null || initVis != null) {
     renderBadge(initTot, liveTodayViews, initVis);
   }
 
-  /* 429-aware retry spanning >15s across retries to cleanly outlast Abacus 30;w=10 windows */
-  function fetchRetry(url, isHit, attempt) {
-    var tries = attempt || 0;
+  function fetchJson(url, opts) {
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
-    var opts = { mode: 'cors' };
-    if (ctrl) opts.signal = ctrl.signal;
-    if (isHit) opts.keepalive = true;
-    return fetch(url, opts)
-      .then(function (r) {
-        if (timer) clearTimeout(timer);
-        if (!isHit && r.status === 404) return { value: 0 };
-        if (r.status === 429) {
-          var err429 = new Error('HTTP 429');
-          err429.isRateLimit = true;
-          throw err429;
-        }
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (j) {
-        if (typeof j.value !== 'number') throw new Error('bad payload');
-        return j.value;
-      })
-      .catch(function (err) {
-        if (timer) clearTimeout(timer);
-        var maxTries = (err && err.isRateLimit) ? 3 : 2;
-        if (tries < maxTries) {
-          var waitMs = (err && err.isRateLimit) ? (3800 + tries * 3600) : (1100 * (tries + 1));
-          return new Promise(function (res) { setTimeout(res, waitMs); })
-            .then(function () { return fetchRetry(url, isHit, tries + 1); });
-        }
-        throw err;
-      });
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6500) : null;
+    var reqOpts = opts || { mode: 'cors' };
+    if (ctrl) reqOpts.signal = ctrl.signal;
+    return fetch(url, reqOpts).then(function (r) {
+      if (timer) clearTimeout(timer);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function (err) {
+      if (timer) clearTimeout(timer);
+      throw err;
+    });
   }
 
-  function call(kind, key) {
-    return fetchRetry(API + kind + '/' + NS + '/' + P + '-' + key, kind === 'hit', 0);
-  }
-  function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  var incVisitor = !seen;
+  var incVday = (lastDay !== day);
+  var refBucket = (lastRefDay !== day) ? classifyReferralBucket() : '';
+  var hitPayload = JSON.stringify({
+    prefix: P,
+    day: day,
+    inc_view: true,
+    inc_visitor: incVisitor,
+    inc_vday: incVday,
+    ref_bucket: refBucket
+  });
 
-  if (lastDay !== day) {
-    call('hit', 'vday-' + day).then(function (v) {
-      liveTodayVis = v;
-      try {
-        localStorage.setItem(P + '-day', day);
-        var cur = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
-        cur.todayVis = v;
-        cur.day = day;
-        localStorage.setItem(CACHE_KEY, JSON.stringify(cur));
-      } catch (e) {}
-    }).catch(function () {});
-  }
-
-  if (lastRefDay !== day) {
-    var refBucket = classifyReferralBucket();
-    delay(220).then(function () {
-      return call('hit', 'ref-' + refBucket + '-' + day);
-    }).then(function (rv) {
-      liveRefHints[refBucket] = rv;
-      try {
-        localStorage.setItem(P + '-ref-day', day);
-        localStorage.setItem(P + '-ref-bucket', refBucket);
-      } catch (e) {}
-    }).catch(function () {});
-  }
-
-  Promise.allSettled([
-    call('hit', 'total'),
-    delay(80).then(function () { return call('hit', 'day-' + day); }),
-    delay(160).then(function () {
-      return call(seen ? 'get' : 'hit', 'visitors').then(function (val) {
-        if (!seen) {
-          try { localStorage.setItem(P + '-seen', '1'); } catch (e) {}
-        }
-        return val;
-      });
-    })
-  ]).then(function (res) {
-    var tot = res[0].status === 'fulfilled' ? (res[0].value + LEGACY_TOTAL) : initTot;
-    var tod = res[1].status === 'fulfilled' ? res[1].value : liveTodayViews;
-    var vis = res[2].status === 'fulfilled' ? (res[2].value + LEGACY_VIS) : initVis;
-    if (typeof tod === 'number') liveTodayViews = tod;
+  fetchJson(VC_BASE + 'hit', {
+    method: 'POST',
+    mode: 'cors',
+    keepalive: true,
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+    body: hitPayload
+  }).then(function (j) {
+    if (!j || !j.ok) return;
+    var tot = Math.max(Number(j.total) || 0, seedTot);
+    var tod = typeof j.today === 'number' ? j.today : liveTodayViews;
+    var vis = Math.max(Number(j.visitors) || 0, seedVis);
+    var tvis = typeof j.today_visitors === 'number' ? j.today_visitors : liveTodayVis;
+    liveTodayViews = tod;
+    liveTodayVis = tvis;
     renderBadge(tot, tod, vis);
     try {
+      if (incVisitor) localStorage.setItem(P + '-seen', '1');
+      if (incVday) localStorage.setItem(P + '-day', day);
+      if (refBucket) {
+        localStorage.setItem(P + '-ref-day', day);
+        localStorage.setItem(P + '-ref-bucket', refBucket);
+      }
       localStorage.setItem(CACHE_KEY, JSON.stringify({
-        total: tot != null ? tot : initTot,
-        today: tod != null ? tod : liveTodayViews,
-        todayVis: liveTodayVis,
-        visitors: vis != null ? vis : initVis,
+        total: tot,
+        today: tod,
+        todayVis: tvis,
+        visitors: vis,
         day: day
       }));
     } catch (e) {}
+  }).catch(function () {
+    if (initTot != null || initVis != null) renderBadge(initTot, liveTodayViews || 1, initVis);
   });
 
-  function lastDays(n) {
-    var p = today.split('-').map(Number), base = Date.UTC(p[0], p[1] - 1, p[2]), out = [];
-    for (var i = n - 1; i >= 0; i--) {
-      var s = new Date(base - i * 864e5).toISOString().slice(0, 10);
-      if (s >= START) out.push(s);
-    }
-    return out.length ? out : [today];
-  }
-
   var activeRange = 7;
+  var cachedSummary = null;
   var modal = document.createElement('div');
   modal.id = 'vc-modal';
   modal.innerHTML = '<div class="vc-dialog" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title">' +
@@ -420,48 +376,22 @@
       '<p class="vc-sum">' + summaryLine + '</p>';
   }
 
-  function loadTodayReferrers(dayKey) {
-    if (liveTodayViews === 0 && liveTodayVis === 0) {
-      return Promise.resolve({});
-    }
-    var out = {};
-    var remaining = [];
-    REF_BUCKETS.forEach(function (b) {
-      if (typeof liveRefHints[b.id] === 'number') {
-        out[b.id] = liveRefHints[b.id];
-      } else {
-        remaining.push(b);
-      }
-    });
-    var firstSlice = remaining.slice(0, 6);
-    var secondSlice = remaining.slice(6);
-    return Promise.all(firstSlice.map(function (b) {
-      return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
-    })).then(function () {
-      return secondSlice.length ? delay(260) : Promise.resolve();
-    }).then(function () {
-      return Promise.all(secondSlice.map(function (b) {
-        return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
-      }));
-    }).then(function () {
-      return out;
-    });
-  }
-
-  function renderReferrerBox(countsMap) {
+  function renderReferrerBox(countsMap, isWindowFallback) {
     var isEn = uiLang() === 'en';
+    var mapObj = countsMap || {};
     var items = REF_BUCKETS.map(function (b) {
-      return { id: b.id, label: isEn ? b.en : b.ko, count: countsMap[b.id] || 0 };
+      return { id: b.id, label: isEn ? b.en : b.ko, count: mapObj[b.id] || 0 };
     }).filter(function (x) { return x.count > 0; }).sort(function (a, b) { return b.count - a.count; });
     var totalRef = items.reduce(function (acc, x) { return acc + x.count; }, 0);
-    var head = '<div class="vc-ref-title"><span>' +
-      (isEn ? ('Today&rsquo;s Referral Channels (' + today + ')') : ('오늘 유입 채널 분포 (' + today + ')')) +
+    var titleKo = isWindowFallback ? '최근 30일 유입 채널 누적 분포' : ('오늘 유입 채널 분포 (' + today + ')');
+    var titleEn = isWindowFallback ? 'Referral Channels (Last 30 Days)' : ('Today&rsquo;s Referral Channels (' + today + ')');
+    var head = '<div class="vc-ref-title"><span>' + (isEn ? titleEn : titleKo) +
       '</span><small>' + (isEn ? ('Tracked visitors: ' + fmt(totalRef)) : ('채널 집계 방문자: ' + fmt(totalRef) + '명')) + '</small></div>';
     if (!items.length) {
       return head + '<p class="vc-ref-note">' +
         (isEn
           ? 'Anonymous referral channel buckets (Naver, Cafe, KakaoTalk, Threads, Hub, Direct) are recorded once per browser per day as new visits arrive (zero personal or URL path data stored).'
-          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록됩니다 (세부 URL·개인정보 미수집).') +
+          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록돼요 (세부 URL·개인정보 미수집).') +
         '</p>';
     }
     var rowsHtml = items.map(function (item) {
@@ -478,89 +408,46 @@
     return head + '<div class="vc-ref-list">' + rowsHtml + '</div><p class="vc-ref-note">' + note + '</p>';
   }
 
-  function loadHistoryRows(days) {
-    var histCache = {};
-    try { histCache = JSON.parse(localStorage.getItem(HIST_KEY) || '{}') || {}; } catch (e) {}
-    var results = new Array(days.length);
-    var pending = [];
-    days.forEach(function (d, idx) {
-      if (d < today && Array.isArray(histCache[d])) {
-        results[idx] = histCache[d];
-      } else if (d === today && typeof liveTodayViews === 'number' && typeof liveTodayVis === 'number') {
-        results[idx] = [liveTodayViews, liveTodayVis];
-      } else {
-        pending.push({ d: d, idx: idx });
-      }
-    });
-
-    var batchSize = pending.length > 7 ? 4 : 6;
-    var pauseMs = pending.length > 7 ? 2900 : 180;
-    var chain = Promise.resolve();
-    for (var c = 0; c < pending.length; c += batchSize) {
-      (function (slice, waitFirst) {
-        chain = chain.then(function () {
-          return (waitFirst ? delay(pauseMs) : Promise.resolve()).then(function () {
-            return Promise.all(slice.map(function (item) {
-              var k = item.d.replace(/-/g, '');
-              var pViews = (item.d === today && typeof liveTodayViews === 'number')
-                ? Promise.resolve(liveTodayViews)
-                : call('get', 'day-' + k).catch(function () { return null; });
-              var pVis = (item.d === today && typeof liveTodayVis === 'number')
-                ? Promise.resolve(liveTodayVis)
-                : call('get', 'vday-' + k).catch(function () { return null; });
-              return Promise.all([pViews, pVis]).then(function (pair) {
-                var v0 = pair[0] == null ? 0 : pair[0];
-                var v1 = pair[1] == null ? 0 : pair[1];
-                results[item.idx] = [v0, v1];
-                if (item.d < today && pair[0] !== null && pair[1] !== null) {
-                  histCache[item.d] = [v0, v1];
-                }
-              });
-            }));
-          });
-        });
-      })(pending.slice(c, c + batchSize), c > 0);
-    }
-    return chain.then(function () {
-      try { localStorage.setItem(HIST_KEY, JSON.stringify(histCache)); } catch (e) {}
-      return results.map(function (r) { return r || [0, 0]; });
-    });
+  function renderFromSummary(summary) {
+    var isEn = uiLang() === 'en';
+    var rawSeries = Array.isArray(summary.series) ? summary.series : [];
+    var filtered = rawSeries.filter(function (s) { return s && s.date >= START; });
+    if (!filtered.length) filtered = [{ date: today, views: liveTodayViews || 0, visitors: liveTodayVis || 0 }];
+    var slice = activeRange === 7 ? filtered.slice(-7) : filtered;
+    var days = slice.map(function (s) { return s.date; });
+    var rows = slice.map(function (s) { return [Number(s.views) || 0, Number(s.visitors) || 0]; });
+    var refToday = summary.referrals_today || {};
+    var refWin = summary.referrals_window || {};
+    var hasTodayRef = Object.keys(refToday).some(function (k) { return refToday[k] > 0; });
+    var useWin = (activeRange === 30) || (!hasTodayRef && Object.keys(refWin).length > 0);
+    var body = modal.querySelector('.vc-body');
+    body.innerHTML = renderToolbar(isEn, filtered.length) +
+      '<div id="vc-chart-slot">' + renderChartSvg(days, rows, isEn) + '</div>' +
+      '<div id="vc-ref-box" class="vc-ref-box">' + renderReferrerBox(useWin ? refWin : refToday, useWin) + '</div>' +
+      renderShareBar(isEn);
   }
 
-  var cachedRefMap = null;
-
-  function loadAndRenderModal(refreshRefs) {
+  function loadAndRenderModal(forceFetch) {
     syncCounterLang();
+    if (!forceFetch && cachedSummary) {
+      renderFromSummary(cachedSummary);
+      return;
+    }
     var isEn = uiLang() === 'en';
-    var fullDays = lastDays(30);
-    var days = activeRange === 7 ? lastDays(7) : fullDays;
     var body = modal.querySelector('.vc-body');
-    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중입니다&hellip;';
-    var refWaitMsg = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중입니다&hellip;';
-    var existingRefHtml = (!refreshRefs && cachedRefMap) ? renderReferrerBox(cachedRefMap) : ('<div class="vc-ref-note">' + refWaitMsg + '</div>');
-
-    /* Render toolbar, loading placeholder, referral box, and 1-click share bar IMMEDIATELY (0ms) */
-    body.innerHTML = renderToolbar(isEn, fullDays.length) +
-      '<div id="vc-chart-slot"><p class="vc-sum">' + chartWaitMsg + '</p></div>' +
-      '<div id="vc-ref-box" class="vc-ref-box">' + existingRefHtml + '</div>' +
-      renderShareBar(isEn);
-
-    loadHistoryRows(days)
-      .then(function (rows) {
-        var slot = document.getElementById('vc-chart-slot');
-        if (slot) slot.innerHTML = renderChartSvg(days, rows, uiLang() === 'en');
-        if (!refreshRefs && cachedRefMap) return cachedRefMap;
-        return delay(180).then(function () { return loadTodayReferrers(day); });
-      })
-      .then(function (refMap) {
-        if (refMap) cachedRefMap = refMap;
-        var refBox = document.getElementById('vc-ref-box');
-        if (refBox && refMap) refBox.innerHTML = renderReferrerBox(refMap);
+    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
+    body.innerHTML = '<div id="vc-chart-slot"><p class="vc-sum">' + chartWaitMsg + '</p></div>' + renderShareBar(isEn);
+    var url = VC_BASE + 'summary?prefix=' + encodeURIComponent(P) + '&days=30&day=' + encodeURIComponent(day) + '&start=' + encodeURIComponent(START);
+    fetchJson(url, { mode: 'cors' })
+      .then(function (j) {
+        if (!j || !j.ok) throw new Error('bad summary');
+        cachedSummary = j;
+        renderFromSummary(j);
       })
       .catch(function () {
         var slot = document.getElementById('vc-chart-slot');
-        if (slot && !slot.querySelector('svg')) {
-          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했습니다.';
+        if (slot) {
+          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
         }
       });
   }

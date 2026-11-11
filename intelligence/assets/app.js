@@ -1,28 +1,43 @@
 (function () {
   'use strict';
 
+  var CSS = (typeof window !== 'undefined' && window.CSS && typeof window.CSS.escape === 'function')
+    ? window.CSS
+    : {
+        escape: function (val) {
+          return String(val == null ? '' : val).replace(/(["\\#.:[\]()>+~*^$|=\s'])/g, '\\$1');
+        }
+      };
+
   var PAGE_SIZE = 25;
   var ABN_WEIGHTS = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
   var VALID_TABS = ['all', 'abf_enforcement', 'legislation_watch', 'fwo_compliance', 'foi_and_stats'];
 
   var I18N = {
     ko: {
-      pageTitle: '법무법인 박앤코 (Park & Co Lawyers) · 호주 공개 법률 인텔리전스 & SHA-256 원문 검증 센터',
+      pageTitle: '법무법인 박앤코 (Park & Co Lawyers) · 데이터 출처 및 1차 법령 자동 검증 레지스트리',
+      metaDesc: '호주 국경수비대(ABF) 법인 스폰서 제재·금지 고용주 조회, 연방법령(FRL)·소득기준 개정 대조, 공정근로옴부즈만(FWO) 법규준수 체크리스트, 이민성(DHA)·FWO FOI 공개문서 및 행정재심기구(ART) 이중분모 통계 원문 검증 포털.',
       langBtnKo: '한국어 (KO)',
       brandTag: '법무법인 박앤코 · SHA-256 원문 검증 인텔리전스',
       navHub: '← 박앤코 법률·비자 통합 허브',
       navDiy: '셀프 법률 해결 · 비용절감 가이드',
       navVisaGuide: '비자 솔루션 가이드',
       navFaq: '호주이민 FAQ',
+      navOrgFaq: '기업·HR FAQ',
       navTracker: '비자 심사기간 (50%·90%)',
       navInquiry: '🔗 공식 상담 · 문의 ↗',
       footerFirmName: '법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)',
       footerPracticeAreas: '호주 이민법 · 고용법 · 가족법',
-      footerInquiry: '박앤코 공식 문의 · 상담 채널 (parklawyers.com.au/links)',
-      footerHubLink: '박앤코 법률·비자 통합 허브',
+      footerInquiry: '박앤코 공식 문의 · 상담 허브 (parklawyers.com.au/links)',
+      footerHubLink: '박앤코 법률·비자 진단 허브',
       footerDiy: '셀프 법률 해결 · 비용절감 가이드',
       footerVisaGuide: '호주 비자 솔루션 가이드',
       footerFaq: '호주이민 실전 FAQ',
+      footerOrgFaq: '기업·스폰서 B2B FAQ',
+      vcTotal: '누적 방문',
+      vcToday: '오늘 방문',
+      vcVisitors: '방문자',
+      vcTitle: '클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있습니다',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: '호주 공개 법률정보 · 제재 등록부 · FOI 원문 검증 센터',
       heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 이민성(DHA)·FWO 정보공개(FOI) 목록 및 행정재심기구(ART) 통계를 원문 SHA-256 해시와 함께 검증합니다.',
@@ -56,23 +71,33 @@
       guardTitle: '법률 정보 범위 및 개인정보 보호 원칙:',
       guardText: '이 포털은 호주 연방 기관이 공개한 1차 공공 데이터를 SHA-256 해시로 검증해 제공하는 일반 법률 리서치 자료로 개별 사건의 법률 자문이 아닙니다. 개인정보 최소화를 위해 자연인·개인사업자(Sole Trader) 성명은 공개 법인 검색에서 제외하고 입력한 검색어는 외부 서버로 전송하지 않고 브라우저 안에서만 처리합니다.',
       sourcesHeading: '공식 1차 공공 출처 수집 상태 및 라이선스 명세 (Allowlisted .gov.au Sources)',
+      thSourceId: '출처 ID',
+      thAgency: '관할 기관',
+      thStatus: '수집 상태',
+      thApproved: '승인 레코드',
+      thSnapshotSha: '스냅샷 SHA-256',
+      thLicence: '라이선스',
       footerDisclaimer: '면책 및 저작권 고지: 이 시스템은 호주 정부 부처(이민성, ABF, 연방법령 등록부 FRL, 공정근로옴부즈만 FWO, 행정재심기구 ART)와 제휴·보증 관계가 없는 독립 법률 정보 서비스입니다. CC BY 3.0 AU / CC BY 4.0 및 FWO CC BY-NC 4.0 메타데이터·링크 원칙을 준수하고 수록 정보는 일반 참고용일 뿐 법적 효력을 갖는 자문서가 아닙니다.',
       searchPlaceholder: '법인명, 11자리 ABN, 비자 번호(482/820/500), 한글 키워드(학생비자/시민권/브리즈번), FOI 번호(FA 25/...) 검색',
       inspectBtn: '🔍 원문 증거 & SHA-256 검증',
       officialUrlBtn: '공식 원문 열기 ↗',
       copyCitBtn: '📋 출처·해시 인용문 복사',
       copiedBtn: '✓ 인용문 복사됨',
+      copyLinkBtn: '🔗 직접 링크 복사 (?id=…)',
+      copiedLinkBtn: '✓ 직접 링크 복사됨',
       noResults: '선택하신 검색어·필터 조건과 일치하는 승인 레코드가 없습니다.',
-      loadingDomain: '승인된 원문 레코드 샤드를 동기화하고 있습니다…'
+      loadingDomain: '데이터 샤드를 불러오는 중…'
     },
     en: {
       pageTitle: 'Park & Co Lawyers · Australian Public Legal Intelligence & SHA-256 Provenance Centre',
+      metaDesc: 'Hash-bound Australian public legal intelligence portal by Park & Co Lawyers covering corporate ABF sanctions, Federal Register of Legislation (FRL) compilation & threshold diffs, Fair Work compliance checklists, DHA/FWO FOI disclosures, and ART dual-denominator statistics.',
       langBtnKo: 'Korean (KO)',
       brandTag: 'Park & Co Lawyers · Hash-Bound Legal Intelligence',
       navHub: '← Park & Co Legal & Visa Hub',
       navDiy: 'DIY Legal & Save-Money Guide',
       navVisaGuide: 'Visa Solution Guide',
       navFaq: 'Immigration FAQ',
+      navOrgFaq: 'Employer B2B FAQ',
       navTracker: 'Visa Processing Times (50%·90%)',
       navInquiry: '🔗 Official Inquiry ↗',
       footerFirmName: 'PNC Legal Pty Ltd t/a Park & Co Lawyers',
@@ -82,6 +107,11 @@
       footerDiy: 'DIY Legal & Save-Money Guide',
       footerVisaGuide: 'Australian Visa Solution Guide',
       footerFaq: 'Australian Immigration FAQ',
+      footerOrgFaq: 'Employer & Sponsor B2B FAQ',
+      vcTotal: 'Total Visits',
+      vcToday: 'Today',
+      vcVisitors: 'Visitors',
+      vcTitle: 'Click to view 30-day visit trend & referral channels',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: 'Australian Public Legal Intelligence & Provenance Centre',
       heroSub: 'Verify corporate ABF Sanctioned Sponsors & Prohibited Employers, Federal Register of Legislation (FRL) & threshold semantic diffs, Fair Work (FWO) HR compliance checklists, DHA/FWO FOI disclosure logs, and dual-denominator ART statistics with SHA-256 provenance.',
@@ -115,14 +145,22 @@
       guardTitle: 'Legal Scope & Privacy Minimization Notice:',
       guardText: 'This portal presents hash-bound primary Australian government metadata for general legal research and does not constitute legal advice. Natural-person / sole-trader names are excluded from corporate search for privacy minimization, and search queries never leave your browser.',
       sourcesHeading: 'Allowlisted Primary .gov.au Source Health & Licence Matrix',
+      thSourceId: 'Source ID',
+      thAgency: 'Agency',
+      thStatus: 'Status',
+      thApproved: 'Approved Records',
+      thSnapshotSha: 'Snapshot SHA-256',
+      thLicence: 'Licence',
       footerDisclaimer: 'Disclaimer & Attribution: Independent legal intelligence published by Park & Co Lawyers (not affiliated with or endorsed by the Australian Government). Published under CC BY 3.0 AU / CC BY 4.0 and FWO CC BY-NC 4.0 metadata-and-link attribution rules.',
       searchPlaceholder: 'Search corporate name, 11-digit ABN, subclass (482/820/500), FRL ID, or FOI ref (FA 25/...)',
       inspectBtn: '🔍 Inspect SHA-256 Evidence',
       officialUrlBtn: 'Official Source ↗',
       copyCitBtn: '📋 Copy Verified Citation',
       copiedBtn: '✓ Citation Copied',
+      copyLinkBtn: '🔗 Copy Direct Link (?id=…)',
+      copiedLinkBtn: '✓ Direct Link Copied',
       noResults: 'No lawyer-approved records match the current search and filter criteria.',
-      loadingDomain: 'Synchronising verified domain shard…'
+      loadingDomain: 'Loading primary-source shards…'
     }
   };
 
@@ -217,6 +255,8 @@
     query: '',
     stateFilter: '',
     subkindFilter: '',
+    selectedRecordId: null,
+    pendingDeepLinkId: null,
     page: 1,
     manifest: null,
     records: [],
@@ -232,6 +272,21 @@
     if (className) node.className = className;
     if (text !== undefined && text !== null) node.textContent = String(text);
     return node;
+  }
+
+  function queryCardByRecordId(id) {
+    if (!id || typeof document.querySelector !== 'function') return null;
+    return document.querySelector('[data-record-id="' + CSS.escape(id) + '"]');
+  }
+
+  function findRecordById(id) {
+    if (!id) return null;
+    for (var i = 0; i < state.records.length; i++) {
+      if (state.records[i] && state.records[i].record_id === id) {
+        return state.records[i];
+      }
+    }
+    return null;
   }
 
   function validateAbnMod89(raw) {
@@ -320,8 +375,28 @@
       } else {
         u.searchParams.delete('type');
       }
+      var activeId = state.selectedRecordId || state.pendingDeepLinkId;
+      if (activeId) {
+        u.searchParams.set('id', activeId);
+      } else {
+        u.searchParams.delete('id');
+      }
       window.history.replaceState({}, '', u.toString());
     } catch (e) {}
+  }
+
+  function buildDirectRecordUrl(recordId) {
+    try {
+      var u = new URL(window.location.href);
+      u.search = '';
+      if (state.lang === 'en') {
+        u.searchParams.set('lang', 'en');
+      }
+      u.searchParams.set('id', recordId);
+      return u.toString();
+    } catch (e) {
+      return 'https://changa9090.github.io/intelligence/?' + (state.lang === 'en' ? 'lang=en&' : '') + 'id=' + encodeURIComponent(recordId);
+    }
   }
 
   function applyLanguage(lang, skipUrlSync) {
@@ -331,6 +406,16 @@
     try { localStorage.setItem('parkco_lang', state.lang); } catch (e) {}
     if (I18N[state.lang] && I18N[state.lang].pageTitle) {
       document.title = I18N[state.lang].pageTitle;
+    }
+    if (typeof document.querySelector === 'function') {
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && I18N[state.lang].metaDesc) {
+        metaDesc.setAttribute('content', I18N[state.lang].metaDesc);
+      }
+    }
+    var vcBox = document.getElementById('visit-counter');
+    if (vcBox && I18N[state.lang].vcTitle) {
+      vcBox.setAttribute('title', I18N[state.lang].vcTitle);
     }
     document.getElementById('lang-ko').classList.toggle('active', state.lang === 'ko');
     document.getElementById('lang-en').classList.toggle('active', state.lang === 'en');
@@ -346,13 +431,22 @@
     if (searchEl) searchEl.placeholder = t('searchPlaceholder');
     syncFilterControlsForTab();
     if (!skipUrlSync) syncUrlState();
+    renderCounts();
     renderAll();
+    if (state.selectedRecordId) {
+      var openRec = findRecordById(state.selectedRecordId);
+      var drawer = document.getElementById('evidence-drawer');
+      if (openRec && drawer && drawer.classList.contains('open')) {
+        openEvidenceDrawer(openRec, state.lastFocusedEl);
+      }
+    }
   }
 
   function getSearchIndex(rec) {
     if (rec._searchCache) return rec._searchCache;
     var p = rec.payload || {};
     var primaryParts = [
+      rec.record_id,
       p.legal_name,
       p.trading_name,
       p.title_ko,
@@ -371,6 +465,8 @@
       p.summary,
       p.summary_ko,
       p.summary_en,
+      p.sunset_status_note_ko,
+      p.sunset_status_note_en,
       p.action_summary,
       p.obligations_raw,
       p.basis_badge_ko,
@@ -380,8 +476,11 @@
       p.practice_area_ko,
       p.practice_area_en,
       p.previous_value,
+      p.previous_value_en,
       p.new_value,
+      p.new_value_en,
       p.effective_window,
+      p.effective_window_en,
       p.state,
       p.access_decision,
       p.foi_agency,
@@ -435,6 +534,10 @@
     var idx = getSearchIndex(rec);
     var qClean = rawQuery.trim().toLowerCase();
     var qDigits = rawQuery.replace(/\D/g, '');
+
+    if (rec.record_id && rec.record_id.toLowerCase() === qClean) {
+      return 2000;
+    }
 
     /* 1. Direct ABN match (9-11 digits entered, e.g. spaced 11-digit ABN) */
     if (qDigits.length >= 9 && idx.abnDigits && idx.abnDigits.indexOf(qDigits) >= 0) {
@@ -623,7 +726,9 @@
   function buildCard(rec) {
     var en = state.lang === 'en';
     var p = rec.payload || {};
-    var card = el('article', 'intel-card');
+    var isSelected = Boolean(state.selectedRecordId && state.selectedRecordId === rec.record_id);
+    var card = el('article', isSelected ? 'intel-card intel-card--highlight' : 'intel-card');
+    card.setAttribute('data-record-id', rec.record_id);
 
     var top = el('div', 'intel-card__top');
     var badges = el('div', 'badges-row');
@@ -654,7 +759,13 @@
         el('span', 'badge badge--burgundy', isDiff ? (en ? 'Threshold / Reform Diff' : '기준액·개정 시맨틱 대조') : 'FRL Compilation Watch')
       );
       if (p.future_compilation_scheduled) {
-        badges.appendChild(el('span', 'badge badge--warn', (en ? 'Future End Scheduled: ' : '후속 개정 예정: ') + p.scheduled_end_date));
+        badges.appendChild(
+          el(
+            'span',
+            'badge badge--warn',
+            (en ? 'Compilation Cutover: ' : '컴필레이션 전환 경계일: ') + p.scheduled_end_date
+          )
+        );
       }
       badges.appendChild(el('span', 'badge badge--navy', en ? (p.practice_area_en || 'Commonwealth Law') : (p.practice_area_ko || '호주 연방법')));
     } else if (rec.domain === 'fwo_compliance') {
@@ -692,22 +803,27 @@
         var idLabel = p.register_id || p.title_id || '';
         var compSuffix = p.compilation_number
           ? ' (Comp. ' + p.compilation_number + ')'
-          : (p.future_compilation_scheduled ? (en ? ' (Amendment Active)' : ' (개정령 시행·통합 대기)') : '');
+          : (p.future_compilation_scheduled ? (en ? ' (In Force · Consolidation Pending)' : ' (현행 유효 · 개정 통합 대기)') : '');
         lTitle = p.title_name + (idLabel ? ' · ' + idLabel : '') + compSuffix;
       }
       card.appendChild(el('h3', 'intel-card__title', lTitle));
       card.appendChild(el('p', 'intel-card__body', cleanFrlSummaryText(en ? p.summary_en : p.summary_ko, en)));
       var kvL = el('div', 'kv-grid');
       if (p.change_kind === 'statutory_threshold_diff') {
-        addKv(kvL, en ? 'Previous Setting' : '종전 기준', p.previous_value);
-        addKv(kvL, en ? 'Current Setting' : '현행 기준', p.new_value);
-        addKv(kvL, en ? 'Effective Window' : '적용 기준일', p.effective_window || p.effective_date);
+        var prevSetting = en ? (p.previous_value_en || p.previous_value) : (p.previous_value_ko || p.previous_value);
+        var currSetting = en ? (p.new_value_en || p.new_value) : (p.new_value_ko || p.new_value);
+        var effWindow = en
+          ? (p.effective_window_en || p.effective_window || p.effective_date)
+          : (p.effective_window_ko || p.effective_window || p.effective_date);
+        addKv(kvL, en ? 'Previous Setting' : '종전 기준', prevSetting);
+        addKv(kvL, en ? 'Current Setting' : '현행 기준', currSetting);
+        addKv(kvL, en ? 'Effective Window' : '적용 기준일', effWindow);
         addKv(kvL, en ? 'Authority' : '법적 근거', p.statutory_authority);
       } else {
         addKv(kvL, 'FRL Title / Register ID', p.register_id ? (p.title_id + ' / ' + p.register_id) : p.title_id, true);
         addKv(kvL, en ? 'Legal Start Date' : '법적 시행일 (start)', p.start_date);
         addKv(kvL, en ? 'FRL Registered Date' : 'FRL 등록일 (registeredAt)', p.registered_at_date || (en ? 'Pending FRL consolidation' : '후속 컴필레이션 등록 대기'));
-        addKv(kvL, en ? 'Scheduled End Boundary' : '예정 종료 경계일 (end)', p.scheduled_end_date || 'Current (Open)');
+        addKv(kvL, en ? 'Compilation End Boundary' : '컴필레이션 전환 경계일 (end)', p.scheduled_end_date || (en ? 'Current (In Force)' : '현행 유효 (무기한)'));
       }
       card.appendChild(kvL);
       if (Array.isArray(p.affected_navigator_links) && p.affected_navigator_links.length > 0) {
@@ -761,26 +877,57 @@
       card.appendChild(el('h3', 'intel-card__title', en ? p.title_en : p.title_ko));
       card.appendChild(el('p', 'intel-card__body', en ? p.summary_en : p.summary_ko));
       var kvS = el('div', 'kv-grid');
+      var breakDateLabel = en
+        ? (p.structural_break_date_en || p.structural_break_date)
+        : (p.structural_break_date_ko || p.structural_break_date);
       if (p.all_finalised_rate) {
         addKv(kvS, en ? 'All Finalisations Rate' : '전체 종결 분모 인용률', p.all_finalised_rate + ' (' + p.remitted_or_set_aside_count + '/' + p.all_finalised_denominator + ')');
         addKv(kvS, en ? 'Substantive Merits Rate' : '본안 판단 분모 인용률', p.substantive_restricted_rate + ' (' + p.remitted_or_set_aside_count + '/' + p.substantive_restricted_denominator + ')');
         addKv(kvS, en ? 'Procedural / Withdrawn' : '취하·각하 분리 건수', p.procedural_dismissal_or_withdrawn_count);
-        addKv(kvS, en ? 'Series Transition Break' : '시계열 전환 경계일', p.structural_break_date);
+        addKv(kvS, en ? 'Series Transition Break' : '시계열 전환 경계일', breakDateLabel);
       } else if (p.study_on_hand_share) {
         addKv(kvS, en ? 'Study On-Hand Stock Share' : '학생비자 계류 잔량(Stock) 비중', p.study_on_hand_share);
         addKv(kvS, en ? 'Working Stream Clearance' : '취업비자 기간 처리율(Clearance)', p.working_skilled_clearance_rate);
-        addKv(kvS, en ? 'Series Transition Break' : '시계열 전환 경계일', p.structural_break_date);
+        addKv(kvS, en ? 'Series Transition Break' : '시계열 전환 경계일', breakDateLabel);
       } else if (p.conferral_on_hand !== undefined) {
         addKv(kvS, en ? 'Conferral On-Hand Queue' : '시민권 Conferral 계류 건수', Number(p.conferral_on_hand).toLocaleString());
         addKv(kvS, en ? 'Percentile Additivity' : '단계별 백분위 합산 가능 여부', en ? 'Non-Additive (Independent Cohorts)' : '합산 불가 (독립 코호트)');
       }
       card.appendChild(kvS);
+
+      if (Array.isArray(p.stage_percentiles) && p.stage_percentiles.length) {
+        var cTbl = el('table', 'cit-stage-table');
+        var cHead = el('thead');
+        var cHr = el('tr');
+        cHr.appendChild(el('th', '', en ? 'Citizenship Conferral Stage' : '시민권 Conferral 단계'));
+        cHr.appendChild(el('th', '', en ? '50th Percentile' : '50% 백분위'));
+        cHr.appendChild(el('th', '', en ? '90th Percentile' : '90% 백분위'));
+        cHead.appendChild(cHr);
+        cTbl.appendChild(cHead);
+        var cBody = el('tbody');
+        p.stage_percentiles.forEach(function (sr) {
+          var rTr = el('tr');
+          rTr.appendChild(el('td', '', en ? sr.stage_en : sr.stage_ko));
+          rTr.appendChild(el('td', 'num', en ? sr.p50_en : sr.p50_ko));
+          rTr.appendChild(el('td', 'num', en ? sr.p90_en : sr.p90_ko));
+          cBody.appendChild(rTr);
+        });
+        cTbl.appendChild(cBody);
+        card.appendChild(cTbl);
+      }
+
+      var citDefs = en ? p.stage_definitions_en : p.stage_definitions_ko;
+      if (Array.isArray(citDefs) && citDefs.length) {
+        var cUl = el('ul', 'checklist-ul');
+        citDefs.forEach(function (df) { cUl.appendChild(el('li', '', df)); });
+        card.appendChild(cUl);
+      }
     }
 
     var foot = el('div', 'intel-card__foot');
     var noteStr = en
-      ? (p.source_lag_note_en || p.scope_warning_en || p.scope_note_en || p.date_separation_note_en || '')
-      : (p.source_lag_note_ko || p.scope_warning_ko || p.scope_note_ko || p.date_separation_note_ko || '');
+      ? (p.sunset_status_note_en || p.source_lag_note_en || p.scope_warning_en || p.scope_note_en || p.date_separation_note_en || '')
+      : (p.sunset_status_note_ko || p.source_lag_note_ko || p.scope_warning_ko || p.scope_note_ko || p.date_separation_note_ko || '');
     foot.appendChild(el('div', 'scope-note', noteStr));
 
     var actWrap = el('div', 'badges-row');
@@ -804,6 +951,9 @@
 
   function openEvidenceDrawer(rec, triggerEl) {
     state.lastFocusedEl = triggerEl || document.activeElement;
+    state.selectedRecordId = rec.record_id;
+    syncUrlState();
+
     var en = state.lang === 'en';
     var body = document.getElementById('drawer-body');
     body.textContent = '';
@@ -839,7 +989,7 @@
     body.appendChild(secTime);
 
     var secAttr = el('div', 'drawer-section');
-    secAttr.appendChild(el('h4', '', en ? '4. Official Source & Licence Attribution' : '4. 공식 출처 URL 및 라이선스 출처 표시'));
+    secAttr.appendChild(el('h4', '', en ? '4. Official Source, Direct Link & Licence Attribution' : '4. 공식 출처 URL · 직접 링크 및 라이선스 표시'));
     var attr = rec.attribution || {};
     secAttr.appendChild(el('div', '', (attr.licence || '') + ' · ' + (attr.attribution_text || '')));
     var srcLink = el('a', 'btn-link-ext', rec.source_url);
@@ -850,21 +1000,44 @@
     srcLink.style.wordBreak = 'break-all';
     secAttr.appendChild(srcLink);
 
+    var btnRow = el('div', 'drawer-btn-row');
+
     var copyBtn = el('button', 'btn-evidence', t('copyCitBtn'));
     copyBtn.type = 'button';
-    copyBtn.style.marginTop = '12px';
-    copyBtn.style.display = 'block';
     copyBtn.addEventListener('click', function () {
       var cit = '[' + rec.agency + '] ' + rec.source_url + ' | Locator: ' + JSON.stringify(rec.locator) +
         ' | Retrieved: ' + rec.retrieved_at_utc + ' | Snapshot SHA-256: ' + rec.snapshot_sha256;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(cit).then(function () {
           copyBtn.textContent = t('copiedBtn');
         });
       }
     });
-    secAttr.appendChild(copyBtn);
+    btnRow.appendChild(copyBtn);
+
+    var directUrl = buildDirectRecordUrl(rec.record_id);
+    var copyLinkBtn = el('button', 'btn-evidence', t('copyLinkBtn'));
+    copyLinkBtn.type = 'button';
+    copyLinkBtn.id = 'drawer-copy-link-btn';
+    copyLinkBtn.setAttribute('data-direct-url', directUrl);
+    copyLinkBtn.addEventListener('click', function () {
+      if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(directUrl).then(function () {
+          copyLinkBtn.textContent = t('copiedLinkBtn');
+        });
+      } else {
+        copyLinkBtn.textContent = t('copiedLinkBtn');
+      }
+    });
+    btnRow.appendChild(copyLinkBtn);
+
+    secAttr.appendChild(btnRow);
     body.appendChild(secAttr);
+
+    var cardEl = queryCardByRecordId(rec.record_id);
+    if (cardEl && cardEl.classList) {
+      cardEl.classList.add('intel-card--highlight');
+    }
 
     var drawer = document.getElementById('evidence-drawer');
     var backdrop = document.getElementById('drawer-backdrop');
@@ -881,12 +1054,47 @@
     drawer.classList.remove('open');
     backdrop.classList.remove('open');
     drawer.setAttribute('aria-hidden', 'true');
+    if (state.selectedRecordId) {
+      var prevCard = queryCardByRecordId(state.selectedRecordId);
+      if (prevCard && prevCard.classList) {
+        prevCard.classList.remove('intel-card--highlight');
+      }
+      state.selectedRecordId = null;
+      syncUrlState();
+    }
     if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
       state.lastFocusedEl.focus();
     }
   }
 
+  function tryResolveDeepLink() {
+    if (!state.pendingDeepLinkId) return;
+    var target = findRecordById(state.pendingDeepLinkId);
+    if (!target) {
+      if (state.fullyLoaded) {
+        state.pendingDeepLinkId = null;
+        syncUrlState();
+      }
+      return;
+    }
+    state.pendingDeepLinkId = null;
+    state.selectedRecordId = target.record_id;
+    renderAll();
+    var cardNode = queryCardByRecordId(target.record_id);
+    openEvidenceDrawer(target, cardNode);
+  }
+
   function renderCounts() {
+    if (!state.manifest && state.records.length === 0 && !state.fullyLoaded) {
+      document.getElementById('cnt-all').textContent = '…';
+      document.getElementById('cnt-abf').textContent = '…';
+      document.getElementById('cnt-frl').textContent = '…';
+      document.getElementById('cnt-fwo').textContent = '…';
+      document.getElementById('cnt-foi').textContent = '…';
+      document.getElementById('prov-record-count').textContent = state.lang === 'en' ? 'Loading…' : '불러오는 중…';
+      return;
+    }
+
     var mc = (state.manifest && state.manifest.counts) || null;
     if (mc && !state.fullyLoaded) {
       var mTotal = Number(mc.total || 0);
@@ -1003,7 +1211,7 @@
     }
     if (state.subkindFilter) {
       var subSel = document.getElementById('filter-subkind');
-      var selOpt = subSel && subSel.querySelector('option[value="' + state.subkindFilter + '"]');
+      var selOpt = subSel && subSel.querySelector('option[value="' + CSS.escape(state.subkindFilter) + '"]');
       var subLabel = selOpt ? selOpt.textContent : state.subkindFilter;
       addChip((en ? 'Category: ' : '유형: ') + subLabel, function () {
         state.subkindFilter = '';
@@ -1052,7 +1260,7 @@
 
     var filtered = filterAndRankRecords();
 
-    /* If the requested tab or query depends on shards still arriving over the network, show clean sync status */
+    /* Show crisp loading state while primary-source shards are arriving so count never flashes 0 */
     if (!filtered.length && (!state.fullyLoaded && (isTabStillSyncing() || state.query || state.stateFilter || state.subkindFilter))) {
       summaryEl.textContent = t('loadingDomain');
       container.textContent = '';
@@ -1196,6 +1404,7 @@
         state.fullyLoaded = true;
         renderCounts();
         renderAll();
+        tryResolveDeepLink();
       });
   }
 
@@ -1225,7 +1434,7 @@
           return loadBundleFallback(manifest);
         }
 
-        /* Launch ALL 5 domain shards concurrently; render Page 1 immediately once the 3 tiny shards (~15 KB gzip) finish */
+        /* Launch ALL 5 domain shards concurrently; render Page 1 immediately once the 3 tiny shards finish */
         var priorityPromises = priorityNames.map(function (name) {
           return fetchShardJson(shards[name]).then(function (payload) {
             mergeShardRecords(name, payload && payload.records);
@@ -1236,18 +1445,21 @@
           return fetchShardJson(shards[name]).then(function (payload) {
             mergeShardRecords(name, payload && payload.records);
             renderAll();
+            tryResolveDeepLink();
           });
         });
 
         return Promise.all(priorityPromises)
           .then(function () {
             renderAll();
+            tryResolveDeepLink();
             return Promise.all(bulkPromises);
           })
           .then(function () {
             state.fullyLoaded = true;
             renderCounts();
             renderAll();
+            tryResolveDeepLink();
           })
           .catch(function () {
             return loadBundleFallback(manifest);
@@ -1266,11 +1478,15 @@
   var initQ = params.get('q');
   var initState = params.get('state');
   var initType = params.get('type');
+  var initId = params.get('id');
   var initLang = params.get('lang');
   if (!initLang) {
     try { initLang = localStorage.getItem('parkco_lang'); } catch (e) {}
   }
 
+  if (initId && initId.trim()) {
+    state.pendingDeepLinkId = initId.trim();
+  }
   if (initQ) {
     state.query = initQ.trim();
     var sInput = document.getElementById('intel-search');
@@ -1278,14 +1494,14 @@
   }
   if (initState) {
     var stSel = document.getElementById('filter-state');
-    if (stSel && stSel.querySelector('option[value="' + initState + '"]')) {
+    if (stSel && stSel.querySelector('option[value="' + CSS.escape(initState) + '"]')) {
       state.stateFilter = initState;
       stSel.value = initState;
     }
   }
   if (initType) {
     var sbSel = document.getElementById('filter-subkind');
-    if (sbSel && sbSel.querySelector('option[value="' + initType + '"]')) {
+    if (sbSel && sbSel.querySelector('option[value="' + CSS.escape(initType) + '"]')) {
       state.subkindFilter = initType;
       sbSel.value = initType;
     }

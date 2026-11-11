@@ -1,20 +1,20 @@
 {
   "schema_version": "public-legal-intel-manifest-1.0",
-  "release_id": "66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d",
-  "as_of": "2026-11-08",
-  "bundle_path": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/bundle.json",
-  "bundle_sha256": "3c6d9e161b4a246b15675a27c57281c8c216217163164fbb92c11faf82fea520",
+  "release_id": "d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67",
+  "as_of": "2026-11-11",
+  "bundle_path": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/bundle.json",
+  "bundle_sha256": "fd0efc8eac5ade9299e51d6559156a835e6bf7f2c17b4b7476a6080344159d48",
   "shards": {
-    "abf_enforcement": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/abf_enforcement.json",
-    "foi_disclosure": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/foi_disclosure.json",
-    "fwo_compliance": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/fwo_compliance.json",
-    "legislation_watch": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/legislation_watch.json",
-    "tribunal_and_citizenship_stats": "releases/66793a10541962d59cfe20b33f1f671181874003c3002f78e8d872220f02ca9d/tribunal_and_citizenship_stats.json"
+    "abf_enforcement": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/abf_enforcement.json",
+    "foi_disclosure": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/foi_disclosure.json",
+    "fwo_compliance": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/fwo_compliance.json",
+    "legislation_watch": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/legislation_watch.json",
+    "tribunal_and_citizenship_stats": "releases/d472f9a2995c4d05a92d465bf6d84c8edc34948d944b1658de761612775b8f67/tribunal_and_citizenship_stats.json"
   },
   "counts": {
-    "total": 2269,
+    "total": 2275,
     "abf_enforcement": 1710,
-    "foi_disclosure": 542,
+    "foi_disclosure": 548,
     "fwo_compliance": 6,
     "legislation_watch": 8,
     "tribunal_and_citizenship_stats": 3
@@ -76,7 +76,7 @@
       "freshness": "fresh",
       "last_retrieved_utc": "2026-11-08T22:10:14Z",
       "snapshot_sha256": "8670027d371dfe995ba0d7034cd73a4118af78db9873a37044d39da5aa3c45e1",
-      "approved_records": 187,
+      "approved_records": 193,
       "licence": "CC BY 3.0 Australia",
       "rights_status": "approved_scoped"
     },

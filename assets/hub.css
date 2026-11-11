@@ -1,4 +1,4 @@
-/* Park & Co Lawyers — Main Hub Editorial Styles (2026.11)
+/* Park & Co Lawyers · Main Hub Editorial Styles (2026.11)
    Extends ./shared/parkco-ui.css */
 
 *, *::before, *::after {
@@ -376,6 +376,162 @@ body {
   color: var(--pk-danger);
 }
 
+.hub-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pk-ok);
+  background: var(--pk-ok-bg);
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.hub-card-status--cached {
+  color: var(--pk-warn);
+  background: var(--pk-warn-bg);
+}
+
+.hub-hero__portal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.hub-b2b-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--pk-brand);
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-brand);
+  border-radius: 999px;
+  padding: 5px 13px;
+  text-decoration: none;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.hub-b2b-pill:hover {
+  background: var(--pk-brand);
+  color: #FFFFFF;
+}
+
+/* Instant 1-Line Keyword Jump Filter */
+.hub-quick-filter-bar {
+  background: var(--pk-surface);
+  border: 1.5px solid var(--pk-line);
+  border-radius: var(--pk-radius);
+  padding: 12px 16px;
+  margin: 0 0 24px;
+  box-shadow: 0 2px 10px rgba(20, 40, 42, 0.04);
+}
+
+.hub-quick-filter__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hub-quick-filter__label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--pk-brand);
+  white-space: nowrap;
+}
+
+.hub-quick-filter__input {
+  flex: 1 1 280px;
+  border: 1px solid var(--pk-line);
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--pk-ink);
+  background: #FCFBF8;
+}
+
+.hub-quick-filter__input:focus {
+  outline: none;
+  border-color: var(--pk-brand);
+  background: #FFFFFF;
+}
+
+.hub-quick-filter__count {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--pk-brand);
+  background: var(--pk-surface-2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.hub-quick-filter__clear {
+  border: 1px solid var(--pk-brand);
+  background: #FFFFFF;
+  color: var(--pk-brand);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hub-quick-filter__clear:hover {
+  background: var(--pk-brand);
+  color: #FFFFFF;
+}
+
+.hub-quick-filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.hub-quick-chip {
+  border: 1px solid #D8D1C3;
+  background: #FAF7F2;
+  color: var(--pk-ink-2);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.14s ease;
+}
+
+.hub-quick-chip:hover,
+.hub-quick-chip.is-active {
+  border-color: var(--pk-brand);
+  background: var(--pk-brand);
+  color: #FFFFFF;
+}
+
+.hub-quick-chip--b2b {
+  border-color: var(--pk-accent);
+  color: var(--pk-ink);
+  background: #FFFDF7;
+}
+
+.hub-quick-chip--b2b:hover {
+  border-color: var(--pk-brand);
+  background: var(--pk-brand);
+  color: #FFFFFF;
+}
+
 /* Directory Filter Bar */
 .hub-dir-bar {
   display: flex;
@@ -538,7 +694,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Footer + Preserved Bottom Visit Counter v2.1 */
+/* Footer + Park & Co Unified Visit Counter & Referral Modal v3.0 */
 .hub-footer {
   background: var(--pk-brand);
   color: #E6ECEC;
@@ -557,9 +713,10 @@ body {
   text-decoration: underline;
 }
 
+/* Park & Co Unified Visit Counter & Referral Modal v3.0 */
 .visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
 .visit-counter[hidden] { display: none !important; }
-.visit-counter:not([hidden]) { cursor: pointer; }
+.visit-counter:not([hidden]) { display: flex !important; cursor: pointer; }
 .visit-counter > span em { font-style: normal; }
 .visit-counter > span { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 999px; padding: 5px 13px; font-size: 12.5px; color: #F1F5F5; display: inline-flex; align-items: center; transition: border-color 0.15s ease, background 0.15s ease; }
 .visit-counter:not([hidden]):hover > span { border-color: #F6DFA4; background: rgba(255, 255, 255, 0.14); }
