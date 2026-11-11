@@ -1,7 +1,7 @@
 {
-  "last_polled_iso": "2026-11-11T22:34:29+10:00",
-  "sitemap_lastmod": "2026-11-11",
-  "sitemap_refreshed": false,
+  "last_polled_iso": "2026-11-12T08:15:12+10:00",
+  "sitemap_lastmod": "2026-11-12",
+  "sitemap_refreshed": true,
   "dha_price_live_ok": true,
   "dha_price_sha256_prefix": "0ab169e8525c9030",
   "total_primary_sources": 140,
@@ -154,8 +154,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
       "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
-      "sha256_prefix": "39450ed5bcee9ff1",
-      "last_polled": "2026-11-09T07:35:09+10:00"
+      "sha256_prefix": "2fa08b61086974fe",
+      "last_polled": "2026-11-11T22:58:22+10:00"
     },
     {
       "id": "dama",
@@ -223,7 +223,7 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-11T22:34:29+10:00"
+      "last_polled": "2026-11-12T08:15:12+10:00"
     },
     {
       "id": "trackers",
@@ -240,7 +240,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
       "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-11T22:34:29+10:00"
+      "last_polled": "2026-11-12T08:15:12+10:00"
     },
     {
       "id": "intelligence",
