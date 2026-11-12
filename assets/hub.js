@@ -205,11 +205,11 @@
   var I18N = {
     ko: {
       pageTitle: '법무법인 박앤코 법률·비자 진단 허브 | 호주 이민법 · 고용법 · 가족법',
-      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법 통합 진단 허브입니다. 14개 양방향 진단·추적기와 4대 공식 실무 FAQ(개인·기업 B2B·고용·가족법) 및 출처 검증 레지스트리 등 총 19종 공개 법률 시스템을 제공합니다.',
+      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법 통합 진단 허브입니다. 14개 양방향 진단·추적기와 5대 공식 실무 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법) 및 출처 검증 레지스트리 등 총 20종 공개 법률 시스템을 제공합니다.',
       brandTitle: '법무법인 박앤코 법률·비자 진단 허브',
       navRouter: '내 상황 찾기',
       navPopular: '주요 진단기',
-      navDir: '전체 도구(19)',
+      navDir: '전체 도구(20)',
       navFaq: '이민 대표 FAQ',
       navOrgFaq: '기업·HR FAQ',
       navIntel: '데이터 출처',
@@ -218,7 +218,7 @@
       urgentLink: '기한 계산기 바로가기 →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: '호주 비자 · 고용법 · 가족법 맞춤 진단 허브',
-      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 14개 양방향 진단·추적기와 4대 실무 FAQ 백과 및 원문 검증 레지스트리(총 19종)를 제공합니다.',
+      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 14개 양방향 진단·추적기와 5대 실무 FAQ 백과(파트너 비자 62문항 포함) 및 원문 검증 레지스트리(총 20종)를 제공합니다.',
       routerTitle: '내 상황에 맞는 진단 도구 찾기 (3문항 선택)',
       routerReset: '선택 초기화',
       q1Label: 'Q1. 어떤 문제를 해결하고 싶으신가요?',
@@ -246,9 +246,9 @@
       quickFilterClear: '초기화 (Esc)',
       popTitle: '가장 많이 찾는 6대 핵심 진단기',
       popSub: '직종 판독부터 불변 기한 계산과 대기일수 확인까지 가장 자주 쓰이는 도구를 모았습니다.',
-      dirTitle: '주제별 전체 도구 디렉터리 (14개 진단·추적기 + 4대 공식 FAQ · 검증 레지스트리 총 19종)',
-      dirSub: '분야별 탭을 고르거나 비자 번호·법률 키워드로 바로 검색해 보십시오.',
-      cat_all: '전체 (19)',
+      dirTitle: '주제별 전체 도구 디렉터리 (14개 진단·추적기 + 5대 공식 FAQ · 검증 레지스트리 총 20종)',
+      dirSub: '분야별 탭을 누르면 해당 분야 전체 도구가 즉시 표시되며 비자 번호나 법률 키워드로도 바로 검색할 수 있습니다.',
+      cat_all: '전체 (20)',
       cat_crisis: '긴급·심사기간',
       cat_skilled: '기술·지방·워홀',
       cat_employer: '고용주·노무',
@@ -264,16 +264,16 @@
       trustLawyerName: '박창민 대표변호사 (Chang Min Park)',
       trustLawyerRole: '법무법인 박앤코 대표변호사 · 퀸즐랜드 변호사회 공인 이민법 전문변호사 (QLS Accredited Specialist in Immigration Law)',
       trustLawyerContact: '공식 이메일: enquiry@parkcolawyers.com · 사무소: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 4대 분야별 공식 FAQ(개인·기업 B2B·고용·가족법) · 1차 출처 검증 레지스트리 등 총 19종 및 대표변호사 직접 검토 서비스 3종 운영',
+      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 5대 분야별 공식 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법) · 1차 출처 검증 레지스트리 등 총 20종 및 대표변호사 직접 검토 서비스 3종 운영',
       footerDisclaimer: '본 포털의 진단 결과와 가이드는 일반적인 법률 정보 제공을 목적으로 하며 개별 사안에 대한 법률 자문을 대신하지 않습니다. 법정 기한이 임박한 경우 즉시 전문변호사와 상의하시기 바랍니다.'
     },
     en: {
       pageTitle: 'Park & Co Legal & Visa Diagnostic Hub | Australian Immigration, Employment & Family Law',
-      metaDesc: 'Interactive Australian immigration, employment, and family law diagnostic hub by Park & Co Lawyers featuring 14 primary-source navigators and trackers, 4 official practice FAQs (including Employer B2B), and 1 live source registry (19 tools total).',
+      metaDesc: 'Interactive Australian immigration, employment, and family law diagnostic hub by Park & Co Lawyers featuring 14 primary-source navigators and trackers, 5 official practice FAQs (including Partner 62-FAQ and Employer B2B), and 1 live source registry (20 tools total).',
       brandTitle: 'Park & Co Legal & Visa Hub',
       navRouter: 'Find My Tool',
       navPopular: 'Popular Tools',
-      navDir: 'All Tools (19)',
+      navDir: 'All Tools (20)',
       navFaq: 'Immigration FAQ',
       navOrgFaq: 'Employer B2B FAQ',
       navIntel: 'Data Sources',
@@ -282,7 +282,7 @@
       urgentLink: 'Open Deadline Calculator →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: 'Australian Visa, Employment & Family Law Diagnostic Hub',
-      heroSub: 'Explore 14 interactive diagnostic navigators and trackers, 4 bilingual FAQ encyclopedias (including Employer & HR B2B), and 1 primary-source verification registry (19 systems total) grounded in Federal Legislation, Home Affairs, ART, FWC, and FCFCOA data.',
+      heroSub: 'Explore 14 interactive diagnostic navigators and trackers, 5 bilingual FAQ encyclopedias (including the 62-question Partner Visa Hub and Employer B2B), and 1 primary-source verification registry (20 systems total) grounded in Federal Legislation, Home Affairs, ART, FWC, and FCFCOA data.',
       routerTitle: '3-Question Situation Router (Select Your Situation)',
       routerReset: 'Reset Selection',
       q1Label: 'Q1. What issue would you like to solve?',
@@ -310,9 +310,9 @@
       quickFilterClear: 'Clear (Esc)',
       popTitle: '6 Most-Used Flagship Diagnostic Tools',
       popSub: 'Fast entry to occupation matching, strict statutory deadline checks, sponsor salary rules, and wait-time calculators.',
-      dirTitle: 'Complete Tool Directory by Topic (14 Navigators & Trackers + 4 Official FAQs & Source Registry · 19 Total)',
-      dirSub: 'Filter by practice category or search by subclass number or legal keyword.',
-      cat_all: 'All (19)',
+      dirTitle: 'Complete Tool Directory by Topic (14 Navigators & Trackers + 5 Official FAQs & Source Registry · 20 Total)',
+      dirSub: 'Select a category tab to view all tools in that area, or search by subclass number or legal keyword.',
+      cat_all: 'All (20)',
       cat_crisis: 'Urgent & Processing',
       cat_skilled: 'Skilled, Regional & WHM',
       cat_employer: 'Sponsor & Workplace',
@@ -328,7 +328,7 @@
       trustLawyerName: 'Chang Min Park (Legal Practitioner Director)',
       trustLawyerRole: 'Principal Lawyer, Park & Co Lawyers · QLS Accredited Specialist in Immigration Law',
       trustLawyerContact: 'Official Email: enquiry@parkcolawyers.com · Office: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 4 official FAQs (Individual, Employer B2B, Employment, Family Law) · 1 primary-source verification registry (19 systems total) + 3 Principal Lawyer review services',
+      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 5 official FAQs (Immigration, Partner 62-FAQ, Employer B2B, Employment, Family Law) · 1 primary-source verification registry (20 systems total) + 3 Principal Lawyer review services',
       footerDisclaimer: 'General legal information only; does not constitute legal advice for individual matters. Seek urgent legal advice if a statutory deadline applies.'
     }
   };
@@ -509,6 +509,7 @@
     var qDir = searchEl ? searchEl.value.trim().toLowerCase() : '';
     var countEl = document.getElementById('hub-quick-filter-count');
     var clearBtn = document.getElementById('hub-quick-filter-clear');
+    var dirResetBtn = document.getElementById('hub-dir-active-filter-reset');
     var popSection = document.getElementById('popular');
     var popCards = document.querySelectorAll('#popular-grid .hub-tool-card');
     var dirCards = document.querySelectorAll('#directory-grid .hub-tool-card');
@@ -526,13 +527,27 @@
       if (countEl) countEl.hidden = true;
       if (clearBtn) clearBtn.hidden = true;
 
+      var visibleDirCount = 0;
       dirCards.forEach(function (card) {
         var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
         var catMatch = activeCat === 'all' || cats.indexOf(activeCat) >= 0;
         var text = getCardSearchHaystack(card);
         var qMatch = !qDir || text.indexOf(qDir) >= 0;
-        card.style.display = (catMatch && qMatch) ? '' : 'none';
+        var show = Boolean(catMatch && qMatch);
+        card.style.display = show ? '' : 'none';
+        if (show) visibleDirCount += 1;
       });
+
+      if (dirResetBtn) {
+        if (qDir || activeCat !== 'all') {
+          dirResetBtn.hidden = false;
+          dirResetBtn.textContent = currentLang === 'en'
+            ? ('Reset Filter · Show All (' + dirCards.length + ') ×')
+            : ('필터 해제 · 전체 (' + dirCards.length + ') 보기 ×');
+        } else {
+          dirResetBtn.hidden = true;
+        }
+      }
       return;
     }
 
@@ -548,10 +563,12 @@
 
     var dirMatches = 0;
     dirCards.forEach(function (card) {
+      var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
+      var catMatch = activeCat === 'all' || cats.indexOf(activeCat) >= 0;
       var text = getCardSearchHaystack(card);
       var quickMatch = text.indexOf(qQuick) >= 0;
       var dirSearchMatch = !qDir || text.indexOf(qDir) >= 0;
-      var visible = quickMatch && dirSearchMatch;
+      var visible = Boolean(catMatch && quickMatch && dirSearchMatch);
       card.style.display = visible ? '' : 'none';
       if (visible) dirMatches += 1;
     });
@@ -564,6 +581,12 @@
     }
     if (clearBtn) {
       clearBtn.hidden = false;
+    }
+    if (dirResetBtn) {
+      dirResetBtn.hidden = false;
+      dirResetBtn.textContent = currentLang === 'en'
+        ? ('Active Filter "' + qQuick + '" (' + dirMatches + ') · Show All (' + dirCards.length + ') ×')
+        : ('키워드 필터 "' + qQuick + '" (' + dirMatches + '개) · 전체 (' + dirCards.length + ') 보기 ×');
     }
   }
 
@@ -707,9 +730,32 @@
         document.querySelectorAll('.hub-cat-btn').forEach(function (t) {
           t.classList.toggle('active', t === tab);
         });
+        var qEl = document.getElementById('hub-quick-filter');
+        if (qEl && qEl.value) {
+          qEl.value = '';
+        }
+        var sEl = document.getElementById('hub-search-input');
+        if (sEl && sEl.value && activeCat === 'all') {
+          sEl.value = '';
+        }
         applyDirectoryFilter();
       });
     });
+
+    var dirResetBtn = document.getElementById('hub-dir-active-filter-reset');
+    if (dirResetBtn) {
+      dirResetBtn.addEventListener('click', function () {
+        activeCat = 'all';
+        document.querySelectorAll('.hub-cat-btn').forEach(function (t) {
+          t.classList.toggle('active', t.getAttribute('data-cat') === 'all');
+        });
+        var qEl = document.getElementById('hub-quick-filter');
+        if (qEl) qEl.value = '';
+        var sEl = document.getElementById('hub-search-input');
+        if (sEl) sEl.value = '';
+        applyDirectoryFilter();
+      });
+    }
 
     var searchEl = document.getElementById('hub-search-input');
     if (searchEl) {
