@@ -84,10 +84,19 @@
       toolId: 'partner',
       hrefKo: './parkco-partner-graduate-navigator/?lang=ko',
       hrefEn: './parkco-partner-graduate-navigator/?lang=en',
-      titleKo: '파트너 비자(820/309/300) · Schedule 3 · 시민권 소요기간 진단기',
-      titleEn: 'Partner Visas (820/309/300), Schedule 3 & Citizenship Navigator',
+      titleKo: '파트너 비자(820/801 · 309/100 · 300) · Schedule 3 · 복합사례 · 시민권 진단기',
+      titleEn: 'Partner Visas (820/801, 309/100 & 300), Schedule 3, Complex Cases & Citizenship Navigator',
       timeKo: '소요 약 2분',
       timeEn: '~2 min'
+    },
+    partnerFaq: {
+      toolId: 'faq-partner-spouse',
+      hrefKo: 'https://faq.immispecialist.com/category/partner-spouse-visas?lang=ko',
+      hrefEn: 'https://faq.immispecialist.com/category/partner-spouse-visas?lang=en',
+      titleKo: '파트너·배우자·약혼비자(820/801 · 309/100 · 300) 60문항 지식 백과',
+      titleEn: 'Partner, Spouse & Prospective Marriage Visa (820/309/300) 60-Item FAQ Guide',
+      timeKo: '즉시 검색',
+      timeEn: 'Instant search'
     },
     parent: {
       toolId: 'parent-visa',
@@ -214,9 +223,10 @@
       routerReset: '선택 초기화',
       q1Label: 'Q1. 어떤 문제를 해결하고 싶으신가요?',
       q1_pathway: '비자·영주권 경로 진단',
+      q1_partner_visa: '파트너·배우자·약혼비자 (820·309·300)',
       q1_crisis: '비자 거절·취소·기한 긴급 대응',
       q1_sponsor_emp: '고용주 스폰서(482·186·494)·노무·임금',
-      q1_family_partner: '가족법(이혼·재산분할·양육)·파트너 결별',
+      q1_family_partner: '호주 가족법 (이혼·재산분할·양육권·DVO)',
       q1_parent_settle: '부모 초청·자녀 학비·정착비',
       q1_diy_cost: '혼자 서류 준비(DIY)·수임료 비교',
       q2Label: 'Q2. 현재 누구의 입장에서 확인하시나요?',
@@ -277,9 +287,10 @@
       routerReset: 'Reset Selection',
       q1Label: 'Q1. What issue would you like to solve?',
       q1_pathway: 'Visa & PR Pathway Check',
+      q1_partner_visa: 'Partner, Spouse & Fiancé Visas (820/309/300)',
       q1_crisis: 'Visa Refusal, Cancellation & Urgent Deadlines',
       q1_sponsor_emp: 'Employer Sponsor (482/186/494) & Workplace Law',
-      q1_family_partner: 'Family Law (Divorce/Property/Parenting) & Partner',
+      q1_family_partner: 'Family Law (Divorce, Property, Parenting & DVO)',
       q1_parent_settle: 'Parent Visas, School Fees & Settlement Costs',
       q1_diy_cost: 'DIY Legal Prep & Fee Comparison',
       q2Label: 'Q2. Whose perspective are you checking from?',
@@ -334,11 +345,30 @@
     var reasonKo = '714개 공식 직종 판별과 로컬 이력서 매칭으로 가능한 비자 경로와 점수를 한 번에 비교할 수 있습니다.';
     var reasonEn = 'Compare eligible visa pathways and points in one place with 714 SOL occupation matching and local CV parsing.';
 
-    if (q1 === 'crisis' || (q3 === 'urgent' && q1 !== 'sponsor_emp' && q1 !== 'family_partner')) {
+    if (q1 === 'crisis' || (q3 === 'urgent' && q1 !== 'sponsor_emp' && q1 !== 'family_partner' && q1 !== 'partner_visa')) {
       primary = 'crisis';
       secondary = ['emgSvc', 'artSvc'];
       reasonKo = '취소 전 NOICC 소명(통상 5영업일)과 취소 확정 후 행정재심기구(ART) 재심(7영업일) 및 일반 거절(28일) 마감일을 주별 공휴일 기준으로 즉시 계산합니다.';
       reasonEn = 'Immediately calculates pre-cancellation NOICC (5 working days), post-cancellation ART review (7 working days), and refusal (28 days) deadlines with state public holidays.';
+    } else if (q1 === 'partner_visa') {
+      primary = 'partner';
+      if (q3 === 'urgent') {
+        secondary = ['crisis', 'partnerFaq', 'family', 'artSvc'];
+        reasonKo = '파트너 비자 거절(호주 내 28일 재심 · 309는 비자 신청인 본인 청구 · 300은 호주 스폰서 청구 · r 4.02)과 관계 종료 통지, Schedule 3·s 48·8503 장벽 및 11대 복합 시나리오를 즉시 점검합니다.';
+        reasonEn = 'Immediately checks Partner visa refusal review standing and 28-day limits (onshore/309 applicant vs 300 sponsor under r 4.02), relationship cessation rules, Schedule 3/s 48/8503 barriers, and 11 complex scenarios.';
+      } else if (q2 === 'offshore') {
+        secondary = ['partnerFaq', 'vgpt', 'family'];
+        reasonKo = '해외 신청 파트너 비자(309/100)와 약혼비자(300→820/801) 경로 비교, 4대 관계 입증 요소, 6개 주 관계등록 효력 및 비이주 가족 신체검사(PIC 4007) 기준을 진단합니다.';
+        reasonEn = 'Compares offshore Partner (309/100) and Prospective Marriage (300 to 820/801) pathways, 4 relationship pillars, 6-state registration rules, and non-migrating family health (PIC 4007) requirements.';
+      } else if (q2 === 'pr_citizen') {
+        secondary = ['partnerFaq', 'family', 'vgpt'];
+        reasonKo = '스폰서 평생 2인·5년 간격 및 피초청 이력 제한(r 1.20J), 기여제 부모비자 출신 5년 제한(r 1.20KA), 미성년자 보호·범죄경력 심사(rr 1.20KB–1.20KD)와 4대 관계 입증 기준을 점검합니다.';
+        reasonEn = 'Checks sponsor 2-person and 5-year spacing limits (r 1.20J), 5-year bar for contributory parent visa holders (r 1.20KA), child protection and criminal record checks (rr 1.20KB–1.20KD), and the 4 relationship pillars.';
+      } else {
+        secondary = ['partnerFaq', 'vgpt', 'crisis', 'family'];
+        reasonKo = '호주 내 파트너 비자(820/801) 4대 관계 입증 기준과 12개월 사실혼·관계등록(WA·NT 제외 6개 주) 요건, Schedule 3·s 48·8503·491/494 장벽 및 60문항 지식허브를 차례대로 진단합니다.';
+        reasonEn = 'Diagnoses onshore Partner visa (820/801) 4 relationship pillars, 12-month de facto and 6-state registration rules (excluding WA/NT), Schedule 3/s 48/8503/491 barriers, and the 60-item knowledge hub.';
+      }
     } else if (q1 === 'sponsor_emp') {
       if (q3 === 'urgent') {
         primary = 'emp';
@@ -364,12 +394,12 @@
     } else if (q1 === 'family_partner') {
       if (q2 === 'onshore_temp' && q3 !== 'urgent') {
         primary = 'partner';
-        secondary = ['family', 'familyFaq'];
-        reasonKo = '파트너 비자(820/801 · 309/100) 4대 관계 입증 기준과 12개월 동거 면제 및 Schedule 3 요건을 차례대로 점검합니다.';
-        reasonEn = 'Reviews Partner visa (820/309) relationship pillars, 12-month de facto exemptions, and Schedule 3 waiver criteria.';
+        secondary = ['family', 'partnerFaq', 'familyFaq'];
+        reasonKo = '파트너 비자(820/801 · 309/100) 4대 관계 입증 기준과 12개월 사실혼·관계등록 요건 및 Schedule 3 장벽을 차례대로 점검합니다.';
+        reasonEn = 'Reviews Partner visa (820/309) relationship pillars, 12-month de facto and state registration rules, and Schedule 3 waiver criteria.';
       } else {
         primary = 'family';
-        secondary = ['partner', 'familyFaq'];
+        secondary = ['partner', 'partnerFaq', 'familyFaq'];
         reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 제척기간과 한·호 통합 재산분할 및 연방순회·가족법원(FCFCOA) 양육 절차를 안내합니다.';
         reasonEn = 'Covers Australian family law limitation periods, global property pools, FCFCOA parenting steps, and partner visa separation rules.';
       }
