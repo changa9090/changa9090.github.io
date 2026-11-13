@@ -373,8 +373,8 @@
       if (q3 === 'urgent') {
         primary = 'emp';
         secondary = ['sid', 'diy'];
-        reasonKo = '해고일로부터 21일 이내에 접수해야 하는 공정근로위원회(FWC) 불변 기한과 482 비자 180일 이직 유예 규정을 함께 점검합니다.';
-        reasonEn = 'Checks the strict 21-day FWC filing limit alongside Subclass 482 180-day work cessation rules.';
+        reasonKo = '해고일로부터 21일 이내에 접수해야 하는 공정근로위원회(FWC) 법정 신청기한과 482 비자 180일 이직 유예 규정을 함께 점검합니다.';
+        reasonEn = 'Checks the 21-day statutory FWC filing limit alongside Subclass 482 180-day work cessation rules.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
         secondary = ['emp', 'dama', 'orgFaq'];
@@ -400,8 +400,8 @@
       } else {
         primary = 'family';
         secondary = ['partner', 'partnerFaq', 'familyFaq'];
-        reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 제척기간과 한·호 통합 재산분할 및 연방순회·가족법원(FCFCOA) 양육 절차를 안내합니다.';
-        reasonEn = 'Covers Australian family law limitation periods, global property pools, FCFCOA parenting steps, and partner visa separation rules.';
+        reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 법원 제소기한(s 44(3), s 44(5)–(6))과 한·호 통합 재산분할 및 연방순회·가족법원(FCFCOA) 양육 절차를 안내합니다.';
+        reasonEn = 'Covers Australian family law court filing deadlines (s 44(3), s 44(5)–(6)), global property pools, FCFCOA parenting steps, and partner visa separation rules.';
       }
     } else if (q1 === 'parent_settle') {
       if (q2 === 'pr_citizen' || q3 === '55_any') {
