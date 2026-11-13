@@ -1,4 +1,4 @@
-/* Park & Co optional, consent-only GA4. No diagnostic data collection. */
+/* Park & Co minimal aggregate statistics + separate optional, consent-only GA4. */
 (function () {
   'use strict';
   var ID = 'G-6JZ87BTNK4', KEY = 'parkco.analytics.v1', HOSTS = ['changa9090.github.io', 'faq.immispecialist.com'];
@@ -16,11 +16,59 @@
       var validArchive = archiveTime && !isNaN(archiveTime.getTime()) && archiveTime.toISOString().slice(0, 10) === archiveDate[1];
       if (validArchive || knownStaticPaths.indexOf(p) >= 0 || tools.indexOf(tool) >= 0 && (p === '/' + tool || p === '/' + tool + '/' || p === '/' + tool + '/index.html' || (tool === 'visa-global-processing-time' && p === '/' + tool + '/compare.html'))) { approved = true; title = 'ParkCo Tool: ' + tool; }
     }
-  } else if (/^\/(?:index\.html)?$/.test(p) || /^\/(?:employment|family|organisations)\/?$/.test(p) || /^\/(?:(?:employment|family|organisations)\/)?(?:category|q)\/[a-zA-Z0-9_-]+\/?$/.test(p)) {
+  } else if (p === '/hub' || p === '/hub/' || /^\/(?:index\.html)?$/.test(p) || /^\/(?:employment|family|organisations)\/?$/.test(p) || /^\/(?:(?:employment|family|organisations)\/)?(?:category|q)\/[a-zA-Z0-9_-]+\/?$/.test(p)) {
     approved = true; title = 'ParkCo Public FAQ';
   }
   if (!approved) return;
   window.__parkcoAnalyticsV1 = true;
+  // No telemetry identity is persisted. Each logical event gets one random in-memory ID.
+  var metricsEndpoint = 'https://faq.immispecialist.com/metrics/v1/event';
+  var siteId = location.hostname === HOSTS[0] ? 'github_hub' : 'faq';
+  var toolId = title === 'ParkCo Legal Hub' ? 'legal_hub' : title === 'ParkCo Sources Registry' ? 'sources_registry' : title === 'ParkCo Public FAQ' ? 'public_faq' : tool;
+  var canonicalPath = p.replace(/index\.html$/, '');
+  if (siteId === 'github_hub' && tools.indexOf(tool) >= 0 && canonicalPath === '/' + tool) canonicalPath += '/';
+  if (siteId === 'faq' && canonicalPath.length > 1) canonicalPath = canonicalPath.replace(/\/$/, '');
+  function channelBucket() {
+    var source = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase();
+    var campaigns = { google:'google', naver:'naver-search', 'naver-search':'naver-search', 'naver-cafe':'naver-cafe', kakaotalk:'kakaotalk', kakao:'kakaotalk', threads:'threads-ig', instagram:'threads-ig', 'threads-ig':'threads-ig', youtube:'youtube', 'faq-portal':'faq-portal', 'parkco-hub':'parkco-hub', 'parkco-sites':'parkco-sites' };
+    if (Object.prototype.hasOwnProperty.call(campaigns, source)) return campaigns[source];
+    var ref = (new URLSearchParams(location.search).get('ref') || '').toLowerCase();
+    var shares = {cafe:'naver-cafe',kakao:'kakaotalk',threads:'threads-ig',youtube:'youtube',blog:'parkco-sites',hub:'parkco-hub',faq:'faq-portal'};
+    if (Object.prototype.hasOwnProperty.call(shares, ref)) return shares[ref];
+    if (tools.indexOf(ref) >= 0) return 'parkco-hub';
+    if (!document.referrer) return 'direct';
+    var h; try { h = new URL(document.referrer).hostname.toLowerCase(); } catch (_) { return 'other-web'; }
+    if (/^(?:www\.)?google\.[a-z.]+$/.test(h)) return 'google';
+    if (h === 'cafe.naver.com' || h === 'm.cafe.naver.com') return 'naver-cafe';
+    if (h === 'search.naver.com' || h === 'm.search.naver.com' || h === 'naver.com' || h === 'www.naver.com') return 'naver-search';
+    if (h === 'kakao.com' || h.endsWith('.kakao.com')) return 'kakaotalk';
+    if (['threads.net','www.threads.net','threads.com','www.threads.com','instagram.com','www.instagram.com','l.instagram.com'].indexOf(h) >= 0) return 'threads-ig';
+    if (['youtube.com','www.youtube.com','m.youtube.com','youtu.be'].indexOf(h) >= 0) return 'youtube';
+    if (h === HOSTS[1]) return 'faq-portal';
+    if (h === HOSTS[0]) return 'parkco-hub';
+    if (['parklawyers.com.au','www.parklawyers.com.au','immispecialist.com','www.immispecialist.com','aussielife.org','www.aussielife.org'].indexOf(h) >= 0) return 'parkco-sites';
+    return 'other-web';
+  }
+  var channel = channelBucket(), aggregatePageSent = false;
+  function aggregate(kind, extra) {
+    if (document.visibilityState !== 'visible' || !window.fetch || !window.crypto || !crypto.randomUUID) return;
+    var payload = Object.assign({ v:1, event_id:crypto.randomUUID(), kind:kind, site_id:siteId, tool_id:toolId, page_path:canonicalPath, channel:channel }, extra || {});
+    var body = JSON.stringify(payload);
+    function attempt(n) {
+      fetch(metricsEndpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body:body, credentials:'omit', referrerPolicy:'no-referrer', keepalive:true }).then(function (r) {
+        if (!r.ok && (r.status === 429 || r.status >= 500)) throw new Error('retryable');
+      }).catch(function () { if (n < 2) setTimeout(function () { attempt(n + 1); }, 700 * (n + 1)); });
+    }
+    attempt(0);
+  }
+  function visiblePage() {
+    // One page_view per document lifetime. Reloads count; BFCache restores do not.
+    // Hidden prefetch/prerender documents count only upon their first visible activation.
+    if (!aggregatePageSent && document.visibilityState === 'visible') { aggregatePageSent = true; aggregate('page_view'); }
+  }
+  document.addEventListener('visibilitychange', visiblePage);
+  document.addEventListener('prerenderingchange', visiblePage);
+  visiblePage();
   var consent = false, started = false, pageSent = false, panel, settings;
   var safeLocation = location.origin + p;
   var safeReferrer = '';
@@ -67,22 +115,22 @@
     style.textContent = '#parkco-analytics-panel{position:fixed;bottom:54px;right:14px;z-index:2147483000;max-width:390px;width:calc(100vw - 28px);box-sizing:border-box;padding:16px;background:#fff;color:#242424;border:1px solid #777;border-radius:8px;box-shadow:0 4px 20px #0003;font:13px/1.5 system-ui,sans-serif}#parkco-analytics-panel[hidden]{display:none!important}#parkco-analytics-panel p{margin:8px 0}#parkco-analytics-panel a{color:#234a88;text-decoration:underline}#parkco-analytics-panel .choices{display:flex;gap:8px;margin-top:10px}#parkco-analytics-panel button{flex:1;padding:9px;background:#f5f5f5;color:#222;border:1px solid #666;border-radius:4px;cursor:pointer;font:600 13px system-ui,sans-serif}#parkco-analytics-settings{position:fixed;bottom:10px;right:14px;z-index:2147482999;padding:8px 11px;background:#fff;color:#333;border:1px solid #777;border-radius:5px;cursor:pointer;font:12px system-ui,sans-serif}#parkco-analytics-panel button:focus-visible,#parkco-analytics-settings:focus-visible{outline:3px solid #147ac5;outline-offset:2px}';
     document.head.appendChild(style);
     panel = document.createElement('section'); panel.id = 'parkco-analytics-panel'; panel.setAttribute('aria-label', ko ? '선택적 방문 분석 설정' : 'Optional analytics settings');
-    panel.innerHTML = '<strong>' + (ko ? '선택적 방문 분석 (GA4)' : 'Optional visitor analytics (GA4)') + '</strong><p>' + (ko ? '동의하면 Google Analytics 4 쿠키를 사용하고 방문 페이지 및 공식 문의 링크 클릭을 Google에 전송합니다. 개별 진단 입력값, 검색어, 양식 내용은 수집하지 않습니다. 기존 자체 방문 카운터는 별도로 그대로 운영됩니다. 언제든 분석 설정에서 동의를 철회할 수 있습니다.' : 'If you accept, Google Analytics 4 uses cookies and sends page visits and official contact-link clicks to Google. Individual diagnostic inputs, search terms and form contents are not collected. Existing independent visitor counters remain separate and unchanged. You can withdraw consent at any time in Analytics settings.') + '</p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">' + (ko ? 'Google 개인정보처리방침' : 'Google Privacy Policy') + '</a><div class="choices"><button type="button" id="parkco-analytics-accept">' + (ko ? '분석 허용' : 'Accept analytics') + '</button><button type="button" id="parkco-analytics-decline">' + (ko ? '거부 / 동의 철회' : 'Decline / withdraw') + '</button></div>';
+    panel.innerHTML = '<strong>' + (ko ? '선택적 방문 분석 (GA4)' : 'Optional visitor analytics (GA4)') + '</strong><p>' + (ko ? '동의하면 Google Analytics 4 쿠키를 사용하고 방문 페이지 및 공식 문의 링크 클릭을 Google에 전송합니다. 개별 진단 입력값, 검색어, 양식 내용은 수집하지 않습니다. Google 동의 여부와 관계없이 자체 최소 집계 통계(페이지 조회·문의 클릭·동의 선택 및 대략적 유입 경로)는 식별 쿠키나 방문자 ID 없이 운영됩니다. 기존 방문 카운터는 별도이며 저장소를 사용할 수 있습니다. 언제든 분석 설정에서 동의를 철회할 수 있습니다.' : 'If you accept, Google Analytics 4 uses cookies and sends page visits and official contact-link clicks to Google. Individual diagnostic inputs, search terms and form contents are not collected. Independent minimal aggregate statistics (page views, contact clicks, consent choices and coarse traffic sources) operate regardless of Google consent, without identifying cookies or visitor IDs. Legacy counters remain separate and may use storage. You can withdraw consent at any time in Analytics settings.') + '</p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">' + (ko ? 'Google 개인정보처리방침' : 'Google Privacy Policy') + '</a><div class="choices"><button type="button" id="parkco-analytics-accept">' + (ko ? '분석 허용' : 'Accept analytics') + '</button><button type="button" id="parkco-analytics-decline">' + (ko ? '거부 / 동의 철회' : 'Decline / withdraw') + '</button></div>';
     settings = document.createElement('button'); settings.type = 'button'; settings.id = 'parkco-analytics-settings'; settings.textContent = ko ? '방문 분석 설정' : 'Analytics settings'; settings.setAttribute('aria-controls', panel.id);
     settings.addEventListener('click', function () { panel.hidden = !panel.hidden; if (!panel.hidden) panel.querySelector('button').focus(); });
+    var dashboard = document.createElement('a'); dashboard.href = 'https://changa9090.github.io/analytics/'; dashboard.textContent = ko ? '공개 집계 통계 / Public statistics' : 'Public statistics / 공개 집계 통계'; dashboard.style.cssText = 'display:block;margin-top:10px'; panel.appendChild(dashboard);
     document.body.appendChild(panel); document.body.appendChild(settings);
-    document.getElementById('parkco-analytics-accept').addEventListener('click', accept);
-    document.getElementById('parkco-analytics-decline').addEventListener('click', decline);
+    document.getElementById('parkco-analytics-accept').addEventListener('click', function () { aggregate('consent_choice', {choice:'accepted'}); accept(); });
+    document.getElementById('parkco-analytics-decline').addEventListener('click', function () { aggregate('consent_choice', {choice:'declined'}); decline(); });
     var saved = readChoice(); panel.hidden = saved === 'declined' || saved === 'accepted';
     if (saved === 'accepted') accept(); else { window['ga-disable-' + ID] = true; deleteCookies(); }
     document.addEventListener('click', function (e) {
-      if (!consent) return;
       var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
       var u; try { u = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
       var category = '';
       if (u.protocol === 'mailto:' && u.pathname.toLowerCase() === 'enquiry@parkcolawyers.com') category = 'email';
       if (u.protocol === 'https:' && (u.hostname === 'parklawyers.com.au' || u.hostname === 'www.parklawyers.com.au') && /^\/(?:links|contact|contact-us)\/?$/.test(u.pathname)) category = 'contact_site';
-      if (category) event('contact_click', { target_category: category });
+      if (category) { aggregate('contact_click', { target_category: category }); event('contact_click', { target_category: category }); }
     }, true);
     window.addEventListener('storage', function (e) { if (e.key === KEY && e.newValue !== 'accepted' && consent) decline(); });
   }
