@@ -1,6 +1,6 @@
 {
-  "last_polled_iso": "2026-11-13T08:15:00+10:00",
-  "sitemap_lastmod": "2026-11-13",
+  "last_polled_iso": "2026-11-14T08:15:37+10:00",
+  "sitemap_lastmod": "2026-11-14",
   "sitemap_refreshed": true,
   "dha_price_live_ok": true,
   "dha_price_sha256_prefix": "0ab169e8525c9030",
@@ -223,7 +223,7 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-13T08:15:00+10:00"
+      "last_polled": "2026-11-14T08:15:37+10:00"
     },
     {
       "id": "trackers",
@@ -240,7 +240,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
       "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-13T08:15:00+10:00"
+      "last_polled": "2026-11-14T08:15:37+10:00"
     },
     {
       "id": "intelligence",
