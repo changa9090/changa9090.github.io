@@ -16,7 +16,7 @@
       var validArchive = archiveTime && !isNaN(archiveTime.getTime()) && archiveTime.toISOString().slice(0, 10) === archiveDate[1];
       if (validArchive || knownStaticPaths.indexOf(p) >= 0 || tools.indexOf(tool) >= 0 && (p === '/' + tool || p === '/' + tool + '/' || p === '/' + tool + '/index.html' || (tool === 'visa-global-processing-time' && p === '/' + tool + '/compare.html'))) { approved = true; title = 'ParkCo Tool: ' + tool; }
     }
-  } else if (p === '/hub' || p === '/hub/' || /^\/(?:index\.html)?$/.test(p) || /^\/(?:employment|family|organisations)\/?$/.test(p) || /^\/(?:(?:employment|family|organisations)\/)?(?:category|q)\/[a-zA-Z0-9_-]+\/?$/.test(p)) {
+  } else if (p === '/hub' || p === '/hub/' || /^\/(?:index\.html)?$/.test(p) || /^\/(?:employment|family|organisations|disciplinary)\/?$/.test(p) || /^\/(?:(?:employment|family|organisations|disciplinary)\/)?(?:category|q)\/[a-zA-Z0-9_-]+\/?$/.test(p)) {
     approved = true; title = 'ParkCo Public FAQ';
   }
   if (!approved) return;

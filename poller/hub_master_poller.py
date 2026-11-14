@@ -301,8 +301,8 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
     series_rows.append({
         "id": "trackers",
         "status": "verified_ok" if dha_live_ok else "cached_fallback",
-        "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 4대 공식 FAQ 백과(기업 B2B 포함)",
-        "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 4 Official FAQs (incl. Employer B2B)",
+        "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 5대 분야 공식 FAQ 백과(기업 B2B · 징계·인허가 69문항 포함)",
+        "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 5 Practice FAQs (incl. Employer B2B & Disciplinary 69-FAQ)",
         "url": "/visa-global-processing-time/",
         "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 2,
@@ -384,6 +384,7 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
             "intelligence_registry": "https://changa9090.github.io/intelligence/",
             "faq_portal": "https://faq.immispecialist.com/",
             "organisations_b2b_faq": "https://faq.immispecialist.com/organisations",
+            "disciplinary_faq": "https://faq.immispecialist.com/disciplinary",
         },
         "series": series_rows,
     }
