@@ -1,6 +1,6 @@
 {
-  "last_polled_iso": "2026-11-14T08:15:37+10:00",
-  "sitemap_lastmod": "2026-11-14",
+  "last_polled_iso": "2026-11-15T08:15:35+10:00",
+  "sitemap_lastmod": "2026-11-15",
   "sitemap_refreshed": true,
   "dha_price_live_ok": true,
   "dha_price_sha256_prefix": "0ab169e8525c9030",
@@ -18,7 +18,8 @@
     "diy_save_money_guide": "https://changa9090.github.io/diy-service-save-money/",
     "intelligence_registry": "https://changa9090.github.io/intelligence/",
     "faq_portal": "https://faq.immispecialist.com/",
-    "organisations_b2b_faq": "https://faq.immispecialist.com/organisations"
+    "organisations_b2b_faq": "https://faq.immispecialist.com/organisations",
+    "disciplinary_faq": "https://faq.immispecialist.com/disciplinary"
   },
   "series": [
     {
@@ -223,13 +224,13 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-14T08:15:37+10:00"
+      "last_polled": "2026-11-15T08:15:35+10:00"
     },
     {
       "id": "trackers",
       "status": "verified_ok",
-      "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 4대 공식 FAQ 백과(기업 B2B 포함)",
-      "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 4 Official FAQs (incl. Employer B2B)",
+      "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 5대 분야 공식 FAQ 백과(기업 B2B · 징계·인허가 69문항 포함)",
+      "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 5 Practice FAQs (incl. Employer B2B & Disciplinary 69-FAQ)",
       "url": "/visa-global-processing-time/",
       "engine": "Daily 05:15–06:55 AEST Timers",
       "sources": 2,
@@ -240,7 +241,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
       "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-14T08:15:37+10:00"
+      "last_polled": "2026-11-15T08:15:35+10:00"
     },
     {
       "id": "intelligence",
