@@ -301,8 +301,8 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
     series_rows.append({
         "id": "trackers",
         "status": "verified_ok" if dha_live_ok else "cached_fallback",
-        "name_ko": "12. 글로벌 심사기간(74개 스트림) · 연방 법령 개정 트래커 · 4대 공식 FAQ 백과(기업 B2B 포함)",
-        "name_en": "12. Daily Visa Processing Times (74 Streams), Legislation Tracker & 4 Official FAQs (incl. Employer B2B)",
+        "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 4대 공식 FAQ 백과(기업 B2B 포함)",
+        "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 4 Official FAQs (incl. Employer B2B)",
         "url": "/visa-global-processing-time/",
         "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 2,
@@ -310,8 +310,8 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
         "live_verified_sources": tracker_live,
         "cached_fallback_sources": tracker_cached,
         "warning_or_failed_sources": 0,
-        "metrics_ko": "이민성 글로벌 심사기간 74개 스트림(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
-        "metrics_en": "DHA Global Processing Times 74 Streams (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
+        "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
+        "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
         "sha256_prefix": dha_sha_prefix,
         "last_polled": now_iso,
     })

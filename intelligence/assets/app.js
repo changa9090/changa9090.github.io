@@ -40,8 +40,8 @@
       vcTitle: '클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있습니다',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: '호주 공개 법률정보 · 제재 등록부 · FOI 원문 검증 센터',
-      heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 이민성(DHA)·FWO 정보공개(FOI) 목록 및 행정재심기구(ART) 통계를 원문 SHA-256 해시와 함께 검증합니다.',
-      provReleaseLabel: '결정적 릴리즈 해시 (Release ID)',
+      heroSub: '호주 국경수비대(ABF) 스폰서 제재·금지 고용주 법인 등록부, 연방법령 등록부(FRL)·소득기준(CSIT/SSIT/FWC) 개정 대조, 공정근로옴부즈만(FWO) 인사·노무 점검표, 이민성(DHA)·FWO 정보공개(FOI) 목록 및 행정재심기구(ART) 통계의 원문 스냅샷과 공개 번들 바이트 무결성을 SHA-256 해시로 확인합니다.',
+      provReleaseLabel: '공개 번들 무결성 해시 (Release ID)',
       provAsOfLabel: '기준일 (As-Of Snapshot)',
       provApprovedLabel: '변호사 승인 공개 레코드',
       provSourcesLabel: '1차 공공 출처 상태',
@@ -68,8 +68,8 @@
       optTypeCitStats: '시민권 부여 단계별 통계 (Citizenship Stats)',
       resetFiltersBtn: '검색·필터 초기화',
       drawerTitle: '원문 증거 및 해시 검증 상세',
-      guardTitle: '법률 정보 범위 및 개인정보 보호 원칙:',
-      guardText: '이 포털은 호주 연방 기관이 공개한 1차 공공 데이터를 SHA-256 해시로 검증해 제공하는 일반 법률 리서치 자료로 개별 사건의 법률 자문이 아닙니다. 개인정보 최소화를 위해 자연인·개인사업자(Sole Trader) 성명은 공개 법인 검색에서 제외하고 입력한 검색어는 외부 서버로 전송하지 않고 브라우저 안에서만 처리합니다.',
+      guardTitle: 'SHA-256 해시 증명 범위 · 법률 정보 한계 및 개인정보 보호 원칙:',
+      guardText: '표시되는 Release ID · Bundle SHA-256 · Snapshot SHA-256은 배포 번들과 수집 당시 정부 원문 응답 바이트의 암호학적 동일성(무결성)만 증명할 뿐 모든 법률 해석·계산기 엣지케이스·개별 사건 적용의 무오류나 법률 자문을 자동 보증하지 않습니다. 개인정보 최소화를 위해 자연인·개인사업자(Sole Trader) 성명은 공개 법인 검색에서 제외하고 입력한 검색어는 외부 서버로 전송하지 않고 브라우저 안에서만 처리합니다.',
       sourcesHeading: '공식 1차 공공 출처 수집 상태 및 라이선스 명세 (Allowlisted .gov.au Sources)',
       thSourceId: '출처 ID',
       thAgency: '관할 기관',
@@ -114,8 +114,8 @@
       vcTitle: 'Click to view 30-day visit trend & referral channels',
       heroOverline: 'HASH-BOUND AUSTRALIAN PRIMARY LEGAL INTELLIGENCE · LAWYER-REVIEWED RELEASE',
       heroTitleMain: 'Australian Public Legal Intelligence & Provenance Centre',
-      heroSub: 'Verify corporate ABF Sanctioned Sponsors & Prohibited Employers, Federal Register of Legislation (FRL) & threshold semantic diffs, Fair Work (FWO) HR compliance checklists, DHA/FWO FOI disclosure logs, and dual-denominator ART statistics with SHA-256 provenance.',
-      provReleaseLabel: 'Deterministic Release ID',
+      heroSub: 'Check source snapshot & release bundle byte-integrity via SHA-256 across corporate ABF Sanctioned Sponsors & Prohibited Employers, Federal Register of Legislation (FRL) & threshold semantic diffs, Fair Work (FWO) HR compliance checklists, DHA/FWO FOI disclosure logs, and dual-denominator ART statistics.',
+      provReleaseLabel: 'Bundle Integrity Hash (Release ID)',
       provAsOfLabel: 'As-Of Snapshot Date',
       provApprovedLabel: 'Lawyer-Approved Records',
       provSourcesLabel: 'Primary Source Health',
@@ -142,8 +142,8 @@
       optTypeCitStats: 'Citizenship Conferral 3-Stage Stats',
       resetFiltersBtn: 'Reset Search & Filters',
       drawerTitle: 'Cryptographic Source Evidence & SHA-256 Details',
-      guardTitle: 'Legal Scope & Privacy Minimization Notice:',
-      guardText: 'This portal presents hash-bound primary Australian government metadata for general legal research and does not constitute legal advice. Natural-person / sole-trader names are excluded from corporate search for privacy minimization, and search queries never leave your browser.',
+      guardTitle: 'SHA-256 Hash Scope, Legal Limits & Privacy Minimization:',
+      guardText: 'Release ID, Bundle SHA-256, and Snapshot SHA-256 cryptographically prove byte-integrity of the published release bundle and retrieved government source snapshots ONLY; they do not automatically certify legal interpretations, calculator edge cases, or individual legal advice. Natural-person / sole-trader names are excluded from corporate search for privacy minimization, and search queries never leave your browser.',
       sourcesHeading: 'Allowlisted Primary .gov.au Source Health & Licence Matrix',
       thSourceId: 'Source ID',
       thAgency: 'Agency',
@@ -972,7 +972,10 @@
     body.appendChild(secAxes);
 
     var secHash = el('div', 'drawer-section');
-    secHash.appendChild(el('h4', '', en ? '2. Cryptographic SHA-256 Hashes & Exact Locator' : '2. 원문 스냅샷 · 정규화 팩트 SHA-256 해시 및 로케이터'));
+    secHash.appendChild(el('h4', '', en ? '2. Cryptographic SHA-256 Hashes & Exact Locator (Snapshot Integrity Only)' : '2. 원문 스냅샷 · 정규화 팩트 SHA-256 해시 및 로케이터 (스냅샷 바이트 무결성 증명)'));
+    secHash.appendChild(el('div', '', en
+      ? 'Scope note: SHA-256 verifies retrieved snapshot & record byte-integrity only, not individual legal advice or calculator certification.'
+      : '증명 범위: 본 SHA-256 해시는 수집 당시 원문 응답 및 레코드 바이트 동일성만 증명하며 개별 사건 법률 해석이나 계산 결과를 자동 보증하지 않습니다.'));
     secHash.appendChild(el('div', '', 'Record ID: ' + rec.record_id + ' · Source ID: ' + rec.source_id));
     secHash.appendChild(el('div', '', en ? 'Raw Snapshot SHA-256:' : '원문 응답 바이트 SHA-256 (snapshot_sha256):'));
     secHash.appendChild(el('div', 'hash-box mono', rec.snapshot_sha256));

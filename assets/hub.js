@@ -214,7 +214,7 @@
       navOrgFaq: '기업·HR FAQ',
       navIntel: '데이터 출처',
       btnInquiry: '공식 문의 허브',
-      urgentText: '긴급 기한 안내: 비자 취소 예고(NOICC) 소명 5영업일 · 취소 확정 후 ART 재심 7영업일 · 일반 비자·노미네이션 거절 28일 · 부당해고 구제 21일',
+      urgentText: '기한 구분 안내: 호주 내 비자 취소 예고(NOICC) 소명 5영업일(만료 전 +5영업일 재량연장 신청 가능) · 일반 거절·취소 확정 후 ART 재심 28역일(통지일 구금 시 14역일 · 연장 불가) · 부당해고 구제 21일(예외적 사정 연장 심사)',
       urgentLink: '기한 계산기 바로가기 →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: '호주 비자 · 고용법 · 가족법 맞춤 진단 허브',
@@ -245,7 +245,7 @@
       quickFilterPlaceholder: '비자 번호·법률 키워드 즉시 필터 (482 · 186 · NOICC · 거절 · 이혼 · 부당해고 · 임금 · 학비 · 부모 · 워홀 · DAMA)...',
       quickFilterClear: '초기화 (Esc)',
       popTitle: '가장 많이 찾는 6대 핵심 진단기',
-      popSub: '직종 판독부터 불변 기한 계산과 대기일수 확인까지 가장 자주 쓰이는 도구를 모았습니다.',
+      popSub: '직종 판독부터 법정 기한 계산과 대기일수 확인까지 가장 자주 쓰이는 도구를 모았습니다.',
       dirTitle: '주제별 전체 도구 디렉터리 (14개 진단·추적기 + 5대 공식 FAQ · 검증 레지스트리 총 20종)',
       dirSub: '분야별 탭을 누르면 해당 분야 전체 도구가 즉시 표시되며 비자 번호나 법률 키워드로도 바로 검색할 수 있습니다.',
       cat_all: '전체 (20)',
@@ -257,8 +257,8 @@
       searchPlaceholder: '비자 번호 또는 키워드 검색 (예: 482 · 186 · 189 · 820 · 870 · NOICC · 학비 · 부당해고 · 재산분할)...',
       svcTitle: '전문가 직접 검토가 필요한 단계라면 공식 온라인 서비스를 이용하십시오',
       svcSub: '자가 진단 후 접수 전 서류 점검이나 긴급 통지서·재심 승산 분석이 필요할 때 대표변호사가 직접 검토합니다.',
-      trustDataTitle: '1차 법령 및 공식 통계 자동 검증 현황',
-      trustDataDesc: '연방 법령 등록부(FRL), 이민성 기준 금액(CSIT $79,423 · SSIT $146,576), 행정재심기구(ART) 통계, 주정부 노미네이션 공지를 정기 검증합니다.',
+      trustDataTitle: '1차 법령·통계 출처 스냅샷 및 해시 무결성 점검 현황',
+      trustDataDesc: '연방 법령 등록부(FRL)와 이민성 기준 금액(CSIT $79,423 · SSIT $146,576), 행정재심기구(ART) 통계, 주정부 공지의 원문 스냅샷 해시(SHA-256) 및 응답 상태를 정기 점검합니다(번들·스냅샷 바이트 무결성 확인용이며 개별 계산·법률 해석을 자동 보증하지 않음).',
       trustDataLink: '전체 데이터 출처 및 해시 검증 레지스트리 보기 →',
       trustLawyerTitle: '감수 및 운영 책임 변호사',
       trustLawyerName: '박창민 대표변호사 (Chang Min Park)',
@@ -278,7 +278,7 @@
       navOrgFaq: 'Employer B2B FAQ',
       navIntel: 'Data Sources',
       btnInquiry: 'Official Inquiry Hub',
-      urgentText: 'Strict Deadlines: NOICC Response 5 working days · Post-Cancellation ART Review 7 working days · Onshore Refusal 28 days · Unfair Dismissal 21 days',
+      urgentText: 'Statutory Deadlines: Onshore NOICC 5 working days (discretionary +5wd before expiry) · General Part 5 ART Review 28 calendar days (14 days if detained on day notified · non-extendable) · Unfair Dismissal 21 days (exceptional circumstances only)',
       urgentLink: 'Open Deadline Calculator →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: 'Australian Visa, Employment & Family Law Diagnostic Hub',
@@ -309,7 +309,7 @@
       quickFilterPlaceholder: 'Jump to any visa or topic instantly (482, 186, NOICC, refusal, divorce, unfair dismissal, wages, school fees, parent, WHM, DAMA)...',
       quickFilterClear: 'Clear (Esc)',
       popTitle: '6 Most-Used Flagship Diagnostic Tools',
-      popSub: 'Fast entry to occupation matching, strict statutory deadline checks, sponsor salary rules, and wait-time calculators.',
+      popSub: 'Fast entry to occupation matching, statutory deadline checks, sponsor salary rules, and wait-time calculators.',
       dirTitle: 'Complete Tool Directory by Topic (14 Navigators & Trackers + 5 Official FAQs & Source Registry · 20 Total)',
       dirSub: 'Select a category tab to view all tools in that area, or search by subclass number or legal keyword.',
       cat_all: 'All (20)',
@@ -321,8 +321,8 @@
       searchPlaceholder: 'Search visa subclass or keyword (e.g. 482, 186, 189, 820, 870, NOICC, school fees, unfair dismissal)...',
       svcTitle: 'Official Online Legal Review Services by Principal Lawyer',
       svcSub: 'Need pre-lodgement document verification, urgent notice triage, or an ART merits review opinion after running a diagnostic?',
-      trustDataTitle: 'Automated Primary-Source Verification',
-      trustDataDesc: 'Regularly verified against the Federal Register of Legislation, Home Affairs thresholds (CSIT $79,423 · SSIT $146,576), ART statistics, and state nomination releases.',
+      trustDataTitle: 'Primary-Source Snapshot & SHA-256 Integrity Status',
+      trustDataDesc: 'Regularly checks source snapshot hashes (SHA-256) and HTTP availability for the Federal Register of Legislation, Home Affairs thresholds (CSIT $79,423 · SSIT $146,576), ART statistics, and state releases (verifies snapshot byte-integrity, not automated legal advice certification).',
       trustDataLink: 'Inspect Full Source & SHA-256 Registry →',
       trustLawyerTitle: 'Supervising Principal Lawyer',
       trustLawyerName: 'Chang Min Park (Legal Practitioner Director)',
@@ -348,8 +348,8 @@
     if (q1 === 'crisis' || (q3 === 'urgent' && q1 !== 'sponsor_emp' && q1 !== 'family_partner' && q1 !== 'partner_visa')) {
       primary = 'crisis';
       secondary = ['emgSvc', 'artSvc'];
-      reasonKo = '취소 전 NOICC 소명(통상 5영업일)과 취소 확정 후 행정재심기구(ART) 재심(7영업일) 및 일반 거절(28일) 마감일을 주별 공휴일 기준으로 즉시 계산합니다.';
-      reasonEn = 'Immediately calculates pre-cancellation NOICC (5 working days), post-cancellation ART review (7 working days), and refusal (28 days) deadlines with state public holidays.';
+      reasonKo = '취소 전 NOICC 소명(호주 내 5영업일 · 만료 전 재량연장 신청 가능)과 일반 거절·취소 확정 후 행정재심기구(ART) 재심(28역일 · 통지일 구금 시 14역일 · 연장 불가) 마감일을 주별 공휴일 기준으로 즉시 계산합니다.';
+      reasonEn = 'Immediately calculates pre-cancellation NOICC (onshore 5 working days + discretionary extension) and non-extendable ART review (28 calendar days; 14 days if detained on day notified) deadlines with state public holidays.';
     } else if (q1 === 'partner_visa') {
       primary = 'partner';
       if (q3 === 'urgent') {
@@ -373,8 +373,8 @@
       if (q3 === 'urgent') {
         primary = 'emp';
         secondary = ['sid', 'diy'];
-        reasonKo = '해고일로부터 21일 이내에 접수해야 하는 공정근로위원회(FWC) 법정 신청기한과 482 비자 180일 이직 유예 규정을 함께 점검합니다.';
-        reasonEn = 'Checks the 21-day statutory FWC filing limit alongside Subclass 482 180-day work cessation rules.';
+        reasonKo = '해고일로부터 21일 이내에 접수해야 하는 공정근로위원회(FWC) 신청기한(예외적 사정 연장 심사 s 394(3))과 482 비자 180일 이직 유예 규정을 함께 점검합니다.';
+        reasonEn = 'Checks the 21-day statutory FWC filing limit (extension only in exceptional circumstances under s 394(3)/s 366(2)) alongside Subclass 482 180-day work cessation rules.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
         secondary = ['emp', 'dama', 'orgFaq'];
@@ -610,8 +610,8 @@
       var toolId = card.getAttribute('data-tool-id') || '';
       var entry = seriesMap[toolId];
       var isCached = false;
-      var koLabel = '● 출처 검증';
-      var enLabel = '● Verified';
+      var koLabel = '● 출처 스냅샷 확인';
+      var enLabel = '● Source Snapshot OK';
 
       if (entry) {
         var failedCnt = typeof entry.warning_or_failed_sources === 'number' ? entry.warning_or_failed_sources : 0;
@@ -828,11 +828,11 @@
         var cachedCnt = typeof data.cached_fallback_sources === 'number' ? data.cached_fallback_sources : 0;
         if (badge) {
           var koTxt = cachedCnt > 0
-            ? ('● ' + okCnt + '/' + totCnt + '개 1차 출처 검증 (실시간 ' + liveCnt + ' · 캐시 백업 ' + cachedCnt + ')')
-            : ('● ' + okCnt + '/' + totCnt + '개 1차 출처 자동 검증 완료');
+            ? ('● ' + okCnt + '/' + totCnt + '개 출처 스냅샷 점검 (실시간 ' + liveCnt + ' · 캐시 백업 ' + cachedCnt + ')')
+            : ('● ' + okCnt + '/' + totCnt + '개 출처 스냅샷 해시 확인 완료');
           var enTxt = cachedCnt > 0
-            ? ('● ' + okCnt + '/' + totCnt + ' Primary Sources Verified (' + liveCnt + ' Live · ' + cachedCnt + ' Cached)')
-            : ('● ' + okCnt + '/' + totCnt + ' Primary Sources Verified');
+            ? ('● ' + okCnt + '/' + totCnt + ' Source Snapshots Checked (' + liveCnt + ' Live · ' + cachedCnt + ' Cached)')
+            : ('● ' + okCnt + '/' + totCnt + ' Source Snapshots Checked');
           badge.setAttribute('data-ko', koTxt);
           badge.setAttribute('data-en', enTxt);
           badge.textContent = currentLang === 'en' ? enTxt : koTxt;
