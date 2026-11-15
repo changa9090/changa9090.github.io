@@ -1,6 +1,6 @@
 {
-  "last_polled_iso": "2026-11-15T08:15:35+10:00",
-  "sitemap_lastmod": "2026-11-15",
+  "last_polled_iso": "2026-11-16T08:15:15+10:00",
+  "sitemap_lastmod": "2026-11-16",
   "sitemap_refreshed": true,
   "dha_price_live_ok": true,
   "dha_price_sha256_prefix": "0ab169e8525c9030",
@@ -36,8 +36,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "714개 공식 SOL 직종 · 로컬 이력서 판독 · Schedule 6D 점수 · FY2026–27 1차 법령 동기화",
       "metrics_en": "714 Official SOL Occupations · Local CV Matcher · Schedule 6D Points · FY2026–27 Statutory Sync",
-      "sha256_prefix": "c3c782b878061b3d",
-      "last_polled": "2026-11-09T08:02:32+10:00"
+      "sha256_prefix": "98793863674b8c6c",
+      "last_polled": "2026-11-16T08:02:16+10:00"
     },
     {
       "id": "gsm-state",
@@ -53,8 +53,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "65점(6D51 캡) · SkillSelect 160개 직종 커트라인 · QLD 2026–27 개시(20h/주·11.06 ROI) · 8개주 20,350석",
       "metrics_en": "65 pts (6D51 cap) · 160 SkillSelect Cut-Offs · QLD 2026–27 Open (20h/wk · 6 Nov ROI) · 20,350 State Places",
-      "sha256_prefix": "a964fbdacae4f71a",
-      "last_polled": "2026-11-09T07:45:08+10:00"
+      "sha256_prefix": "ae1a559eefb18f88",
+      "last_polled": "2026-11-16T07:45:38+10:00"
     },
     {
       "id": "sid-ens",
@@ -71,7 +71,7 @@
       "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,850건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
       "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,850 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
       "sha256_prefix": "766674f2e5cfa204",
-      "last_polled": "2026-11-09T07:40:20+10:00"
+      "last_polled": "2026-11-16T07:40:52+10:00"
     },
     {
       "id": "partner",
@@ -88,7 +88,7 @@
       "metrics_ko": "820/309 $11,710 · 시민권 Conferral 8m/13m(미결 53,298건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%",
       "metrics_en": "820/309 $11,710 · Citizenship Conferral 8m/13m (53,298 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-11T12:20:00Z"
+      "last_polled": "2026-11-15T21:50:52Z"
     },
     {
       "id": "visa-crisis",
@@ -105,7 +105,7 @@
       "metrics_ko": "ART $3,727(난민 선납 $1,863.50) · Direction 123 · s116 5영업일 · 비자별 Set Aside(485 93.3%·820 85.2%·482 83.3%)",
       "metrics_en": "ART $3,727 (Protection Upfront $1,863.50) · Direction 123 · s116 5wd · Dual-Denominator Set Aside (485 93.3% · 820 85.2%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-11-09T07:55:11+10:00"
+      "last_polled": "2026-11-16T07:55:54+10:00"
     },
     {
       "id": "employment-law",
@@ -122,7 +122,7 @@
       "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · ABF 스폰서 제재 1,850건 교차",
       "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · 1,850 ABF Sanctions Crossover",
       "sha256_prefix": "e82f0fa7f5ae3f44",
-      "last_polled": "2026-11-11T12:05:37Z"
+      "last_polled": "2026-11-15T22:00:47Z"
     },
     {
       "id": "family-law",
@@ -139,7 +139,7 @@
       "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · 이혼 후 12개월/사실혼 2년 기한 · 전세계 자산 공개(s 71B)",
       "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · 12m/2yr Time Limits · Global Asset Disclosure (s 71B)",
       "sha256_prefix": "ca05d60230aea061",
-      "last_polled": "2026-11-11T12:30:06Z"
+      "last_polled": "2026-11-15T22:05:48Z"
     },
     {
       "id": "parent-visa",
@@ -155,8 +155,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
       "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
-      "sha256_prefix": "2fa08b61086974fe",
-      "last_polled": "2026-11-11T22:58:22+10:00"
+      "sha256_prefix": "3fcc20f74a5081ad",
+      "last_polled": "2026-11-16T07:35:40+10:00"
     },
     {
       "id": "dama",
@@ -173,7 +173,7 @@
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "32e45860358d7b0e",
-      "last_polled": "2026-11-10T10:16:12.456259+10:00"
+      "last_polled": "2026-11-16T07:15:30.999965+10:00"
     },
     {
       "id": "whm",
@@ -190,7 +190,7 @@
       "metrics_ko": "LIN 22/012 · LIN 22/013 · LIN 25/048 산불·재해 우편번호 6대 표 · VAC $745",
       "metrics_en": "LIN 22/012 · LIN 22/013 · LIN 25/048 6 Disaster Postcode Tables · VAC $745",
       "sha256_prefix": "eff61b2fc868fcc3",
-      "last_polled": "2026-11-09T07:25:45+10:00"
+      "last_polled": "2026-11-16T07:25:25+10:00"
     },
     {
       "id": "parkco-settlement-cost-navigator",
@@ -224,7 +224,7 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-15T08:15:35+10:00"
+      "last_polled": "2026-11-16T08:15:15+10:00"
     },
     {
       "id": "trackers",
@@ -241,7 +241,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
       "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-15T08:15:35+10:00"
+      "last_polled": "2026-11-16T08:15:15+10:00"
     },
     {
       "id": "intelligence",
@@ -257,8 +257,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "검증 승인 레코드 2,275건 · SHA-256 원문 스냅샷 공개",
       "metrics_en": "2,275 Approved Primary-Source Records · SHA-256 Snapshot Audit",
-      "sha256_prefix": "fd0efc8eac5ade92",
-      "last_polled": "2026-11-11"
+      "sha256_prefix": "fec5f423585c2154",
+      "last_polled": "2026-11-15"
     }
   ]
 }
