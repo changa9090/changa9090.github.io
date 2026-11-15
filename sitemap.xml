@@ -82,6 +82,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/parkco-sid-ens-navigator/" />
   </url>
   <url>
+    <loc>https://changa9090.github.io/case-review-sponsorship/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://changa9090.github.io/case-review-sponsorship/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://changa9090.github.io/case-review-sponsorship/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/case-review-sponsorship/" />
+  </url>
+  <url>
     <loc>https://changa9090.github.io/parkco-gsm-state-navigator/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>

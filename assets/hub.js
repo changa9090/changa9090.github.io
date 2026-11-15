@@ -208,6 +208,12 @@
       hrefEn: 'https://parklawyers.com.au/appealing-visa-decision/',
       titleKo: 'ART Case Review™ (거절·취소 무료 재심 승산 검토)',
       titleEn: 'ART Case Review™ (Free Merits Review Assessment)'
+    },
+    sponReviewSvc: {
+      hrefKo: './case-review-sponsorship/',
+      hrefEn: './case-review-sponsorship/?lang=en',
+      titleKo: 'Case Review: Sponsorship (482·186·494 무료 3초 진단 & 기업 서류검토 $605)',
+      titleEn: 'Case Review: Sponsorship (Free 3s Compass & Employer Audit $605)'
     }
   };
 
@@ -273,7 +279,7 @@
       trustLawyerName: '박창민 대표변호사 (Chang Min Park)',
       trustLawyerRole: '법무법인 박앤코 대표변호사 · 퀸즐랜드 변호사회 공인 이민법 전문변호사 (QLS Accredited Specialist in Immigration Law)',
       trustLawyerContact: '공식 이메일: enquiry@parkcolawyers.com · 사무소: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 6종 공식 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) · 1차 출처 검증 레지스트리 등 총 21종 및 대표변호사 직접 검토 서비스 3종 운영',
+      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 6종 공식 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) · 1차 출처 검증 레지스트리 등 총 21종 및 대표변호사 직접 검토 서비스 4종 운영',
       footerDisclaimer: '본 포털의 진단 결과와 가이드는 일반적인 법률 정보 제공을 목적으로 하며 개별 사안에 대한 법률 자문을 대신하지 않습니다. 법정 기한이 임박한 경우 즉시 전문변호사와 상의하시기 바랍니다.'
     },
     en: {
@@ -337,7 +343,7 @@
       trustLawyerName: 'Chang Min Park (Legal Practitioner Director)',
       trustLawyerRole: 'Principal Lawyer, Park & Co Lawyers · QLS Accredited Specialist in Immigration Law',
       trustLawyerContact: 'Official Email: enquiry@parkcolawyers.com · Office: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 6 official FAQs (Immigration, Partner 62-FAQ, Employer B2B, Employment, Family Law, Disciplinary & Licensing 69-FAQ) · 1 primary-source verification registry (21 systems total) + 3 Principal Lawyer review services',
+      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 6 official FAQs (Immigration, Partner 62-FAQ, Employer B2B, Employment, Family Law, Disciplinary & Licensing 69-FAQ) · 1 primary-source verification registry (21 systems total) + 4 Principal Lawyer review services',
       footerDisclaimer: 'General legal information only; does not constitute legal advice for individual matters. Seek urgent legal advice if a statutory deadline applies.'
     }
   };
@@ -386,7 +392,7 @@
         reasonEn = 'Checks the 21-day statutory FWC filing limit (extension only in exceptional circumstances under s 394(3)/s 366(2)) alongside Subclass 482 180-day work cessation rules.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
-        secondary = ['emp', 'dama', 'orgFaq'];
+        secondary = ['sponReviewSvc', 'emp', 'dama', 'orgFaq'];
         reasonKo = '사업주와 인사담당자를 위해 CSIT($79,423)·AMSR 연봉 기준과 SAF 부담금 및 494 노미네이션 수수료($0 면제) 규정을 계산합니다.';
         reasonEn = 'Verifies CSIT ($79,423), AMSR salary layers, SAF levy, and Subclass 494 Nil ($0) nomination fee rules for employers and HR.';
       } else if (q3 === '45_54') {
@@ -442,7 +448,7 @@
         reasonEn = 'Diagnoses maximum-age-point GSM pathways, WHM extensions, and 714 SOL occupation options.';
       } else if (q2 === 'employer_hr') {
         primary = 'sid';
-        secondary = ['dama', 'emp', 'orgFaq'];
+        secondary = ['sponReviewSvc', 'dama', 'emp', 'orgFaq'];
         reasonKo = '기업 인사담당자 관점에서 스폰서 비자 연봉 요건과 노미네이션 절차 및 제재 리스크를 바로 점검합니다.';
         reasonEn = 'Checks sponsor salary compliance, nomination steps, and ABF sanction risks for employers.';
       } else {

@@ -134,5 +134,11 @@
     }, true);
     window.addEventListener('storage', function (e) { if (e.key === KEY && e.newValue !== 'accepted' && consent) decline(); });
   }
+  if (!window.ParkCoHandoff && !document.querySelector('script[src*="parkco-handoff-v1.js"]')) {
+    var hoScript = document.createElement('script');
+    hoScript.defer = true;
+    hoScript.src = '/assets/parkco-handoff-v1.js';
+    (document.head || document.documentElement).appendChild(hoScript);
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ui, { once: true }); else ui();
 })();
