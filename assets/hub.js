@@ -57,8 +57,8 @@
       toolId: 'whm',
       hrefKo: './parkco-whm-navigator/?lang=ko',
       hrefEn: './parkco-whm-navigator/?lang=en',
-      titleKo: '워킹홀리데이(417 · 462) 88/179일 지정근로 · 8547 제한 판정기',
-      titleEn: 'WHM (417/462) 88/179-Day Work & Condition 8547 Calculator',
+      titleKo: '워킹홀리데이 2·3차 지정근로(88→120·179일) · 초청제 · 8547 판정기',
+      titleEn: 'WHM Extension (88→120 / 179d, 2027 Ballot) & Condition 8547 Tool',
       timeKo: '소요 약 2분',
       timeEn: '~2 min'
     },

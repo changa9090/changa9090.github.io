@@ -178,8 +178,8 @@
     {
       "id": "whm",
       "status": "verified_ok",
-      "name_ko": "9. 워킹홀리데이 (417·462) 88/179일 & 조건 8547",
-      "name_en": "9. WHM (417·462) 88/179-Day & Condition 8547",
+      "name_ko": "9. 워킹홀리데이 (417·462) 88→120·179일 · 초청제 & 조건 8547",
+      "name_en": "9. WHM (417·462) 88→120 / 179d, 2027 Ballot & Condition 8547",
       "url": "/parkco-whm-navigator/",
       "engine": "whm_poller.py (Mon 07:20 AEST)",
       "sources": 12,
@@ -187,8 +187,8 @@
       "live_verified_sources": 12,
       "cached_fallback_sources": 0,
       "warning_or_failed_sources": 0,
-      "metrics_ko": "LIN 22/012 · LIN 22/013 · LIN 25/048 산불·재해 우편번호 6대 표 · VAC $745",
-      "metrics_en": "LIN 22/012 · LIN 22/013 · LIN 25/048 6 Disaster Postcode Tables · VAC $745",
+      "metrics_ko": "2027.3.1 세컨 88→120일 · 써드 179일 · 사전초청제(45k/25k 캡) · 우편번호 6대 표 · VAC 1차 $840 / 2·3차 $1,000",
+      "metrics_en": "1 Mar 2027 2nd WHM 88→120d · 3rd 179d · Pre-App Invitation (45k/25k Caps) · 6 Postcode Tables · VAC 1st $840 / 2nd·3rd $1,000",
       "sha256_prefix": "eff61b2fc868fcc3",
       "last_polled": "2026-11-16T07:25:25+10:00"
     },
