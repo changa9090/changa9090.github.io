@@ -678,7 +678,7 @@
         u.searchParams.set('roleCapacity', ROLE_EMPLOYER_EXACT);
         u.searchParams.set('preferredLang', lang === 'en' ? 'English' : '한국어 (Korean)');
         if (checkedVals.length > 0) {
-          u.searchParams.set('employerDocsReady', DOCS_READY_YES_EXACT);
+          u.searchParams.set('employerDocsReady[0]', 'true');
           u.searchParams.set(
             'adverseAndPriorHistory',
             lang === 'en'
@@ -701,7 +701,8 @@
 
         var launchBtn = document.getElementById('btn-launch-sponsorship-pci');
         if (launchBtn) {
-          launchBtn.setAttribute('href', u.toString());
+          var pciHref = u.origin + u.pathname + '?' + u.searchParams.toString().replace(/\+/g, '%20');
+          launchBtn.setAttribute('href', pciHref);
         }
 
         // Also pass prefill hints to Free Compass URL if typed

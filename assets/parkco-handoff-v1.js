@@ -507,7 +507,7 @@
       }
     }
     return {
-      url: entry.host + entry.id + '?' + params.toString(),
+      url: entry.host + entry.id + '?' + params.toString().replace(/\+/g, '%20'),
       formId: entry.id,
       practiceArea: entry.practice,
       lang: entry.lang,
@@ -718,7 +718,7 @@
           });
           mergedUrl.searchParams.set('pk_enriched', '1');
           sendHandoffBeacon(built, rawInputs);
-          a.href = mergedUrl.toString();
+          a.href = mergedUrl.origin + mergedUrl.pathname + '?' + mergedUrl.searchParams.toString().replace(/\+/g, '%20');
         }
       }
       return;
