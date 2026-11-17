@@ -93,8 +93,8 @@
       toolId: 'faq-partner-spouse',
       hrefKo: 'https://faq.immispecialist.com/category/partner-spouse-visas?lang=ko',
       hrefEn: 'https://faq.immispecialist.com/category/partner-spouse-visas?lang=en',
-      titleKo: '파트너·배우자·약혼비자(820/801 · 309/100 · 300) 60문항 지식 백과',
-      titleEn: 'Partner, Spouse & Prospective Marriage Visa (820/309/300) 60-Item FAQ Guide',
+      titleKo: '파트너·배우자·약혼비자(820/801 · 309/100 · 300) 62문항 지식 백과',
+      titleEn: 'Partner, Spouse & Prospective Marriage Visa (820/309/300) 62-Item FAQ Guide',
       timeKo: '즉시 검색',
       timeEn: 'Instant search'
     },
@@ -380,7 +380,13 @@
 
     if (q1 === 'crisis' || (q3 === 'urgent' && q1 !== 'sponsor_emp' && q1 !== 'family_partner' && q1 !== 'partner_visa')) {
       primary = 'crisis';
-      secondary = ['visaConditions', 'emgSvc', 'artSvc'];
+      if (q1 === 'diy_cost') {
+        secondary = ['diy', 'visaConditions', 'emgSvc', 'artSvc'];
+      } else if (q1 === 'parent_settle') {
+        secondary = ['parent', 'settle', 'visaConditions', 'artSvc'];
+      } else {
+        secondary = ['visaConditions', 'emgSvc', 'artSvc'];
+      }
       reasonKo = '취소 전 NOICC 소명(호주 내 5영업일 · 만료 전 재량연장 신청 가능)과 일반 거절·취소 확정 후 행정재심기구(ART) 재심(28역일 · 통지일 구금 시 14역일 · 연장 불가) 마감일을 주별 공휴일 기준으로 즉시 계산합니다.';
       reasonEn = 'Immediately calculates pre-cancellation NOICC (onshore 5 working days + discretionary extension) and non-extendable ART review (28 calendar days; 14 days if detained on day notified) deadlines with state public holidays.';
     } else if (q1 === 'partner_visa') {
@@ -399,8 +405,8 @@
         reasonEn = 'Checks sponsor 2-person and 5-year spacing limits (r 1.20J), 5-year bar for contributory parent visa holders (r 1.20KA), child protection and criminal record checks (rr 1.20KB–1.20KD), and the 4 relationship pillars.';
       } else {
         secondary = ['partnerFaq', 'vgpt', 'crisis', 'family'];
-        reasonKo = '호주 내 파트너 비자(820/801) 4대 관계 입증 기준과 12개월 사실혼·관계등록(WA·NT 제외 6개 주) 요건, Schedule 3·s 48·8503·491/494 장벽 및 60문항 지식허브를 차례대로 진단합니다.';
-        reasonEn = 'Diagnoses onshore Partner visa (820/801) 4 relationship pillars, 12-month de facto and 6-state registration rules (excluding WA/NT), Schedule 3/s 48/8503/491 barriers, and the 60-item knowledge hub.';
+        reasonKo = '호주 내 파트너 비자(820/801) 4대 관계 입증 기준과 12개월 사실혼·관계등록(WA·NT 제외 6개 주) 요건, Schedule 3·s 48·8503·491/494 장벽 및 62문항 전담 FAQ를 차례대로 진단합니다.';
+        reasonEn = 'Diagnoses onshore Partner visa (820/801) 4 relationship pillars, 12-month de facto and 6-state registration rules (excluding WA/NT), Schedule 3/s 48/8503/491 barriers, and the 62-item FAQ hub.';
       }
     } else if (q1 === 'sponsor_emp') {
       if (q3 === 'urgent') {
@@ -425,17 +431,14 @@
         reasonEn = 'Checks 3-layer sponsor salary rules, 2-year 186 TRT aggregation, and Condition 8607 mobility periods.';
       }
     } else if (q1 === 'family_partner') {
-      if (q2 === 'onshore_temp' && q3 !== 'urgent') {
-        primary = 'partner';
-        secondary = ['family', 'partnerFaq', 'familyFaq'];
-        reasonKo = '파트너 비자(820/801 · 309/100) 4대 관계 입증 기준과 12개월 사실혼·관계등록 요건 및 Schedule 3 장벽을 차례대로 점검합니다.';
-        reasonEn = 'Reviews Partner visa (820/309) relationship pillars, 12-month de facto and state registration rules, and Schedule 3 waiver criteria.';
+      primary = 'family';
+      if (q3 === 'urgent') {
+        secondary = ['crisis', 'partner', 'familyFaq', 'partnerFaq'];
       } else {
-        primary = 'family';
-        secondary = ['partner', 'partnerFaq', 'familyFaq'];
-        reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 법원 제소기한(s 44(3), s 44(5)–(6))과 한·호 통합 재산분할 및 연방순회·가족법원(FCFCOA) 양육 절차를 안내합니다.';
-        reasonEn = 'Covers Australian family law court filing deadlines (s 44(3), s 44(5)–(6)), global property pools, FCFCOA parenting steps, and partner visa separation rules.';
+        secondary = ['partner', 'familyFaq', 'partnerFaq'];
       }
+      reasonKo = '호주 가족법상 이혼 후 12개월·사실혼 해소 후 2년 법원 제소기한(s 44(3), s 44(5)–(6)), 한·호 통합 재산분할, 연방순회·가족법원(FCFCOA) 양육 절차 및 임시·파트너 비자 결별 시 체류 특례를 함께 안내합니다.';
+      reasonEn = 'Covers Australian family law court filing deadlines (s 44(3), s 44(5)–(6)), global property pools, FCFCOA parenting steps, and temporary/partner visa relationship breakdown rules.';
     } else if (q1 === 'parent_settle') {
       if (q2 === 'pr_citizen' || q3 === '55_any') {
         primary = 'parent';
@@ -459,6 +462,11 @@
         secondary = ['guide', 'sid'];
         reasonKo = '일반 기술이민 연령 상한(만 45세) 이후에도 영주권 전환이 가능한 13개 DAMA 협약 직종과 스폰서 경로를 우선 비교합니다.';
         reasonEn = 'Prioritizes 13 DAMA regional agreements with age 50/55 PR pathways alongside employer-sponsored options.';
+      } else if (q3 === '55_any') {
+        primary = 'guide';
+        secondary = ['parent', 'sid', 'vgpt'];
+        reasonKo = '일반 기술이민 연령 상한(만 45세)과 무관하게 검토할 수 있는 비자 경로와 고연령 스폰서 특례·부모초청 옵션을 먼저 비교합니다.';
+        reasonEn = 'Compares age-exempt visa pathways, senior sponsor concessions, and Parent visa options without age-45-capped GSM.';
       } else if (q3 === '18_34' && q2 === 'onshore_temp') {
         primary = 'guide';
         secondary = ['gsm', 'whm'];

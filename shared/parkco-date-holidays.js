@@ -53,44 +53,44 @@
 
   var STATE_HOLIDAYS = {
     QLD: {
+      // Note: Royal Queensland Show (Ekka Wednesday) applies to Brisbane City LGA only under the Holidays Act 1983 (Qld)
+      // and is intentionally excluded from automatic statewide statutory deadline rollover so non-Brisbane QLD users
+      // (Logan, Gold Coast, Sunshine Coast, Moreton Bay, Regional QLD) are never given an out-of-time date.
       "2026-04-04": "Easter Saturday",
       "2026-04-05": "Easter Sunday",
       "2026-04-25": "Anzac Day",
       "2026-05-04": "Labour Day (QLD)",
-      "2026-08-12": "Royal Queensland Show (Brisbane)",
       "2026-10-05": "King's Birthday (QLD)",
       "2027-03-27": "Easter Saturday",
       "2027-03-28": "Easter Sunday",
       "2027-04-25": "Anzac Day",
       "2027-04-26": "Anzac Day (Observed QLD)",
       "2027-05-03": "Labour Day (QLD)",
-      "2027-08-11": "Royal Queensland Show (Brisbane)",
       "2027-10-04": "King's Birthday (QLD)",
       "2028-04-15": "Easter Saturday",
       "2028-04-16": "Easter Sunday",
       "2028-05-01": "Labour Day (QLD)",
-      "2028-08-16": "Royal Queensland Show (Brisbane)",
       "2028-10-02": "King's Birthday (QLD)",
       "2029-03-31": "Easter Saturday",
       "2029-04-01": "Easter Sunday",
       "2029-05-07": "Labour Day (QLD)",
-      "2029-08-15": "Royal Queensland Show (Brisbane)",
       "2029-10-01": "King's Birthday (QLD)",
       "2030-04-20": "Easter Saturday",
       "2030-04-21": "Easter Sunday",
       "2030-05-06": "Labour Day (QLD)",
-      "2030-08-14": "Royal Queensland Show (Brisbane)",
       "2030-10-07": "King's Birthday (QLD)"
     },
     NSW: {
       "2026-04-04": "Easter Saturday",
       "2026-04-05": "Easter Sunday",
       "2026-04-25": "Anzac Day",
+      "2026-04-27": "Anzac Day (Additional Day NSW)",
       "2026-06-08": "King's Birthday (NSW)",
       "2026-10-05": "Labour Day (NSW)",
       "2027-03-27": "Easter Saturday",
       "2027-03-28": "Easter Sunday",
       "2027-04-25": "Anzac Day",
+      "2027-04-26": "Anzac Day (Additional Day NSW)",
       "2027-06-14": "King's Birthday (NSW)",
       "2027-10-04": "Labour Day (NSW)",
       "2028-04-15": "Easter Saturday",
@@ -167,6 +167,7 @@
       "2030-09-30": "King's Birthday (WA)"
     },
     SA: {
+      // Public Holidays Act 2023 (SA) s 3(1)(h): NO Monday substitute holiday when Anzac Day falls on a Sunday (2027-04-25).
       "2026-03-09": "Adelaide Cup Day (SA)",
       "2026-04-04": "Easter Saturday",
       "2026-04-25": "Anzac Day",
@@ -174,7 +175,7 @@
       "2026-10-05": "Labour Day (SA)",
       "2027-03-08": "Adelaide Cup Day (SA)",
       "2027-03-27": "Easter Saturday",
-      "2027-04-26": "Anzac Day (Observed SA)",
+      "2027-04-25": "Anzac Day",
       "2027-06-14": "King's Birthday (SA)",
       "2027-10-04": "Labour Day (SA)",
       "2028-03-13": "Adelaide Cup Day (SA)",
@@ -191,22 +192,19 @@
       "2030-10-07": "Labour Day (SA)"
     },
     TAS: {
+      // Statutory Holidays Act 2000 (Tas) s 4: Easter Tuesday is a restricted State Service / bank holiday only,
+      // NOT a general statewide statutory public holiday for federal deadline rollovers.
       "2026-03-09": "Eight Hours Day (TAS)",
-      "2026-04-07": "Easter Tuesday (TAS Public Service)",
       "2026-04-25": "Anzac Day",
       "2026-06-08": "King's Birthday (TAS)",
       "2027-03-08": "Eight Hours Day (TAS)",
-      "2027-03-30": "Easter Tuesday (TAS Public Service)",
       "2027-04-25": "Anzac Day",
       "2027-06-14": "King's Birthday (TAS)",
       "2028-03-13": "Eight Hours Day (TAS)",
-      "2028-04-18": "Easter Tuesday (TAS Public Service)",
       "2028-06-12": "King's Birthday (TAS)",
       "2029-03-12": "Eight Hours Day (TAS)",
-      "2029-04-03": "Easter Tuesday (TAS Public Service)",
       "2029-06-11": "King's Birthday (TAS)",
       "2030-03-11": "Eight Hours Day (TAS)",
-      "2030-04-23": "Easter Tuesday (TAS Public Service)",
       "2030-06-10": "King's Birthday (TAS)"
     },
     ACT: {

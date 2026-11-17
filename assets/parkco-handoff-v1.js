@@ -37,7 +37,7 @@
       practice: 'immigration',
       lang: 'ko',
       briefField: 'input14',
-      fieldMap: { email: 'input7', referral: 'input6', visa: 'input19', state: 'input9' }
+      fieldMap: { name: 'yourName', phone: 'yourPhone', email: 'emailAddress', visa: 'input19' }
     },
     visa_emergency_en: {
       id: '221317800584856',
@@ -45,7 +45,7 @@
       practice: 'immigration',
       lang: 'en',
       briefField: 'whatIs',
-      fieldMap: { email: 'emailAddress', referral: 'howDid', visa: 'ifYou', state: 'whereAre' }
+      fieldMap: { name: 'yourName', phone: 'yourPhone', email: 'emailAddress', visa: 'ifYou' }
     },
     art_ko: {
       id: '240147644629864',
@@ -53,7 +53,7 @@
       practice: 'immigration',
       lang: 'ko',
       briefField: 'input14',
-      fieldMap: { email: 'email', state: 'input9' }
+      fieldMap: { name: 'input4', phone: 'input5', email: 'input7' }
     },
     art_en: {
       id: '233167697064869',
@@ -61,13 +61,14 @@
       practice: 'immigration',
       lang: 'en',
       briefField: 'whatIs',
-      fieldMap: { email: 'emailAddress', state: 'whereAre' }
+      fieldMap: { name: 'yourName', phone: 'yourPhone', email: 'emailAddress' }
     },
     sponsorship_pci: {
       id: '263178486400056',
       host: 'https://pci.jotform.com/form/',
       practice: 'immigration',
       lang: 'ko',
+      bilingual: true,
       briefField: 'adverseAndPriorHistory',
       fieldMap: {
         roleCapacity: 'roleCapacity',
@@ -89,24 +90,27 @@
       host: 'https://pci.jotform.com/form/',
       practice: 'immigration',
       lang: 'ko',
+      bilingual: true,
       briefField: 'input45',
-      fieldMap: { email: 'email5', anzsco: 'Nominated62', visa: 'Current58' }
+      fieldMap: { email: 'email', phone: 'telephoneNumber', anzsco: 'Nominated62', state: 'address[state]', postcode: 'address[postal]' }
     },
     gsm_190: {
       id: '212646580965869',
       host: 'https://pci.jotform.com/form/',
       practice: 'immigration',
       lang: 'ko',
+      bilingual: true,
       briefField: 'input45',
-      fieldMap: { email: 'email5', anzsco: 'Nominated62', visa: 'Current58' }
+      fieldMap: { email: 'email', phone: 'telephoneNumber', anzsco: 'Nominated62', state: 'address[state]', postcode: 'address[postal]' }
     },
     gsm_491: {
       id: '212498518526868',
       host: 'https://pci.jotform.com/form/',
       practice: 'immigration',
       lang: 'ko',
+      bilingual: true,
       briefField: 'input45',
-      fieldMap: { email: 'email5', anzsco: 'Nominated62', visa: 'Current58' }
+      fieldMap: { email: 'email', phone: 'telephoneNumber', anzsco: 'Nominated62', state: 'address[state]', postcode: 'address[postal]' }
     },
     emp_ko: {
       id: '221801513691854',
@@ -138,13 +142,14 @@
       practice: 'organisations',
       lang: 'ko',
       briefField: 'input12',
-      fieldMap: { employer: 'business', state: 'input10', industry: 'industry' }
+      fieldMap: { email: 'email', phone: 'input16[full]', employer: 'business', state: 'input10', industry: 'industry' }
     },
     family: {
       id: '262472844554060',
       host: 'https://form.jotform.com/',
       practice: 'family',
       lang: 'ko',
+      bilingual: true,
       briefField: 'q33_textarea31',
       fieldMap: { email: 'q13_email11', phone: 'q14_phone12' }
     },
@@ -154,7 +159,7 @@
       practice: 'personal_injury',
       lang: 'ko',
       briefField: 'detailedDescription14',
-      fieldMap: { name: 'name4', phone: 'mobileNumber5', email: 'emailAddress7', state: 'location' }
+      fieldMap: { phone: 'phoneNumber[full]', email: 'email', state: 'location', referral: 'referral6' }
     },
     pi_en: {
       id: '230431523475854',
@@ -162,7 +167,7 @@
       practice: 'personal_injury',
       lang: 'en',
       briefField: 'detailedDescription14',
-      fieldMap: { name: 'name4', phone: 'mobileNumber5', email: 'emailAddress7', state: 'location' }
+      fieldMap: { phone: 'phoneNumber[full]', email: 'email', state: 'location', referral: 'referral6' }
     },
     general_ko: {
       id: '262877742993881',
@@ -170,7 +175,7 @@
       practice: 'general_other',
       lang: 'ko',
       briefField: 'detailedDescription14',
-      fieldMap: { name: 'name4', phone: 'mobileNumber5', email: 'emailAddress7', state: 'location' }
+      fieldMap: { phone: 'phoneNumber[full]', email: 'email', state: 'location', referral: 'referral6' }
     },
     general_en: {
       id: '230431458088861',
@@ -178,7 +183,7 @@
       practice: 'general_other',
       lang: 'en',
       briefField: 'detailedDescription14',
-      fieldMap: { name: 'name4', phone: 'mobileNumber5', email: 'emailAddress7', state: 'location' }
+      fieldMap: { phone: 'phoneNumber[full]', email: 'email', state: 'location', referral: 'referral6' }
     }
   };
 
@@ -253,7 +258,7 @@
   function encodeCtxParam(profile) {
     try {
       var compact = {};
-      ['anzsco', 'age', 'english', 'salary', 'visa', 'state', 'stream', 'turnover', 'token'].forEach(function (k) {
+      ['anzsco', 'age', 'english', 'salary', 'visa', 'state', 'stream', 'turnover', 'postcode', 'abn', 'token'].forEach(function (k) {
         if (profile[k] !== undefined && profile[k] !== null && String(profile[k]).trim() !== '') {
           compact[k] = String(profile[k]).trim().slice(0, 80);
         }
@@ -284,7 +289,7 @@
       var incoming = {};
       var ctxObj = decodeCtxParam(sp.get('pk_ctx'));
       if (ctxObj) Object.assign(incoming, ctxObj);
-      ['anzsco', 'age', 'english', 'salary', 'visa', 'state', 'stream', 'turnover'].forEach(function (k) {
+      ['anzsco', 'age', 'english', 'salary', 'visa', 'state', 'stream', 'turnover', 'postcode', 'abn'].forEach(function (k) {
         var v = sp.get(k);
         if (v && v.trim()) incoming[k] = v.trim();
       });
@@ -316,8 +321,10 @@
       if (!val) continue;
       data[key] = val.slice(0, 600);
       var kLow = key.toLowerCase();
-      if (kLow.indexOf('anzsco') >= 0 || kLow.indexOf('occupation') >= 0) sharedUpdates.anzsco = (el.value || '').trim();
+      if (kLow.indexOf('anzsco') >= 0 || kLow.indexOf('occupation') >= 0 || kLow.indexOf('occ-search') >= 0) sharedUpdates.anzsco = (el.value || '').trim();
       else if (kLow.indexOf('salary') >= 0 || kLow.indexOf('earnings') >= 0 || kLow.indexOf('csit-base') >= 0 || kLow.indexOf('income') >= 0) sharedUpdates.salary = (el.value || '').trim();
+      else if (kLow.indexOf('postcode') >= 0) sharedUpdates.postcode = (el.value || '').trim();
+      else if (kLow.indexOf('abn') >= 0) sharedUpdates.abn = (el.value || '').trim();
       else if (kLow.indexOf('state') >= 0 || kLow.indexOf('region') >= 0) sharedUpdates.state = (el.value || '').trim();
       else if (kLow.indexOf('visa') >= 0) sharedUpdates.visa = (el.value || '').trim();
       else if (kLow.indexOf('age') >= 0) sharedUpdates.age = (el.value || '').trim();
@@ -333,13 +340,15 @@
     var prof = loadSharedProfile();
     if (!prof || Object.keys(prof).length === 0) return;
     var sp = new URLSearchParams(location.search);
-    var hasExplicitParams = sp.has('pk_ctx') || sp.has('anzsco') || sp.has('salary') || sp.has('state') || sp.has('visa');
+    var hasExplicitParams = sp.has('pk_ctx') || sp.has('anzsco') || sp.has('salary') || sp.has('state') || sp.has('visa') || sp.has('postcode') || sp.has('abn');
     if (!hasExplicitParams) return;
 
     var candidates = [
-      { key: 'anzsco', selectors: ['#anzsco-search', '#sid-anzsco', '#gsm-anzsco', '#dama-search', 'input[id*="anzsco"]', 'input[name*="anzsco"]'] },
-      { key: 'salary', selectors: ['#sid-salary', '#csit-base', '#calc-salary', 'input[id*="salary"]'] },
-      { key: 'state', selectors: ['#state-selector', '#gsm-state', '#sid-state', '#emp-state', 'select[id*="state"]'] }
+      { key: 'anzsco', selectors: ['#anzsco-search', '#sid-anzsco', '#gsm-anzsco', '#ss-occ-search', '#dama-search', '#search-input', '#pf-anzsco', 'input[id*="anzsco"]', 'input[name*="anzsco"]'] },
+      { key: 'salary', selectors: ['#sid-salary', '#csit-base', '#calc-salary', '#pf-salary', 'input[id*="salary"]'] },
+      { key: 'postcode', selectors: ['#pf-postcode', '#postcode-input', 'input[id*="postcode"]'] },
+      { key: 'abn', selectors: ['#pf-abn', '#abn-quick-input', 'input[id*="abn"]'] },
+      { key: 'state', selectors: ['#state-selector', '#gsm-state', '#sc-current-loc', '#sid-state', '#emp-state', 'select[id*="state"]'] }
     ];
     candidates.forEach(function (item) {
       var val = prof[item.key];
@@ -361,13 +370,17 @@
       '#handoff-brief',
       '#consult-brief-box',
       '#sid-brief-box',
+      '#sid-diagnostic-preview',
       '#gsm-brief-preview',
+      '#gsm-diagnostic-preview',
       '#pv-brief-preview',
       '#brief-preview',
       '#emp-brief-preview',
+      '#emp-diagnostic-brief-text',
       '#fam-brief-preview',
       '#sow-preview-text',
       '#crisis-brief-preview',
+      '#crisis-diagnostic-preview',
       '#whm-brief-preview',
       '#dama-brief-preview',
       '#psDemandPreview',
@@ -465,14 +478,16 @@
     if (!entry) entry = JOTFORM_REGISTRY[detectLang() === 'en' ? 'immi_en' : 'immi_ko'];
 
     var tok = token || getOrCreateToken();
+    var activeLang = detectLang();
+    var useEnHeader = entry.bilingual ? (activeLang === 'en') : (entry.lang === 'en');
     var finalBrief = (briefText || '').trim();
     if (finalBrief && finalBrief.indexOf(tok) < 0) {
-      var headerLine = entry.lang === 'en'
+      var headerLine = useEnHeader
         ? '[Park & Co Diagnostic Ref: #' + tok + ']'
         : '[박앤코 자가진단 연동코드: #' + tok + ']';
       finalBrief = headerLine + '\n' + finalBrief;
     } else if (!finalBrief) {
-      finalBrief = (entry.lang === 'en'
+      finalBrief = (useEnHeader
         ? '[Park & Co Diagnostic Ref: #' + tok + ']\nSource: ' + location.href
         : '[박앤코 자가진단 연동코드: #' + tok + ']\n유입 페이지: ' + location.href);
     }

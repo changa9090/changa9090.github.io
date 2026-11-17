@@ -500,7 +500,7 @@
         </div>
 
         <div class="crs-cta-row">
-          <a id="btn-launch-sponsorship-pci" class="crs-btn-burgundy" data-parkco-jotform="sponsorship_pci" href="https://pci.jotform.com/form/263178486400056?roleCapacity=employer_director_hr" target="_blank" rel="noopener" data-ko="보안 PCI Jotform으로 Case Review: Sponsorship 접수 ($605 GST 포함) ↗" data-en="Proceed to Secure PCI Jotform ($605 incl. GST) ↗">보안 PCI Jotform으로 Case Review: Sponsorship 접수 ($605 GST 포함) ↗</a>
+          <a id="btn-launch-sponsorship-pci" class="crs-btn-burgundy" data-parkco-jotform="sponsorship_pci" href="https://pci.jotform.com/form/263178486400056?roleCapacity=Employer+%2F+Director+%2F+HR+%28%EA%B3%A0%EC%9A%A9%EC%A3%BC+%C2%B7+%EC%82%AC%EC%97%85%EC%A3%BC+%C2%B7+%EC%9D%B8%EC%82%AC%EB%8B%B4%EB%8B%B9%EC%9E%90%29&amp;preferredLang=%ED%95%9C%EA%B5%AD%EC%96%B4+%28Korean%29" target="_blank" rel="noopener" data-ko="보안 PCI Jotform으로 Case Review: Sponsorship 접수 ($605 GST 포함) ↗" data-en="Proceed to Secure PCI Jotform ($605 incl. GST) ↗">보안 PCI Jotform으로 Case Review: Sponsorship 접수 ($605 GST 포함) ↗</a>
           <a class="pk-btn-ghost" href="https://faq.immispecialist.com/case-review/sponsorship/?lang=ko" data-ko-href="https://faq.immispecialist.com/case-review/sponsorship/?lang=ko" data-en-href="https://faq.immispecialist.com/case-review/sponsorship/?lang=en" target="_blank" rel="noopener" data-ko="결제 전 무료 3초 기초 진단부터 해보기 ↗" data-en="Try Free 3-Second Compass First ↗">결제 전 무료 3초 기초 진단부터 해보기 ↗</a>
         </div>
         <p style="margin:10px 0 0;font-size:12.5px;color:var(--pk-muted);" data-ko="※ 제출하신 기업 자료와 첨부 서류는 암호화되어 법무법인 박앤코 공식 접수 채널(enquiry@parkcolawyers.com)로 안전하게 전달되며 접수 완료 후 3영업일 이내에 서면 진단 리포트를 발송해 드립니다." data-en="* All submitted answers and corporate attachments are securely routed to Park &amp; Co Lawyers (enquiry@parkcolawyers.com), with your written audit delivered within 3 business days.">※ 제출하신 기업 자료와 첨부 서류는 암호화되어 법무법인 박앤코 공식 접수 채널(enquiry@parkcolawyers.com)로 안전하게 전달되며 접수 완료 후 3영업일 이내에 서면 진단 리포트를 발송해 드립니다.</p>
@@ -633,6 +633,33 @@
         if (panelStop) panelStop.hidden = isEmp;
       }
 
+      var ROLE_EMPLOYER_EXACT = 'Employer / Director / HR (고용주 · 사업주 · 인사담당자)';
+      var DOCS_READY_YES_EXACT = 'Yes — Employer materials (Org Chart, Financials/BAS, ASIC, Business Nature) are ready to provide / 예 — 사장님 본인이거나, 사장님의 협조를 받아 회사의 조직도·재무제표·ASIC·비즈니스 정보를 제출할 수 있습니다';
+
+      function hydrateInitialQueryParams() {
+        try {
+          var sp = new URLSearchParams(window.location.search);
+          var map = [
+            ['pf-business', ['business', 'businessLegalName']],
+            ['pf-abn', ['abn', 'abnAcn']],
+            ['pf-postcode', ['postcode', 'postal']],
+            ['pf-anzsco', ['anzsco', 'q', 'nominatedOccupation']],
+            ['pf-salary', ['salary', 'proposedSalary']]
+          ];
+          for (var i = 0; i < map.length; i++) {
+            var el = document.getElementById(map[i][0]);
+            if (!el || el.value) continue;
+            for (var j = 0; j < map[i][1].length; j++) {
+              var val = sp.get(map[i][1][j]);
+              if (val && val.trim()) {
+                el.value = val.trim();
+                break;
+              }
+            }
+          }
+        } catch (e) {}
+      }
+
       function updateReadinessAndPrefillUrl() {
         var cbs = document.querySelectorAll('.crs-doc-cb');
         var checkedVals = [];
@@ -648,9 +675,16 @@
         }
 
         var u = new URL(BASE_PCI_URL);
-        u.searchParams.set('roleCapacity', 'employer_director_hr');
+        u.searchParams.set('roleCapacity', ROLE_EMPLOYER_EXACT);
+        u.searchParams.set('preferredLang', lang === 'en' ? 'English' : '한국어 (Korean)');
         if (checkedVals.length > 0) {
-          u.searchParams.set('employerDocsReady', checkedVals.join(','));
+          u.searchParams.set('employerDocsReady', DOCS_READY_YES_EXACT);
+          u.searchParams.set(
+            'adverseAndPriorHistory',
+            lang === 'en'
+              ? ('[Case Review Pre-Checked Documents: ' + checkedVals.join(', ') + ']')
+              : ('[케이스 리뷰 사전 체크 서류: ' + checkedVals.join(', ') + ']')
+          );
         }
 
         var bName = (document.getElementById('pf-business') || {}).value || '';
@@ -661,8 +695,8 @@
 
         if (bName.trim()) u.searchParams.set('businessLegalName', bName.trim());
         if (abn.trim()) u.searchParams.set('abnAcn', abn.trim());
-        if (postcode.trim()) u.searchParams.set('postcodeOfWorkplace', postcode.trim());
-        if (anzsco.trim()) u.searchParams.set('anzscoOccupation', anzsco.trim());
+        if (postcode.trim()) u.searchParams.set('address[postal]', postcode.trim());
+        if (anzsco.trim()) u.searchParams.set('nominatedOccupation', anzsco.trim());
         if (salary.trim()) u.searchParams.set('proposedSalary', salary.trim());
 
         var launchBtn = document.getElementById('btn-launch-sponsorship-pci');
@@ -684,6 +718,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', function () {
+        hydrateInitialQueryParams();
         var initLang = detectInitialLang();
         applyLang(initLang);
         syncRoleGate();

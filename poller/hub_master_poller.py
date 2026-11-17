@@ -28,11 +28,42 @@ from primary_source_poller_core import (  # noqa: E402
     secure_deploy_to_github_pages,
 )
 
+def build_partner_citizenship_metrics() -> tuple[str, str]:
+    """Read live citizenship inventory & Conferral end-to-end durations dynamically from partner-graduate-navigator."""
+    cit_path = AG_ROOT / "partner-graduate-navigator" / "web" / "data" / "citizenship_processing_data.json"
+    on_hand = 47970
+    p50_short = "7m"
+    p90_short = "11m"
+    if cit_path.exists():
+        try:
+            raw = json.loads(cit_path.read_text(encoding="utf-8"))
+            cit = raw.get("citizenship") or {}
+            inv = cit.get("inventory") or {}
+            if isinstance(inv.get("conferral_on_hand"), int) and inv["conferral_on_hand"] > 0:
+                on_hand = int(inv["conferral_on_hand"])
+            for drow in cit.get("duration_rows") or []:
+                if isinstance(drow, dict) and drow.get("id") == "conferral_app_to_ceremony":
+                    m50 = re.search(r"(\d+)\s*month", str(drow.get("p50") or ""), flags=re.I)
+                    m90 = re.search(r"(\d+)\s*month", str(drow.get("p90") or ""), flags=re.I)
+                    if m50:
+                        p50_short = f"{m50.group(1)}m"
+                    if m90:
+                        p90_short = f"{m90.group(1)}m"
+                    break
+        except Exception:
+            pass
+    ko = f"820/309 $11,710 · 시민권 Conferral {p50_short}/{p90_short}(미결 {on_hand:,}건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%"
+    en = f"820/309 $11,710 · Citizenship Conferral {p50_short}/{p90_short} ({on_hand:,} on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%"
+    return ko, en
+
+
+_PARTNER_METRICS_KO, _PARTNER_METRICS_EN = build_partner_citizenship_metrics()
+
 SUB_NAVIGATORS = [
     ("visa-solution-guide", AG_ROOT / "parkco-visa-solution-guide" / "data" / "polling_status.json", "visa_guide_poller.py (Mon 08:02 AEST)", "/parkco-visa-solution-guide/", "0. 호주 비자 솔루션 가이드 시스템 (714개 SOL · 이력서 매칭 · 12장 백과)", "0. Australia Visa Solution Guide (714 SOL · CV Matcher · 12-Ch Manual)", "714개 공식 SOL 직종 · 로컬 이력서 판독 · Schedule 6D 점수 · FY2026–27 1차 법령 동기화", "714 Official SOL Occupations · Local CV Matcher · Schedule 6D Points · FY2026–27 Statutory Sync"),
     ("gsm-state", AG_ROOT / "gsm-state-navigator" / "web" / "data" / "polling_status.json", "gsm_state_poller.py (Mon 07:45 AEST)", "/parkco-gsm-state-navigator/", "1. GSM 기술이민(189·190·491) & 8개 주정부 · SkillSelect 커트라인", "1. GSM Points (189·190·491), 8-State Quota & SkillSelect Cut-Offs", "65점(6D51 캡) · SkillSelect 160개 직종 커트라인 · QLD 2026–27 개시(20h/주·11.06 ROI) · 8개주 20,350석", "65 pts (6D51 cap) · 160 SkillSelect Cut-Offs · QLD 2026–27 Open (20h/wk · 6 Nov ROI) · 20,350 State Places"),
     ("sid-ens", AG_ROOT / "sid-ens-navigator" / "web" / "data" / "polling_status.json", "sid_ens_poller.py (Mon 07:40 AEST)", "/parkco-sid-ens-navigator/", "2. 고용주 스폰서 (SID 482 · ENS 186 · 494) & ABF 제재 · ART 노미네이션", "2. Employer Sponsored (SID 482 · ENS 186 · 494), ABF Sanctions & ART Nomination", "CSIT $79,423/SSIT $146,576 · ABF 제재 1,850건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%", "CSIT $79,423/SSIT $146,576 · 1,850 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%"),
-    ("partner", AG_ROOT / "partner-graduate-navigator" / "web" / "data" / "polling_status.json", "partner_graduate_poller.py (Mon 07:50 AEST)", "/parkco-partner-graduate-navigator/", "3. 파트너 비자 (820/801 · 309/100 · 300) · Sch 3 & 호주 시민권 소요기간", "3. Partner Visas (820/309/300), Schedule 3 & Citizenship Processing", "820/309 $11,710 · 시민권 Conferral 8m/13m(미결 53,298건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%", "820/309 $11,710 · Citizenship Conferral 8m/13m (53,298 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%"),
+    ("partner", AG_ROOT / "partner-graduate-navigator" / "web" / "data" / "polling_status.json", "partner_graduate_poller.py (Mon 07:50 AEST)", "/parkco-partner-graduate-navigator/", "3. 파트너 비자 (820/801 · 309/100 · 300) · Sch 3 & 호주 시민권 소요기간", "3. Partner Visas (820/309/300), Schedule 3 & Citizenship Processing", _PARTNER_METRICS_KO, _PARTNER_METRICS_EN),
     ("visa-crisis", AG_ROOT / "visa-crisis-navigator" / "web" / "data" / "polling_status.json", "visa_crisis_poller.py (Mon 07:55 AEST)", "/parkco-visa-crisis-navigator/", "4. 비자 거절·취소 · Section 48 · ART 비자별 이중분모 인용률 & 소요기간", "4. Visa Refusal, Section 48, ART Subclass Outcomes & Processing Times", "ART $3,727(난민 선납 $1,863.50) · Direction 123 · s116 5영업일 · 비자별 Set Aside(485 93.3%·820 85.2%·482 83.3%)", "ART $3,727 (Protection Upfront $1,863.50) · Direction 123 · s116 5wd · Dual-Denominator Set Aside (485 93.3% · 820 85.2%)"),
     ("employment-law", AG_ROOT / "employment-law-navigator" / "web" / "data" / "polling_status.json", "employment_law_poller.py (Mon 08:00 AEST)", "/parkco-employment-law-navigator/", "5. 호주 고용법 (근로자 & 고용주) · FWC 21일 & ABF 교차", "5. Australian Employment Law, FWC 21-Day & ABF Crossover", "고소득 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · ABF 스폰서 제재 1,850건 교차", "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · 1,850 ABF Sanctions Crossover"),
     ("family-law", AG_ROOT / "family-law-navigator" / "web" / "data" / "polling_status.json", "family_law_poller.py (Mon 08:05 AEST)", "/parkco-family-law-navigator/", "6. 호주 가족법 · 한·호 재산분할 · 양육권 · 비자 교차", "6. Australian Family Law, Global Property Pool & Visa Crossover", "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · 이혼 후 12개월/사실혼 2년 기한 · 전세계 자산 공개(s 71B)", "Divorce Fee $1,170 (Reduced $390) · Consent $215 · 12m/2yr Time Limits · Global Asset Disclosure (s 71B)"),
@@ -268,7 +299,7 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
         })
 
     # DIY Legal Self-Help & Save-Money Guide (25 Modern Awards, 18 Columns, 32 Free Resources)
-    diy_index = AG_ROOT / "diy-service-save-money" / "index.html"
+    diy_index = AG_ROOT / "parkco-selfhelp-public-8819" / "dist" / "index.html"
     diy_sha = _file_sha_prefix(diy_index, dha_sha_prefix)
     diy_live = 4 if dha_live_ok else 0
     diy_cached = 0 if dha_live_ok else 4
@@ -293,7 +324,7 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
         "last_polled": now_iso,
     })
 
-    # Public Daily Trackers (Visa Global Processing Times + AU Migration Law Tracker) + 4 Official FAQ Portals
+    # Public Daily Trackers (Visa Global Processing Times + AU Migration Law Tracker) + 7 Official FAQ Portals
     tracker_live = 2 if dha_live_ok else 0
     tracker_cached = 0 if dha_live_ok else 2
     total_sources += 2
@@ -302,8 +333,8 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
     series_rows.append({
         "id": "trackers",
         "status": "verified_ok" if dha_live_ok else "cached_fallback",
-        "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 5대 분야 공식 FAQ 백과(기업 B2B · 징계·인허가 69문항 포함)",
-        "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 5 Practice FAQs (incl. Employer B2B & Disciplinary 69-FAQ)",
+        "name_ko": "12. 글로벌 심사기간(추적 74개 항목) · 연방 법령 개정 트래커 · 7종 공식 FAQ 백과(비자 컨디션 123종 · 파트너 62문항 · 기업 B2B · 징계·인허가 69문항 포함)",
+        "name_en": "12. Daily Visa Processing Times (74 Tracked Entries), Legislation Tracker & 7 Practice FAQs (incl. 123 Visa Conditions, Partner 62-FAQ, Employer B2B & Disciplinary 69-FAQ)",
         "url": "/visa-global-processing-time/",
         "engine": "Daily 05:15–06:55 AEST Timers",
         "sources": 2,
@@ -311,8 +342,8 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
         "live_verified_sources": tracker_live,
         "cached_fallback_sources": tracker_cached,
         "warning_or_failed_sources": 0,
-        "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 기업·HR B2B FAQ",
-        "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · Employer B2B FAQ",
+        "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 7종 공식 FAQ 백과",
+        "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · 7 Official Practice FAQs",
         "sha256_prefix": dha_sha_prefix,
         "last_polled": now_iso,
     })
@@ -384,6 +415,7 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
             "diy_save_money_guide": "https://changa9090.github.io/diy-service-save-money/",
             "intelligence_registry": "https://changa9090.github.io/intelligence/",
             "visa_conditions_explorer": "https://changa9090.github.io/parkco-visa-conditions-explorer/",
+            "case_review_sponsorship": "https://changa9090.github.io/case-review-sponsorship/",
             "faq_portal": "https://faq.immispecialist.com/",
             "conditions_faq": "https://faq.immispecialist.com/conditions",
             "organisations_b2b_faq": "https://faq.immispecialist.com/organisations",
