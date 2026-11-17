@@ -143,6 +143,24 @@
       timeKo: '상시 업데이트',
       timeEn: 'Live tracker'
     },
+    visaConditions: {
+      toolId: 'parkco-visa-conditions-explorer',
+      hrefKo: './parkco-visa-conditions-explorer/?lang=ko',
+      hrefEn: './parkco-visa-conditions-explorer/?lang=en',
+      titleKo: '호주 비자 컨디션(8101–8626) 법령 원문 · 박앤코의 쉬운 해설 해독기',
+      titleEn: 'Australian Visa Conditions (8101–8626) Statutory & Plain-Language Explorer',
+      timeKo: '소요 약 1분',
+      timeEn: '~1 min'
+    },
+    conditionsFaq: {
+      toolId: 'faq-conditions',
+      hrefKo: 'https://faq.immispecialist.com/conditions?lang=ko',
+      hrefEn: 'https://faq.immispecialist.com/conditions?lang=en',
+      titleKo: '비자 컨디션 8101–8626 개별 쉬운 해설 백과 (123종)',
+      titleEn: 'Visa Conditions (8101–8626) Dedicated FAQ Guides (123 Pages)',
+      timeKo: '코드별 페이지',
+      timeEn: '123 Code Guides'
+    },
     faq: {
       toolId: 'faq-immigration',
       hrefKo: 'https://faq.immispecialist.com/?lang=ko',
@@ -220,11 +238,11 @@
   var I18N = {
     ko: {
       pageTitle: '법무법인 박앤코 법률·비자 진단 허브 | 호주 이민법 · 고용법 · 가족법',
-      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법·징계·인허가 통합 진단 허브입니다. 14개 양방향 진단·추적기와 6종 공식 실무 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) 및 출처 검증 레지스트리 등 총 21종 공개 법률 시스템을 제공합니다.',
+      metaDesc: '법무법인 박앤코(Park & Co Lawyers)가 1차 법령과 공식 통계를 바탕으로 운영하는 호주 이민법·고용법·가족법·징계·인허가 통합 진단 허브입니다. 15개 양방향 진단·추적기와 7종 공식 실무 FAQ(비자 컨디션 123종·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) 및 출처 검증 레지스트리 등 총 23종 공개 법률 시스템을 제공합니다.',
       brandTitle: '법무법인 박앤코 법률·비자 진단 허브',
       navRouter: '내 상황 찾기',
       navPopular: '주요 진단기',
-      navDir: '전체 도구(21)',
+      navDir: '전체 도구(23)',
       navFaq: '이민 대표 FAQ',
       navOrgFaq: '기업·HR FAQ',
       navIntel: '데이터 출처',
@@ -233,7 +251,7 @@
       urgentLink: '기한 계산기 바로가기 →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: '호주 비자 · 고용법 · 가족법 맞춤 진단 허브',
-      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 14개 양방향 진단·추적기와 6종 실무 FAQ 백과(파트너 62문항·징계·인허가 69문항 포함) 및 원문 검증 레지스트리(총 21종)를 제공합니다.',
+      heroSub: '호주 연방 법령과 이민성, 행정재심기구(ART), 공정근로위원회(FWC), 연방순회·가족법원(FCFCOA)의 공식 기준을 바탕으로 15개 양방향 진단·추적기와 7종 실무 FAQ 백과(비자 컨디션 123종·파트너 62문항·징계·인허가 69문항 포함) 및 원문 검증 레지스트리(총 23종)를 제공합니다.',
       routerTitle: '내 상황에 맞는 진단 도구 찾기 (3문항 선택)',
       routerReset: '선택 초기화',
       q1Label: 'Q1. 어떤 문제를 해결하고 싶으신가요?',
@@ -261,9 +279,9 @@
       quickFilterClear: '초기화 (Esc)',
       popTitle: '가장 많이 찾는 6대 핵심 진단기',
       popSub: '직종 판독부터 법정 기한 계산과 대기일수 확인까지 가장 자주 쓰이는 도구를 모았습니다.',
-      dirTitle: '주제별 전체 도구 디렉터리 (14개 진단·추적기 + 6종 공식 FAQ · 검증 레지스트리 총 21종)',
+      dirTitle: '주제별 전체 도구 디렉터리 (15개 진단·추적기 + 7종 공식 FAQ · 검증 레지스트리 총 23종)',
       dirSub: '분야별 탭을 누르면 해당 분야 전체 도구가 즉시 표시되며 비자 번호나 법률 키워드로도 바로 검색할 수 있습니다.',
-      cat_all: '전체 (21)',
+      cat_all: '전체 (23)',
       cat_crisis: '긴급·심사기간',
       cat_skilled: '기술·지방·워홀',
       cat_employer: '고용주·노무',
@@ -279,16 +297,16 @@
       trustLawyerName: '박창민 대표변호사 (Chang Min Park)',
       trustLawyerRole: '법무법인 박앤코 대표변호사 · 퀸즐랜드 변호사회 공인 이민법 전문변호사 (QLS Accredited Specialist in Immigration Law)',
       trustLawyerContact: '공식 이메일: enquiry@parkcolawyers.com · 사무소: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: '공개 법률 디렉터리 구성: 14개 양방향 진단·추적기 · 6종 공식 FAQ(이민·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) · 1차 출처 검증 레지스트리 등 총 21종 및 대표변호사 직접 검토 서비스 4종 운영',
+      footerInventory: '공개 법률 디렉터리 구성: 15개 양방향 진단·추적기 · 7종 공식 FAQ(비자 컨디션 123종·파트너 62문항·기업 B2B·고용·가족법·징계·인허가 69문항) · 1차 출처 검증 레지스트리 등 총 23종 및 대표변호사 직접 검토 서비스 4종 운영',
       footerDisclaimer: '본 포털의 진단 결과와 가이드는 일반적인 법률 정보 제공을 목적으로 하며 개별 사안에 대한 법률 자문을 대신하지 않습니다. 법정 기한이 임박한 경우 즉시 전문변호사와 상의하시기 바랍니다.'
     },
     en: {
       pageTitle: 'Park & Co Legal & Visa Diagnostic Hub | Australian Immigration, Employment & Family Law',
-      metaDesc: 'Interactive Australian immigration, employment, family law, and disciplinary/licensing hub by Park & Co Lawyers featuring 14 primary-source navigators and trackers, 6 official practice FAQs (including Partner 62-FAQ, Employer B2B, and Disciplinary 69-FAQ), and 1 live source registry (21 tools total).',
+      metaDesc: 'Interactive Australian immigration, employment, family law, and disciplinary/licensing hub by Park & Co Lawyers featuring 15 primary-source navigators and trackers, 7 official practice FAQs (including 123 Visa Conditions, Partner 62-FAQ, Employer B2B, and Disciplinary 69-FAQ), and 1 live source registry (23 tools total).',
       brandTitle: 'Park & Co Legal & Visa Hub',
       navRouter: 'Find My Tool',
       navPopular: 'Popular Tools',
-      navDir: 'All Tools (21)',
+      navDir: 'All Tools (23)',
       navFaq: 'Immigration FAQ',
       navOrgFaq: 'Employer B2B FAQ',
       navIntel: 'Data Sources',
@@ -297,7 +315,7 @@
       urgentLink: 'Open Deadline Calculator →',
       heroEyebrow: 'PARK & CO LAWYERS · PRIMARY-SOURCE LEGAL & VISA DIAGNOSTICS',
       heroTitle: 'Australian Visa, Employment & Family Law Diagnostic Hub',
-      heroSub: 'Explore 14 interactive diagnostic navigators and trackers, 6 bilingual FAQ encyclopedias (including the 62-question Partner Visa Hub, Employer B2B, and 69-question Disciplinary & Licensing FAQ), and 1 primary-source verification registry (21 systems total) grounded in Federal Legislation, Home Affairs, ART, FWC, and FCFCOA data.',
+      heroSub: 'Explore 15 interactive diagnostic navigators and trackers, 7 bilingual FAQ encyclopedias (including 123 Visa Condition guides, 62-question Partner Visa Hub, Employer B2B, and 69-question Disciplinary & Licensing FAQ), and 1 primary-source verification registry (23 systems total) grounded in Federal Legislation, Home Affairs, ART, FWC, and FCFCOA data.',
       routerTitle: '3-Question Situation Router (Select Your Situation)',
       routerReset: 'Reset Selection',
       q1Label: 'Q1. What issue would you like to solve?',
@@ -325,9 +343,9 @@
       quickFilterClear: 'Clear (Esc)',
       popTitle: '6 Most-Used Flagship Diagnostic Tools',
       popSub: 'Fast entry to occupation matching, statutory deadline checks, sponsor salary rules, and wait-time calculators.',
-      dirTitle: 'Complete Tool Directory by Topic (14 Navigators & Trackers + 6 Official FAQs & Source Registry · 21 Total)',
+      dirTitle: 'Complete Tool Directory by Topic (15 Navigators & Trackers + 7 Official FAQs & Source Registry · 23 Total)',
       dirSub: 'Select a category tab to view all tools in that area, or search by subclass number or legal keyword.',
-      cat_all: 'All (21)',
+      cat_all: 'All (23)',
       cat_crisis: 'Urgent & Processing',
       cat_skilled: 'Skilled, Regional & WHM',
       cat_employer: 'Sponsor & Workplace',
@@ -343,7 +361,7 @@
       trustLawyerName: 'Chang Min Park (Legal Practitioner Director)',
       trustLawyerRole: 'Principal Lawyer, Park & Co Lawyers · QLS Accredited Specialist in Immigration Law',
       trustLawyerContact: 'Official Email: enquiry@parkcolawyers.com · Office: Underwood QLD (Brisbane · Sydney · Perth)',
-      footerInventory: 'Directory Inventory: 14 interactive navigators & trackers · 6 official FAQs (Immigration, Partner 62-FAQ, Employer B2B, Employment, Family Law, Disciplinary & Licensing 69-FAQ) · 1 primary-source verification registry (21 systems total) + 4 Principal Lawyer review services',
+      footerInventory: 'Directory Inventory: 15 interactive navigators & trackers · 7 official FAQs (123 Visa Conditions, Immigration, Partner 62-FAQ, Employer B2B, Employment, Family Law, Disciplinary & Licensing 69-FAQ) · 1 primary-source verification registry (23 systems total) + 4 Principal Lawyer review services',
       footerDisclaimer: 'General legal information only; does not constitute legal advice for individual matters. Seek urgent legal advice if a statutory deadline applies.'
     }
   };
@@ -362,7 +380,7 @@
 
     if (q1 === 'crisis' || (q3 === 'urgent' && q1 !== 'sponsor_emp' && q1 !== 'family_partner' && q1 !== 'partner_visa')) {
       primary = 'crisis';
-      secondary = ['emgSvc', 'artSvc'];
+      secondary = ['visaConditions', 'emgSvc', 'artSvc'];
       reasonKo = '취소 전 NOICC 소명(호주 내 5영업일 · 만료 전 재량연장 신청 가능)과 일반 거절·취소 확정 후 행정재심기구(ART) 재심(28역일 · 통지일 구금 시 14역일 · 연장 불가) 마감일을 주별 공휴일 기준으로 즉시 계산합니다.';
       reasonEn = 'Immediately calculates pre-cancellation NOICC (onshore 5 working days + discretionary extension) and non-extendable ART review (28 calendar days; 14 days if detained on day notified) deadlines with state public holidays.';
     } else if (q1 === 'partner_visa') {
@@ -432,7 +450,7 @@
       }
     } else if (q1 === 'diy_cost') {
       primary = 'diy';
-      secondary = ['faq', 'au-migration-law-tracker'];
+      secondary = ['visaConditions', 'faq', 'au-migration-law-tracker'];
       reasonKo = '혼자 준비할 수 있는 절차와 변호사 선임이 필요한 경계를 구분하고 25개 현대 어워드 임금과 무료 점검표를 제공합니다.';
       reasonEn = 'Clarifies what you can safely handle yourself versus when to instruct a lawyer, with 25 Modern Award calculators and checklists.';
     } else {

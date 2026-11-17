@@ -40,6 +40,7 @@ SUB_NAVIGATORS = [
     ("dama", AG_ROOT / "dama-navigator" / "data" / "polling_status.json", "dama_poller.py (Mon 07:30 AEST)", "/parkco-dama-navigator/", "8. 호주 13개 DAMA 지역 협약 · 2,474개 직종 탐색기", "8. Australia 13 DAMA Regional Concessions (2,474 Entries)", "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세", "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55"),
     ("whm", AG_ROOT / "whm-navigator" / "data" / "polling_status.json", "whm_poller.py (Mon 07:20 AEST)", "/parkco-whm-navigator/", "9. 워킹홀리데이 (417·462) 88→120·179일 · 초청제 & 조건 8547", "9. WHM (417·462) 88→120 / 179d, 2027 Ballot & Condition 8547", "2027.3.1 세컨 88→120일 · 써드 179일 · 사전초청제(45k/25k 캡) · 우편번호 6대 표 · VAC 1차 $840 / 2·3차 $1,000", "1 Mar 2027 2nd WHM 88→120d · 3rd 179d · Pre-App Invitation (45k/25k Caps) · 6 Postcode Tables · VAC 1st $840 / 2nd·3rd $1,000"),
     ("parkco-settlement-cost-navigator", AG_ROOT / "parkco-settlement-cost-navigator" / "data" / "polling_status.json", "settlement_cost_poller.py (8-State Tuition, Medicare & Stamp Duty)", "/parkco-settlement-cost-navigator/", "10. 비자별 주립 공립학비 · 메디케어 · 외국인 주택 취득세 비교기", "10. Visa School Fees, Medicare & Foreign Stamp Duty Navigator", "8개 주·준주 교육청 공립학비 면제·감면 · 메디케어 자격 · 외국인 주택 취득세 가산율", "8-State Public School Tuition · Medicare Eligibility · Foreign Buyer Stamp Duty Surcharges"),
+    ("parkco-visa-conditions-explorer", AG_ROOT / "visa-conditions-explorer" / "data" / "polling_status.json", "extract_primary_sources.py (Schedule 8 118 + F2026L01503)", "/parkco-visa-conditions-explorer/", "15. 호주 비자 컨디션(8101–8626) 원문 · 박앤코의 쉬운 해설 통합 해독기", "15. Visa Conditions (8101–8626) Statutory & Plain Explorer", "Schedule 8 118개 전수 · 84개 비자 강제/재량 매트릭스 · VEVO 다중 조합표 · 11.28 방문 8503 개정", "All 118 Schedule 8 Clauses · 84-Visa Mandatory/Discretionary Matrix · VEVO Combo · 28 Nov 8503"),
 ]
 
 NAVIGATOR_STATUS_PATHS = SUB_NAVIGATORS
@@ -382,7 +383,9 @@ def run_poller(deploy: bool = False) -> dict[str, Any]:
             "migration_law_tracker": "https://changa9090.github.io/au-migration-law-tracker/",
             "diy_save_money_guide": "https://changa9090.github.io/diy-service-save-money/",
             "intelligence_registry": "https://changa9090.github.io/intelligence/",
+            "visa_conditions_explorer": "https://changa9090.github.io/parkco-visa-conditions-explorer/",
             "faq_portal": "https://faq.immispecialist.com/",
+            "conditions_faq": "https://faq.immispecialist.com/conditions",
             "organisations_b2b_faq": "https://faq.immispecialist.com/organisations",
             "disciplinary_faq": "https://faq.immispecialist.com/disciplinary",
         },
@@ -410,8 +413,8 @@ def deploy_to_github_pages() -> None:
     secure_deploy_to_github_pages(
         dist_dir=HUB_DIR,
         repo_name="changa9090.github.io",
-        commit_msg="Update Hub Master Primary-Source Telemetry, Sitemap & 19-System Directory",
-        description="Park & Co Lawyers · Public Legal Intelligence Hub (19 Live Systems: 14 Navigators/Trackers, 4 FAQs & Registry)",
+        commit_msg="Update Hub Master Primary-Source Telemetry, Sitemap & 23-System Directory",
+        description="Park & Co Lawyers · Public Legal Intelligence Hub (23 Live Systems: 15 Navigators/Trackers, 7 FAQs & Registry)",
     )
 
 

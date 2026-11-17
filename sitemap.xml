@@ -64,6 +64,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/parkco-visa-crisis-navigator/" />
   </url>
   <url>
+    <loc>https://changa9090.github.io/parkco-visa-conditions-explorer/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://changa9090.github.io/parkco-visa-conditions-explorer/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://changa9090.github.io/parkco-visa-conditions-explorer/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/parkco-visa-conditions-explorer/" />
+  </url>
+  <url>
     <loc>https://changa9090.github.io/parkco-whm-navigator/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
