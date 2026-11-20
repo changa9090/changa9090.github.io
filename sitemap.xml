@@ -10,6 +10,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/" />
   </url>
   <url>
+    <loc>https://changa9090.github.io/visa-pathways/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://changa9090.github.io/visa-pathways/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://changa9090.github.io/visa-pathways/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://changa9090.github.io/visa-pathways/" />
+  </url>
+  <url>
     <loc>https://changa9090.github.io/parkco-visa-solution-guide/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
