@@ -1,6 +1,6 @@
 {
-  "last_polled_iso": "2026-11-22T08:15:41+10:00",
-  "sitemap_lastmod": "2026-11-22",
+  "last_polled_iso": "2026-11-23T08:15:56+10:00",
+  "sitemap_lastmod": "2026-11-23",
   "sitemap_refreshed": true,
   "dha_price_live_ok": true,
   "dha_price_sha256_prefix": "0ab169e8525c9030",
@@ -40,7 +40,7 @@
       "metrics_ko": "714개 공식 SOL 직종 · 로컬 이력서 판독 · Schedule 6D 점수 · FY2026–27 1차 법령 동기화",
       "metrics_en": "714 Official SOL Occupations · Local CV Matcher · Schedule 6D Points · FY2026–27 Statutory Sync",
       "sha256_prefix": "98793863674b8c6c",
-      "last_polled": "2026-11-18T09:03:33+10:00"
+      "last_polled": "2026-11-23T08:02:53+10:00"
     },
     {
       "id": "gsm-state",
@@ -57,7 +57,7 @@
       "metrics_ko": "65점(6D51 캡) · SkillSelect 160개 직종 커트라인 · QLD 2026–27 개시(20h/주·11.06 ROI) · 8개주 20,350석",
       "metrics_en": "65 pts (6D51 cap) · 160 SkillSelect Cut-Offs · QLD 2026–27 Open (20h/wk · 6 Nov ROI) · 20,350 State Places",
       "sha256_prefix": "2fbcc5ba6182a19b",
-      "last_polled": "2026-11-18T09:02:18+10:00"
+      "last_polled": "2026-11-23T07:45:28+10:00"
     },
     {
       "id": "sid-ens",
@@ -74,7 +74,7 @@
       "metrics_ko": "CSIT $79,423/SSIT $146,576 · ABF 제재 1,850건 · ART 노미네이션 거절 비중 86.70%(3,078건) · 482 인용 83.33%",
       "metrics_en": "CSIT $79,423/SSIT $146,576 · 1,850 ABF Sanctions · 86.70% (3,078) Employer Nomination ART Refusals · 482 Set Aside 83.33%",
       "sha256_prefix": "766674f2e5cfa204",
-      "last_polled": "2026-11-18T08:39:42+10:00"
+      "last_polled": "2026-11-23T07:40:08+10:00"
     },
     {
       "id": "partner",
@@ -91,7 +91,7 @@
       "metrics_ko": "820/309 $11,710 · 시민권 Conferral 7m/11m(미결 47,970건) · ART 인용: 820 85.16%, 485 93.30%, 시민권 58.82%",
       "metrics_en": "820/309 $11,710 · Citizenship Conferral 7m/11m (47,970 on-hand) · ART Set Aside: 820 85.16%, 485 93.30%, Citizenship 58.82%",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-17T22:47:24Z"
+      "last_polled": "2026-11-22T21:50:52Z"
     },
     {
       "id": "visa-crisis",
@@ -108,7 +108,7 @@
       "metrics_ko": "ART $3,727(난민 선납 $1,863.50) · Direction 123 · s116 5영업일 · 비자별 Set Aside(485 93.3%·820 85.2%·482 83.3%)",
       "metrics_en": "ART $3,727 (Protection Upfront $1,863.50) · Direction 123 · s116 5wd · Dual-Denominator Set Aside (485 93.3% · 820 85.2%)",
       "sha256_prefix": "22cc03a0b0a72db0",
-      "last_polled": "2026-11-18T08:29:43+10:00"
+      "last_polled": "2026-11-23T07:55:23+10:00"
     },
     {
       "id": "employment-law",
@@ -125,7 +125,7 @@
       "metrics_ko": "고소득 $190,100 · 보상상한 $95,050(26주) · FWC 접수비 $92.70 · ABF 스폰서 제재 1,850건 교차",
       "metrics_en": "High Income $190,100 · Cap $95,050 (26 wks) · FWC Fee $92.70 · 1,850 ABF Sanctions Crossover",
       "sha256_prefix": "e82f0fa7f5ae3f44",
-      "last_polled": "2026-11-17T22:34:01Z"
+      "last_polled": "2026-11-22T22:00:58Z"
     },
     {
       "id": "family-law",
@@ -142,7 +142,7 @@
       "metrics_ko": "이혼 신청비 $1,170(감면 $390) · 동의명령 $215 · 이혼 후 12개월/사실혼 2년 기한 · 전세계 자산 공개(s 71B)",
       "metrics_en": "Divorce Fee $1,170 (Reduced $390) · Consent $215 · 12m/2yr Time Limits · Global Asset Disclosure (s 71B)",
       "sha256_prefix": "ca05d60230aea061",
-      "last_polled": "2026-11-17T23:02:54Z"
+      "last_polled": "2026-11-22T22:05:43Z"
     },
     {
       "id": "parent-visa",
@@ -158,8 +158,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "143 Queue 2018.11 · 864 Queue 2020.11 · 2차 기여금 $43,600 · 870 소득 $83,454.80",
       "metrics_en": "143 Queue Nov 2018 · 864 Queue Nov 2020 · 2nd VAC $43,600 · 870 Income $83,454.80",
-      "sha256_prefix": "13139fd457ed278b",
-      "last_polled": "2026-11-18T08:29:29+10:00"
+      "sha256_prefix": "877e5d035f53d93b",
+      "last_polled": "2026-11-23T07:35:24+10:00"
     },
     {
       "id": "dama",
@@ -176,7 +176,7 @@
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "32e45860358d7b0e",
-      "last_polled": "2026-11-18T09:02:36.147136+10:00"
+      "last_polled": "2026-11-23T07:15:00.638113+10:00"
     },
     {
       "id": "whm",
@@ -193,7 +193,7 @@
       "metrics_ko": "2027.3.1 세컨 88→120일 · 써드 179일 · 사전초청제(45k/25k 캡) · 우편번호 6대 표 · VAC 1차 $840 / 2·3차 $1,000",
       "metrics_en": "1 Mar 2027 2nd WHM 88→120d · 3rd 179d · Pre-App Invitation (45k/25k Caps) · 6 Postcode Tables · VAC 1st $840 / 2nd·3rd $1,000",
       "sha256_prefix": "eff61b2fc868fcc3",
-      "last_polled": "2026-11-18T09:02:54+10:00"
+      "last_polled": "2026-11-23T07:25:16+10:00"
     },
     {
       "id": "parkco-settlement-cost-navigator",
@@ -227,7 +227,7 @@
       "metrics_ko": "Schedule 8 118개 전수 · 84개 비자 강제/재량 매트릭스 · VEVO 다중 조합표 · 11.28 방문 8503 개정",
       "metrics_en": "All 118 Schedule 8 Clauses · 84-Visa Mandatory/Discretionary Matrix · VEVO Combo · 28 Nov 8503",
       "sha256_prefix": "238240aa3ac8f4a1",
-      "last_polled": "2026-11-22T08:15:41+10:00"
+      "last_polled": "2026-11-23T08:15:56+10:00"
     },
     {
       "id": "diy-service-save-money",
@@ -244,7 +244,7 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "c9bc6f1eaef00147",
-      "last_polled": "2026-11-22T08:15:41+10:00"
+      "last_polled": "2026-11-23T08:15:56+10:00"
     },
     {
       "id": "trackers",
@@ -261,7 +261,7 @@
       "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 7종 공식 FAQ 백과",
       "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · 7 Official Practice FAQs",
       "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-22T08:15:41+10:00"
+      "last_polled": "2026-11-23T08:15:56+10:00"
     },
     {
       "id": "intelligence",
@@ -277,8 +277,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "검증 승인 레코드 2,275건 · SHA-256 원문 스냅샷 공개",
       "metrics_en": "2,275 Approved Primary-Source Records · SHA-256 Snapshot Audit",
-      "sha256_prefix": "fec5f423585c2154",
-      "last_polled": "2026-11-15"
+      "sha256_prefix": "7d1b6d899845c045",
+      "last_polled": "2026-11-22"
     }
   ]
 }
