@@ -1,13 +1,13 @@
 {
-  "last_polled_iso": "2026-11-27T08:15:20+10:00",
-  "sitemap_lastmod": "2026-11-27",
+  "last_polled_iso": "2026-11-28T08:15:22+10:00",
+  "sitemap_lastmod": "2026-11-28",
   "sitemap_refreshed": true,
   "dha_price_live_ok": true,
-  "dha_price_sha256_prefix": "0ab169e8525c9030",
+  "dha_price_sha256_prefix": "9747d61f560c16c1",
   "total_primary_sources": 145,
   "verified_ok_sources": 145,
-  "live_verified_sources": 144,
-  "cached_fallback_sources": 1,
+  "live_verified_sources": 145,
+  "cached_fallback_sources": 0,
   "warning_or_failed_sources": 0,
   "poll_warnings": [],
   "public_contact_email": "enquiry@parkcolawyers.com",
@@ -170,13 +170,13 @@
       "engine": "dama_poller.py (Mon 07:30 AEST)",
       "sources": 15,
       "verified_ok_sources": 15,
-      "live_verified_sources": 14,
-      "cached_fallback_sources": 1,
+      "live_verified_sources": 15,
+      "cached_fallback_sources": 0,
       "warning_or_failed_sources": 0,
       "metrics_ko": "13개 DAMA 협약 · 2,474건 직종 · 781개 고유 ANZSCO/OSCA · CSIT 90%($71,481) · 만 50/55세",
       "metrics_en": "13 DAMAs · 2,474 Entries · 781 Unique Occupations · 90% CSIT ($71,481) · Age 50/55",
       "sha256_prefix": "32e45860358d7b0e",
-      "last_polled": "2026-11-23T07:15:00.638113+10:00"
+      "last_polled": "2026-11-27T15:06:19.147469+10:00"
     },
     {
       "id": "whm",
@@ -227,7 +227,7 @@
       "metrics_ko": "Schedule 8 118개 전수 · 84개 비자 강제/재량 매트릭스 · VEVO 다중 조합표 · 11.28 방문 8503 개정",
       "metrics_en": "All 118 Schedule 8 Clauses · 84-Visa Mandatory/Discretionary Matrix · VEVO Combo · 28 Nov 8503",
       "sha256_prefix": "238240aa3ac8f4a1",
-      "last_polled": "2026-11-27T08:15:20+10:00"
+      "last_polled": "2026-11-28T08:15:22+10:00"
     },
     {
       "id": "diy-service-save-money",
@@ -244,7 +244,7 @@
       "metrics_ko": "25개 현대 어워드 미지급 임금 계산기(엑셀 수식 208개) · 이민·고용·가족법 칼럼 18편 · 무료 자료 32종",
       "metrics_en": "25-Modern-Award Wage Calculator (208 Excel Formulas) · 18 Practical Legal Columns · 32 Free PDF/Word/Slides/Shorts",
       "sha256_prefix": "c9bc6f1eaef00147",
-      "last_polled": "2026-11-27T08:15:20+10:00"
+      "last_polled": "2026-11-28T08:15:22+10:00"
     },
     {
       "id": "trackers",
@@ -260,8 +260,8 @@
       "warning_or_failed_sources": 0,
       "metrics_ko": "이민성 글로벌 심사기간 추적 74개 항목(25%/50%/75%/90%) · 연방 법령 등록부(FRL) 일간 개정 해설 · 7종 공식 FAQ 백과",
       "metrics_en": "DHA Global Processing Times 74 Tracked Entries (25%/50%/75%/90%) · Daily FRL Legislative Instruments · 7 Official Practice FAQs",
-      "sha256_prefix": "0ab169e8525c9030",
-      "last_polled": "2026-11-27T08:15:20+10:00"
+      "sha256_prefix": "9747d61f560c16c1",
+      "last_polled": "2026-11-28T08:15:22+10:00"
     },
     {
       "id": "intelligence",
